@@ -14,6 +14,7 @@ Windows GitHub Actionsで、checkout時のCRLF変換とPOSIX mode bit非対応�
 
 - repository text fileのcheckout line endingをLFへ固定する `.gitattributes`
 - Windowsではmanifestに意図したmodeを保持しつつ、実fileのPOSIX mode比較・chmodを行わないplatform-aware処理
+- GitHub Actions runtime deprecation警告を解消するcheckout・setup-node v7更新と、不要なpackage-manager cacheの明示無効化
 - public allowlistとrepository verifierへ `.gitattributes`を追加
 - public export fixtureで同fileの収録を確認
 - Windows GitHub Actionsの再実行
@@ -61,3 +62,5 @@ public化前に `.gitattributes`、allowlist、verifier、fixtureを同じ変更
 - `core.autocrlf=true`のisolated cloneでも `.gitattributes`、LICENSE、SkillがLFを維持し、`configure:upstream`後の41 testsと全verifierに成功した。
 - LF固定後のWindows CIでfrontmatter・LICENSE failureは解消し、POSIX mode非対応による10 tests failureを追加特定した。
 - platform-aware mode処理を実装し、mode helperを含むlocal 42 testsと全verifierに成功した。GitHub Actionsの3 OS matrix再確認待ち。
+- mode修正後のGitHub ActionsはUbuntu・macOS・Windowsすべて成功した。
+- 成功runに残ったNode.js 20 action runtime deprecationへ対応するため、公式latest majorのcheckout v7、setup-node v7へ更新し、`package-manager-cache: false`を明示した。最終matrix再確認待ち。

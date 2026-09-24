@@ -68,7 +68,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "c5673a5bcb430ecbf190b3a961816b1ff1ffb2ab65b8bcd1caee570cd625994f",
+      "sha256": "f0a3db447b36c15dfb1443bfbdc270a59dcc8b75d06beb5018a0f1dd18fee567",
       "mode": "0644"
     },
     {
@@ -453,7 +453,7 @@
     },
     {
       "path": "docs/work/maintenance/MNT-0007-windows-checkout-line-endings.md",
-      "sha256": "78d7b226577afaad77ed7ffc55ae7a1d02c07c6c25d45827ba0879582c6913a9",
+      "sha256": "36f30a98f6b7e4ee7dfbe83f65ab2b0a738eff41384312481869b103a993c728",
       "mode": "0644"
     },
     {
