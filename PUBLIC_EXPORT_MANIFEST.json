@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "cd05db02f764f3c42b6cd1f851c6be9563525a6fa729c5f9d87234d7d2d6cff2",
+      "sha256": "9024156aa1a7b505b31b75f56c0d7d0ef0f2a000e47ea02ccd21441267cbc62e",
       "mode": "0644"
     },
     {
@@ -388,7 +388,7 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.2.md",
-      "sha256": "86e1acd55deaed2ea42ec0997454b63625c6d7b16e47a178c5dcaff2a9e9c656",
+      "sha256": "d5a39a5722753278ec592e999a78a34ff8cf5ef62ff57642665b95e6f0c9688a",
       "mode": "0644"
     },
     {
@@ -453,7 +453,7 @@
     },
     {
       "path": "docs/work/maintenance/MNT-0007-windows-checkout-line-endings.md",
-      "sha256": "22abaf9dc66d2329a4466cd860f6348775163d35fe2b290ff56ce23125fc7ca1",
+      "sha256": "78d7b226577afaad77ed7ffc55ae7a1d02c07c6c25d45827ba0879582c6913a9",
       "mode": "0644"
     },
     {
@@ -563,7 +563,7 @@
     },
     {
       "path": "release/0.78.1-codex.2.json",
-      "sha256": "1452ed0ea1b3b889e8a24ebd2fc790b67fd0e19099a5925f10e6086735170b53",
+      "sha256": "3db77c7dfedd9656e5b9012b9bc4f5293175220e315dabee94be89488e9e8ac1",
       "mode": "0644"
     },
     {
@@ -573,7 +573,7 @@
     },
     {
       "path": "scripts/distribution-lib.mjs",
-      "sha256": "8016b1b1ac899332796f7a56e4e76e2b5d4f21207155ff529dee7f3a6f851ff4",
+      "sha256": "91c2e25da4a18e5a99c99f5f077bb9c6115aea49becf5ae51ece4272f84d6114",
       "mode": "0644"
     },
     {
@@ -648,7 +648,7 @@
     },
     {
       "path": "tests/distribution.test.mjs",
-      "sha256": "bf8ef38ead3e13753e1ee2ba452a3c901ac49133ea4350b3a7be8df68cbcd2c4",
+      "sha256": "038ce7b9874a76575c09b4442b03d78eb06bc712926eec91fb2607d8c758a0c6",
       "mode": "0644"
     },
     {

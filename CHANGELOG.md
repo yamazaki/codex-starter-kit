@@ -38,7 +38,7 @@ Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5
 ### Fixed
 
 - 内容が一致する場合を含め、管理外fileをkit管理対象へ暗黙adoptしないように修正
-- Windows checkoutでもSkill frontmatter、LICENSE、配布digestをbyte-stableに検証できるよう、repository textをLFへ固定
+- Windows checkoutでもSkill frontmatter、LICENSE、配布digestをbyte-stableに検証できるようrepository textをLFへ固定し、POSIX mode非対応をplatform-awareに処理
 
 ### Security
 

@@ -8,8 +8,10 @@ import {
   applyDistributionPlan,
   assertSafeRelativePath,
   createDistributionPlan,
+  fileModeMatches,
   loadRuntimeManifest,
   normalizeRoots,
+  observedFileMode,
   rollbackDistribution,
   validateDistributionCatalog,
 } from "../scripts/distribution-lib.mjs";
@@ -102,6 +104,15 @@ test("catalog and roots reject traversal, reserved metadata, and overlap", () =>
     }],
   });
   assert.ok(errors.some((error) => error.includes("reserved metadata")));
+});
+
+test("Windows ignores POSIX mode bits while POSIX platforms enforce them", () => {
+  assert.equal(observedFileMode(0o100666, "win32"), null);
+  assert.equal(observedFileMode(0o100755, "linux"), "0755");
+  assert.equal(fileModeMatches(null, "0644", "win32"), true);
+  assert.equal(fileModeMatches("0666", "0644", "win32"), true);
+  assert.equal(fileModeMatches("0666", "0644", "linux"), false);
+  assert.equal(fileModeMatches("0644", "0644", "linux"), true);
 });
 
 test("dry-run plans fresh files without creating target roots", (t) => {

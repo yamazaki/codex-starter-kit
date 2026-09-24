@@ -31,7 +31,7 @@
   },
   "verification": {
     "localPlatform": "macOS",
-    "testsPassed": 41,
+    "testsPassed": 42,
     "repositoryVerifier": true,
     "linkVerifier": true,
     "publicContentVerifier": true,

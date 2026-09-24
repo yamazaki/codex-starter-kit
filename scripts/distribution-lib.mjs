@@ -19,6 +19,15 @@ export function sha256File(filePath) {
   return sha256Buffer(fs.readFileSync(filePath));
 }
 
+export function observedFileMode(statMode, platform = process.platform) {
+  if (platform === "win32") return null;
+  return `0${(statMode & 0o777).toString(8).padStart(3, "0")}`;
+}
+
+export function fileModeMatches(observedMode, expectedMode, platform = process.platform) {
+  return platform === "win32" || observedMode === expectedMode;
+}
+
 function stableJson(value) {
   if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
   if (value && typeof value === "object") {
@@ -178,7 +187,7 @@ function readFileState(root, relative) {
   return {
     exists: true,
     sha256: sha256File(absolute),
-    mode: `0${(stat.mode & 0o777).toString(8).padStart(3, "0")}`,
+    mode: observedFileMode(stat.mode),
   };
 }
 
@@ -407,16 +416,16 @@ export function createDistributionPlan({ catalogPath, roots, selection: provided
       reason = "target does not exist";
     } else if (!prior) {
       action = "CONFLICT";
-      reason = current.sha256 === entry.desiredSha256 && current.mode === entry.mode
+      reason = current.sha256 === entry.desiredSha256 && fileModeMatches(current.mode, entry.mode)
         ? "unmanaged target already exists and cannot be adopted implicitly"
         : "unmanaged target already exists with different content";
     } else if (!current.exists) {
       action = "CONFLICT";
       reason = "previously managed target was removed outside the kit";
-    } else if (current.sha256 !== prior.sha256 || current.mode !== prior.mode) {
+    } else if (current.sha256 !== prior.sha256 || !fileModeMatches(current.mode, prior.mode)) {
       action = "CONFLICT";
       reason = "previously managed target was modified outside the kit";
-    } else if (current.sha256 === entry.desiredSha256 && current.mode === entry.mode) {
+    } else if (current.sha256 === entry.desiredSha256 && fileModeMatches(current.mode, entry.mode)) {
       action = "SAME";
       reason = "target already matches desired content";
     } else {
@@ -443,7 +452,7 @@ export function createDistributionPlan({ catalogPath, roots, selection: provided
     const key = fileKey(prior.root, prior.target);
     if (desiredKeys.has(key)) continue;
     const current = readFileState(normalizedRoots[prior.root], prior.target);
-    const safe = current.exists && current.sha256 === prior.sha256 && current.mode === prior.mode;
+    const safe = current.exists && current.sha256 === prior.sha256 && fileModeMatches(current.mode, prior.mode);
     changes.push({
       id: prior.id,
       action: safe ? "REMOVE" : "CONFLICT",
@@ -532,7 +541,7 @@ function copyFileAtomic(source, target, mode) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const tempPath = path.join(path.dirname(target), `.codex-starter-kit-${process.pid}-${crypto.randomUUID()}.tmp`);
   fs.copyFileSync(source, tempPath);
-  fs.chmodSync(tempPath, Number.parseInt(mode, 8));
+  if (process.platform !== "win32" && mode !== null) fs.chmodSync(tempPath, Number.parseInt(mode, 8));
   fs.renameSync(tempPath, target);
 }
 
@@ -540,7 +549,7 @@ function writeBufferAtomic(buffer, target, mode) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const tempPath = path.join(path.dirname(target), `.codex-starter-kit-${process.pid}-${crypto.randomUUID()}.tmp`);
   fs.writeFileSync(tempPath, buffer);
-  fs.chmodSync(tempPath, Number.parseInt(mode, 8));
+  if (process.platform !== "win32" && mode !== null) fs.chmodSync(tempPath, Number.parseInt(mode, 8));
   fs.renameSync(tempPath, target);
 }
 
@@ -649,7 +658,7 @@ function restoreSnapshot(snapshot, roots, { checkCurrent = true } = {}) {
     if (!currentManifest || currentManifest.lastSnapshotId !== snapshot) throw new Error("snapshot is not the latest applied state");
     for (const entry of currentManifest.files) {
       const state = readFileState(roots[entry.root], entry.target);
-      if (!state.exists || state.sha256 !== entry.sha256 || state.mode !== entry.mode) {
+      if (!state.exists || state.sha256 !== entry.sha256 || !fileModeMatches(state.mode, entry.mode)) {
         throw new Error(`managed target changed after apply: ${entry.root}:${entry.target}`);
       }
     }
