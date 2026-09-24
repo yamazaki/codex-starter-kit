@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    { "source": "audit-config", "disposition": "ADAPT", "target": "skill:codex-starter-kit-maintenance" },
+    { "source": "build-fix", "disposition": "ADAPT", "target": "agent:build_error_resolver" },
+    { "source": "checkpoint", "disposition": "ADAPT", "target": "skill:strategic-compact" },
+    { "source": "e2e", "disposition": "ADAPT", "target": "agent:e2e_runner" },
+    { "source": "eval", "disposition": "ADAPT", "target": "skill:eval-harness" },
+    { "source": "handover", "disposition": "ADAPT", "target": "skill:session-handoff" },
+    { "source": "learn", "disposition": "ADAPT", "target": "skill:capture-learning" },
+    { "source": "orchestrate", "disposition": "ADAPT", "target": "native:subagents+agent:planner" },
+    { "source": "oss-analyze", "disposition": "ADAPT", "target": "skill:oss-evaluation" },
+    { "source": "plan", "disposition": "ADAPT", "target": "agent:planner" },
+    { "source": "refactor-clean", "disposition": "ADAPT", "target": "agent:refactor_cleaner" },
+    { "source": "research", "disposition": "ADAPT", "target": "native:web-search+skill:prompt-patterns" },
+    { "source": "spec-kit-init", "disposition": "DROP", "target": null, "reason": "独立した外部CLI・SDD手法であり全利用者向けcoreへ統合しない。必要なprojectで直接導入し、Codex対応を確認したoptional Skillとして再評価可能" },
+    { "source": "tdd", "disposition": "ADAPT", "target": "skill:tdd-workflow" },
+    { "source": "test-coverage", "disposition": "ADAPT", "target": "skill:verification-loop" },
+    { "source": "update-docs", "disposition": "ADAPT", "target": "agent:docs_updater" },
+    { "source": "update-kit-dry-run", "disposition": "ADAPT", "target": "skill:codex-starter-kit-maintenance" },
+    { "source": "update-kit", "disposition": "ADAPT", "target": "skill:codex-starter-kit-maintenance" },
+    { "source": "verify", "disposition": "ADAPT", "target": "skill:verification-loop" },
+    { "source": "web-article", "disposition": "ADAPT", "target": "native:web-search+skill:prompt-patterns" },
+    { "source": "web-source-review", "disposition": "ADAPT", "target": "native:web-search+skill:prompt-patterns" }
+  ]
+}

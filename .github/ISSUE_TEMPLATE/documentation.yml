@@ -1,0 +1,21 @@
+name: Documentation feedback
+description: 文書の誤り、不足、分かりにくさを報告する
+title: "[Docs]: "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Document location
+      description: file、見出し、linkを記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "features": [
+    { "source": "agent-teams", "disposition": "ADAPT", "target": "native:subagents+custom-agents", "reason": "Claude flagは使わずCodex native subagentとPORT-0003 agentsで目的を実現" },
+    { "source": "auto-update", "disposition": "ADAPT", "target": "skill:codex-starter-kit-maintenance+workflow:upstream-sync", "reason": "保守者による本家scanと、取得済みdownstream kitからのreview-first明示更新へ分離。downstreamの自動取得・自動applyは行わない" },
+    { "source": "biome-hooks", "disposition": "DROP", "target": null, "reason": "全repositoryへの一律整形を避け、repository固有のtool・version・設定を優先する。repo-awareなoptional componentは将来再評価可能" },
+    { "source": "codex-plugin", "disposition": "DROP", "target": null, "reason": "ClaudeからCodexを呼び出す連携は対象外" },
+    { "source": "doc-blocker", "disposition": "DROP", "target": null, "reason": "filename基準のglobal確認はproject固有の正式文書も止めうる。代替Hookは同梱せず、必要なprojectで文書方針を定義する" },
+    { "source": "doc-size-guard", "disposition": "DROP", "target": null, "reason": "固定行数と限定的なWrite検知をglobal適用しない。現時点で代替検査はなく、設定可能なoptional component候補とする" },
+    { "source": "feature-recommendation", "disposition": "DROP", "target": null, "reason": "Codex版にはpending feature生成経路がなく、ledger・release notes・dry-run planを正本としてsession通知を追加しない" },
+    { "source": "fonts", "disposition": "DROP", "target": null, "reason": "Codex設定ではないOS外観componentを初回release対象外とする" },
+    { "source": "ghostty", "disposition": "DROP", "target": null, "reason": "Codex設定ではないterminal導入を初回release対象外とする" },
+    { "source": "native-file-tools", "disposition": "DROP", "target": null, "reason": "Claude内部flag固有" },
+    { "source": "no-flicker", "disposition": "DROP", "target": null, "reason": "Claude TUI固有" },
+    { "source": "pr-creation-log", "disposition": "DROP", "target": null, "reason": "Codex通常workflowのPR artifact・reviewと実質重複するためglobal Bash監視を追加しない。任意terminalの捕捉とは完全同一ではない" },
+    { "source": "pre-compact-commit", "disposition": "ADAPT", "target": "skill:strategic-compact", "reason": "自動stashを移植せずCodex compactionと明示handoffへ統合" },
+    { "source": "prettier-hooks", "disposition": "DROP", "target": null, "reason": "全repositoryへの一律整形を避け、repository固有のtool・version・設定を優先する。repo-awareなoptional componentは将来再評価可能" },
+    { "source": "safety-net", "disposition": "ADAPT", "target": "component:safety-net", "reason": "明示opt-in、PreToolUse deny契約、trust review前提のfootgun guardとして移植" },
+    { "source": "statusline", "disposition": "DROP", "target": null, "reason": "Claude statusLine payloadとrate-limit表示に固有" },
+    { "source": "tmux-hooks", "disposition": "DROP", "target": null, "reason": "Codexのbackground terminal UXと重複するreminderを追加しない" },
+    { "source": "web-content-update", "disposition": "DROP", "target": null, "reason": "非同梱のweb-content-extraction依存をsession startで可変更新せず、review-firstなversioned releaseを優先する" }
+  ]
+}

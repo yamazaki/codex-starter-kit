@@ -1,0 +1,40 @@
+name: Upstream port proposal
+description: Claude本家の変更をCodex版で評価するよう提案する
+title: "[Upstream]: "
+body:
+  - type: input
+    id: reference
+    attributes:
+      label: Upstream reference
+      description: Claude本家のrelease、commit、Pull Requestまたはpathを記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Upstream behavior
+      description: 変更が何をするものか説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: codex-value
+    attributes:
+      label: Value for Codex
+      description: Codexで必要な理由と、Claude固有部分を記載してください。
+    validations:
+      required: true
+  - type: dropdown
+    id: initial-disposition
+    attributes:
+      label: Suggested initial disposition
+      options:
+        - REVIEW
+        - KEEP
+        - ADAPT
+        - DROP
+        - BLOCKED
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "この選択は提案であり、最終判断はscan、plan review、ledgerで確定します。"

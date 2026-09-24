@@ -1,0 +1,715 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": ".agents/skills/port-upstream-change/SKILL.md",
+      "sha256": "9cffcaa53b7187fcaa345cf36fbfca0720fa0fdfe3de92fe5ce380dca983b75c",
+      "mode": "0644"
+    },
+    {
+      "path": ".agents/skills/release-codex-starter-kit/SKILL.md",
+      "sha256": "17a408b84e59a16683b922a469660fe0710a4ebac20cfa525dd3efc90477003d",
+      "mode": "0644"
+    },
+    {
+      "path": ".agents/skills/upstream-sync/SKILL.md",
+      "sha256": "099e701dc5081fbadb84a7a0d7230e0206121467bd176906191d87ce4b676300",
+      "mode": "0644"
+    },
+    {
+      "path": ".agents/skills/work-intake/SKILL.md",
+      "sha256": "6990bad669cb473bee2d3fe5efdeaac1167b68b01606729fb69cd8284fcc39eb",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "a1e3af3d9e5c529fa73baa23407ec8fa2170df60e64bc177052ec4e5d6253029",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug.yml",
+      "sha256": "a20ef553d97f05785211be2ca8f3bd3765fc7d333b675f66ca330915e122f5db",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "8b09e7df09fc7534371988062769ee427af2954a02c04c763e8a8005be0f2be4",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/documentation.yml",
+      "sha256": "5737295281a72bc5546f0759cfa4704cfdef7ff8cd7023f01ab25bb913fb44d0",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature.yml",
+      "sha256": "0b9e9c7342fe370411d73257188454ad8f8733faa102dcdb2e15956f43913425",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/upstream-port.yml",
+      "sha256": "aa69fbd17a5abff39a6636b03f5cbddb2cdca2ba95ba641b76e3de738f62e10e",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "a23c20301d29bdc0a0e61caa42bfeb3b6e0e3568ab5a7d639e3e6978c8930902",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "25654cf0850a6bcaabf13154bfa99e2ac249b55e1141e42e8a830925568cbb62",
+      "mode": "0644"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "c5673a5bcb430ecbf190b3a961816b1ff1ffb2ab65b8bcd1caee570cd625994f",
+      "mode": "0644"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "3aeab7f8a080864f332d9e643ea90c87ef0377c0bfff8d8c8c4534712d09996c",
+      "mode": "0644"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "1a1fcc325682c800f5ac72ac29e1bf693c1bf42ce2151cd34ef8861d88c61713",
+      "mode": "0644"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "60114c63cdbfb913922a483fc6982a4a48bcd5b8812e0217943bb815af5e66e2",
+      "mode": "0644"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "sha256": "90dda0337fd5d293afd8f8c875c45fab29fa8f2123e0da25f37ac3948d3f60da",
+      "mode": "0644"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "ff924a524d533ea38bc37aaff94b9c91bd93a69c08ee59e89602919a92cae0f0",
+      "mode": "0644"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "a2110f49560177226310329553469aaeaeec25a18f3b7729a8ca202decfe500a",
+      "mode": "0644"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "e6cb86229049418b89c58912c43fc8467bf518360a2696215926b5c0995b707f",
+      "mode": "0644"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6c0e8515ee2e1c798bc274f484bb3a6fe47231a17318106257c2059129b23063",
+      "mode": "0644"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "7043a93d9006ed52e87aaef41f3f11eb4a07464d6b8f9b7b9b6922315e88bb0f",
+      "mode": "0644"
+    },
+    {
+      "path": "SUPPORT.md",
+      "sha256": "7f5c03f12ae7686494675f44eb4e44349e96e4daef1ba1be64d0f7fba4c8afbd",
+      "mode": "0644"
+    },
+    {
+      "path": "VERSION",
+      "sha256": "4b78df5a11461e2ca632c0eddf0e37ee3cdfc5ae70a3b05c71cca9f7f490d06c",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/catalog.json",
+      "sha256": "67a0bac4f148ecc56b3420ad53b4021cf4493a31e78c1ee8f348aac3ce981a6e",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/catalog.schema.json",
+      "sha256": "b9e82544255d2029f90d332fc46f9b5f608e064d54204b3403d034f61e986f62",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/empty-catalog.json",
+      "sha256": "5eee2cc2d722380c167475e9f64d656a4b663c9cd401009564442b21feaf484a",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/architect.toml",
+      "sha256": "b6f458da9a1c2f859c3f45e6c938011c15e69f370cdcb95ea53c2e19eba5be86",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/build-error-resolver.toml",
+      "sha256": "6063db06bf58b6fa9f22f5f8d8ccac99b81aaac61d0decd05d047a9326e78cc7",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/code-reviewer.toml",
+      "sha256": "86e1254ade931f78f69c237004ddfb6bf4c3c6a948ba8e4d6a97ca580b3d71da",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/docs-updater.toml",
+      "sha256": "9e5446a4cc38eb68db0f3d3ff230a95dfe14ea3d0d16e1ff1b801db106157e60",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/e2e-runner.toml",
+      "sha256": "ea953d1f4c9ca48aea5cdb0516330fa292e62c983c30b6c79f33138b1500fb8c",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/planner.toml",
+      "sha256": "0aa97a33984821e3e91dea570e7ed258536a7749ef76c2b77e8f118964b4f0bf",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/refactor-cleaner.toml",
+      "sha256": "877f58378c220993d5bd3ea9d6f2dae717985e388df4298434f10701a13130f2",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/security-reviewer.toml",
+      "sha256": "4690bdfc493f01abaafebe2a04ec547f894496de522acce98b50a462d84692d0",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/agents/tdd-guide.toml",
+      "sha256": "7faa6b0913193f38bf7a779dbf75ed2da9e979b52d31b2e09174385419c4cd3c",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/hooks/safety-net.hooks.json.template",
+      "sha256": "5b1e86d16d360ac8beb8c35bb916bc09375f44434b752012e5ae2dc81b2e31bf",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/hooks/safety-net.mjs",
+      "sha256": "4dd163f5bbcae3679f5e52bc5ae6ffc61dde4f55c3374d4faea37dbfe28512f5",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/backend-patterns/SKILL.md",
+      "sha256": "1be8ac1eacffae36d4148dad62702bba70bedb6842c6034ab01090a5c7495dd5",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/capture-learning/SKILL.md",
+      "sha256": "e679858c2276dbf06fa6624dd6cac5cb1fe0d7e1739ff9c3a7ececa24308c682",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/clickhouse-io/SKILL.md",
+      "sha256": "4707c059d97664fedc866bf59e206321a20ef5d8e106664287ef565fe21a54fb",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/cloudnative-writing-baseline/SKILL.md",
+      "sha256": "74147f274791fa3f7bfdcae4e3fefd0ea09a45a29323cb5c06be50de4db307d5",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/codex-starter-kit-feedback/SKILL.md",
+      "sha256": "4960a74f8a5cfa25f869cc06fc0c9c4e57fc20285b07990a7ff220d8732b9593",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
+      "sha256": "668586170676b4c8634a0fd6ef9494c226c51944cb7c7e34fa72f70994a63609",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/coding-standards/SKILL.md",
+      "sha256": "55532d66d4b7eb559bf020717187a2ded1838cdabe026cac645584de2464b068",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/eval-harness/SKILL.md",
+      "sha256": "5e59b2dd694e73b4117b05251c5592219ffde19ffc3dd193a47304efa1847077",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/frontend-patterns/SKILL.md",
+      "sha256": "1d3aa22e886019ddb1e6ed66c1c6179bc85662ced00ecc01122f141cfb890686",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/oss-evaluation/SKILL.md",
+      "sha256": "a7192af96faba100c4629603f0240da387bf1737a56198b2068ffb83b461442e",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/prompt-patterns/SKILL.md",
+      "sha256": "1f87b135d41a0993081dcc9b505509ce0ea828bb23612e379d51efab215f44b7",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/secure-change-review/SKILL.md",
+      "sha256": "88ee944b03f6b119d77a52175ae332252c66fb434418d35d7ddabb0b2f0db2f9",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/session-handoff/SKILL.md",
+      "sha256": "af891e2fd9bbb7a27adddc0113cea931de0fb3fe3ae5d265d347e531cc17b2ef",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/strategic-compact/SKILL.md",
+      "sha256": "dc3377b5a8a17ba6682e60304f4da527bfccf22e0f5e8eee03e7cea71ab46226",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/tdd-workflow/SKILL.md",
+      "sha256": "4b0007529b2017df30da33bc26698bfa6639407229806bec4cf5fb1bdb2d4c26",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/verification-loop/SKILL.md",
+      "sha256": "2c2e61526a18b14210dc5e97567156132a0926c21407a0ead3329d25ed536c13",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/en/AGENTS.md",
+      "sha256": "85b0bf7f23b6c137fc5df9696dde50791023044bc3560ed30c448ac8cb4025a5",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/ja/AGENTS.md",
+      "sha256": "a7a05b3194c0d4e889c50a799d11629c1783ea3afaf85480e0379993cfee6051",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/profiles.json",
+      "sha256": "937a1993049dd9ebcb1531825dff5d0a53eaf4e55d2574a0f96dcdc5ca180d0e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/DISTRIBUTION_ENGINE.md",
+      "sha256": "968a9bf105302cf533dad10adc558cef16b96d97782b348d9f92ce34af7fceb3",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/FORKING_AND_CUSTOMIZATION.md",
+      "sha256": "70c3a897442f8cadbc7a057b395c1515e7f715e7dd99932779d7b7a3f5fdd93e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/GETTING_STARTED.md",
+      "sha256": "bc377c3f34fc04b1ab79fd97bb97e69181d8863f017c766c3dbf49c5aaf91226",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/GLOSSARY.md",
+      "sha256": "38455e111cfea73ce1149034cb81fa6001e0c7dffb57fc456fa6d4aec48ac886",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/GOVERNANCE.md",
+      "sha256": "5c79f8c5f0451df2776ae4e972bac65ce28f7b8d20288fb7807395b5ac391d81",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "sha256": "337d588f4c63e0f18bd44e8bc96b4e3c2522821d9d6c46ebf13cce5102aeeb91",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/MAINTAINER_GUIDE.md",
+      "sha256": "5f019e53587439da6a18b4679f9ca315c398e26d6f12438aaed0d1d05b3c7d64",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/PORTING_POLICY.md",
+      "sha256": "fffe62d11c81502cfa3855d965d291aef0b18fdd37d8ed2b2741f07c531e9250",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/PUBLICATION_AUDIT.md",
+      "sha256": "9b9a3775f0e81c602e594a7438b1351e9474e65c5ef64c788749e6f4c7a7dac9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/PUBLICATION_PROCESS.md",
+      "sha256": "379b6e17faf101efa2fa655225345741a67a0764538103e5ae822fa58bf4808a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/RELEASE_PROCESS.md",
+      "sha256": "6f64e890a79ea750e48f3a3ec965870fecd5b3f11d12cf44d718d4a3f6113ebd",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/UPSTREAM_SYNC.md",
+      "sha256": "d499ffcdad8a5384f55aff017ce8f70ee2277bb296d2c6c3c96e809a6a735966",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/UPSTREAM_UPDATE_RUNBOOK.md",
+      "sha256": "c1cb0808e9a41bee58d72ea2a2cbb4b003a51d8a14aa36cf1748084ae2a59abe",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/VERSIONING.md",
+      "sha256": "8921a17a10857790d37fedc04ffe556c9ed879d4d682f024d6c472e0a847f027",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/WORK_CLASSIFICATION.md",
+      "sha256": "0b1f54edb24eba5062ba7058b60bfe76cf82bb652635b19eba6a5f94675df623",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/assessments/plain-codex-comparison.md",
+      "sha256": "2f2e93f7ff78069354eafa9b186b51cccc053de797960224fa7e577c79be9fbc",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/decisions/ADR-0001-governance-and-upstream-policy.md",
+      "sha256": "89db75221102b935e5fee55411c0384390fc2c571ea60e979a0370478eaf7f8e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/decisions/ADR-0002-distribution-roots-and-fail-closed.md",
+      "sha256": "f0da018c088f6ffa47f5cc594b30c816d247d9b0791d01859d037cc3da950560",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/releases/0.78.1-codex.1.md",
+      "sha256": "ca966af2997d162476f8012ca3499743a9c4c81c9ff2c018cacb6bd42952a8a3",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/releases/0.78.1-codex.2.md",
+      "sha256": "2514e1b636a698ce39be48eed145ec260960ac94ac5ce64a12ac002c04ffdc74",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/INDEX.md",
+      "sha256": "d8ed2264ba3a4db24118f02ce97142a261ba27ba9efc6e3b1ccf78832e3549b1",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/TEMPLATE.md",
+      "sha256": "8a628a7364a17328125fc278ffbc254e481454443727c8004e926133eb126c9d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/governance/GOV-0001-foundation.md",
+      "sha256": "a5dec4aead97f39f539ded1672f337682b84569bb0f76b61d292958b68b5f02c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/governance/GOV-0002-pre-commit-self-review.md",
+      "sha256": "9254301797d9163606f779d88e58c703a1cf071efcbb18c33fb146ca45619f79",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/governance/GOV-0003-public-repository-governance.md",
+      "sha256": "b2b14ac50130cd259245fcb3cb9ac750953245cda01c9e61a976d5360d9faf08",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/governance/GOV-0004-post-publication-operations.md",
+      "sha256": "a74be910c429ff51953e968d7d2073aa3e981fccb8e525812df3d19b13d516dd",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0001-publication-preflight.md",
+      "sha256": "0c8f5add9fe354a69140997340fd06992e1f28f85a91db2822363d12518c439a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0002-preserve-existing-global-agents.md",
+      "sha256": "dfaf6b12ec4f923a8b39b97894610fdc09f1ca2d79ba0ab491ac2b8ca442237c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0003-feedback-skill-namespace.md",
+      "sha256": "0edd30dfb29056bd5c4ff4ac8ec15693624af8d12a85adf834252b717ddd795f",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0004-safety-net-discoverability.md",
+      "sha256": "b1f4855f6e34fa4a744d5d47d66db13531c41589190cc69653bb18bb572e5e75",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0005-maintenance-skill-namespace.md",
+      "sha256": "ae6130906c6fec59565ff84a6d0599c95c937320f1b013c2e75fe0f1e42a9d7d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0006-release-skill-full-name.md",
+      "sha256": "f7a95051414760f9be70d89df131f8e9fe32e326dd6d7b36409b27cd31db8c26",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0001-distribution-safety-foundation.md",
+      "sha256": "00f9ec36db2b1f3b30683529adad005a6caf894bfd68cddbbe2d43876576f2aa",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0002-guidance-profile-localization.md",
+      "sha256": "38cef34b5a294ccecf45c168b220bb67f13f49eca0e28ba9db4824ab557bda20",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0003-skills-agents-commands.md",
+      "sha256": "a2817f05514127cf80886ce5ae7affee9d69d864e2fae66c6c1ff5b9df924381",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0004-hooks-optional-components.md",
+      "sha256": "6f748fc13bc0c505ea3d7e0321a565ef6bfac43c777e960fb5d9284d4c4cabc0",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0005-installer-hooks-cross-platform.md",
+      "sha256": "9a8742c5abf5403ebcf48f7986345bd9080a80ed097828782fb26122584f5106",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0006-kit-feedback-skill.md",
+      "sha256": "63541fbddae56b99a215efa2afb6dea40c3fc343b70f411d4c40dff8763822a0",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0001-v0.78.1-codex.1.md",
+      "sha256": "c457cbe858c53a4a0020ce743989dba05e8bfe1222dfb49e9a1631a94ada53f9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0002-exclusion-rationale.md",
+      "sha256": "3964b364132d53bc3e05e92adcdb44c3ba3faafb399a0538c83c917d43e07907",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0003-plain-codex-comparison.md",
+      "sha256": "941d04f6cd5f4a5f7d139ece404934d3d2199dd637a243fe749fbca42ed9e458",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0004-public-launch.md",
+      "sha256": "00e1bcca8d986bf2fd665b7be8392a98840906a9c6317a1932404a8044bae789",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/sync/SYNC-0001-upstream-control.md",
+      "sha256": "f4a7b3df67c9863c5b3ef682f8ab8295014df7a6da890ef4e1581a39a179425c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/sync/SYNC-0002-initial-upstream-baseline.md",
+      "sha256": "c70c1188d5957e2f83664ce30def67b2f70465ce6178488eb89ea069303a60ca",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/sync/SYNC-0003-pre-publication-source-scan.md",
+      "sha256": "4f24999c75f113357a73eee26d917673c87bcdfea48615c51f093638c6d94d57",
+      "mode": "0644"
+    },
+    {
+      "path": "package.json",
+      "sha256": "de9f0fff5fcde82adcfad2640cccf87ae2e1dbc949c6541b3b4a32d916121049",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/catalog.json",
+      "sha256": "d99f64d788a328b2a1a74579ef3f500135648de7a1f6c5ad45eec084cd020347",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/command-map.json",
+      "sha256": "e4945e30534318a5f8ed409472adcb74478816892a13971868d4f590f4d58aaa",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/feature-map.json",
+      "sha256": "4f138ee982f4e777dcd58f1a6ad9714251319feb869e311ade06b2e0414625ec",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/schema.json",
+      "sha256": "702247fdc4267645cb39e6cc2fff83105827b9369447d151e93220943a27ee05",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/skill-map.json",
+      "sha256": "05e655faac2c8da2d46547498294e17aba9addcf823c32d922dc166e03ffd52c",
+      "mode": "0644"
+    },
+    {
+      "path": "publication/public-export.json",
+      "sha256": "cc2e94a1b6d169848d1b35c5c6a10c3572e97717d123d2191878925b4ad142b8",
+      "mode": "0644"
+    },
+    {
+      "path": "release/0.78.1-codex.1.json",
+      "sha256": "7fa96d2505496bcfe4f213f4c3d18a8afdecce5a89e345c6f0b4f05a8a5ab330",
+      "mode": "0644"
+    },
+    {
+      "path": "release/0.78.1-codex.2.json",
+      "sha256": "1452ed0ea1b3b889e8a24ebd2fc790b67fd0e19099a5925f10e6086735170b53",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/configure-upstream.mjs",
+      "sha256": "59ed8e30d44e750f5cdab4dbaaf9451f417a5710c099951464563dcc04996e11",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/distribution-lib.mjs",
+      "sha256": "8016b1b1ac899332796f7a56e4e76e2b5d4f21207155ff529dee7f3a6f851ff4",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/export-public-lib.mjs",
+      "sha256": "ec289c5e3994df62e7e6dbca55106ee8d1ac035d24c146374a8afc43e39aed7e",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/export-public.mjs",
+      "sha256": "e0e468133455404d448f0115ebde82977dc3bab6c5cadea6b0eb3484cb31fbc7",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/install-paths.mjs",
+      "sha256": "fe66497a36e59afe6dfc9446e81c579fd7a8a16a847d0110ab9e5f9a0a04d242",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/install.mjs",
+      "sha256": "80845192c1045662235ef66592787cc7baba10e5810f11172e2c68fe1f1f22a6",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/manage-distribution.mjs",
+      "sha256": "25b44c77974d1ee6c5125ca71b3e3c2c206ab21830ed9b14da1d405698c61d19",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/summarize-upstream-plan.mjs",
+      "sha256": "d4129b17c5d15be2fe7e4248c0b59dc03bddb41dddc157dc22d1bf020fad6cb3",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/sync-upstream-lib.mjs",
+      "sha256": "2733b6af85c379446cf71682d9c073c982435798db48248642bf1001dd02a9f2",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/sync-upstream.mjs",
+      "sha256": "13ab561773a7c7a515f943b751affb004be4bec217d36a458ecce5a0624a69b4",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/verify-links.mjs",
+      "sha256": "7c4b46ccd5ea1b7846a3e86606b6c1bcdb1371f50ac874d38cfbad6c22d08207",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/verify-port-plan.mjs",
+      "sha256": "7f739c93af402696214a50487894ac7a1fd2aba1945ba09c2b1966c763770a43",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/verify-public-content.mjs",
+      "sha256": "6ddca4ec773747a626ab43088fd9e9692d50f3fade3228956b1b1d87c37d4499",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/verify-repository.mjs",
+      "sha256": "6dbe3765be255c23ef85593d4baf3b027de2f2f09fef3239d2878f1045b52869",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/codex-starter-kit-feedback.test.mjs",
+      "sha256": "c619ef81e2924bb30b67ca6d5114a0798385f90564e68065ced23f15fb10aeb4",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/codex-starter-kit-maintenance.test.mjs",
+      "sha256": "6de2b11772eb82b5f9aa0d538883489e98bc92254fff25114be9aa216b568d15",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/distribution.test.mjs",
+      "sha256": "bf8ef38ead3e13753e1ee2ba452a3c901ac49133ea4350b3a7be8df68cbcd2c4",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/install-paths.test.mjs",
+      "sha256": "0d9bec7d86718458d994bb62b84c493e7a15338b3d41c8399974817c3d96cbd9",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/installer.test.mjs",
+      "sha256": "95e22fb03da8dff19ee2c273f11dd36ab918dd5750ea4f665ac200ecaa27d75f",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/publication.test.mjs",
+      "sha256": "0cc1bbc43d3b49ef48a4de6c4e2de2d067203bab5e5701519ddd786b46d92407",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/repository.test.mjs",
+      "sha256": "5582133dd3270a30f44c825f351cd3364552a35f79603dec4965c62ec7128f3f",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/safety-net.test.mjs",
+      "sha256": "7449c3fdaca2f6023a5d55b1e20f625ffb882347d38cedea04a125f3d96296e6",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/summarize-upstream-plan.test.mjs",
+      "sha256": "74b48ca9f1fe2375ead3e192701240aa7183b50a5e7d81e5a83343154d58d697",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/sync-upstream.test.mjs",
+      "sha256": "c00841a11c25d87533104d6ac1c2017d238be055bdcabf0b1c7b4500899f2706",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/assessments/0.78.1-command-mapping.md",
+      "sha256": "e6b03a1ef02013608f5c3dd03928a437deac142ca6c9a13515554dae7a9d0df8",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/assessments/0.78.1-feature-mapping.md",
+      "sha256": "186deed4f9cf310f1c0afbfc647041f09e1f22c396b7b1effa25d0fc6e8d3fd1",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/assessments/0.78.1-initial-baseline.md",
+      "sha256": "6a61dd92a67a97671dddbf6ea5557d0c7ea4e41074baf0035bfe4ddbb0435833",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/assessments/0.78.1-non-adopted.md",
+      "sha256": "a5cbca71b6c3a034de065f3fb5800e599d038d6d980049eafdcb4304383dd79c",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/ledger/0.78.1.md",
+      "sha256": "c0bacd1850136a800ec3b4b752a5b5469523ad55721ffe9aa8232c0257ff58fb",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/ledger/INDEX.md",
+      "sha256": "d6f05f96de21538e1f67c5cba1bff1f0737a8f20be4a558a752124cd992aa1ca",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/source.json",
+      "sha256": "8f55d680fe6e54c95371c3f5c8ef9a16bd590525affdcbfb56efc888ec1a944e",
+      "mode": "0644"
+    }
+  ]
+}

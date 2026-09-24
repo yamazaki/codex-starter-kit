@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted",
+  "releaseVersion": "0.78.1-codex.1",
+  "releaseDate": "2026-09-21",
+  "acceptance": {
+    "ownerAccepted": true,
+    "acceptedDate": "2026-09-21"
+  },
+  "upstream": {
+    "version": "0.78.1",
+    "commit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+    "range": "initial..0.78.1"
+  },
+  "porting": {
+    "paths": { "adapt": 272, "drop": 17, "review": 0, "blocked": 0, "total": 289 },
+    "skills": { "adapt": 11, "drop": 2 },
+    "commands": { "adapt": 20, "drop": 1 },
+    "features": { "adapt": 4, "drop": 14 }
+  },
+  "distribution": {
+    "profiles": ["minimal", "standard", "full"],
+    "languages": ["ja", "en"],
+    "optionalComponents": ["safety-net"]
+  },
+  "verification": {
+    "localPlatform": "macOS",
+    "testsPassed": 31,
+    "repositoryVerifier": true,
+    "publicContentVerifier": true,
+    "realUserInstall": false,
+    "realLinux": false,
+    "realWindows": false,
+    "realHookTrustReview": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "minimal": {
+      "displayName": { "ja": "Minimal", "en": "Minimal" },
+      "description": {
+        "ja": "グローバルAGENTSと安全なfeedback Skillだけを配布する最小構成",
+        "en": "Minimal setup with global AGENTS guidance and the privacy-safe feedback skill"
+      },
+      "optionalComponents": []
+    },
+    "standard": {
+      "displayName": { "ja": "Standard", "en": "Standard" },
+      "description": {
+        "ja": "グローバルAGENTS、中核Skill、custom agentを含む推奨構成",
+        "en": "Recommended setup with global AGENTS, core skills, and custom agents"
+      },
+      "optionalComponents": ["safety-net"]
+    },
+    "full": {
+      "displayName": { "ja": "Full", "en": "Full" },
+      "description": {
+        "ja": "Standardにdomain・evaluation Skillを追加した拡張構成",
+        "en": "Extended setup adding domain and evaluation skills to Standard"
+      },
+      "optionalComponents": ["safety-net"]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+name: Feature request
+description: Codex版固有の改善を提案する
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: 解決したい利用者上の問題を説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: 素のCodexや既存Skillで代替できる場合は記載してください。
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: 利用者fileの暗黙上書きやsecret保存を前提にしていません。
+          required: true

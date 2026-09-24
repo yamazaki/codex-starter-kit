@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/cloudnative-co/claude-code-starter-kit.git",
+  "remote": "source",
+  "branch": "main",
+  "lastScannedCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "lastAcceptedCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4"
+}

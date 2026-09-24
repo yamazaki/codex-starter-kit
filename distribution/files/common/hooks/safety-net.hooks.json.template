@@ -1,0 +1,19 @@
+{
+  "description": "Optional codex-starter-kit footgun guard. Review and trust in Desktop app Settings > Hooks or Codex CLI /hooks before use.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": __HOOK_COMMAND_JSON__,
+            "commandWindows": __HOOK_COMMAND_WINDOWS_JSON__,
+            "timeout": 5,
+            "statusMessage": "Checking destructive command"
+          }
+        ]
+      }
+    ]
+  }
+}

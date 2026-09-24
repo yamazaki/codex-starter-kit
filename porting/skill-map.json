@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    { "source": "backend-patterns", "disposition": "ADAPT", "target": "skill:backend-patterns" },
+    { "source": "clickhouse-io", "disposition": "ADAPT", "target": "skill:clickhouse-io" },
+    { "source": "cloudnative-writing-baseline", "disposition": "ADAPT", "target": "skill:cloudnative-writing-baseline" },
+    { "source": "coding-standards", "disposition": "ADAPT", "target": "skill:coding-standards" },
+    { "source": "eval-harness", "disposition": "ADAPT", "target": "skill:eval-harness" },
+    { "source": "frontend-patterns", "disposition": "ADAPT", "target": "skill:frontend-patterns" },
+    { "source": "project-guidelines-example", "disposition": "DROP", "target": null, "reason": "配布時のruntime能力ではなくproject固有Skill作成用templateのため同梱しない" },
+    { "source": "prompt-patterns", "disposition": "ADAPT", "target": "skill:prompt-patterns" },
+    { "source": "security-review", "disposition": "ADAPT", "target": "skill:secure-change-review" },
+    { "source": "strategic-compact", "disposition": "ADAPT", "target": "skill:strategic-compact" },
+    { "source": "tdd-workflow", "disposition": "ADAPT", "target": "skill:tdd-workflow" },
+    { "source": "verification-loop", "disposition": "ADAPT", "target": "skill:verification-loop" },
+    { "source": "web-content-extraction", "disposition": "DROP", "target": null, "reason": "Node依存runtimeを同梱せずCodex native web searchへ委譲する" }
+  ]
+}

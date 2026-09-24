@@ -1,0 +1,58 @@
+name: Bug report
+description: 再現可能な不具合を報告する
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Security問題やsecretは公開Issueへ書かず、SECURITY.mdに従ってください。"
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: VERSIONまたはcommitを記載してください。
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Profile
+      options:
+        - minimal
+        - standard
+        - full
+        - not applicable
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS、Node.js、Codexの種類を、個人情報を除いて記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: 最小の再現手順を記載してください。credential、HOME path、session履歴は含めないでください。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public information check
+      options:
+        - label: secret、credential、個人情報、session履歴を含めていません。
+          required: true

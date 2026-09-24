@@ -1,0 +1,18 @@
+{
+  "name": "codex-starter-kit",
+  "version": "0.78.1-codex.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "configure:upstream": "node scripts/configure-upstream.mjs --apply",
+    "distribution": "node scripts/manage-distribution.mjs",
+    "install:kit": "node scripts/install.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "node scripts/verify-repository.mjs",
+    "verify:links": "node scripts/verify-links.mjs",
+    "verify:public": "node scripts/verify-public-content.mjs",
+    "export:public": "node scripts/export-public.mjs",
+    "scan:upstream": "node scripts/sync-upstream.mjs --scan",
+    "summarize:upstream": "node scripts/summarize-upstream-plan.mjs"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "product": "codex-starter-kit",
+  "roots": ["codexHome", "agentsHome"],
+  "profiles": ["minimal", "standard", "full"],
+  "languages": ["ja", "en"],
+  "components": ["safety-net"],
+  "files": [
+    {
+      "id": "global-agents",
+      "sources": {
+        "ja": "files/ja/AGENTS.md",
+        "en": "files/en/AGENTS.md"
+      },
+      "profiles": ["minimal", "standard", "full"],
+      "root": "codexHome",
+      "target": "AGENTS.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-codex-starter-kit-feedback",
+      "sources": { "ja": "files/common/skills/codex-starter-kit-feedback/SKILL.md", "en": "files/common/skills/codex-starter-kit-feedback/SKILL.md" },
+      "profiles": ["minimal", "standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/codex-starter-kit-feedback/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-coding-standards",
+      "sources": { "ja": "files/common/skills/coding-standards/SKILL.md", "en": "files/common/skills/coding-standards/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/coding-standards/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-verification-loop",
+      "sources": { "ja": "files/common/skills/verification-loop/SKILL.md", "en": "files/common/skills/verification-loop/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/verification-loop/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-tdd-workflow",
+      "sources": { "ja": "files/common/skills/tdd-workflow/SKILL.md", "en": "files/common/skills/tdd-workflow/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/tdd-workflow/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-prompt-patterns",
+      "sources": { "ja": "files/common/skills/prompt-patterns/SKILL.md", "en": "files/common/skills/prompt-patterns/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/prompt-patterns/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-strategic-compact",
+      "sources": { "ja": "files/common/skills/strategic-compact/SKILL.md", "en": "files/common/skills/strategic-compact/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/strategic-compact/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-cloudnative-writing-baseline",
+      "sources": { "ja": "files/common/skills/cloudnative-writing-baseline/SKILL.md", "en": "files/common/skills/cloudnative-writing-baseline/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/cloudnative-writing-baseline/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-backend-patterns",
+      "sources": { "ja": "files/common/skills/backend-patterns/SKILL.md", "en": "files/common/skills/backend-patterns/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/backend-patterns/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-frontend-patterns",
+      "sources": { "ja": "files/common/skills/frontend-patterns/SKILL.md", "en": "files/common/skills/frontend-patterns/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/frontend-patterns/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-secure-change-review",
+      "sources": { "ja": "files/common/skills/secure-change-review/SKILL.md", "en": "files/common/skills/secure-change-review/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/secure-change-review/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-codex-starter-kit-maintenance",
+      "sources": { "ja": "files/common/skills/codex-starter-kit-maintenance/SKILL.md", "en": "files/common/skills/codex-starter-kit-maintenance/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/codex-starter-kit-maintenance/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-session-handoff",
+      "sources": { "ja": "files/common/skills/session-handoff/SKILL.md", "en": "files/common/skills/session-handoff/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/session-handoff/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-capture-learning",
+      "sources": { "ja": "files/common/skills/capture-learning/SKILL.md", "en": "files/common/skills/capture-learning/SKILL.md" },
+      "profiles": ["standard", "full"],
+      "root": "agentsHome",
+      "target": "skills/capture-learning/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-clickhouse-io",
+      "sources": { "ja": "files/common/skills/clickhouse-io/SKILL.md", "en": "files/common/skills/clickhouse-io/SKILL.md" },
+      "profiles": ["full"],
+      "root": "agentsHome",
+      "target": "skills/clickhouse-io/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-eval-harness",
+      "sources": { "ja": "files/common/skills/eval-harness/SKILL.md", "en": "files/common/skills/eval-harness/SKILL.md" },
+      "profiles": ["full"],
+      "root": "agentsHome",
+      "target": "skills/eval-harness/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "skill-oss-evaluation",
+      "sources": { "ja": "files/common/skills/oss-evaluation/SKILL.md", "en": "files/common/skills/oss-evaluation/SKILL.md" },
+      "profiles": ["full"],
+      "root": "agentsHome",
+      "target": "skills/oss-evaluation/SKILL.md",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-architect",
+      "sources": { "ja": "files/common/agents/architect.toml", "en": "files/common/agents/architect.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/architect.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-build-error-resolver",
+      "sources": { "ja": "files/common/agents/build-error-resolver.toml", "en": "files/common/agents/build-error-resolver.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/build-error-resolver.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-code-reviewer",
+      "sources": { "ja": "files/common/agents/code-reviewer.toml", "en": "files/common/agents/code-reviewer.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/code-reviewer.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-docs-updater",
+      "sources": { "ja": "files/common/agents/docs-updater.toml", "en": "files/common/agents/docs-updater.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/docs-updater.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-e2e-runner",
+      "sources": { "ja": "files/common/agents/e2e-runner.toml", "en": "files/common/agents/e2e-runner.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/e2e-runner.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-planner",
+      "sources": { "ja": "files/common/agents/planner.toml", "en": "files/common/agents/planner.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/planner.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-refactor-cleaner",
+      "sources": { "ja": "files/common/agents/refactor-cleaner.toml", "en": "files/common/agents/refactor-cleaner.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/refactor-cleaner.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-security-reviewer",
+      "sources": { "ja": "files/common/agents/security-reviewer.toml", "en": "files/common/agents/security-reviewer.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/security-reviewer.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "agent-tdd-guide",
+      "sources": { "ja": "files/common/agents/tdd-guide.toml", "en": "files/common/agents/tdd-guide.toml" },
+      "profiles": ["standard", "full"],
+      "root": "codexHome",
+      "target": "agents/tdd-guide.toml",
+      "mode": "0644"
+    },
+    {
+      "id": "hook-safety-net-script",
+      "sources": { "ja": "files/common/hooks/safety-net.mjs", "en": "files/common/hooks/safety-net.mjs" },
+      "profiles": ["standard", "full"],
+      "components": ["safety-net"],
+      "root": "codexHome",
+      "target": "hooks/codex-starter-kit/safety-net.mjs",
+      "mode": "0644"
+    },
+    {
+      "id": "hook-safety-net-config",
+      "sources": { "ja": "files/common/hooks/safety-net.hooks.json.template", "en": "files/common/hooks/safety-net.hooks.json.template" },
+      "profiles": ["standard", "full"],
+      "components": ["safety-net"],
+      "root": "codexHome",
+      "target": "hooks.json",
+      "mode": "0644",
+      "template": "hook-command",
+      "scriptTarget": "hooks/codex-starter-kit/safety-net.mjs"
+    }
+  ]
+}

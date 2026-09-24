@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "defaultDisposition": "REVIEW",
+  "rules": [
+    {
+      "id": "drop-claude-calls-codex",
+      "patterns": [
+        "features/codex-plugin/**",
+        "lib/codex-setup.sh"
+      ],
+      "disposition": "DROP",
+      "reason": "ClaudeからCodexを呼び出す連携は本プロジェクトの対象外"
+    },
+    {
+      "id": "drop-claude-runtime-flags",
+      "patterns": [
+        "features/native-file-tools/**",
+        "features/no-flicker/**"
+      ],
+      "disposition": "DROP",
+      "reason": "Claude Code固有のruntime制御または内部flag"
+    },
+    {
+      "id": "adapt-agent-teams-to-native-subagents",
+      "patterns": [
+        "features/agent-teams/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "Claude flagは使わずCodex native subagentとcustom agentsで目的を実現する"
+    },
+    {
+      "id": "drop-mdm-initial-release",
+      "patterns": [
+        "mdm/**",
+        "docs/mdm/**"
+      ],
+      "disposition": "DROP",
+      "reason": "MDM配布は初期releaseの対象外。必要が生じた時点で再評価する"
+    },
+    {
+      "id": "drop-ci-and-dependency-automation-initial-release",
+      "patterns": [
+        ".github/**"
+      ],
+      "disposition": "DROP",
+      "reason": "CIとdependency automationは初回release対象外。local verifierを正本とする"
+    },
+    {
+      "id": "adapt-upstream-evaluation-reports-to-assessments",
+      "patterns": [
+        "docs/mattpocock-skills-evaluation.md",
+        "docs/spec-kit-evaluation.md"
+      ],
+      "disposition": "ADAPT",
+      "reason": "配布物ではなく関連機能のPORT判断に使う証拠資料として読む"
+    },
+    {
+      "id": "adapt-repository-metadata-and-user-docs",
+      "patterns": [
+        ".gitattributes",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "README.en.md",
+        "docs/GUIDES/hooks-reference.md",
+        "docs/wizard-config-mapping.md",
+        "docs/wizard-config-mapping.en.md",
+        "i18n/en/strings.sh",
+        "i18n/ja/strings.sh"
+      ],
+      "disposition": "ADAPT",
+      "reason": "Codex版のrepository metadata、利用者文書、installer/profile文書へ再構成した"
+    },
+    {
+      "id": "adapt-project-guidance",
+      "patterns": [
+        "CLAUDE.md",
+        "i18n/*/CLAUDE.md.base",
+        "i18n/*/partials/**",
+        "rules/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "CodexのAGENTS.mdとrepo Skillへ意味を保って再配置する"
+    },
+    {
+      "id": "adapt-skills",
+      "patterns": [
+        "skills/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "内容とfrontmatterをCodex Skill仕様で検証する"
+    },
+    {
+      "id": "adapt-agents",
+      "patterns": [
+        "agents/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "Claude agent markdownをCodex custom agent設計として再評価する"
+    },
+    {
+      "id": "adapt-commands",
+      "patterns": [
+        "commands/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "Claude commandをCodex Skillまたは通常手順へ再設計する"
+    },
+    {
+      "id": "adapt-hooks-and-config",
+      "patterns": [
+        "config/**",
+        "features/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "Codex Hook、config、permissionの現行仕様でイベントとpayloadを再評価する"
+    },
+    {
+      "id": "adapt-distribution-engine",
+      "patterns": [
+        "install.sh",
+        "install.ps1",
+        "setup.sh",
+        "uninstall.sh",
+        "lib/**",
+        "wizard/**",
+        "profiles/**",
+        "tests/**"
+      ],
+      "disposition": "ADAPT",
+      "reason": "更新・merge・rollbackの考え方を再利用し、Claude固有pathとCLIは移植しない"
+    },
+    {
+      "id": "adapt-license-and-attribution",
+      "patterns": [
+        "LICENSE"
+      ],
+      "disposition": "ADAPT",
+      "reason": "MIT条件を維持し、本プロジェクト固有noticeとupstream帰属を統合する"
+    }
+  ]
+}

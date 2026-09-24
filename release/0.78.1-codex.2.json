@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate",
+  "releaseVersion": "0.78.1-codex.2",
+  "releaseDate": "2026-09-22",
+  "acceptance": {
+    "ownerAccepted": false,
+    "acceptedDate": null
+  },
+  "upstream": {
+    "version": "0.78.1",
+    "commit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+    "range": "no upstream changes after the accepted 0.78.1 baseline",
+    "preReleaseScanChanges": 0
+  },
+  "codexChanges": {
+    "publicRepositoryGovernance": true,
+    "allowlistPublicExport": true,
+    "communityTemplates": true,
+    "codexStarterKitFeedbackSkill": true,
+    "codexStarterKitMaintenanceSkill": true,
+    "releaseCodexStarterKitSkill": true,
+    "preserveExistingGlobalAgents": true,
+    "sourceRemoteLabel": "source"
+  },
+  "distribution": {
+    "profiles": ["minimal", "standard", "full"],
+    "languages": ["ja", "en"],
+    "optionalComponents": ["safety-net"],
+    "preserveExistingGlobalAgents": true
+  },
+  "verification": {
+    "localPlatform": "macOS",
+    "testsPassed": 41,
+    "repositoryVerifier": true,
+    "linkVerifier": true,
+    "publicContentVerifier": true,
+    "isolatedMacOSInstallLifecycle": true,
+    "primaryDryRun": true,
+    "primaryApply": true,
+    "realCodexSkillDiscovery": true,
+    "realCodexCustomAgentDiscovery": true,
+    "secretScannerPreflight": true,
+    "finalPublicCandidateTreeAudit": true,
+    "finalPublicHistoryAudit": false,
+    "realLinux": false,
+    "realWindows": false,
+    "realHookTrustReview": true
+  }
+}

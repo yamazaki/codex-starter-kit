@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "product": "codex-starter-kit",
+  "roots": ["codexHome", "agentsHome"],
+  "profiles": ["minimal", "standard", "full"],
+  "languages": ["ja", "en"],
+  "components": ["safety-net"],
+  "files": []
+}

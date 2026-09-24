@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "includeFiles": [
+    ".gitignore",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "VERSION",
+    "package.json"
+  ],
+  "includeDirectories": [
+    ".agents",
+    ".github",
+    "distribution",
+    "docs",
+    "porting",
+    "publication",
+    "release",
+    "scripts",
+    "tests",
+    "upstream"
+  ],
+  "forbiddenRoots": [
+    ".distribution-preview",
+    ".git",
+    ".upstream-sync",
+    "coverage",
+    "internal",
+    "node_modules"
+  ]
+}
