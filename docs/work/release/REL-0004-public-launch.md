@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: README導入説明の改善とGitHub private stagingへのpush・readback
-- Next Action: README変更をcommitし、candidate再生成・history scan後にprivate repositoryを作成してpushする
+- Current Gate: Windows CIのline ending修正とprivate staging再検証
+- Next Action: MNT-0007を検証・commit・pushし、3 OS matrixをread backする
 - Blocking Decision: public化、tag、GitHub Releaseは未承認
 - Last Updated: 2026-09-24
 
@@ -129,6 +129,7 @@
 - 142-file final candidateを独立Git環境として再生成し、41 tests、repository、link、public-content、diff検証に成功した。`source` remoteはfetch-only、push `DISABLED`だった。
 - Gitleaks 8.18.4とTruffleHog 3.97.5はprivate HEAD history、private tree、final candidateでfinding 0だった。detect-secrets 1.5.0はprivate 38件・candidate 145件で、全件がcommit、fingerprint、manifest SHA-256の `Hex High Entropy String`だった。
 - candidateには `internal/`、symlink、非regular file、archive、binary、local username・absolute user pathはなかった。`codex-starter-kit-private`は公開運用文書上のrepository roleとしてのみ、OS pathはcross-platform fixtureとしてのみ存在する。
+- private staging初回pushではUbuntu・macOS jobが成功し、Windowsだけがcheckout時のCRLF変換により13 tests失敗した。MNT-0007で `.gitattributes`によるLF固定へ分離した。
 - 初期public commit作成後に、その独立historyを再scanする。
 
 ## Rollback

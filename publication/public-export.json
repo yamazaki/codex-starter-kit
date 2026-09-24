@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "includeFiles": [
+    ".gitattributes",
     ".gitignore",
     "AGENTS.md",
     "CHANGELOG.md",

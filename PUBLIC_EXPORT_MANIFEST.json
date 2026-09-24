@@ -22,6 +22,11 @@
       "mode": "0644"
     },
     {
+      "path": ".gitattributes",
+      "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+      "mode": "0644"
+    },
+    {
       "path": ".github/CODEOWNERS",
       "sha256": "a1e3af3d9e5c529fa73baa23407ec8fa2170df60e64bc177052ec4e5d6253029",
       "mode": "0644"
@@ -78,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "60114c63cdbfb913922a483fc6982a4a48bcd5b8812e0217943bb815af5e66e2",
+      "sha256": "cd05db02f764f3c42b6cd1f851c6be9563525a6fa729c5f9d87234d7d2d6cff2",
       "mode": "0644"
     },
     {
@@ -383,12 +388,12 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.2.md",
-      "sha256": "2514e1b636a698ce39be48eed145ec260960ac94ac5ce64a12ac002c04ffdc74",
+      "sha256": "86e1acd55deaed2ea42ec0997454b63625c6d7b16e47a178c5dcaff2a9e9c656",
       "mode": "0644"
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "d8ed2264ba3a4db24118f02ce97142a261ba27ba9efc6e3b1ccf78832e3549b1",
+      "sha256": "25d327176145ed834aafcd80c53f50eb89afc300cf7f6159640d503152bd6cf2",
       "mode": "0644"
     },
     {
@@ -447,6 +452,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/work/maintenance/MNT-0007-windows-checkout-line-endings.md",
+      "sha256": "22abaf9dc66d2329a4466cd860f6348775163d35fe2b290ff56ce23125fc7ca1",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/port/PORT-0001-distribution-safety-foundation.md",
       "sha256": "00f9ec36db2b1f3b30683529adad005a6caf894bfd68cddbbe2d43876576f2aa",
       "mode": "0644"
@@ -493,7 +503,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "00e1bcca8d986bf2fd665b7be8392a98840906a9c6317a1932404a8044bae789",
+      "sha256": "6e8bf93cb37aa4557efb2c3334047192875c519fc2600c9f63431ac5ae1510f1",
       "mode": "0644"
     },
     {
@@ -543,7 +553,7 @@
     },
     {
       "path": "publication/public-export.json",
-      "sha256": "cc2e94a1b6d169848d1b35c5c6a10c3572e97717d123d2191878925b4ad142b8",
+      "sha256": "9ba0d86ce07e6c529e3eedcf15b3ff5ae1d3ecfaca001e01df47d3af2bd3b83c",
       "mode": "0644"
     },
     {
@@ -623,7 +633,7 @@
     },
     {
       "path": "scripts/verify-repository.mjs",
-      "sha256": "6dbe3765be255c23ef85593d4baf3b027de2f2f09fef3239d2878f1045b52869",
+      "sha256": "56f476fa1fae842c79c0cd9eb34dc6a7fdd41f0dbce184d848a690aec5e557f3",
       "mode": "0644"
     },
     {
@@ -653,7 +663,7 @@
     },
     {
       "path": "tests/publication.test.mjs",
-      "sha256": "0cc1bbc43d3b49ef48a4de6c4e2de2d067203bab5e5701519ddd786b46d92407",
+      "sha256": "facd317e82861b3f224954eabc98578b86c1ec0e819807154c4cc644cf8bcb5b",
       "mode": "0644"
     },
     {

@@ -11,6 +11,7 @@ const config = JSON.parse(fs.readFileSync(path.join(repositoryRoot, "publication
 
 test("public allowlist includes repository controls but excludes private session history", () => {
   const files = collectPublicFiles(repositoryRoot, config);
+  assert.ok(files.includes(".gitattributes"));
   assert.ok(files.includes("distribution/catalog.json"));
   assert.ok(files.includes("docs/work/release/REL-0004-public-launch.md"));
   assert.ok(files.includes("upstream/source.json"));

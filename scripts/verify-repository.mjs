@@ -20,6 +20,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
 
 const requiredFiles = [
+  ".gitattributes",
   "AGENTS.md",
   ".github/CODEOWNERS",
   "README.md",
