@@ -1,7 +1,7 @@
 # MNT-0007: Windows checkoutとfile mode互換性
 
 - Classification: `MAINTENANCE`
-- Status: `review`
+- Status: `complete`
 - Parent Initiative: `REL-0004`
 - Upstream Version: `N/A`
 - Upstream Commit: `N/A`
@@ -66,3 +66,4 @@ public化前に `.gitattributes`、allowlist、verifier、fixtureを同じ変更
 - 成功runに残ったNode.js 20 action runtime deprecationへ対応するため、公式latest majorのcheckout v7、setup-node v7へ更新し、`package-manager-cache: false`を明示した。最終matrix再確認待ち。
 - checkout・setup-node v7反映後もUbuntu・macOS・Windowsの42 testsと全verifierが成功し、Node.js 20 action runtime deprecation警告は解消した。
 - private staging remote `main`は `8c9753a`で、MNT-0007は実装・検証完了、利用者review待ち。
+- 2026-09-24に利用者が結果を確認して受け入れ、本件をcompleteとした。最終release readbackはREL-0004で継続する。

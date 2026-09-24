@@ -393,7 +393,7 @@
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "faca40ba5557d68acf42d060f9c39ec285aef609ace438a60388f59aa5b68ae9",
+      "sha256": "c92cc1f09a87f2e15ad49165302ee0cb126043be5c93458bdec41763d629d5bb",
       "mode": "0644"
     },
     {
@@ -453,7 +453,7 @@
     },
     {
       "path": "docs/work/maintenance/MNT-0007-windows-checkout-line-endings.md",
-      "sha256": "762ee2d3ce80403ba60c7846a7933eed2a61c4480917c568c4b67b697975d337",
+      "sha256": "623848181d338a658a4df1a63890a9fb7c8cbe86aa5e60956488db0a10f7c00c",
       "mode": "0644"
     },
     {
@@ -503,7 +503,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "d1a23133d43afd7943b1c64a40d031a1358e738e7f8554676feda95780a99120",
+      "sha256": "cbf747a82e630e20d9036af30af4916b17821ddb289289f2165530d4b31afc30",
       "mode": "0644"
     },
     {

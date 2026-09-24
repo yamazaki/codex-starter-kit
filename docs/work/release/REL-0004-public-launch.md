@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: MNT-0007の利用者reviewとGitHub公開設定plan
-- Next Action: MNT-0007を受け入れ、ruleset・security・community設定の適用範囲を確認する
+- Current Gate: GitHub公開設定planとowner release acceptance
+- Next Action: public化前後の設定順を確認し、public化の個別承認を得る
 - Blocking Decision: public化、tag、GitHub Releaseは未承認
 - Last Updated: 2026-09-24
 
@@ -28,6 +28,7 @@
 | MNT-0004 | complete | Desktop trust・discoverability・surface別案内を受入済み | release収録 |
 | MNT-0005 | complete | primary migration・実Codex discovery完了 | release収録 |
 | MNT-0006 | complete | full-name rename・実Codex discovery完了 | release収録 |
+| MNT-0007 | complete | Windows互換修正・Actions v7・3 OS CI成功 | release収録 |
 | GOV-0004 | proposed | 公開後運用への切替を設計済み | 公開候補確定後 |
 
 ## GitHub destination
@@ -35,6 +36,22 @@
 - Owner: personal account `yamazaki`
 - Public repository: `https://github.com/yamazaki/codex-starter-kit`
 - CODEOWNERS: `@yamazaki`
+
+## GitHub settings rollout
+
+| Setting | Private staging | Public化時または直後 |
+| --- | --- | --- |
+| Issues | 有効・readback済み | 維持 |
+| Discussions | 有効・readback済み | 維持。質問・方向性相談の入口とする |
+| Wiki | 無効・readback済み | repository内docsを正本として無効維持 |
+| Actions | checkout・setup-node v7、3 OS成功 | required check候補 `test (ubuntu-latest, 22)`、`test (macos-latest, 22)`、`test (windows-latest, 22)` をread back |
+| Dependabot | GitHub Actions monthly更新を認識済み | 維持 |
+| Private vulnerability reporting | public repository向け機能のため未設定 | public化直後に有効化し、`SECURITY.md`の導線を成立させる |
+| Secret scanning | user-owned private repositoryでは利用対象外 | public repositoryで自動有効状態をread back |
+| Push protection | repository単位では未設定 | public化後に利用可能状態を確認し、有効化できる場合は有効化 |
+| Ruleset | GitHub Freeのprivate repositoryでは利用不可 | `main`のforce push・deletion禁止を設定。初回はprivate→public promotionを妨げるPR必須化を行わない |
+
+利用条件の根拠はGitHub公式の[Discussions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)、[private vulnerability reporting](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository)、[secret scanning](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning)、[rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)を参照する。実際の利用可能状態はpublic化後にread backする。
 
 ## 目的
 
@@ -132,6 +149,7 @@
 - private staging初回pushではUbuntu・macOS jobが成功し、Windowsだけがcheckout時のCRLF変換により13 tests失敗した。MNT-0007で `.gitattributes`によるLF固定へ分離した。
 - MNT-0007でLF固定とWindows mode非対応を修正し、checkout・setup-node v7へ更新した。remote `main` `8c9753a`でUbuntu・macOS・Windowsの42 testsと全verifierが成功した。
 - final private/public historyはcanary成立済みGitleaks・TruffleHogでfinding 0。release manifestの `finalPublicHistoryAudit`をtrueへ更新した。
+- private stagingでDiscussionsを有効化し、Issues有効、Wiki無効と合わせてread backした。security・rulesetはpublic化後に適用する設定planへ分離した。
 
 ## Rollback
 

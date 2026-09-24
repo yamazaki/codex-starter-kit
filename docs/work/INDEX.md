@@ -5,7 +5,6 @@
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
 | GOV-0004 | GOVERNANCE | 公開後の継続運用への切替 | proposed |
-| MNT-0007 | MAINTENANCE | Windows checkoutとfile mode互換性 | review |
 | REL-0004 | RELEASE | codex-starter-kit初回公開 | in_progress |
 
 ## 完了
@@ -24,6 +23,7 @@
 | MNT-0004 | MAINTENANCE | safety-netのdiscoverabilityとtrust案内 | complete |
 | MNT-0005 | MAINTENANCE | maintenance Skillのnamespace明確化 | complete |
 | MNT-0006 | MAINTENANCE | release Skillの正式名称化 | complete |
+| MNT-0007 | MAINTENANCE | Windows checkoutとfile mode互換性 | complete |
 | PORT-0001 | PORT | 配布境界と安全な適用・rollback基盤 | complete |
 | PORT-0002 | PORT | AGENTS・profile・localizationのCodex化 | complete |
 | PORT-0003 | PORT | repo Skills・custom agents・commandsの再編 | complete |
