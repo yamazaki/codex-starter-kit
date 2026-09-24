@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "status": "candidate",
+  "status": "accepted",
   "releaseVersion": "0.78.1-codex.2",
-  "releaseDate": "2026-09-22",
+  "releaseDate": "2026-09-24",
   "acceptance": {
-    "ownerAccepted": false,
-    "acceptedDate": null
+    "ownerAccepted": true,
+    "acceptedDate": "2026-09-24"
   },
   "upstream": {
     "version": "0.78.1",

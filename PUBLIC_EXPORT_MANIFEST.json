@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "9024156aa1a7b505b31b75f56c0d7d0ef0f2a000e47ea02ccd21441267cbc62e",
+      "sha256": "2325de66f9cfd8546f4b3764afd90f21dbbd0d3c5afc6c05f90eb3d960f1e083",
       "mode": "0644"
     },
     {
@@ -388,7 +388,7 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.2.md",
-      "sha256": "7f729f04d763e65d3d258512403681ae374ffe5820193bdf06f3c472c6e6208c",
+      "sha256": "3adcd996c8ab1d33b3740ef6a4986c0453571988a0c0dcca15f12eb46b4264d3",
       "mode": "0644"
     },
     {
@@ -503,7 +503,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "cbf747a82e630e20d9036af30af4916b17821ddb289289f2165530d4b31afc30",
+      "sha256": "c67a82e6b4f314663b575d7064f2c31dc73ee83fce6f94d5c4aa5fd8e56b3fd1",
       "mode": "0644"
     },
     {
@@ -563,7 +563,7 @@
     },
     {
       "path": "release/0.78.1-codex.2.json",
-      "sha256": "c965a6d8bd0955e05b6c8c692c99b2e167b6e4ff4c46572997127eb8a633716f",
+      "sha256": "7a94a005f2f05c8b2f36cc6079cf9fd53210cb79226a17abbcc77493c34aefa4",
       "mode": "0644"
     },
     {

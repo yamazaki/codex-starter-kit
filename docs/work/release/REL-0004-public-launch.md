@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: GitHub公開設定planとowner release acceptance
-- Next Action: public化前後の設定順を確認し、public化の個別承認を得る
+- Current Gate: repository visibilityをpublicへ変更する最終Go待ち
+- Next Action: 利用者の明示Go後だけpublic化し、security・rulesetを適用してread backする
 - Blocking Decision: public化、tag、GitHub Releaseは未承認
 - Last Updated: 2026-09-24
 
@@ -100,6 +100,7 @@
 - [x] 独立public初期commitとfollow-up commitのhistory scan
 - [x] GitHub private staging repository作成承認
 - [x] push承認
+- [x] owner release acceptance
 - [ ] public化承認
 - [ ] ruleset・security・community設定readback
 - [ ] tag承認
@@ -159,4 +160,4 @@
 
 ## Result
 
-公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate reviewと独立Git履歴作成も承認済み。owner release acceptance、GitHub操作、public化、tag、Releaseは未実施。
+公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptanceまで完了した。public化、public化後設定、tag、GitHub Releaseは未実施。
