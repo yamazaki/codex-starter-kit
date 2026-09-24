@@ -5,7 +5,7 @@
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
 | GOV-0004 | GOVERNANCE | 公開後の継続運用への切替 | proposed |
-| MNT-0007 | MAINTENANCE | Windows checkoutのLF固定 | in_progress |
+| MNT-0007 | MAINTENANCE | Windows checkoutとfile mode互換性 | review |
 | REL-0004 | RELEASE | codex-starter-kit初回公開 | in_progress |
 
 ## 完了

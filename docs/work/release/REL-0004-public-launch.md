@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: Windows CIのline ending修正とprivate staging再検証
-- Next Action: MNT-0007を検証・commit・pushし、3 OS matrixをread backする
+- Current Gate: MNT-0007の利用者reviewとGitHub公開設定plan
+- Next Action: MNT-0007を受け入れ、ruleset・security・community設定の適用範囲を確認する
 - Blocking Decision: public化、tag、GitHub Releaseは未承認
 - Last Updated: 2026-09-24
 
@@ -80,7 +80,7 @@
 - [x] final public candidateのtree・metadata・3-engine secret再監査
 - [x] 利用者による公開候補差分レビュー
 - [x] 独立Git履歴の作成承認
-- [ ] 独立public初期commitのhistory scan
+- [x] 独立public初期commitとfollow-up commitのhistory scan
 - [x] GitHub private staging repository作成承認
 - [x] push承認
 - [ ] public化承認
@@ -130,7 +130,8 @@
 - Gitleaks 8.18.4とTruffleHog 3.97.5はprivate HEAD history、private tree、final candidateでfinding 0だった。detect-secrets 1.5.0はprivate 38件・candidate 145件で、全件がcommit、fingerprint、manifest SHA-256の `Hex High Entropy String`だった。
 - candidateには `internal/`、symlink、非regular file、archive、binary、local username・absolute user pathはなかった。`codex-starter-kit-private`は公開運用文書上のrepository roleとしてのみ、OS pathはcross-platform fixtureとしてのみ存在する。
 - private staging初回pushではUbuntu・macOS jobが成功し、Windowsだけがcheckout時のCRLF変換により13 tests失敗した。MNT-0007で `.gitattributes`によるLF固定へ分離した。
-- 初期public commit作成後に、その独立historyを再scanする。
+- MNT-0007でLF固定とWindows mode非対応を修正し、checkout・setup-node v7へ更新した。remote `main` `8c9753a`でUbuntu・macOS・Windowsの42 testsと全verifierが成功した。
+- final private/public historyはcanary成立済みGitleaks・TruffleHogでfinding 0。release manifestの `finalPublicHistoryAudit`をtrueへ更新した。
 
 ## Rollback
 

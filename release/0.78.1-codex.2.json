@@ -42,7 +42,7 @@
     "realCodexCustomAgentDiscovery": true,
     "secretScannerPreflight": true,
     "finalPublicCandidateTreeAudit": true,
-    "finalPublicHistoryAudit": false,
+    "finalPublicHistoryAudit": true,
     "realLinux": false,
     "realWindows": false,
     "realHookTrustReview": true

@@ -388,12 +388,12 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.2.md",
-      "sha256": "d5a39a5722753278ec592e999a78a34ff8cf5ef62ff57642665b95e6f0c9688a",
+      "sha256": "7f729f04d763e65d3d258512403681ae374ffe5820193bdf06f3c472c6e6208c",
       "mode": "0644"
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "25d327176145ed834aafcd80c53f50eb89afc300cf7f6159640d503152bd6cf2",
+      "sha256": "faca40ba5557d68acf42d060f9c39ec285aef609ace438a60388f59aa5b68ae9",
       "mode": "0644"
     },
     {
@@ -453,7 +453,7 @@
     },
     {
       "path": "docs/work/maintenance/MNT-0007-windows-checkout-line-endings.md",
-      "sha256": "36f30a98f6b7e4ee7dfbe83f65ab2b0a738eff41384312481869b103a993c728",
+      "sha256": "762ee2d3ce80403ba60c7846a7933eed2a61c4480917c568c4b67b697975d337",
       "mode": "0644"
     },
     {
@@ -503,7 +503,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "6e8bf93cb37aa4557efb2c3334047192875c519fc2600c9f63431ac5ae1510f1",
+      "sha256": "d1a23133d43afd7943b1c64a40d031a1358e738e7f8554676feda95780a99120",
       "mode": "0644"
     },
     {
@@ -563,7 +563,7 @@
     },
     {
       "path": "release/0.78.1-codex.2.json",
-      "sha256": "3db77c7dfedd9656e5b9012b9bc4f5293175220e315dabee94be89488e9e8ac1",
+      "sha256": "c965a6d8bd0955e05b6c8c692c99b2e167b6e4ff4c46572997127eb8a633716f",
       "mode": "0644"
     },
     {
