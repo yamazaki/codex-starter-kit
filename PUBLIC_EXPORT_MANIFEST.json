@@ -78,7 +78,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "1a1fcc325682c800f5ac72ac29e1bf693c1bf42ce2151cd34ef8861d88c61713",
+      "sha256": "98baa17c37270846c0277516269ff251942a025d840f32060a9c149dff52545c",
       "mode": "0644"
     },
     {
@@ -328,7 +328,7 @@
     },
     {
       "path": "docs/MAINTAINER_GUIDE.md",
-      "sha256": "c4035c3a35fbe1a60d2886ac8e2a9000b7b959f3d1cd2292ba4a1afe8cbdd2a6",
+      "sha256": "7d1ca67aebf05e2f846e800de1d4e67bd48a4e2e506ce04905adcad374d23988",
       "mode": "0644"
     },
     {
@@ -398,7 +398,7 @@
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "c92cc1f09a87f2e15ad49165302ee0cb126043be5c93458bdec41763d629d5bb",
+      "sha256": "ec7a3d8625c2bf692ec3e3e251790659f97c5ef12562cba169b8dc5a6ec7b813",
       "mode": "0644"
     },
     {
@@ -423,7 +423,7 @@
     },
     {
       "path": "docs/work/governance/GOV-0004-post-publication-operations.md",
-      "sha256": "a74be910c429ff51953e968d7d2073aa3e981fccb8e525812df3d19b13d516dd",
+      "sha256": "133e1ee13043a09b99071e17cca8ccab7a2fa587629894db23afec8a423fc7b4",
       "mode": "0644"
     },
     {
@@ -508,7 +508,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "cb29a91d0a555fc48e802c92c14f687a54ffe708cc027538b7a212cd0bccb17b",
+      "sha256": "22e522dd4e313b304c814779c3289ef745d96d05347e7a5a583ae83a8b49d693",
       "mode": "0644"
     },
     {

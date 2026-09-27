@@ -51,3 +51,9 @@ source fetch
 ## Contributionの取込み
 
 public Issue・PRは入力であり、受入判断そのものではない。変更triggerで分類し、必要ならwork recordを作る。private保守repositoryを正本とする期間は、内容を再評価・検証して次回public exportへ含める。Git履歴を自動双方向同期しない。
+
+## 作業の再開とsession記録
+
+作業状態の公開正本は `docs/work/INDEX.md` と分類別recordである。private保守repositoryでは、長期案件やsessionをまたぐ案件について `internal/session-history/<work-id>/HANDOFF.md` と日付付き活動記録を併用する。
+
+public cloneにはprivate session履歴を持ち込まない。public Issue・Pull Request・Discussionを起点に作業する場合も、最初に分類と既存recordを確認し、確定した判断・検証結果は `docs/work/` へ反映する。privateからpublicへはallowlist exportと公開前検証を通した一方向promotionを行い、pushは独立した承認境界とする。

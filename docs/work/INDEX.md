@@ -4,7 +4,6 @@
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
-| GOV-0004 | GOVERNANCE | 公開後の継続運用への切替 | proposed |
 | REL-0004 | RELEASE | codex-starter-kit初回公開 | in_progress |
 
 ## 完了
@@ -14,6 +13,7 @@
 | GOV-0001 | GOVERNANCE | 専用Governance基盤の整備 | complete |
 | GOV-0002 | GOVERNANCE | Commit前自己レビューの必須化 | complete |
 | GOV-0003 | GOVERNANCE | 公開repository運用と貢献基盤 | complete |
+| GOV-0004 | GOVERNANCE | 公開後の継続運用への切替 | complete |
 | SYNC-0001 | SYNC | upstream control基盤の整備 | complete |
 | SYNC-0002 | SYNC | 初回upstream baselineの機能単位評価 | complete |
 | SYNC-0003 | SYNC | 初回公開前のsource再確認 | complete |

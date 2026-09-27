@@ -20,7 +20,7 @@
 5. SYNCまたはPORTなら `docs/UPSTREAM_SYNC.md` と `docs/PORTING_POLICY.md`
 6. RELEASEなら `docs/VERSIONING.md` と `docs/RELEASE_PROCESS.md`
 
-`internal/session-history/<work-id>/HANDOFF.md` が存在する継続案件では、件別記録の後にそのHANDOFFと必要な最新session記録を読む。`REL-0004`進行中は `internal/session-history/REL-0004/HANDOFF.md` を公開準備の再開点とする。
+`internal/session-history/<work-id>/HANDOFF.md` が存在する継続案件では、件別記録の後にそのHANDOFFと必要な最新session記録を読む。public cloneのように `internal/` が存在しない場合は、`docs/work/` の件別記録を再開点とする。
 
 依頼を `GOVERNANCE / SYNC / PORT / MAINTENANCE / RELEASE` のいずれかへ分類する。既存案件の続きでなければ、実装前に対応する `docs/work/<分類>/` へ件別記録を作る。
 
@@ -63,8 +63,8 @@
 - 各commitの直前にstaged diffを自己レビューし、scope逸脱、正しさ、回帰、データ保全、security境界、文書整合、テスト不足、残リスクを確認する。問題を修正して再stage・再検証してからcommitする。
 - push、tag、GitHub Release、利用者環境へのinstallは個別の明示承認が必要である。
 - AI側の変更と検証が終わっても、利用者レビューが残る件別記録は完了にしない。
-- 意味のある作業区切りでは `internal/session-history/<work-id>/` に日付付き活動記録を追加し、`INDEX.md` と `HANDOFF.md` を更新する。引継ぎがない場合も `引継ぎ事項: なし` と明記する。
-- `REL-0004`を完了する前に、公開準備専用のsession運用を公開後の継続運用へ再構成し、`AGENTS.md` と関連文書を更新する。
+- private保守repositoryで意味のある作業区切りを迎えた場合は、`internal/session-history/<work-id>/` に日付付き活動記録を追加し、`INDEX.md` と `HANDOFF.md` を更新する。引継ぎがない場合も `引継ぎ事項: なし` と明記する。public cloneではprivate用 `internal/` を新設せず、確定事項を `docs/work/` の件別記録へ反映する。
+- public Issue、Pull Request、Discussionは作業の入力として扱い、内容を分類・再検証してからprivate正本と次のpublic candidateへ反映する。publicとprivateのGit履歴を自動双方向同期しない。
 
 変更後は少なくとも次を実行する。
 

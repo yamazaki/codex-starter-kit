@@ -10,10 +10,10 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: repository visibilityをpublicへ変更する最終Go待ち
-- Next Action: 利用者の明示Go後だけpublic化し、security・rulesetを適用してread backする
-- Blocking Decision: public化、tag、GitHub Releaseは未承認
-- Last Updated: 2026-09-24
+- Current Gate: tag・GitHub Release判断
+- Next Action: tagとGitHub Releaseをそれぞれ別承認で判断する
+- Blocking Decision: tag、GitHub Releaseは未承認
+- Last Updated: 2026-09-27
 
 ## Dependency status
 
@@ -29,7 +29,7 @@
 | MNT-0005 | complete | primary migration・実Codex discovery完了 | release収録 |
 | MNT-0006 | complete | full-name rename・実Codex discovery完了 | release収録 |
 | MNT-0007 | complete | Windows互換修正・Actions v7・3 OS CI成功 | release収録 |
-| GOV-0004 | proposed | 公開後運用への切替を設計済み | 公開候補確定後 |
+| GOV-0004 | complete | 公開後運用への切替を実装・検証し、利用者受入済み | なし |
 
 ## GitHub destination
 
@@ -39,17 +39,17 @@
 
 ## GitHub settings rollout
 
-| Setting | Private staging | Public化時または直後 |
+| Setting | Private staging | Public化後のreadback |
 | --- | --- | --- |
-| Issues | 有効・readback済み | 維持 |
-| Discussions | 有効・readback済み | 維持。質問・方向性相談の入口とする |
-| Wiki | 無効・readback済み | repository内docsを正本として無効維持 |
-| Actions | checkout・setup-node v7、3 OS成功 | required check候補 `test (ubuntu-latest, 22)`、`test (macos-latest, 22)`、`test (windows-latest, 22)` をread back |
+| Issues | 有効・readback済み | 有効 |
+| Discussions | 有効・readback済み | 有効。質問・方向性相談の入口とする |
+| Wiki | 無効・readback済み | repository内docsを正本として無効 |
+| Actions | checkout・setup-node v7、3 OS成功 | public HEAD `b2f2063`で3 OS成功 |
 | Dependabot | GitHub Actions monthly更新を認識済み | 維持 |
-| Private vulnerability reporting | public repository向け機能のため未設定 | public化直後に有効化し、`SECURITY.md`の導線を成立させる |
-| Secret scanning | user-owned private repositoryでは利用対象外 | public repositoryで自動有効状態をread back |
-| Push protection | repository単位では未設定 | public化後に利用可能状態を確認し、有効化できる場合は有効化 |
-| Ruleset | GitHub Freeのprivate repositoryでは利用不可 | `main`のforce push・deletion禁止を設定。初回はprivate→public promotionを妨げるPR必須化を行わない |
+| Private vulnerability reporting | public repository向け機能のため未設定 | 有効 |
+| Secret scanning | user-owned private repositoryでは利用対象外 | 有効、alert 0件 |
+| Push protection | repository単位では未設定 | 有効 |
+| Ruleset | GitHub Freeのprivate repositoryでは利用不可 | `main`のforce push・deletion禁止をactiveで適用。PR必須化なし |
 
 利用条件の根拠はGitHub公式の[Discussions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)、[private vulnerability reporting](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository)、[secret scanning](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning)、[rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)を参照する。実際の利用可能状態はpublic化後にread backする。
 
@@ -101,11 +101,11 @@
 - [x] GitHub private staging repository作成承認
 - [x] push承認
 - [x] owner release acceptance
-- [ ] public化承認
-- [ ] ruleset・security・community設定readback
+- [x] public化承認
+- [x] ruleset・security・community設定readback
 - [ ] tag承認
 - [ ] GitHub Release承認
-- [ ] GOV-0004 accepted
+- [x] GOV-0004 accepted
 - [ ] REL-0004 session handoff closed
 
 ## Approval boundaries
@@ -153,6 +153,9 @@
 - private stagingでDiscussionsを有効化し、Issues有効、Wiki無効と合わせてread backした。security・rulesetはpublic化後に適用する設定planへ分離した。
 - READMEを利用者向け導入へ再構成し、upstream関係・version別適用記録を `upstream/README.md`、全体commandを `docs/COMMAND_REFERENCE.md`へ分離した。
 - 146-file candidateを再生成・3-engine scanし、public `988d610`へ反映した。独立履歴8 commits、3 OSの42 tests・全verifier成功、visibility `PRIVATE`をread backした。
+- 利用者の最終Go後、2026-09-27にpublic化した。未認証HTTP 200、public HEAD `b2f2063`、Issues・Discussions有効、Wiki無効をread backした。
+- Private vulnerability reporting、secret scanning、push protectionを有効化し、secret scanning alert 0件、CODEOWNERS error 0件を確認した。
+- `main`へdeletion・non-fast-forward禁止のactive rulesetを適用した。tagとGitHub Releaseは作成していない。
 
 ## Rollback
 
@@ -162,4 +165,4 @@
 
 ## Result
 
-公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptanceまで完了した。public化、public化後設定、tag、GitHub Releaseは未実施。
+公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptance、public化、security・community・ruleset設定readback、GOV-0004受入まで完了した。tag、GitHub Releaseは未実施。
