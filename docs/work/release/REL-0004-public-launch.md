@@ -10,9 +10,9 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: tag・GitHub Release判断
-- Next Action: tagとGitHub Releaseをそれぞれ別承認で判断する
-- Blocking Decision: tag、GitHub Releaseは未承認
+- Current Gate: tag作成・readback
+- Next Action: release metadataを反映したpublic commitへ `v0.78.1-codex.2` tagを作成し、readback後にGitHub Releaseを別承認で判断する
+- Blocking Decision: GitHub Releaseは未承認
 - Last Updated: 2026-09-27
 
 ## Dependency status
@@ -103,7 +103,7 @@
 - [x] owner release acceptance
 - [x] public化承認
 - [x] ruleset・security・community設定readback
-- [ ] tag承認
+- [x] tag承認
 - [ ] GitHub Release承認
 - [x] GOV-0004 accepted
 - [ ] REL-0004 session handoff closed

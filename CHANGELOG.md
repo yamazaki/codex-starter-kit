@@ -14,7 +14,7 @@
 
 ### Removed
 
-## [0.78.1-codex.2] - 2026-09-24
+## [0.78.1-codex.2] - 2026-09-27
 
 Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). SYNC-0003 confirmed that `source/main` had no changes after the accepted baseline.
 
