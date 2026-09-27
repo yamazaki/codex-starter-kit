@@ -36,7 +36,7 @@ source fetch
   -> release gate
 ```
 
-具体的なcommandと停止条件は[Upstream Update Runbook](UPSTREAM_UPDATE_RUNBOOK.md)を参照する。
+具体的なcommandと停止条件は[Upstream Update Runbook](UPSTREAM_UPDATE_RUNBOOK.md)、利用・検証・公開commandの索引は[Command Reference](COMMAND_REFERENCE.md)を参照する。
 
 ## 優先順位
 

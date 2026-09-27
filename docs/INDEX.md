@@ -9,6 +9,7 @@
 | `docs/GLOSSARY.md` | upstream、source、origin、fork、downstreamの用語境界 |
 | `docs/FORKING_AND_CUSTOMIZATION.md` | 公式版をforkし、Codex版とClaude本家を別々に追跡する手順 |
 | `docs/GETTING_STARTED.md` | 利用者向けのdry-run、apply、update、uninstall、rollback手順 |
+| `docs/COMMAND_REFERENCE.md` | 利用・検証・upstream同期・公開commandの索引 |
 | `docs/MAINTAINER_GUIDE.md` | upstream追随、triage、PORT、公開の保守方針 |
 | `docs/UPSTREAM_UPDATE_RUNBOOK.md` | Claude本家の更新を処理する具体的な手順と停止条件 |
 | `docs/PUBLICATION_PROCESS.md` | private/publicの役割、allowlist export、promotion gate |
@@ -27,6 +28,7 @@
 | `docs/decisions/ADR-0002-distribution-roots-and-fail-closed.md` | 配布root分離と安全停止の根拠 |
 | `docs/work/INDEX.md` | 継続中・完了案件の索引 |
 | `upstream/source.json` | upstream URL、branch、受入基準commit |
+| `upstream/README.md` | 本家との関係、version別ledger・assessmentの入口 |
 | `porting/catalog.json` | pathから初期判断へルーティングするカタログ |
 | `distribution/catalog.json` | Codex利用者環境へ将来配布するfile mappingの正本 |
 | `LICENSE`, `NOTICE.md` | 本プロジェクトとupstream由来資産のlicense・帰属 |

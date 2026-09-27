@@ -37,6 +37,7 @@ const requiredFiles = [
   "docs/GOVERNANCE.md",
   "docs/GLOSSARY.md",
   "docs/GETTING_STARTED.md",
+  "docs/COMMAND_REFERENCE.md",
   "docs/FORKING_AND_CUSTOMIZATION.md",
   "docs/MAINTAINER_GUIDE.md",
   "docs/PUBLICATION_PROCESS.md",
@@ -55,6 +56,7 @@ const requiredFiles = [
   "upstream/assessments/0.78.1-command-mapping.md",
   "upstream/assessments/0.78.1-feature-mapping.md",
   "upstream/assessments/0.78.1-non-adopted.md",
+  "upstream/README.md",
   "docs/work/INDEX.md",
   "upstream/source.json",
   "upstream/ledger/INDEX.md",
@@ -350,8 +352,15 @@ if (featureMap.schemaVersion !== 1 || !Array.isArray(featureMap.features)) {
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 const comparisonDocument = fs.readFileSync(path.join(root, "docs", "assessments", "plain-codex-comparison.md"), "utf8");
+const upstreamOverview = fs.readFileSync(path.join(root, "upstream", "README.md"), "utf8");
 if (!readme.includes("[素のCodexとの比較評価](docs/assessments/plain-codex-comparison.md)")) {
   errors.push("README is missing the plain Codex comparison link");
+}
+if (!readme.includes("[Upstream relationship and version records](upstream/README.md)")) {
+  errors.push("README is missing the upstream records link");
+}
+if (!upstreamOverview.includes("[0.78.1 ledger](ledger/0.78.1.md)")) {
+  errors.push("upstream overview is missing the accepted ledger link");
 }
 if (!comparisonDocument.includes(`Kit version: \`${version}\``)) {
   errors.push("plain Codex comparison does not identify the current kit version");
@@ -359,18 +368,6 @@ if (!comparisonDocument.includes(`Kit version: \`${version}\``)) {
 if (!comparisonDocument.includes("定量A/B評価を実施していない")) {
   errors.push("plain Codex comparison must disclose that quantitative A/B evaluation is not complete");
 }
-for (const [label, entries] of [
-  ["command", commandMap.commands ?? []],
-  ["skill", skillMap.skills ?? []],
-  ["feature", featureMap.features ?? []],
-]) {
-  for (const entry of entries) {
-    if (!readme.includes(`\`${entry.source}\``)) {
-      errors.push(`README conversion inventory is missing ${label}: ${entry.source}`);
-    }
-  }
-}
-
 function listFiles(directory, prefix = "") {
   const output = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {

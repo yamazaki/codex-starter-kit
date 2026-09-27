@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: repository visibilityをpublicへ変更する最終Go待ち
-- Next Action: 利用者の明示Go後だけpublic化し、security・rulesetを適用してread backする
+- Current Gate: README情報設計変更の再監査とrepository visibility変更の最終Go待ち
+- Next Action: READMEと新規index文書を検証・scan・private stagingへ反映後、利用者の明示GoまでPRIVATEを維持する
 - Blocking Decision: public化、tag、GitHub Releaseは未承認
 - Last Updated: 2026-09-24
 
@@ -151,6 +151,7 @@
 - MNT-0007でLF固定とWindows mode非対応を修正し、checkout・setup-node v7へ更新した。remote `main` `8c9753a`でUbuntu・macOS・Windowsの42 testsと全verifierが成功した。
 - final private/public historyはcanary成立済みGitleaks・TruffleHogでfinding 0。release manifestの `finalPublicHistoryAudit`をtrueへ更新した。
 - private stagingでDiscussionsを有効化し、Issues有効、Wiki無効と合わせてread backした。security・rulesetはpublic化後に適用する設定planへ分離した。
+- READMEを利用者向け導入へ再構成し、upstream関係・version別適用記録を `upstream/README.md`、全体commandを `docs/COMMAND_REFERENCE.md`へ分離した。最終candidate再監査待ち。
 
 ## Rollback
 

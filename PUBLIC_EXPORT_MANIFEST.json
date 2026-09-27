@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "2325de66f9cfd8546f4b3764afd90f21dbbd0d3c5afc6c05f90eb3d960f1e083",
+      "sha256": "f4420040950b682a6834b6392ce14d5e6d93b0985858e6fe26b21f796faa1616",
       "mode": "0644"
     },
     {
@@ -108,7 +108,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "6c0e8515ee2e1c798bc274f484bb3a6fe47231a17318106257c2059129b23063",
+      "sha256": "fe9ff39e3294869ac1c1c64502e6ced51b7e8281a5be4e3679e575e6e95a49db",
       "mode": "0644"
     },
     {
@@ -292,6 +292,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/COMMAND_REFERENCE.md",
+      "sha256": "7cfd0cab7998562879b780c190c921a5031742b61980171c760e8797f82f7342",
+      "mode": "0644"
+    },
+    {
       "path": "docs/DISTRIBUTION_ENGINE.md",
       "sha256": "968a9bf105302cf533dad10adc558cef16b96d97782b348d9f92ce34af7fceb3",
       "mode": "0644"
@@ -318,12 +323,12 @@
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "337d588f4c63e0f18bd44e8bc96b4e3c2522821d9d6c46ebf13cce5102aeeb91",
+      "sha256": "8c5555bf9a74dda93fd53c12070212515d5e11fb877d783e82358b03dc916f81",
       "mode": "0644"
     },
     {
       "path": "docs/MAINTAINER_GUIDE.md",
-      "sha256": "5f019e53587439da6a18b4679f9ca315c398e26d6f12438aaed0d1d05b3c7d64",
+      "sha256": "c4035c3a35fbe1a60d2886ac8e2a9000b7b959f3d1cd2292ba4a1afe8cbdd2a6",
       "mode": "0644"
     },
     {
@@ -388,7 +393,7 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.2.md",
-      "sha256": "3adcd996c8ab1d33b3740ef6a4986c0453571988a0c0dcca15f12eb46b4264d3",
+      "sha256": "cec9eb2a15228eeb4fe74d304d6b5ccd5011fde098b6fa5dc1d1533f1e6b1659",
       "mode": "0644"
     },
     {
@@ -503,7 +508,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "c67a82e6b4f314663b575d7064f2c31dc73ee83fce6f94d5c4aa5fd8e56b3fd1",
+      "sha256": "a22562988b5430e0f0d95eb7d8d283398a0fd5937368f282863383e4e58243cf",
       "mode": "0644"
     },
     {
@@ -633,7 +638,7 @@
     },
     {
       "path": "scripts/verify-repository.mjs",
-      "sha256": "56f476fa1fae842c79c0cd9eb34dc6a7fdd41f0dbce184d848a690aec5e557f3",
+      "sha256": "18ed08b4b22bdb3f46d8aa3df09ada85745a59ead1ecbb9b793efd54df94c83f",
       "mode": "0644"
     },
     {
@@ -684,6 +689,11 @@
     {
       "path": "tests/sync-upstream.test.mjs",
       "sha256": "c00841a11c25d87533104d6ac1c2017d238be055bdcabf0b1c7b4500899f2706",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/README.md",
+      "sha256": "dd8b2a33ae631db690079242f83ec3e0b04b5d7a1ab3f121733104bd605e88ec",
       "mode": "0644"
     },
     {

@@ -34,6 +34,7 @@ Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5
 - `upstream`を制御概念、`source`をGit remote labelとして用語を分離
 - 配布用maintenance Skillを `codex-starter-kit-maintenance`へrename
 - repository保守用release Skillを `release-codex-starter-kit`へ正式名称化
+- READMEを利用者向けの目的・full install・主要な違いへ絞り、upstream関係とcommand一覧をversion追加可能な別文書へ整理
 
 ### Fixed
 
