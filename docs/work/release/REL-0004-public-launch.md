@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `in_progress`
-- Current Gate: tag作成・readback
-- Next Action: release metadataを反映したpublic commitへ `v0.78.1-codex.2` tagを作成し、readback後にGitHub Releaseを別承認で判断する
+- Current Gate: GitHub Release判断
+- Next Action: 利用者の明示承認後だけ、tag `v0.78.1-codex.2`からGitHub Releaseを作成する
 - Blocking Decision: GitHub Releaseは未承認
 - Last Updated: 2026-09-27
 
@@ -104,6 +104,7 @@
 - [x] public化承認
 - [x] ruleset・security・community設定readback
 - [x] tag承認
+- [x] tag作成・target readback
 - [ ] GitHub Release承認
 - [x] GOV-0004 accepted
 - [ ] REL-0004 session handoff closed
@@ -155,7 +156,8 @@
 - 146-file candidateを再生成・3-engine scanし、public `988d610`へ反映した。独立履歴8 commits、3 OSの42 tests・全verifier成功、visibility `PRIVATE`をread backした。
 - 利用者の最終Go後、2026-09-27にpublic化した。未認証HTTP 200、public HEAD `b2f2063`、Issues・Discussions有効、Wiki無効をread backした。
 - Private vulnerability reporting、secret scanning、push protectionを有効化し、secret scanning alert 0件、CODEOWNERS error 0件を確認した。
-- `main`へdeletion・non-fast-forward禁止のactive rulesetを適用した。tagとGitHub Releaseは作成していない。
+- 公開直後に `main`へdeletion・non-fast-forward禁止のactive rulesetを適用した。このreadback時点ではtagとGitHub Releaseは作成していなかった。
+- release metadataをpublic `78d8c71`へ反映し、3 OS CIとcommit後history scanに成功した。annotated tag `v0.78.1-codex.2`を作成し、targetが `78d8c71`、GitHub Release 0件であることをread backした。
 
 ## Rollback
 
@@ -165,4 +167,4 @@
 
 ## Result
 
-公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptance、public化、security・community・ruleset設定readback、GOV-0004受入まで完了した。tag、GitHub Releaseは未実施。
+公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptance、public化、security・community・ruleset設定readback、GOV-0004受入、tag作成・readbackまで完了した。GitHub Releaseは未実施。
