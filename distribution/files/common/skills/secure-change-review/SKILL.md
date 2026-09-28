@@ -1,14 +1,66 @@
 ---
 name: secure-change-review
-description: Perform a focused security review when a change touches authentication, authorization, secrets, untrusted input, network access, files, payments, or other sensitive boundaries. Do not use as a full repository security scan.
+description: Perform a focused security review when a change touches authentication, authorization, secrets, user input, files, network access, payments, or other sensitive boundaries; use a dedicated scanner for exhaustive repository audits.
 ---
 
-# Secure change review
+# Security Review Skill
 
-1. Identify assets, trust boundaries, attacker-controlled inputs, and privileged effects in the changed path.
-2. Trace validation, authorization, encoding, storage, logging, and error behavior from source to effect.
-3. Check least privilege, secret exposure, injection, path traversal, SSRF, unsafe deserialization, and replay or race conditions as applicable.
-4. Verify existing controls in code and tests; do not infer protection from names or comments.
-5. Report concrete findings with impact and evidence. If none are found, state the residual risk and checks performed.
+Ensures all code follows security best practices and identifies potential vulnerabilities.
 
-Use a dedicated security scan workflow when the user requests exhaustive repository-wide analysis.
+## When to Activate
+
+- Implementing authentication or authorization
+- Handling user input or file uploads
+- Creating new API endpoints
+- Working with secrets or credentials
+- Implementing payment features
+- Storing or transmitting sensitive data
+- Integrating third-party APIs
+
+## Security Checklist Categories
+
+Review each category. See `references/vulnerability-patterns.md` for WRONG/CORRECT code examples.
+
+1. **Secrets Management** -- No hardcoded secrets; all in env vars; `.env*` gitignored
+2. **Input Validation** -- Schema validation; file upload size/type/extension checks
+3. **SQL Injection** -- Parameterized queries only; no string concatenation
+4. **Auth & Authorization** -- httpOnly cookies; RBAC; row-level/object-level authorization where needed
+5. **XSS Prevention** -- DOMPurify for user HTML; CSP headers configured
+6. **CSRF Protection** -- CSRF tokens on state-changing ops; SameSite=Strict cookies
+7. **Rate Limiting** -- All endpoints rate-limited; stricter on expensive operations
+8. **Data Exposure** -- No secrets in logs; generic error messages to users
+9. **High-Risk Integrations** -- Payments, wallets, third-party APIs, and webhooks validated when present
+10. **Dependencies** -- `npm audit` clean; lock files committed; Dependabot enabled
+
+Full checkbox checklist: `assets/security-checklist.md`
+
+## Pre-Deployment Checklist
+
+Before ANY production deployment, confirm ALL of the following:
+
+- [ ] No hardcoded secrets, all in env vars
+- [ ] All user inputs validated
+- [ ] All queries parameterized
+- [ ] User content sanitized (XSS)
+- [ ] CSRF protection enabled
+- [ ] Proper token handling (httpOnly cookies)
+- [ ] Authorization role checks in place
+- [ ] Rate limiting on all endpoints
+- [ ] HTTPS enforced
+- [ ] Security headers configured (CSP, X-Frame-Options)
+- [ ] No sensitive data in error messages or logs
+- [ ] Dependencies up to date, no vulnerabilities
+- [ ] CORS properly configured
+- [ ] File uploads validated (size, type)
+
+## References
+
+- `references/vulnerability-patterns.md` -- All WRONG/CORRECT code examples by vulnerability type
+- `assets/security-checklist.md` -- Full security review checklist (markdown checkboxes)
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [Next.js Security](https://nextjs.org/docs/security)
+- [Web Security Academy](https://portswigger.net/web-security)
+
+---
+
+**Security is not optional.** One vulnerability can compromise the entire platform. When in doubt, err on the side of caution.

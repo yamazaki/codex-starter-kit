@@ -6,6 +6,29 @@
 - ファイル変更、commit、push、deploy、外部サービスへの書き込みを別の操作として扱う。
 - secretをチャット、ソース、文書、plan、ログへ記録しない。
 - 変更後は対象に応じたテストと差分確認を行い、未検証事項を明記する。
+
+## エージェント
+- 委譲はoverheadを上回る規模、または分離・並列化に意味がある場合だけ行う。
+- 委譲結果を自分で照合してから変更・完了報告を行う。
+
+## アンチパターン
+- API、command、import、file pathは使用前に実在と仕様を確認する。
+- 依頼scopeを実装し、隣接機能を追加する前に確認する。
+- 必要な検証が成功するまで完了を主張しない。
+- 同じ方法が繰り返し失敗したら方法を変えるかblockerを報告する。
+
+## コーディング・性能・Git・permission
+- 外部入力を検証し、error contextを保ち、実際の複雑さを減らす場合だけ抽象化する。
+- ad-hocな文字列処理より構造化parser・APIを優先する。
+- Hookや起動時の重い反復処理を避け、安全な範囲でcache・gate・timeoutを使う。
+- 全差分を確認し、commitを一目的に絞り、明示依頼なしに利用者変更を破棄しない。
+- allowlistを必要範囲へ限定し、承認なしにcommandを変形してsafety Hookを回避しない。
+
+## Securityとtest
+- secret、credential、private working directoryを出力しない。
+- URLを検証し、承認なしにprivate networkへアクセス、未信頼scriptを実行、global toolをinstallしない。
+- destructive change前にauthentication、file、command境界を確認し、least privilegeを優先する。
+- focused testから広い検証へ進み、skip・失敗した検証と残riskを報告する。
 <!-- END CODEX-STARTER-KIT-MANAGED -->
 
 # ユーザー設定

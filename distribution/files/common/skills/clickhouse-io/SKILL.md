@@ -1,13 +1,34 @@
 ---
 name: clickhouse-io
-description: Design or review ClickHouse schemas and queries for analytical workloads where ordering keys, partitions, cardinality, or ingestion performance matter.
+description: ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.
 ---
 
-# ClickHouse guidance
+# ClickHouse Analytics Patterns
 
-- Choose `ORDER BY` for dominant filters and data skipping; do not mirror an OLTP primary key by habit.
-- Use partitions for lifecycle operations and coarse pruning, not high-cardinality dimensions.
-- Select MergeTree variants and deduplication semantics explicitly.
-- Bound scans, inspect query plans and system tables, and validate representative data volume.
-- Treat mutations, distributed tables, materialized views, and retention policies as operational decisions with rollback plans.
-- Verify behavior against the deployed ClickHouse version and official documentation.
+ClickHouse is a column-oriented DBMS for OLAP, optimized for fast analytical queries on large datasets. Key strengths: columnar storage, compression, parallel execution, distributed queries, real-time analytics.
+
+## Reference Files
+
+| File | Contents |
+|------|----------|
+| [references/table-design.md](references/table-design.md) | MergeTree engine types, table creation patterns, partitioning, ordering keys, data type selection |
+| [references/query-optimization.md](references/query-optimization.md) | Filtering best practices, aggregations, window functions, materialized views, performance monitoring |
+| [references/data-pipeline.md](references/data-pipeline.md) | Bulk/streaming insert, ETL/CDC patterns, time series, funnel, cohort, and retention query templates |
+
+## Engine Selection Guide
+
+| Engine | Use When | Trade-off |
+|--------|----------|-----------|
+| MergeTree | Default for most tables | No dedup or pre-aggregation |
+| ReplacingMergeTree | Data has duplicates from multiple sources | Dedup only on merge, not query time |
+| AggregatingMergeTree | Pre-computed rollups (hourly/daily stats) | Requires `*State`/`*Merge` function pairs |
+
+## Core Rules
+
+- **Batch inserts** -- never insert row-by-row
+- **Specify columns** -- avoid `SELECT *`
+- **Filter on indexed columns first** -- match ORDER BY key order
+- **Denormalize** -- minimize JOINs for analytical tables
+- **Leverage materialized views** -- for real-time aggregations
+
+ClickHouse excels at analytical workloads. Design tables for your query patterns, batch inserts, and leverage materialized views for real-time aggregations.

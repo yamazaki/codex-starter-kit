@@ -41,6 +41,8 @@ upstreamのHook、statusline、terminal、web extraction、auto-update等をCode
 
 ## Result
 
+> この初回判断は `SYNC-0004` / `PORT-0009` の意味的忠実度再監査で再分類された。現行の機械可読な正本は `porting/feature-map.json` とする。
+
 - 18 upstream featureを `ADAPT 3 / DEFER 10 / DROP 5` に機能単位で確定した。
 - agent-teamsはClaude flagをDROPし、Codex native subagentとcustom agentsへADAPTした。
 - auto-updateは自動applyを廃止し、scan・review・明示applyへADAPTした。

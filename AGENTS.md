@@ -42,6 +42,8 @@
 - upstreamの基準情報は `upstream/source.json` を正本とする。
 - upstream変更の判断規則は `porting/catalog.json` を正本とする。
 - pathが既知でも、意味変更や複数pathにまたがる変更は機械的に移植しない。
+- `ADAPT`は移植方針であり、実装完了を意味しない。原文の目的、workflow、制約、output contract、supporting resourcesをsource requirement単位でtargetへ対応付け、理由付きDROPを含むfidelity contractと回帰testが揃うまで完了扱いにしない。
+- 簡潔化やCodex最適化を理由に、domain規則や安全境界を要約だけへ置き換えない。platform-native alternativeやsafe alternativeは機能同等と区別して記録する。
 - `DROP` には理由を残す。`DROP` は未調査を意味しない。
 - `lastScannedCommit` と `lastAcceptedCommit` を混同しない。planの生成だけではどちらも更新しない。
 

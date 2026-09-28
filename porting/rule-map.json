@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "rules": [
+    {
+      "sourcePath": "rules/agents.md",
+      "sourceSha256": "aca9931471518f2e3c8c913383cafe0c79a66a200761ba969e6202074db0d9be",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 2
+    },
+    {
+      "sourcePath": "rules/anti-patterns.md",
+      "sourceSha256": "83a39a064e39fa138f69b4bbe9643c50a07c501f7bb4bd5d2e69045c62be13c3",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/coding-style.md",
+      "sourceSha256": "5ab9682e3b2a73eaa44e0fd13994207a83bded49b017c3422e03e6b99bd91c3d",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 3
+    },
+    {
+      "sourcePath": "rules/git-workflow.md",
+      "sourceSha256": "e1e9908d2b5dea0fc722187c5186e08ce7d3746178425d407662538d999baa71",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/performance.md",
+      "sourceSha256": "f21bd2bead00a4f422d67c652fcdf6951c55be3b0e3a89a5e3d3f1449121e532",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/permissions-guide.md",
+      "sourceSha256": "08bc0d7084b22a6b165470b90f0dd109ed9fba33a4d6c28ef7aa34af54a7da37",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 2
+    },
+    {
+      "sourcePath": "rules/security.md",
+      "sourceSha256": "d6877729f5d01b822b24f7963c04407883c3985b86327cfb4219b7f3aef8221b",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 5
+    },
+    {
+      "sourcePath": "rules/testing.md",
+      "sourceSha256": "a2a4a382c22f33699ca86b16bf0ac6d2cd271c0bbacc557c761d27836ffc530a",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 3
+    }
+  ]
+}

@@ -1,28 +1,58 @@
 # codex-starter-kit
 
-Codexで開発を始めるときに、共通の作業ルール、再利用可能なSkills・custom agents、安全な導入・更新・rollbackをまとめて適用するためのstarter kitです。
+Codexで開発を始めるときに、共通の作業ルール、再利用可能なスキル・カスタムエージェント、安全な導入・更新・ロールバックをまとめて適用するためのスターターキットです。
 
-素のCodexのmodel能力を変更するものではありません。Codex標準のsandbox・approval・toolを土台に、作業手順のばらつき、検証漏れ、利用者fileの破壊的更新を減らすための運用基盤を追加します。
+Codex標準のサンドボックス・承認機構・ツールをベースに、作業手順のばらつきを減らし、正しく検証し、各種ファイルを適切に管理するための運用基盤を整備できます。
 
-## このstarter kitでできること
+## 成り立ち
 
-- `distribution/files/ja/AGENTS.md` または `distribution/files/en/AGENTS.md` から、共通のglobal作業方針と承認境界を導入する
-- 配布用AGENTSの「ユーザー設定」へ独自のglobalルールを追加する。kit更新時は変更を暗黙上書きせず、競合として停止する
-- 開発・設計・review・security・handoff等のSkillsとcustom agentsを再利用する
-- `minimal`、`standard`、`full`のprofileと日本語・英語を選んで導入する
-- dry-run planで変更内容を確認してからapplyし、manifestとsnapshotを使ってupdate・uninstall・rollbackする
-- 利用者が明示的に選んだ場合だけ、optional `safety-net` Hookを導入して限定的な危険commandを補助的に拒否する
+本プロジェクトは、[cloudnative-co/claude-code-starter-kit](https://github.com/cloudnative-co/claude-code-starter-kit)をベースにしたCodex向けdownstreamです。本家の考え方や資産を出発点にしつつ、Claude Code固有の機能は除外し、Codex向けに移植可能な機能を選択し、最適な形に変換をしています。
 
-## full profileとsafety-netを導入する
+そして、利用者向けのスターターキットだけでなく、本家の更新をどのように調査・判断・移植・除外したかを管理する仕組みも同じリポジトリに含めています。そのため、フォークして独自拡張を加えながら、本家Claude Code版や本リポジトリのCodex版の更新を追跡する運用にも利用できます。
 
-最初にrepositoryを取得します。
+## このスターターキットでできること
+
+- **Codexの共通ルールを整える**: シークレットの扱い、ファイルの変更・コミット・同期の承認境界、テスト、Git、安全な委譲などの基本方針を、グローバル`AGENTS.md`として導入できます。独自ルールは「ユーザー設定」へ追記でき、本キットの更新時に暗黙的に上書きされることはありません。
+- **よく使う開発手順を再利用する**: 要件整理と計画、調査、テスト駆動開発、ビルドや修復、E2E、検証、リファクタリング、文書更新、評価、引き継ぎ、OSS調査、web情報のレビューなど、17種類の手順を必要なときに呼び出せます。コーディング、フロントエンド、バックエンド、セキュリティ、レビュー、業務文書作成などのスキルは、判断基準と具体例まで含めて作業を支援します。
+- **専門的な作業をカスタムエージェントへ分担する**: アーキテクチャー、計画、コードレビュー、セキュリティレビュー、ビルドとエラー修復、E2Eテスト、文書更新、リファクタリング、テスト駆動の9役を使い分けられます。レビュー系のエージェントは読み取り専用で動作するなど、役割に応じた制約も含みます。
+- **作業を安全に引き継ぎ、改善を蓄積する**: セッションをまたぐ引き継ぎ、繰り返し使える学びの記録、変更後の妥当性の検証を再現できる形にして、途中経過や検証結果を次の作業へ残せます。
+- **導入後も安全に保守する**: 適用するキットの範囲を`minimal`、`standard`、`full`の3つのプロファイルから選び、本適用の前にドライランを実行して変更予定を確認できます。管理対象の一覧を記録したマニフェストと、変更前の状態を保存したスナップショットにより、更新・アンインストール・ロールバック時も利用者が管理するファイルを保護します。
+- **キットへのフィードバックを安全に準備する**: バグ、機能要望、移植提案、文書改善、セキュリティ報告を分類し、個人情報や非公開情報を除いた内容を確認してから、適切な窓口へ送る準備ができます。実際の外部送信は自動では行いません。
+- **必要に応じて追加機能を使う**: `full`プロファイルでは、ClickHouseの設計、AIワークフローの評価設計、OSSの採用評価に利用するスキルを追加できます。`standard`または`full`では、限定的な危険コマンドを補助的に拒否する`safety-net` Hookも任意で追加できます。
+
+## Claude本家との違いとCodex向けの調整
+
+本家のClaude Code Starter Kitをそのまま複製するのではなく、各機能の目的と安全に運用するための条件を確認し、Codexで同じ役割を果たせる形へ変換しています。Codexに対応する仕組みがないものや、すべての利用者へ配布すると競合や保守負担が大きくなるものは、理由と代替方法を記録した上で移植していません。
+
+| 領域 | Claude本家 | codex-starter-kit |
+| --- | --- | --- |
+| 共通ルール | 8つのルールファイルで、コーディング、Git、セキュリティ、テストなどの方針を定義 | 日本語または英語のグローバル`AGENTS.md`へ統合し、Codexが常に参照できる形で配布します。リポジトリ固有の`AGENTS.md`を優先し、利用者が追記した内容も保護します。 |
+| コマンド | 21個のClaudeスラッシュコマンドを提供 | 20個をCodexから呼び出せるワークフローまたは保守スキルへ再構成しました。外部のSpec Kitを導入する`spec-kit-init`は本キットの基本機能から外し、必要なプロジェクトで公式手順を使います。 |
+| スキル | 13個のスキルと関連ファイルを提供 | 11個のスキルを、詳細説明、補助スクリプト、期待する出力まで含めて移植しました。プロジェクト用テンプレートは各プロジェクトで作成し、Web本文の抽出はCodexのWeb・ブラウザ・PDF機能、またはプロジェクト固有のツールで補います。 |
+| エージェント | 9個のClaudeエージェント定義を提供 | 9個のCodexカスタムエージェントへ変換しました。Claude向けに固定された利用モデルやツールの指定を外し、Codexのサンドボックスと承認機構に合わせた制約を加えています。レビューを担当するエージェントは読み取り専用で動作します。 |
+| 権限 | Claude固有の許可・拒否設定を提供 | Codex標準のサンドボックスと承認機構を優先し、グローバル`AGENTS.md`と任意の`safety-net`で補完します。Claude側の許可設定を、Codexであらかじめすべて許可する設定には変換しません。 |
+| プラグイン | Claudeのマーケットプレイスから導入できる15個のプラグイン候補と、その管理機構を提供 | 移植済みの基本機能に必須のプラグインはないため、プラグイン一覧と管理機構は配布しません。必要な機能は、Codex標準のツール、Codex用のスキルやプラグイン、各リポジトリ固有のツールから利用者が選択します。 |
+| Hook・自動化 | フォーマッター、文書作成時の制御、更新通知、ステータスライン、tmux連携などを提供 | `safety-net`だけを、利用者が任意で追加する限定的なHookとして再実装しました。コード整形は各リポジトリの設定、文書作成方針はプロジェクトの`AGENTS.md`、更新通知はリリースノートと事前確認用の変更計画で補います。Claudeの画面表示やターミナルに固有の機能は、Codexでは移植する必要がないと判断しました。 |
+| 更新・配布 | 本家の更新とバックアップの仕組みを提供 | Codexの設定と共有スキルの2つの保存先に対応し、ドライラン、管理対象の記録、変更前の状態保存、変更後の差異検出、アンインストール、ロールバックを備えた、事前確認を前提とする方式へ再実装しました。 |
+
+機能ごとの移植先、移植を見送った理由、代替方法は[Claude本家との詳細比較](upstream/assessments/0.78.1-porting-overview.md)を参照してください。本家と同じバージョン番号の主要部分を使用している場合、そのバージョンまでの全変更について判断が完了したことを表しますが、すべての機能が同一であることを意味しません。
+
+利用者へ配布するスキルとは別に、リポジトリ内の`.agents/skills/`には、本家の更新確認、移植、リリースなどで保守者だけが使うスキルがあります。これらは通常の利用者がインストールする対象には含まれません。
+
+## 導入方法
+
+前提として、Git、Node.js 22、Codexが必要です。追加の依存パッケージをインストールする必要はありません。
+
+### 1. リポジトリを取得する
 
 ```bash
 git clone https://github.com/yamazaki/codex-starter-kit.git
 cd codex-starter-kit
 ```
 
-実環境を変更しないdry-runで、full profile、日本語、optional safety-netを選びます。
+### 2. fullプロファイルとsafety-netの導入内容を確認する
+
+次のコマンドは、実際の利用環境を変更せず、日本語の`full`プロファイルと任意機能の`safety-net`を導入するための変更計画を作成します。この事前確認をドライランと呼びます。
 
 ```bash
 node scripts/install.mjs \
@@ -33,7 +63,11 @@ node scripts/install.mjs \
   --plan-output /tmp/codex-starter-kit-plan.json
 ```
 
-planの `ADD / UPDATE / REMOVE / SAME / PRESERVE / CONFLICT` と対象pathを確認し、問題がなければ明示的にapplyします。
+変更計画に表示される対象ファイルと`ADD / UPDATE / REMOVE / SAME / PRESERVE / CONFLICT`の判定を確認します。`CONFLICT`、意図しない`REMOVE`、不明なファイルがある場合は適用しないでください。
+
+すでに自分で管理しているグローバル`AGENTS.md`がある場合は、そのファイルを上書きせず、ほかのファイルだけを導入できます。ドライランのコマンドに`--preserve-existing-global-agents`を追加し、変更計画で`AGENTS.md`が`PRESERVE`と判定されることを確認してください。
+
+### 3. 確認済みの変更計画を適用する
 
 ```bash
 node scripts/install.mjs \
@@ -41,80 +75,72 @@ node scripts/install.mjs \
   --confirm-user-roots
 ```
 
-既にuser-ownedのglobal `AGENTS.md`がある場合は、上書きせず他のpayloadだけを導入する `--preserve-existing-global-agents` をdry-runへ追加できます。詳しいprofile、review、update、uninstall、rollback手順は[Getting Started](docs/GETTING_STARTED.md)を参照してください。
+変更計画の作成後に、配布元または対象ファイルが変化していた場合は、古い計画の誤適用を防ぐため処理が停止します。適用に成功すると、管理対象の一覧と変更前の状態が保存され、今後の更新・アンインストール・ロールバックに使われます。
 
-safety-netはinstall後も自動では信頼されません。CodexデスクトップアプリのSettings > Hooks、またはCodex CLIの `/hooks` で内容をreview・trustしてください。safety-netは補助的なguardrailであり、Codexのsandbox・approvalやrepository固有のCIを代替しません。
+### 4. safety-netの内容を確認して信頼する
 
-## 成り立ち
+`safety-net`はインストール後も自動的には有効になりません。CodexデスクトップアプリのSettings > Hooks、またはCodex CLIの`/hooks`で内容を確認し、利用する場合だけ「信頼する」を選択してください。`safety-net`は操作ミスを減らすための補助機能であり、Codexのサンドボックスや承認機構、リポジトリ固有のCIを代替するものではありません。
 
-本プロジェクトは、[cloudnative-co/claude-code-starter-kit](https://github.com/cloudnative-co/claude-code-starter-kit)をベースにしたCodex向けdownstreamです。本家の考え方や資産を出発点にしつつ、Claude Code固有のpath・format・runtimeをそのまま移植せず、Codexで意味のある機能を選んでCodex nativeの仕組みへ変換しています。
+プロファイルの選び方、英語版、更新、アンインストール、ロールバックについては[導入ガイド](docs/GETTING_STARTED.md)を参照してください。
 
-利用者向けのstarter kitだけでなく、本家の更新をどのように調査・判断・移植・除外したかを管理する仕組みも同じrepositoryに含めています。そのため、forkして独自拡張を加えながら、本家や公式Codex版の更新を追跡する運用にも利用できます。
+## 本家アップデートへ追随する仕組み
 
-## 素のCodex・Claude本家との違い
-
-| 比較対象 | codex-starter-kitとの違い |
-| --- | --- |
-| 素のCodex | Codex本体のmodel、sandbox、approval、native toolはそのまま使い、global AGENTS、共有Skills、custom agents、optional Hook、安全な導入・rollbackを追加する |
-| Claude本家 | Claude Code固有機能を完全再現せず、Codexで対応できるものを選んで変換し、不要または代替不能なものは理由を記録して除外する。同じversion coreでも全機能同一を意味しない |
-| 本プロジェクト独自 | Codex設定領域と共有Skills領域を分けて管理し、既存global AGENTSの保全、manifest・snapshot・stale拒否、upstream判断記録、公開前監査、feedback導線を追加している |
-
-配布用のSkillsとは別に、repository内の `.agents/skills/` にはupstream同期・移植・release等で保守者だけが使うSkillsがあります。これらは通常の利用者install対象ではありません。
-
-比較結果、profile別の効果、追加risk、推奨構成、将来の定量評価案は[素のCodexとの比較評価](docs/assessments/plain-codex-comparison.md)を参照してください。
-
-## 安全設計
-
-- dry-runとapplyを分離し、利用者が内容を確認したplanだけを適用する
-- unmanaged・modified file、stale plan、symlink、想定外の競合ではfail-closedに停止する
-- fileの所有状態をmanifest、変更前状態をsnapshotへ記録し、review可能なupdate・uninstall・rollbackを行う
-- Claude本家を自動mergeせず、reviewで移植対象と決まった変更だけをCodex向けに実装する
-- Claude固有機能は、Codexに対応する仕組みがなければ無理に再実装しない
-- version coreをupstreamに合わせ、Codex固有revisionを `-codex.N` で識別する
-
-## 本家アップデートへ追随する保守フロー
-
-次の流れは、通常のstarter-kit installではなく、保守者がClaude本家の新しいreleaseやcommitをCodex版へ反映する際の処理です。
+次の流れは、通常のスターターキットの導入手順ではなく、保守者がClaude本家の新しいリリースやコミットをCodex版へ反映する際の処理です。
 
 ```text
-本家更新の取得
-  -> read-only scan
-  -> 変更単位ごとの移植判断
-  -> 承認された変更のCodex向け実装
-  -> fixture・repository検証
-  -> version別判断記録とChangeLog
-  -> release gate
+本家の更新を取得
+  -> 読み取り専用で差分を調査
+  -> 変更単位で移植の可否を判断
+  -> 承認された変更をCodex向けに実装
+  -> テスト用環境とリポジトリ全体を検証
+  -> バージョンごとの判断記録と変更履歴を更新
+  -> リリース可否を確認
 ```
 
-本家との関係、`source` remote、version別の適用・除外判断は[Upstream relationship and version records](upstream/README.md)を入口に記録します。具体的な保守手順は[Maintainer Guide](docs/MAINTAINER_GUIDE.md)と[Upstream Update Runbook](docs/UPSTREAM_UPDATE_RUNBOOK.md)、利用・保守コマンドの一覧は[Command Reference](docs/COMMAND_REFERENCE.md)を参照してください。
+本家との関係、Gitリモート`source`の役割、バージョン別の適用・除外判断は[本家との関係とバージョン別の記録](upstream/README.md)から確認できます。具体的な保守方針は[保守者向けガイド](docs/MAINTAINER_GUIDE.md)、本家の更新へ追随する手順は[本家更新手順](docs/UPSTREAM_UPDATE_RUNBOOK.md)、利用・保守コマンドの一覧は[コマンドリファレンス](docs/COMMAND_REFERENCE.md)を参照してください。
+
+### 安全設計
+
+本家への追随と利用者環境への配布は、どちらも内容を確認してから明示的に適用できるように設計しています。
+
+- 事前確認と本適用を分離し、利用者が内容を確認した変更計画だけを適用する
+- 管理対象外または変更済みのファイル、古い変更計画、シンボリックリンク、想定外の競合を検出した場合は、安全のため処理を停止する
+- 管理対象の一覧と変更前の状態を記録し、内容を確認できる形で更新・アンインストール・ロールバックを行う
+- Claude本家の変更を自動的に統合せず、レビューで移植対象と決まった変更だけをCodex向けに実装する
+- Claude固有の機能は、Codexに対応する仕組みがなければ無理に再実装しない
+- 本家の各要件とCodex側の実装先を対応付けて追跡し、ファイル数や形式が揃っただけでは移植完了としない
+- バージョン番号の主要部分を本家に合わせ、Codex固有の改訂番号を`-codex.N`で識別する
 
 ## ドキュメント
 
 ### 利用者向け
 
-- [Getting Started](docs/GETTING_STARTED.md): profile選択、dry-run、apply、update、uninstall、rollback
-- [素のCodexとの比較評価](docs/assessments/plain-codex-comparison.md): 効果、限界、security境界、推奨構成
-- [Support](SUPPORT.md): 質問前の確認とsupport範囲
-- [Security Policy](SECURITY.md): 脆弱性を公開せずに報告する方法
-- [Contributing](CONTRIBUTING.md): Issue、Discussion、Pull Requestの入口
+- [導入ガイド](docs/GETTING_STARTED.md): プロファイルの選択、事前確認、本適用、更新、アンインストール、ロールバック
+- [素のCodexとの比較評価](docs/assessments/plain-codex-comparison.md): 本キットを追加する効果、限界、セキュリティ上の境界、推奨構成
+- [サポート](SUPPORT.md): 質問前に確認する内容とサポート範囲
+- [セキュリティポリシー](SECURITY.md): 脆弱性を公開せずに報告する方法
+- [コントリビューションガイド](CONTRIBUTING.md): Issue、Discussion、Pull Requestを使ったフィードバック方法
 
-### fork・保守者向け
+### フォーク・保守者向け
 
-- [Upstream relationship and version records](upstream/README.md): 本家との関係とversion別判断記録
-- [fork・customize](docs/FORKING_AND_CUSTOMIZATION.md): 公式Codex版とClaude本家を別remoteで追跡する方法
-- [Maintainer Guide](docs/MAINTAINER_GUIDE.md): upstream追随、判断、移植、releaseの方針
-- [Upstream Update Runbook](docs/UPSTREAM_UPDATE_RUNBOOK.md): 本家更新へ追随する具体的手順
-- [Command Reference](docs/COMMAND_REFERENCE.md): 利用・検証・upstream同期・公開コマンド
-- [公開・promotion手順](docs/PUBLICATION_PROCESS.md): privateからpublicへの安全な昇格
+- [本家との関係とバージョン別の記録](upstream/README.md): 本家との関係と、バージョンごとの適用・除外判断
+- [Claude本家0.78.1のCodex移植概要](upstream/assessments/0.78.1-porting-overview.md): スキル、エージェント、コマンド、ルール、権限、設定、プラグイン、各機能、配布基盤の対応状況
+- [フォークとカスタマイズ](docs/FORKING_AND_CUSTOMIZATION.md): 公式Codex版とClaude本家を別々のGitリモートで追跡する方法
+- [保守者向けガイド](docs/MAINTAINER_GUIDE.md): 本家への追随、判断、移植、リリースの方針
+- [本家更新手順](docs/UPSTREAM_UPDATE_RUNBOOK.md): 本家の更新へ追随する具体的な手順
+- [コマンドリファレンス](docs/COMMAND_REFERENCE.md): 利用、検証、本家との同期、公開に使用するコマンド
+- [公開・昇格手順](docs/PUBLICATION_PROCESS.md): 非公開リポジトリから公開リポジトリへ安全に反映する手順
 
 ### プロジェクト規範
 
-- [Governance](docs/GOVERNANCE.md)
+- [ガバナンス](docs/GOVERNANCE.md)
 - [用語集](docs/GLOSSARY.md)
 - [作業分類](docs/WORK_CLASSIFICATION.md)
-- [versioning](docs/VERSIONING.md)
-- [release process](docs/RELEASE_PROCESS.md)
+- [バージョン管理](docs/VERSIONING.md)
+- [リリース手順](docs/RELEASE_PROCESS.md)
 
-## License
+## ライセンス
 
-本プロジェクトは[MIT License](LICENSE)で提供します。利用、改変、再配布、商用利用が可能ですが、copyrightとpermission noticeの保持が必要です。upstreamおよび第三者資産の扱いは[NOTICE.md](NOTICE.md)を参照してください。
+本プロジェクトは、MIT Licenseで公開されている[cloudnative-co/claude-code-starter-kit](https://github.com/cloudnative-co/claude-code-starter-kit)を基にした派生プロジェクトであり、本リポジトリも[MIT License](LICENSE)で提供します。利用、改変、再配布、商用利用が可能ですが、本プロジェクトと本家の著作権表示および利用許諾文を保持してください。
+
+本家由来の内容は、自動的なコピーではなく、採用判断を経てCodex向けに変換しています。本家が参照している第三者製品や資料が、このリポジトリへ自動的に取り込まれるわけではありません。帰属と第三者資産の扱いは[NOTICE.md](NOTICE.md)を参照してください。

@@ -30,10 +30,17 @@
 | `upstream/source.json` | upstream URL、branch、受入基準commit |
 | `upstream/README.md` | 本家との関係、version別ledger・assessmentの入口 |
 | `porting/catalog.json` | pathから初期判断へルーティングするカタログ |
+| `porting/fidelity-contract.json` | upstream Skills・agents・commands・rules・config・featuresとCodex targetの意味保持・resource coverage契約 |
+| `porting/rule-map.json` | upstream rulesと配布AGENTSの対応 |
+| `porting/permissions-map.json` | Claude permission全項目とCodex enforcement boundaryの対応 |
+| `porting/config-map.json` | upstream config filesとCodex側の採否・代替 |
 | `distribution/catalog.json` | Codex利用者環境へ将来配布するfile mappingの正本 |
 | `LICENSE`, `NOTICE.md` | 本プロジェクトとupstream由来資産のlicense・帰属 |
 | `upstream/assessments/0.78.1-initial-baseline.md` | 初回baselineの機能単位評価とPORT候補 |
 | `upstream/assessments/0.78.1-non-adopted.md` | upstream 0.78.1で変換しなかった項目の処理内容・理由・再評価条件 |
+| `upstream/assessments/0.78.1-distribution-fidelity-audit.md` | Skills、agents、Hooksのupstream原文に対する意味的忠実度再監査 |
+| `upstream/assessments/0.78.1-plugin-dependency-audit.md` | upstream plugin catalogとSkills・agents・commands・featuresの依存関係監査 |
+| `upstream/assessments/0.78.1-porting-overview.md` | upstream 0.78.1全機能のCodex移植・再構成・DROP・検証の総覧 |
 
 ## 読み分け
 

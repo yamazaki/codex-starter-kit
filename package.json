@@ -1,6 +1,6 @@
 {
   "name": "codex-starter-kit",
-  "version": "0.78.1-codex.2",
+  "version": "0.78.1-codex.3",
   "private": true,
   "type": "module",
   "scripts": {

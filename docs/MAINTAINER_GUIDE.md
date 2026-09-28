@@ -21,6 +21,7 @@ Claude本家の更新を検知し、Codexでの価値と互換性を評価し、
 - Claude固有runtime、tool、Hook payload、model名、permissionをCodex仕様で再評価する。
 - `DROP`は未調査ではなく、理由と再評価条件を残す。
 - scan、plan review、PORT、release、公開を別の承認境界にする。
+- `ADAPT` routingを実装完了とみなさず、`porting/fidelity-contract.json`でsource files、required sections、target resources、alternative境界を確認する。
 
 ## 反復cycle
 
@@ -37,6 +38,8 @@ source fetch
 ```
 
 具体的なcommandと停止条件は[Upstream Update Runbook](UPSTREAM_UPDATE_RUNBOOK.md)、利用・検証・公開commandの索引は[Command Reference](COMMAND_REFERENCE.md)を参照する。
+
+現在のbaseline全体の変換先とDROP境界は[Upstream 0.78.1 Codex porting overview](../upstream/assessments/0.78.1-porting-overview.md)を入口に確認する。
 
 ## 優先順位
 
@@ -57,3 +60,9 @@ public Issue・PRは入力であり、受入判断そのものではない。変
 作業状態の公開正本は `docs/work/INDEX.md` と分類別recordである。private保守repositoryでは、長期案件やsessionをまたぐ案件について `internal/session-history/<work-id>/HANDOFF.md` と日付付き活動記録を併用する。
 
 public cloneにはprivate session履歴を持ち込まない。public Issue・Pull Request・Discussionを起点に作業する場合も、最初に分類と既存recordを確認し、確定した判断・検証結果は `docs/work/` へ反映する。privateからpublicへはallowlist exportと公開前検証を通した一方向promotionを行い、pushは独立した承認境界とする。
+
+## 意味的忠実度
+
+upstream Skill・agent・Hookを移植するときは、名称やformatだけでなく、目的、workflow、guardrails、output contract、supporting resourcesを確認する。Codexで不要な詳細は理由付きDROPにできるが、短い要約へ置き換えただけの状態をADAPT完了としない。
+
+Skillsは公式OpenAI documentationのprogressive disclosureに従い、共通workflowを`SKILL.md`、条件付き詳細を`references/`、deterministic処理を`scripts/`、出力用templateを`assets/`へ置く。Claude固有表現だけをprovider-neutralまたはCodex向けに変更し、必要resourceをbundleから落とさない。

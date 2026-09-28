@@ -14,6 +14,37 @@
 
 ### Removed
 
+## [0.78.1-codex.3] - 2026-09-27
+
+Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). This candidate corrects semantic fidelity defects in the Codex adaptation; it does not claim a newer upstream baseline.
+
+### Added
+
+- 11 adapted Skillsの18 supporting references・assets・scriptsをprogressive disclosure resourceとして復元
+- 13 Skills、9 agents、18 featuresをsource requirementとtarget resourceで結ぶmachine-readable fidelity contract
+- Skill section、supporting resource、agent workflow・output、feature adaptation boundaryを検証する回帰test
+
+### Changed
+
+- 11 upstream-derived Skillsのworkflow、制約、例、output contractを保持し、Claude固有command・pathだけをCodex向けに変更
+- 9 custom agentsの原文workflow、guardrails、review focus、output contractをTOML `developer_instructions`へ復元
+- Hook ADAPTを完全互換・native alternative・safe operational alternative・bounded reimplementationの別で明示
+- `pre-compact-commit`を機能非同等なADAPTから理由付きDROPへ再分類
+- safety-netを外部`cc-safety-net`完全互換とせず、監査済みのbounded Codex実装として範囲を明示
+
+### Fixed
+
+- path・名称・formatだけで意味的移植完了と判定していた検証不足
+- Skill referencesとagent output contractが配布物から脱落していた問題
+
+### Security
+
+- safety-netへ`git reset --merge`、destructive checkout、forced branch deletion、stash deletion、indirect recursive deleteの検出を追加
+- unconditional force pushを拒否しつつ、`--force-with-lease`は一律拒否しないよう境界を修正
+
+### Removed
+
+
 ## [0.78.1-codex.2] - 2026-09-27
 
 Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). SYNC-0003 confirmed that `source/main` had no changes after the accepted baseline.

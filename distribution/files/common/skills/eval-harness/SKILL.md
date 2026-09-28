@@ -1,13 +1,203 @@
 ---
 name: eval-harness
-description: Design a repeatable evaluation for an agent, prompt, or Skill using representative cases, captured outputs, deterministic checks, and explicit scoring criteria.
+description: Design formal capability and regression evaluations for Codex workflows, agents, prompts, or Skills using explicit graders and repeatable cases.
 ---
 
-# Evaluation harness
+# Eval Harness Skill
 
-1. Define observable success and failure before changing the prompt or Skill.
-2. Build a small representative case set with positive, negative, and boundary cases.
-3. Capture the run, tool trace, and produced artifacts in an isolated workspace.
-4. Prefer deterministic assertions; add rubric grading only for qualities that cannot be checked mechanically.
-5. Compare variants on the same cases and disclose variance, cost, and unsupported conclusions.
-6. Keep production credentials and data out of fixtures.
+A formal evaluation framework for Codex workflows, implementing eval-driven development (EDD) principles.
+
+## Philosophy
+
+Eval-Driven Development treats evals as the "unit tests of AI development":
+- Define expected behavior BEFORE implementation
+- Run evals continuously during development
+- Track regressions with each change
+
+## Eval Types
+
+### Capability Evals
+Test if the agent or workflow can do something it could not do before:
+```markdown
+[CAPABILITY EVAL: feature-name]
+Task: Description of what the evaluated agent or workflow should accomplish
+Success Criteria:
+  - [ ] Criterion 1
+  - [ ] Criterion 2
+  - [ ] Criterion 3
+Expected Output: Description of expected result
+```
+
+### Regression Evals
+Ensure changes don't break existing functionality:
+```markdown
+[REGRESSION EVAL: feature-name]
+Baseline: git SHA (or a /checkpoint milestone name)
+Tests:
+  - existing-test-1: PASS/FAIL
+  - existing-test-2: PASS/FAIL
+  - existing-test-3: PASS/FAIL
+Result: X/Y passed (previously Y/Y)
+```
+
+## Grader Types
+
+### 1. Code-Based Grader
+Deterministic checks using code:
+```bash
+# Check if file contains expected pattern
+grep -q "export function handleAuth" src/auth.ts && echo "PASS" || echo "FAIL"
+
+# Check if tests pass
+npm test -- --testPathPattern="auth" && echo "PASS" || echo "FAIL"
+
+# Check if build succeeds
+npm run build && echo "PASS" || echo "FAIL"
+```
+
+### 2. Model-Based Grader
+Have a separate instance (subagent) review open-ended outputs against a checklist:
+```markdown
+[MODEL GRADER PROMPT]
+Review the following code change and answer each question with YES/NO plus evidence:
+1. Does it solve the stated problem?
+2. Is it well-structured?
+3. Are edge cases handled?
+4. Is error handling appropriate?
+
+Verdict: PASS/FAIL
+Reasoning: [explanation]
+```
+
+### 3. Human Grader
+Flag for manual review:
+```markdown
+[HUMAN REVIEW REQUIRED]
+Change: Description of what changed
+Reason: Why human review is needed
+Risk Level: LOW/MEDIUM/HIGH
+```
+
+Note: statistical metrics like pass@k require running the same task k times independently. If you truly need them, implement an automated isolated run loop or repository-native eval runner, not manual bookkeeping in an interactive session.
+
+## Eval Workflow
+
+### 1. Define (Before Coding)
+```markdown
+## EVAL DEFINITION: feature-xyz
+
+### Capability Evals
+1. Can create new user account
+2. Can validate email format
+3. Can hash password securely
+
+### Regression Evals
+1. Existing login still works
+2. Session management unchanged
+3. Logout flow intact
+```
+
+### 2. Implement
+Write code to pass the defined evals.
+
+### 3. Evaluate
+```bash
+# Run capability evals
+[Run each capability eval, record PASS/FAIL]
+
+# Run regression evals
+npm test -- --testPathPattern="existing"
+
+# Generate report
+```
+
+### 4. Report
+```markdown
+EVAL REPORT: feature-xyz
+========================
+
+Capability Evals:
+  create-user:     PASS (attempts: 1)
+  validate-email:  PASS (attempts: 2)
+  hash-password:   PASS (attempts: 1)
+  Overall:         3/3 passed
+
+Regression Evals:
+  login-flow:      PASS
+  session-mgmt:    PASS
+  logout-flow:     PASS
+  Overall:         3/3 passed
+
+Status: READY FOR REVIEW
+```
+
+## Integration Patterns
+
+### Pre-Implementation
+```
+Define the evaluation for `feature-name` before implementation.
+```
+Store the definition in the repository's existing eval directory, or `evals/feature-name.md` when no convention exists.
+
+### During Implementation
+```
+Run the capability and regression cases for `feature-name`.
+```
+Record the current results and failures.
+
+### Post-Implementation
+```
+Generate the evaluation report for `feature-name`.
+```
+Generates full eval report
+
+## Eval Storage
+
+Store evals in project:
+```
+evals/
+  feature-xyz.md      # Eval definition
+  feature-xyz.log     # Eval run history
+  baseline.json       # Regression baselines
+```
+
+## Best Practices
+
+1. **Define evals BEFORE coding** - Forces clear thinking about success criteria
+2. **Run evals frequently** - Catch regressions early
+3. **Use code graders when possible** - Deterministic > probabilistic
+4. **Human review for security** - Never fully automate security checks
+5. **Keep evals fast** - Slow evals don't get run
+6. **Version evals with code** - Evals are first-class artifacts
+
+## Example: Adding Authentication
+
+```markdown
+## EVAL: add-authentication
+
+### Phase 1: Define (10 min)
+Capability Evals:
+- [ ] User can register with email/password
+- [ ] User can login with valid credentials
+- [ ] Invalid credentials rejected with proper error
+- [ ] Sessions persist across page reloads
+- [ ] Logout clears session
+
+Regression Evals:
+- [ ] Public routes still accessible
+- [ ] API responses unchanged
+- [ ] Database schema compatible
+
+### Phase 2: Implement (varies)
+[Write code]
+
+### Phase 3: Evaluate
+Run the repository's eval runner or the documented cases for `add-authentication`.
+
+### Phase 4: Report
+EVAL REPORT: add-authentication
+==============================
+Capability: 5/5 passed
+Regression: 3/3 passed
+Status: SHIP IT
+```

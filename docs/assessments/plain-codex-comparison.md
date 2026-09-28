@@ -1,7 +1,7 @@
 # 素のCodexとcodex-starter-kit適用時の比較評価
 
 - Assessed: 2026-09-21
-- Kit version: `0.78.1-codex.2`
+- Kit version: `0.78.1-codex.3`
 - Assessment type: 定性評価
 
 ## 結論

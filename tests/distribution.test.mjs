@@ -176,8 +176,8 @@ test("minimal, standard, and full profiles expand monotonically", (t) => {
   const standard = createPlan(catalogPath, roots, { profile: "standard", language: "ja" });
   const full = createPlan(catalogPath, roots, { profile: "full", language: "ja" });
   assert.equal(minimal.summary.ADD, 2);
-  assert.equal(standard.summary.ADD, 23);
-  assert.equal(full.summary.ADD, 26);
+  assert.equal(standard.summary.ADD, 56);
+  assert.equal(full.summary.ADD, 62);
   assert.ok(standard.changes.every((change) => full.changes.some((candidate) => candidate.id === change.id)));
 });
 
@@ -194,8 +194,8 @@ test("safety-net is explicit opt-in and renders an absolute hook command", (t) =
     language: "ja",
     components: ["safety-net"],
   });
-  assert.equal(withoutHook.summary.ADD, 23);
-  assert.equal(withHook.summary.ADD, 25);
+  assert.equal(withoutHook.summary.ADD, 56);
+  assert.equal(withHook.summary.ADD, 58);
   assert.ok(withHook.changes.some((change) => change.target === "hooks.json"));
 
   const applied = applyDistributionPlan(withHook, roots, { now: new Date("2026-09-21T07:00:50.000Z") });

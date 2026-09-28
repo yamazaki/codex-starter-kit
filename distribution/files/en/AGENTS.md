@@ -6,6 +6,29 @@
 - Treat file edits, commits, pushes, deployments, and external-service writes as separate actions.
 - Never record secrets in chat, source files, documentation, plans, or logs.
 - Run checks appropriate to the change, review the diff, and disclose anything left unverified.
+
+## Agents
+- Delegate only when the task justifies the overhead or benefits from isolation or parallelism.
+- Reconcile delegated findings yourself before changing code or reporting completion.
+
+## Anti-patterns
+- Verify APIs, commands, imports, and file paths before use.
+- Implement the requested scope; ask before adding adjacent features.
+- Do not claim completion before required checks pass.
+- Change approach or report a blocker after repeated failure.
+
+## Coding, performance, Git, and permissions
+- Validate external input, preserve useful error context, and add abstraction only when it reduces real complexity.
+- Prefer structured parsers and APIs over ad-hoc string handling.
+- Avoid repeated heavy startup or Hook work; cache, gate, or bound it when safe.
+- Inspect the full diff, keep commits focused, and never discard user changes without an explicit request.
+- Keep allowlists narrow and do not bypass safety Hooks by changing commands without approval.
+
+## Security and testing
+- Never expose secrets, credentials, or private working directories.
+- Validate URLs and do not access private networks, execute untrusted scripts, or install global tools without authorization.
+- Check authentication, file, and command boundaries before destructive changes; prefer least privilege.
+- Add focused tests, run narrow checks before broad checks, and report skipped or failing checks with residual risk.
 <!-- END CODEX-STARTER-KIT-MANAGED -->
 
 # User settings

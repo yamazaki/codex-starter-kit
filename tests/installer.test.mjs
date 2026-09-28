@@ -30,7 +30,7 @@ test("installer supports dry-run, apply, rerun, uninstall plan, and rollback in 
   assert.match(dryRun.stdout, /Optional component available but not selected: safety-net/u);
   assert.match(dryRun.stdout, /--component safety-net/u);
   assert.equal(fs.existsSync(path.join(home, ".codex")), false);
-  assert.equal(JSON.parse(fs.readFileSync(installPlan, "utf8")).summary.ADD, 23);
+  assert.equal(JSON.parse(fs.readFileSync(installPlan, "utf8")).summary.ADD, 56);
 
   const unconfirmed = run(["--apply-plan", installPlan, "--home", home]);
   assert.notEqual(unconfirmed.status, 0);
@@ -50,7 +50,7 @@ test("installer supports dry-run, apply, rerun, uninstall plan, and rollback in 
   assert.equal(applied.status, 0, applied.stderr);
   const manifestPath = path.join(home, ".codex", ".codex-starter-kit", "manifest.json");
   const installManifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-  assert.equal(installManifest.files.length, 23);
+  assert.equal(installManifest.files.length, 56);
 
   const rerunPlan = path.join(base, "rerun-plan.json");
   const rerun = run([
@@ -58,11 +58,11 @@ test("installer supports dry-run, apply, rerun, uninstall plan, and rollback in 
     "--home", home, "--plan-output", rerunPlan,
   ]);
   assert.equal(rerun.status, 0, rerun.stderr);
-  assert.equal(JSON.parse(fs.readFileSync(rerunPlan, "utf8")).summary.SAME, 23);
+  assert.equal(JSON.parse(fs.readFileSync(rerunPlan, "utf8")).summary.SAME, 56);
 
   const uninstallDryRun = run(["--uninstall-dry-run", "--home", home, "--plan-output", uninstallPlan]);
   assert.equal(uninstallDryRun.status, 0, uninstallDryRun.stderr);
-  assert.equal(JSON.parse(fs.readFileSync(uninstallPlan, "utf8")).summary.REMOVE, 23);
+  assert.equal(JSON.parse(fs.readFileSync(uninstallPlan, "utf8")).summary.REMOVE, 56);
 
   const uninstalled = run(["--apply-plan", uninstallPlan, "--confirm-user-roots", "--home", home]);
   assert.equal(uninstalled.status, 0, uninstalled.stderr);
@@ -73,7 +73,7 @@ test("installer supports dry-run, apply, rerun, uninstall plan, and rollback in 
     "--rollback", uninstallManifest.lastSnapshotId, "--confirm-user-roots", "--home", home,
   ]);
   assert.equal(rollbackUninstall.status, 0, rollbackUninstall.stderr);
-  assert.equal(JSON.parse(fs.readFileSync(manifestPath, "utf8")).files.length, 23);
+  assert.equal(JSON.parse(fs.readFileSync(manifestPath, "utf8")).files.length, 56);
 
   const rollbackInstall = run([
     "--rollback", installManifest.lastSnapshotId, "--confirm-user-roots", "--home", home,
@@ -96,7 +96,7 @@ test("installer includes safety-net only when explicitly selected", (t) => {
   assert.doesNotMatch(result.stdout, /available but not selected/u);
   const plan = JSON.parse(fs.readFileSync(planPath, "utf8"));
   assert.deepEqual(plan.selection.components, ["safety-net"]);
-  assert.equal(plan.summary.ADD, 25);
+  assert.equal(plan.summary.ADD, 58);
   assert.ok(plan.changes.some((change) => change.target === "hooks.json"));
 
   const applied = run([
@@ -137,7 +137,7 @@ test("installer preserves an existing unmanaged global AGENTS through install an
   ]);
   assert.equal(dryRun.status, 0, dryRun.stderr);
   const plan = JSON.parse(fs.readFileSync(installPlan, "utf8"));
-  assert.equal(plan.summary.ADD, 22);
+  assert.equal(plan.summary.ADD, 55);
   assert.equal(plan.summary.PRESERVE, 1);
   assert.equal(plan.summary.CONFLICT, 0);
 
@@ -146,7 +146,7 @@ test("installer preserves an existing unmanaged global AGENTS through install an
   assert.equal(fs.readFileSync(agentsPath, "utf8"), userGuidance);
   const manifestPath = path.join(home, ".codex", ".codex-starter-kit", "manifest.json");
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-  assert.equal(manifest.files.length, 22);
+  assert.equal(manifest.files.length, 55);
   assert.equal(manifest.files.some((entry) => entry.id === "global-agents"), false);
 
   const rerunPlan = path.join(base, "rerun.json");
@@ -156,12 +156,12 @@ test("installer preserves an existing unmanaged global AGENTS through install an
   ]);
   assert.equal(rerun.status, 0, rerun.stderr);
   const rerunSummary = JSON.parse(fs.readFileSync(rerunPlan, "utf8")).summary;
-  assert.equal(rerunSummary.SAME, 22);
+  assert.equal(rerunSummary.SAME, 55);
   assert.equal(rerunSummary.PRESERVE, 1);
 
   const uninstall = run(["--uninstall-dry-run", "--home", home, "--plan-output", uninstallPlan]);
   assert.equal(uninstall.status, 0, uninstall.stderr);
-  assert.equal(JSON.parse(fs.readFileSync(uninstallPlan, "utf8")).summary.REMOVE, 22);
+  assert.equal(JSON.parse(fs.readFileSync(uninstallPlan, "utf8")).summary.REMOVE, 55);
   const removed = run(["--apply-plan", uninstallPlan, "--confirm-user-roots", "--home", home]);
   assert.equal(removed.status, 0, removed.stderr);
   assert.equal(fs.readFileSync(agentsPath, "utf8"), userGuidance);

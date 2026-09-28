@@ -19,11 +19,14 @@ codex-starter-kitはClaude本家の自動mirrorではない。本家の目的と
 
 ## 現在のaccepted baseline
 
+- [全機能のCodex移植概要](assessments/0.78.1-porting-overview.md)
 - [0.78.1 ledger](ledger/0.78.1.md)
 - [初回baseline評価](assessments/0.78.1-initial-baseline.md)
 - [command対応](assessments/0.78.1-command-mapping.md)
 - [feature対応](assessments/0.78.1-feature-mapping.md)
 - [非採用項目と再評価条件](assessments/0.78.1-non-adopted.md)
+- [distribution意味的忠実度再監査](assessments/0.78.1-distribution-fidelity-audit.md)
+- [plugin依存関係監査](assessments/0.78.1-plugin-dependency-audit.md)
 
 今後のversionは同じ構成で索引へ追加する。
 

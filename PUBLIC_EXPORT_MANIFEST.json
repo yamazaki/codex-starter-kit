@@ -78,12 +78,12 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "98baa17c37270846c0277516269ff251942a025d840f32060a9c149dff52545c",
+      "sha256": "9c37a41355982c65520f35e5fcaef8d4dd1eabd083b505e8c66972032c62c638",
       "mode": "0644"
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "ad03366093756f0ef149f4155a38e014cccda634fe9341f6a05a87f5f7814069",
+      "sha256": "35a3c65aa7b8b4e58621eb67b27d59d3ab0422dd3d01321667f82d5bb6f9c2fb",
       "mode": "0644"
     },
     {
@@ -108,7 +108,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "fe9ff39e3294869ac1c1c64502e6ced51b7e8281a5be4e3679e575e6e95a49db",
+      "sha256": "335f360690c320fd5e507d929da84cf100963ee0cc5c270c7d49f6b0bf81b8d6",
       "mode": "0644"
     },
     {
@@ -123,12 +123,12 @@
     },
     {
       "path": "VERSION",
-      "sha256": "4b78df5a11461e2ca632c0eddf0e37ee3cdfc5ae70a3b05c71cca9f7f490d06c",
+      "sha256": "80087b7b520168dc461c13240f2f7a616524c9053c3f5b2ac882910dab5d9956",
       "mode": "0644"
     },
     {
       "path": "distribution/catalog.json",
-      "sha256": "67a0bac4f148ecc56b3420ad53b4021cf4493a31e78c1ee8f348aac3ce981a6e",
+      "sha256": "adb5c35bbd9083c541fb28b1bf1ec48c32823e9a50e0fa52f1f3834ccee56baf",
       "mode": "0644"
     },
     {
@@ -143,47 +143,47 @@
     },
     {
       "path": "distribution/files/common/agents/architect.toml",
-      "sha256": "b6f458da9a1c2f859c3f45e6c938011c15e69f370cdcb95ea53c2e19eba5be86",
+      "sha256": "555d086bef9853c9b86788bdd122a309e2dcb3d13986173c6fd5b218b8c60d96",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/build-error-resolver.toml",
-      "sha256": "6063db06bf58b6fa9f22f5f8d8ccac99b81aaac61d0decd05d047a9326e78cc7",
+      "sha256": "b3239b9ad3ab96de425423f9791ad6e76910351e176575202fb294c74250ecae",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/code-reviewer.toml",
-      "sha256": "86e1254ade931f78f69c237004ddfb6bf4c3c6a948ba8e4d6a97ca580b3d71da",
+      "sha256": "fe511abf1900908c7f4bfb5ecbdd3702b8fcf5547fe1fc89aa1769ad08e799cc",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/docs-updater.toml",
-      "sha256": "9e5446a4cc38eb68db0f3d3ff230a95dfe14ea3d0d16e1ff1b801db106157e60",
+      "sha256": "103b169e472e9597771de1d65e1ecdf4ad196915a7b5055b55f91d65e25f3e10",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/e2e-runner.toml",
-      "sha256": "ea953d1f4c9ca48aea5cdb0516330fa292e62c983c30b6c79f33138b1500fb8c",
+      "sha256": "9db550ac4ae5a6b310b4696de12d34a45a7911d5304bbc45faf95c1ca7a332c5",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/planner.toml",
-      "sha256": "0aa97a33984821e3e91dea570e7ed258536a7749ef76c2b77e8f118964b4f0bf",
+      "sha256": "a972f0590601c56106ac5d8aca07ea9c88b70a5532cd228aef0e499470ff4662",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/refactor-cleaner.toml",
-      "sha256": "877f58378c220993d5bd3ea9d6f2dae717985e388df4298434f10701a13130f2",
+      "sha256": "cfe83c4dfc66e05607a24338eeb72a7a730cfa811d72ec1d51e4e9a0fca6dea9",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/security-reviewer.toml",
-      "sha256": "4690bdfc493f01abaafebe2a04ec547f894496de522acce98b50a462d84692d0",
+      "sha256": "2562c6441af8731d108471a0a2b104409b39321b21f47ab4b801e7c5645b287b",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/agents/tdd-guide.toml",
-      "sha256": "7faa6b0913193f38bf7a779dbf75ed2da9e979b52d31b2e09174385419c4cd3c",
+      "sha256": "2cc8a8686eb938d4f63f60c3fd3bca4d15591873d13d735e7ccc91481527cbcf",
       "mode": "0644"
     },
     {
@@ -193,12 +193,27 @@
     },
     {
       "path": "distribution/files/common/hooks/safety-net.mjs",
-      "sha256": "4dd163f5bbcae3679f5e52bc5ae6ffc61dde4f55c3374d4faea37dbfe28512f5",
+      "sha256": "8a5260a2e620e2881bbf2c3991259b575592a073c263c8efd383a49578b2c6be",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/backend-patterns/SKILL.md",
-      "sha256": "1be8ac1eacffae36d4148dad62702bba70bedb6842c6034ab01090a5c7495dd5",
+      "sha256": "f2e6f38d873d07801b019835f64c672c2a9256b73ebae86666dd59632b48781f",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/backend-patterns/references/api-patterns.md",
+      "sha256": "cae5bdbc68c1a5a698b2430b34f452254244cfbe9a219f162c410b0e63cd49d0",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/backend-patterns/references/database-caching.md",
+      "sha256": "c67de5e20d36b4e3cb65e65b4f23be47102188d7f4e7551d511c9b455fdd8868",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/backend-patterns/references/error-auth-infra.md",
+      "sha256": "774fe9a3ca8856a6da59e190fa5bb97b885180854b80bf793f5a38068c3c3f43",
       "mode": "0644"
     },
     {
@@ -208,12 +223,27 @@
     },
     {
       "path": "distribution/files/common/skills/clickhouse-io/SKILL.md",
-      "sha256": "4707c059d97664fedc866bf59e206321a20ef5d8e106664287ef565fe21a54fb",
+      "sha256": "23453005e3c105847452c586b071036b7f0f6484fb912489b378e50da0dcb68b",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/clickhouse-io/references/data-pipeline.md",
+      "sha256": "073d73be59ba0df6e6f72bcf4c628e3217eba88d83217fce79884180e0f7c068",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/clickhouse-io/references/query-optimization.md",
+      "sha256": "b1f52b33fadb6eeec2531d4e7847da53d8a5e32efe8cd4b0c1beecc68eea64c0",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/clickhouse-io/references/table-design.md",
+      "sha256": "fc44d2200d61f88f29af0caf2d85666c9c00960d5c18f145acbd3350225af409",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/cloudnative-writing-baseline/SKILL.md",
-      "sha256": "74147f274791fa3f7bfdcae4e3fefd0ea09a45a29323cb5c06be50de4db307d5",
+      "sha256": "d1d02cb9246e26763509d7775c8d14fdbb852ba4448de5ac4b940fd02d8f6b43",
       "mode": "0644"
     },
     {
@@ -223,22 +253,57 @@
     },
     {
       "path": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
-      "sha256": "668586170676b4c8634a0fd6ef9494c226c51944cb7c7e34fa72f70994a63609",
+      "sha256": "3810b1b318d2045ad82717e505096aef5153147260290a2f993889a243afb04d",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/coding-standards/SKILL.md",
-      "sha256": "55532d66d4b7eb559bf020717187a2ded1838cdabe026cac645584de2464b068",
+      "sha256": "291a99e26c239546f33b4b2a7fa222704d4450458310972113bf5ce47ad5768e",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/coding-standards/references/api-testing-patterns.md",
+      "sha256": "4d3fd442c10382934ae64a6b552979bb6189fbb9480693a77773ac95f85325ed",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/coding-standards/references/react-patterns.md",
+      "sha256": "e9acb1ae8d56d0bbe41ae8f03f504f0ef0c235b59b203d37175c6c1ebca982cd",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/coding-standards/references/typescript-patterns.md",
+      "sha256": "39ff1e4708fc329036652fd4c27f6e5bb761cc6e7e732289527be7a4342e3e31",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/eval-harness/SKILL.md",
-      "sha256": "5e59b2dd694e73b4117b05251c5592219ffde19ffc3dd193a47304efa1847077",
+      "sha256": "0f12f97852cf9894e6ff2ba04de544933e6605ea88d057a8665ee625860495f9",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/frontend-patterns/SKILL.md",
-      "sha256": "1d3aa22e886019ddb1e6ed66c1c6179bc85662ced00ecc01122f141cfb890686",
+      "sha256": "7473d76ac61d860315ac12df1b881bf1c97696ffe772f233963303a215b59790",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/frontend-patterns/references/component-patterns.md",
+      "sha256": "8d9ddcd241a7cfb5f3dd4610341c55bef330ef92a15d1f8b197bca7be4779992",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/frontend-patterns/references/forms-errors-a11y.md",
+      "sha256": "00b5ee4b6471e21825ca95c072606a6033c4501e315561256a24379ad6df9aef",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/frontend-patterns/references/hooks-patterns.md",
+      "sha256": "d5f20e507e65b3e8cc6effaaa0f8985256a9921a6ad86e3075f571b684f86003",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/frontend-patterns/references/state-performance.md",
+      "sha256": "5a11b5d72d0dde247913fda53144d64bd3b17f3c99d5d743b031a9131451abc7",
       "mode": "0644"
     },
     {
@@ -248,12 +313,22 @@
     },
     {
       "path": "distribution/files/common/skills/prompt-patterns/SKILL.md",
-      "sha256": "1f87b135d41a0993081dcc9b505509ce0ea828bb23612e379d51efab215f44b7",
+      "sha256": "2d88715fd06b4b9245acceb41197cfb1fabd7bab96c9ce3ef6c0cb3ccf084a5e",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/secure-change-review/SKILL.md",
-      "sha256": "88ee944b03f6b119d77a52175ae332252c66fb434418d35d7ddabb0b2f0db2f9",
+      "sha256": "5cd5575275c38e4e75418cf5cadeade8fff5c46d1b509e2c987348784ac64d4b",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/secure-change-review/assets/security-checklist.md",
+      "sha256": "4c5679a3af29540204f70f5e2c0f95efcecd84ed73f796eea23aca33adbf8f9f",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/secure-change-review/references/vulnerability-patterns.md",
+      "sha256": "f8c3c5411f7555d8f1e6870aad5de43a31076da30a1d8051bdf43f105e83d555",
       "mode": "0644"
     },
     {
@@ -262,28 +337,133 @@
       "mode": "0644"
     },
     {
+      "path": "distribution/files/common/skills/starter-kit-workflows/SKILL.md",
+      "sha256": "abcc7ccd52ef2e4dfcebd711be6102d1d8dcec201346e02a05c6f6b7f8909d10",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/build-fix.md",
+      "sha256": "ae7bbc4f311e0303c134b1285f772669b818b4bf5817a0f7d2915e5aef56e209",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/checkpoint.md",
+      "sha256": "03374d18c8f68028d3c69fc8e80735fbc07d6b8ba337fe2003c26d032608e18a",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/e2e.md",
+      "sha256": "1ba49b63481b0057749d00582b699f453ebf0a951f347ba0ab1301b188bfb0c3",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/eval.md",
+      "sha256": "0e0fce603df6fd1ff1c8750fecdd88321ab0626d19f98d60f59558cc0b4c3155",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/handover.md",
+      "sha256": "0f2671b1ce77437d3cad96f57aece1e50cc4ff6081723a2ae5d3910b4abf184e",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/learn.md",
+      "sha256": "2f4d59aaf04a154d8e44c12ecb90829a993f237068b7e55d0126abfb25258bd7",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/orchestrate.md",
+      "sha256": "dda7abe0aa9fe18da1dbdc2fbc9c8993fdb9d7536acba72cf5d4f512281b4884",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/oss-analyze.md",
+      "sha256": "fd9363c56bf8a51ff84f6ebec69f70599d7f38680805b7d59c5b07abe1d72734",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/plan.md",
+      "sha256": "379ad07eb9d1f18c8d3fa18853c39345a9ad04ff69dd575c1c07327c65bf3b86",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/refactor-clean.md",
+      "sha256": "7dabebbd1b6ab30c200a5bf8730001d37fb3b68cd622babf185775ce0820be01",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/research.md",
+      "sha256": "28f05c9b588ae5204e0f8917d8aa7ffcbb2a60ca3eb98311fa48f2e04ec793ef",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/tdd.md",
+      "sha256": "f497708d23404899e0987ed03442f6e1610ff2ed4e51b4c1465a549c65f38a94",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/test-coverage.md",
+      "sha256": "6531b6af9476a0da940230083ca298254210b06aa5c8aa6a1ee93e83f8d456df",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/update-docs.md",
+      "sha256": "75497c83d250d560821878d1b4c381487132c6ca15feaa9364b454b1396609ba",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/verify.md",
+      "sha256": "6b672dab35b2214ad2c34574b67ddb433b7e8ff11b886784e3ac724651a410e9",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/web-article.md",
+      "sha256": "adc3d34b0fdc37d9146d3c08884e262a7aa6624443cba2d9df6605e1135b020e",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/web-source-review.md",
+      "sha256": "636e22ae085dd354a623c21b10eb2a3150ac540f68c467929b4b741888ef0749",
+      "mode": "0644"
+    },
+    {
       "path": "distribution/files/common/skills/strategic-compact/SKILL.md",
-      "sha256": "dc3377b5a8a17ba6682e60304f4da527bfccf22e0f5e8eee03e7cea71ab46226",
+      "sha256": "c6a8f0bcbea365334888d4179279f0809e0c13321647ea9f4e2a7021294bd0a7",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/tdd-workflow/SKILL.md",
-      "sha256": "4b0007529b2017df30da33bc26698bfa6639407229806bec4cf5fb1bdb2d4c26",
+      "sha256": "a038d7700b8342cc5864eb96da1b359b605a466950c149b73b06be96f0559b78",
       "mode": "0644"
     },
     {
+      "path": "distribution/files/common/skills/tdd-workflow/references/test-templates.md",
+      "sha256": "a5398e61797ac44e4f05756191169a5598b9babf20a93c024eac24b2e3d929af",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/tdd-workflow/references/testing-mistakes.md",
+      "sha256": "330c36a1ee1662ea78e9baa210dc825096e3fe5e79cbdc206a38cabca3b6f005",
+      "mode": "0644"
+    },
+    {
+      "path": "distribution/files/common/skills/tdd-workflow/scripts/check-coverage.sh",
+      "sha256": "be073b5c7d15e7d405ccb493f1a17fc8fccb8bb316ab6e0b660d00e2cc5cc434",
+      "mode": "0755"
+    },
+    {
       "path": "distribution/files/common/skills/verification-loop/SKILL.md",
-      "sha256": "2c2e61526a18b14210dc5e97567156132a0926c21407a0ead3329d25ed536c13",
+      "sha256": "3a5427b2c67255b265dd4947efec2c1944a5fc6f432184f67343b7b7ac4baa27",
       "mode": "0644"
     },
     {
       "path": "distribution/files/en/AGENTS.md",
-      "sha256": "85b0bf7f23b6c137fc5df9696dde50791023044bc3560ed30c448ac8cb4025a5",
+      "sha256": "15741babc49144b46f627c99548381356b773e1569d4996346bbc55978fe3079",
       "mode": "0644"
     },
     {
       "path": "distribution/files/ja/AGENTS.md",
-      "sha256": "a7a05b3194c0d4e889c50a799d11629c1783ea3afaf85480e0379993cfee6051",
+      "sha256": "63db5b49fac68c30f93f5d83033ca83e0e74a1b2e545ee7e0ee1cd39dfe4f199",
       "mode": "0644"
     },
     {
@@ -323,17 +503,17 @@
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "8c5555bf9a74dda93fd53c12070212515d5e11fb877d783e82358b03dc916f81",
+      "sha256": "285a5505df7bd8db20071732cdfd6e892e693990b3b6af67ed7cbfaaa1ca072d",
       "mode": "0644"
     },
     {
       "path": "docs/MAINTAINER_GUIDE.md",
-      "sha256": "7d1ca67aebf05e2f846e800de1d4e67bd48a4e2e506ce04905adcad374d23988",
+      "sha256": "2d26e0f2788db3c22f95756cca1171b5cc708f24d5ce46125deb16a6e487725e",
       "mode": "0644"
     },
     {
       "path": "docs/PORTING_POLICY.md",
-      "sha256": "fffe62d11c81502cfa3855d965d291aef0b18fdd37d8ed2b2741f07c531e9250",
+      "sha256": "5de57be04951014bc1e975e521ff26df0185e4128377c60662bec0ba6f166833",
       "mode": "0644"
     },
     {
@@ -373,7 +553,7 @@
     },
     {
       "path": "docs/assessments/plain-codex-comparison.md",
-      "sha256": "2f2e93f7ff78069354eafa9b186b51cccc053de797960224fa7e577c79be9fbc",
+      "sha256": "0885fec37a713ca10d671f97062e378e21c2985fd004da5d63d94e36309df034",
       "mode": "0644"
     },
     {
@@ -397,8 +577,13 @@
       "mode": "0644"
     },
     {
+      "path": "docs/releases/0.78.1-codex.3.md",
+      "sha256": "b2fbbb6fbdd5a5868f2f4fe0d7720d4675e5075ae7a84fdb5dd09cc14e68bdae",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/INDEX.md",
-      "sha256": "ec7a3d8625c2bf692ec3e3e251790659f97c5ef12562cba169b8dc5a6ec7b813",
+      "sha256": "d1acc32985b6c51b597c682f2ce07a6e5311e14c965984240bb9f9fd6aa872ea",
       "mode": "0644"
     },
     {
@@ -462,6 +647,16 @@
       "mode": "0644"
     },
     {
+      "path": "docs/work/maintenance/MNT-0008-semantic-fidelity-contract.md",
+      "sha256": "234c7ee761f7bacada0e2b895c309f92904059bbd6827aea83e077e94c4d55c1",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0009-full-surface-fidelity-contract.md",
+      "sha256": "3fba88733c44333231034dd5c31926df1cb1421ae1c9f328bfa7ed80d0ee2459",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/port/PORT-0001-distribution-safety-foundation.md",
       "sha256": "00f9ec36db2b1f3b30683529adad005a6caf894bfd68cddbbe2d43876576f2aa",
       "mode": "0644"
@@ -473,12 +668,12 @@
     },
     {
       "path": "docs/work/port/PORT-0003-skills-agents-commands.md",
-      "sha256": "a2817f05514127cf80886ce5ae7affee9d69d864e2fae66c6c1ff5b9df924381",
+      "sha256": "394d6cb3ccc494db7b9a9cf8c9268068ba79b87b081631aea4f16ace096bb066",
       "mode": "0644"
     },
     {
       "path": "docs/work/port/PORT-0004-hooks-optional-components.md",
-      "sha256": "6f748fc13bc0c505ea3d7e0321a565ef6bfac43c777e960fb5d9284d4c4cabc0",
+      "sha256": "6df9b0b760ff7c6a09793535b9b2000e39b0c2b1e762204ad86e7bdbd0766582",
       "mode": "0644"
     },
     {
@@ -489,6 +684,31 @@
     {
       "path": "docs/work/port/PORT-0006-kit-feedback-skill.md",
       "sha256": "63541fbddae56b99a215efa2afb6dea40c3fc343b70f411d4c40dff8763822a0",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0007-skill-fidelity-reconstruction.md",
+      "sha256": "d2e5fa0b9fb5b643cdd235e278ccca076fd03c2719fe7221c4efd63f0fbe4dc2",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0008-agent-fidelity-reconstruction.md",
+      "sha256": "3befd19b4ef97d7954182bfa17ff8055dd222e77d97123be9c78ebcb10bed5b6",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0009-hook-fidelity-reclassification.md",
+      "sha256": "8d862669ba707ec597948c488f950593353233bb898bff9538bd0a71edae41aa",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0010-command-workflow-fidelity.md",
+      "sha256": "438eca749a01c86f40ad9efb309f6d70cdb3b3586f20b3b42cace4d813766fee",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/port/PORT-0011-rules-permissions-fidelity.md",
+      "sha256": "d1a2f61daa6f988d2af61e135a71379f5a76e71b22059feba0fdbf8418a88140",
       "mode": "0644"
     },
     {
@@ -508,7 +728,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "cea816b878bbbecb15cbbd7039c7de3cc9977f7df65aa4ff70a33c2e9c84350c",
+      "sha256": "a885150ee1ee99119873b189296b86fc9cdc5b28f1b63ef5166d5edeb0de75f8",
       "mode": "0644"
     },
     {
@@ -527,8 +747,13 @@
       "mode": "0644"
     },
     {
+      "path": "docs/work/sync/SYNC-0004-upstream-distribution-fidelity-audit.md",
+      "sha256": "d1bacd7028299cc828ef3739fb31ed30a6cf85480108decb1b7b6881e93e1e6f",
+      "mode": "0644"
+    },
+    {
       "path": "package.json",
-      "sha256": "de9f0fff5fcde82adcfad2640cccf87ae2e1dbc949c6541b3b4a32d916121049",
+      "sha256": "aba2b0bbf556fa0603a7a00788b10280a734e89cfb5b11af0e5d7e5f53b52cfd",
       "mode": "0644"
     },
     {
@@ -538,12 +763,32 @@
     },
     {
       "path": "porting/command-map.json",
-      "sha256": "e4945e30534318a5f8ed409472adcb74478816892a13971868d4f590f4d58aaa",
+      "sha256": "0b221dafcba1fe3c7cc787117df04ac626d6cf56ccb6246a247a0065edcfd3d0",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/config-map.json",
+      "sha256": "a1471f9921388ece794bfa88f24f26821ed9d27e672f6f09966558b696095e24",
       "mode": "0644"
     },
     {
       "path": "porting/feature-map.json",
-      "sha256": "4f138ee982f4e777dcd58f1a6ad9714251319feb869e311ade06b2e0414625ec",
+      "sha256": "579fd1a27e9934b03ad7292e951ff191ea9c9b4f2222de9ebf8d86750e520e06",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/fidelity-contract.json",
+      "sha256": "9dff40be84d7dd3a37386b9bddd09c007f153e6bcc98b2b2fd329925a32fb34d",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/permissions-map.json",
+      "sha256": "116a5b120bbeb023b3dd78f053406956902b4de74a46566f9a9e36c39f8cc2b4",
+      "mode": "0644"
+    },
+    {
+      "path": "porting/rule-map.json",
+      "sha256": "b5e3e1e1f5e3867bbf449d3dc97b3e7f06adddf11cbd19a937dd07cba84d3aff",
       "mode": "0644"
     },
     {
@@ -569,6 +814,11 @@
     {
       "path": "release/0.78.1-codex.2.json",
       "sha256": "581b2caab9e77cb878e20e93950b7fce77bb61d3c7e33ca40f8a1a68861bdcef",
+      "mode": "0644"
+    },
+    {
+      "path": "release/0.78.1-codex.3.json",
+      "sha256": "5d74bcb539bdd213c0093945a62b4d2389f7d24ee68c071e4e8f724e976b18a0",
       "mode": "0644"
     },
     {
@@ -638,7 +888,7 @@
     },
     {
       "path": "scripts/verify-repository.mjs",
-      "sha256": "18ed08b4b22bdb3f46d8aa3df09ada85745a59ead1ecbb9b793efd54df94c83f",
+      "sha256": "0f47950a95b5ef72de37193832e38cbab48d7620152919135cf8c545d2e59ab3",
       "mode": "0644"
     },
     {
@@ -653,7 +903,12 @@
     },
     {
       "path": "tests/distribution.test.mjs",
-      "sha256": "038ce7b9874a76575c09b4442b03d78eb06bc712926eec91fb2607d8c758a0c6",
+      "sha256": "4e68ee555486bb0e4170aabfb28b12d08e43aaf4613af21903dc67bb2206d27c",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fidelity.test.mjs",
+      "sha256": "e6811cb5db737feab59ed550a5948ce889da5babf10067543f9f8d20ece02567",
       "mode": "0644"
     },
     {
@@ -663,7 +918,7 @@
     },
     {
       "path": "tests/installer.test.mjs",
-      "sha256": "95e22fb03da8dff19ee2c273f11dd36ab918dd5750ea4f665ac200ecaa27d75f",
+      "sha256": "b325bc82416285df6fdbe38b5f1191945bd4ff4bde1c0098101d3b760eb0dbf2",
       "mode": "0644"
     },
     {
@@ -678,7 +933,7 @@
     },
     {
       "path": "tests/safety-net.test.mjs",
-      "sha256": "7449c3fdaca2f6023a5d55b1e20f625ffb882347d38cedea04a125f3d96296e6",
+      "sha256": "70f0842eae52760f8efd742a1ec00546487d36881961a80d80de2532e788d413",
       "mode": "0644"
     },
     {
@@ -693,7 +948,7 @@
     },
     {
       "path": "upstream/README.md",
-      "sha256": "dd8b2a33ae631db690079242f83ec3e0b04b5d7a1ab3f121733104bd605e88ec",
+      "sha256": "7c5c728ea097f9616cb9b68be2fcae371e3e507c33c9ec6dfcc722182fb64643",
       "mode": "0644"
     },
     {
@@ -702,8 +957,13 @@
       "mode": "0644"
     },
     {
+      "path": "upstream/assessments/0.78.1-distribution-fidelity-audit.md",
+      "sha256": "43eb21f3374149b305e56b418a50e075712309df95fd6a17a523044f29b7370d",
+      "mode": "0644"
+    },
+    {
       "path": "upstream/assessments/0.78.1-feature-mapping.md",
-      "sha256": "186deed4f9cf310f1c0afbfc647041f09e1f22c396b7b1effa25d0fc6e8d3fd1",
+      "sha256": "52e272dd7a009e9d8bbc02a2c2a2c935691d1b3c5093dff6c3e9d8528002629a",
       "mode": "0644"
     },
     {
@@ -717,8 +977,18 @@
       "mode": "0644"
     },
     {
+      "path": "upstream/assessments/0.78.1-plugin-dependency-audit.md",
+      "sha256": "5eb5e507ace229aa6e5396d7154418417b44071be0f20c50a6f45497b9201963",
+      "mode": "0644"
+    },
+    {
+      "path": "upstream/assessments/0.78.1-porting-overview.md",
+      "sha256": "739715e191c0a564184cf3fba1e98e4c978ecc23de7e801e4b38c27a6be1b9b0",
+      "mode": "0644"
+    },
+    {
       "path": "upstream/ledger/0.78.1.md",
-      "sha256": "c0bacd1850136a800ec3b4b752a5b5469523ad55721ffe9aa8232c0257ff58fb",
+      "sha256": "ed75ace8cfc793fe3607acdd2b1984df2548d3bd6ad3a482ab930c8ffa50ed20",
       "mode": "0644"
     },
     {

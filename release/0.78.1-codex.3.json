@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate",
+  "releaseVersion": "0.78.1-codex.3",
+  "releaseDate": "2026-09-27",
+  "acceptance": {
+    "ownerAccepted": false,
+    "acceptedDate": null
+  },
+  "upstream": {
+    "version": "0.78.1",
+    "commit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+    "range": "no upstream changes after the accepted 0.78.1 baseline",
+    "preReleaseScanChanges": 0
+  },
+  "codexChanges": {
+    "semanticFidelityReconstruction": true,
+    "skillSupportingResources": true,
+    "agentWorkflowAndOutputContracts": true,
+    "featureAdaptationBoundaries": true,
+    "semanticFidelityContract": true,
+    "boundedSafetyNetExpansion": true,
+    "fullSurfaceFidelity": true
+  },
+  "distribution": {
+    "profiles": ["minimal", "standard", "full"],
+    "languages": ["ja", "en"],
+    "optionalComponents": ["safety-net"],
+    "preserveExistingGlobalAgents": true
+  },
+  "verification": {
+    "testsPassed": 47,
+    "repositoryVerifier": true,
+    "linkVerifier": true,
+    "publicContentVerifier": true,
+    "semanticFidelityContract": true,
+    "skillValidator": true,
+    "isolatedInstallLifecycle": true,
+    "primaryDryRun": true,
+    "primaryApply": true,
+    "realCodexDiscovery": true,
+    "realHookTrustReview": true,
+    "threeOsCi": true,
+    "secretScannerPreflight": true,
+    "ownerReview": true
+  }
+}

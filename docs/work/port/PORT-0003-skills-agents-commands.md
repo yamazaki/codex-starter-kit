@@ -47,6 +47,8 @@ Skill・agent mappingをcatalogから除外してplanを作成し、PORT-0001の
 
 ## Result
 
+> Skills・agentsの初回実装は `SYNC-0004`で意味的忠実度不足と判定され、`PORT-0007`・`PORT-0008`・`MNT-0008`で再実装された。現行の正本は各後続recordと`porting/fidelity-contract.json`である。
+
 - 配布用maintenance SkillはMNT-0005で `kit-maintenance`から`codex-starter-kit-maintenance`へproduct namespaceを明確化した。
 - Skill移植を先行し、standard/fullへ11 Skill、fullへ追加3 Skillをcatalog登録した。
 - `security-review` はCodex Security pluginとの混同を避けるため `secure-change-review` として再設計した。

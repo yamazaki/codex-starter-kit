@@ -4,7 +4,7 @@
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
-| REL-0004 | RELEASE | codex-starter-kit初回公開 | in_progress |
+| REL-0004 | RELEASE | codex-starter-kit初回公開 | blocked |
 
 ## 完了
 
@@ -17,6 +17,7 @@
 | SYNC-0001 | SYNC | upstream control基盤の整備 | complete |
 | SYNC-0002 | SYNC | 初回upstream baselineの機能単位評価 | complete |
 | SYNC-0003 | SYNC | 初回公開前のsource再確認 | complete |
+| SYNC-0004 | SYNC | upstream配布資産の意味的忠実度再監査 | complete |
 | MNT-0001 | MAINTENANCE | 公開preflight・export・source remote整備 | complete |
 | MNT-0002 | MAINTENANCE | 既存global AGENTSを保持するinstall経路 | complete |
 | MNT-0003 | MAINTENANCE | feedback Skillのnamespace明確化 | complete |
@@ -24,12 +25,19 @@
 | MNT-0005 | MAINTENANCE | maintenance Skillのnamespace明確化 | complete |
 | MNT-0006 | MAINTENANCE | release Skillの正式名称化 | complete |
 | MNT-0007 | MAINTENANCE | Windows checkoutとfile mode互換性 | complete |
+| MNT-0008 | MAINTENANCE | semantic fidelity contractと回帰検証 | complete |
+| MNT-0009 | MAINTENANCE | 全upstream surfaceのfidelity contract拡張 | complete |
 | PORT-0001 | PORT | 配布境界と安全な適用・rollback基盤 | complete |
 | PORT-0002 | PORT | AGENTS・profile・localizationのCodex化 | complete |
 | PORT-0003 | PORT | repo Skills・custom agents・commandsの再編 | complete |
 | PORT-0004 | PORT | Hooks・optional componentの個別採否 | complete |
 | PORT-0005 | PORT | installer・Hooks・cross-platform fixture | complete |
 | PORT-0006 | PORT | 利用者向けcodex-starter-kit-feedback Skill | complete |
+| PORT-0007 | PORT | upstream Skillsの意味保持再実装 | complete |
+| PORT-0008 | PORT | upstream agentsの意味保持再実装 | complete |
+| PORT-0009 | PORT | Hooksの再分類とCodex適応 | complete |
+| PORT-0010 | PORT | upstream commandsのCodex workflow化 | complete |
+| PORT-0011 | PORT | rules・permissionsのCodex適応 | complete |
 | REL-0001 | RELEASE | v0.78.1-codex.1 release readiness | complete |
 | REL-0002 | RELEASE | upstream 0.78.1不採用理由の明文化 | complete |
 | REL-0003 | RELEASE | 素のCodexとの比較評価文書 | complete |

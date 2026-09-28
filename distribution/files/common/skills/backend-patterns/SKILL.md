@@ -1,13 +1,38 @@
 ---
 name: backend-patterns
-description: Review or design Node.js, Express, Next.js API, database, cache, and service-layer code when backend boundaries and failure behavior matter.
+description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.
 ---
 
-# Backend patterns
+# Backend Development Patterns
 
-- Keep transport, validation, domain logic, persistence, and external integrations separable.
-- Validate at trust boundaries and return stable error contracts without leaking sensitive internals.
-- Make retries, idempotency, transaction boundaries, timeouts, and partial failure explicit where relevant.
-- Avoid unbounded queries, hidden N+1 access, and cache behavior without invalidation rules.
-- Prefer repository-native observability and dependency injection patterns over new framework layers.
-- Test authorization, invalid input, dependency failure, and concurrency-sensitive paths proportionally to risk.
+Backend architecture patterns and best practices for scalable server-side applications.
+
+## Pattern Categories
+
+### API Design
+RESTful structure, Repository pattern, Service layer, Middleware pattern.
+See [references/api-patterns.md](references/api-patterns.md) for implementations.
+
+### Database & Caching
+Query optimization, N+1 prevention, transactions, Redis cache-aside pattern.
+See [references/database-caching.md](references/database-caching.md) for implementations.
+
+### Error Handling, Auth & Infrastructure
+Centralized error handler, retry with backoff, JWT/RBAC, rate limiting, job queues, structured logging.
+See [references/error-auth-infra.md](references/error-auth-infra.md) for implementations.
+
+## Quick Decision Guide
+
+| Need | Pattern |
+|------|---------|
+| Data access abstraction | Repository pattern |
+| Business logic isolation | Service layer |
+| Auth/logging/validation | Middleware pattern |
+| Expensive DB queries | Cache-aside (Redis) |
+| N+1 query problem | Batch fetch with Map |
+| Atomic multi-table writes | Database transactions |
+| Unreliable external APIs | Retry with exponential backoff |
+| Abuse prevention | Rate limiter (in-memory or Redis) |
+| Non-blocking operations | Job queue |
+
+**Remember**: Choose patterns that fit your complexity level. Not every project needs every pattern.

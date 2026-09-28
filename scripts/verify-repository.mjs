@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -18,6 +19,7 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
+const sha256 = (text) => crypto.createHash("sha256").update(text).digest("hex");
 
 const requiredFiles = [
   ".gitattributes",
@@ -66,6 +68,10 @@ const requiredFiles = [
   "porting/command-map.json",
   "porting/feature-map.json",
   "porting/skill-map.json",
+  "porting/fidelity-contract.json",
+  "porting/config-map.json",
+  "porting/permissions-map.json",
+  "porting/rule-map.json",
   "distribution/catalog.json",
   "distribution/catalog.schema.json",
   "distribution/empty-catalog.json",
@@ -339,24 +345,86 @@ if (featureMap.schemaVersion !== 1 || !Array.isArray(featureMap.features)) {
     if (entry.disposition !== "DROP" && !entry.target) {
       errors.push(`non-dropped feature has no target: ${entry.source}`);
     }
+    if (entry.disposition === "ADAPT" && !entry.adaptationKind) {
+      errors.push(`adapted feature has no equivalence boundary: ${entry.source}`);
+    }
     for (const target of entry.target?.split("+") ?? []) {
       if (target.startsWith("skill:") && !distributionSkillNames.has(target.slice("skill:".length))) {
         errors.push(`feature map references an unknown skill: ${entry.source} -> ${target}`);
       }
     }
   }
-  if (JSON.stringify(counts) !== JSON.stringify({ ADAPT: 4, DEFER: 0, DROP: 14 })) {
+  if (JSON.stringify(counts) !== JSON.stringify({ ADAPT: 3, DEFER: 0, DROP: 15 })) {
     errors.push(`feature map summary is unexpected: ${JSON.stringify(counts)}`);
+  }
+}
+
+const fidelity = readJson(path.join(root, "porting", "fidelity-contract.json"));
+if (fidelity.schemaVersion !== 1 || fidelity.upstreamCommit !== source.lastAcceptedCommit) {
+  errors.push("fidelity contract does not match the accepted upstream commit");
+} else {
+  if (fidelity.skills?.length !== 13 || fidelity.agents?.length !== 9 || fidelity.features?.length !== 18) {
+    errors.push("fidelity contract inventory is incomplete");
+  }
+  for (const entry of fidelity.skills ?? []) {
+    if (!Array.isArray(entry.sourceFiles) || entry.sourceFiles.length === 0) {
+      errors.push(`fidelity Skill has no source inventory: ${entry.source}`);
+    }
+    if (entry.disposition === "DROP") {
+      if (!entry.reason) errors.push(`fidelity dropped Skill has no reason: ${entry.source}`);
+      continue;
+    }
+    if (entry.targetFiles?.length !== entry.sourceFiles.length) {
+      errors.push(`fidelity Skill resource coverage differs: ${entry.source}`);
+      continue;
+    }
+    for (const [index, target] of entry.targetFiles.entries()) {
+      const targetPath = path.join(root, target);
+      if (!fs.existsSync(targetPath)) {
+        errors.push(`fidelity Skill target is missing: ${entry.source} -> ${target}`);
+      } else if (!entry.sourceFiles[index].path.endsWith("/SKILL.md") && sha256(fs.readFileSync(targetPath, "utf8")) !== entry.sourceFiles[index].sha256) {
+        errors.push(`fidelity Skill supporting resource drifted: ${entry.source} -> ${target}`);
+      }
+    }
+    const skillText = fs.readFileSync(path.join(distributionSkillRoot, entry.target, "SKILL.md"), "utf8");
+    for (const section of entry.requiredSections ?? []) {
+      if (!skillText.includes(`## ${section}`)) errors.push(`fidelity Skill section is missing: ${entry.source} -> ${section}`);
+    }
+  }
+  for (const entry of fidelity.agents ?? []) {
+    if (!fs.existsSync(path.join(root, entry.targetPath))) {
+      errors.push(`fidelity agent target is missing: ${entry.source}`);
+      continue;
+    }
+    const agentText = fs.readFileSync(path.join(root, entry.targetPath), "utf8");
+    for (const section of entry.requiredSections ?? []) {
+      if (!agentText.includes(`## ${section}`)) errors.push(`fidelity agent section is missing: ${entry.source} -> ${section}`);
+    }
+    if (!agentText.includes("## Codex integration constraints")) {
+      errors.push(`fidelity agent lacks Codex integration constraints: ${entry.source}`);
+    }
+  }
+  if (fidelity.commands?.length !== 21 || fidelity.rules?.length !== 8 || fidelity.configFiles?.length !== 3) {
+    errors.push("fidelity contract does not cover commands, rules, and config completely");
+  }
+  for (const entry of fidelity.commands ?? []) {
+    if (entry.disposition === "ADAPT" && (!entry.fidelityTarget || !fs.existsSync(path.join(root, entry.fidelityTarget)))) {
+      errors.push(`fidelity command target is missing: ${entry.source}`);
+    }
+    if (entry.disposition === "DROP" && !entry.reason) errors.push(`fidelity dropped command has no reason: ${entry.source}`);
+  }
+  if ((fidelity.features ?? []).reduce((sum, entry) => sum + (entry.sourceFiles?.length ?? 0), 0) !== 48) {
+    errors.push("fidelity feature source-file inventory is incomplete");
   }
 }
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 const comparisonDocument = fs.readFileSync(path.join(root, "docs", "assessments", "plain-codex-comparison.md"), "utf8");
 const upstreamOverview = fs.readFileSync(path.join(root, "upstream", "README.md"), "utf8");
-if (!readme.includes("[素のCodexとの比較評価](docs/assessments/plain-codex-comparison.md)")) {
+if (!readme.includes("](docs/assessments/plain-codex-comparison.md)")) {
   errors.push("README is missing the plain Codex comparison link");
 }
-if (!readme.includes("[Upstream relationship and version records](upstream/README.md)")) {
+if (!readme.includes("](upstream/README.md)")) {
   errors.push("README is missing the upstream records link");
 }
 if (!upstreamOverview.includes("[0.78.1 ledger](ledger/0.78.1.md)")) {

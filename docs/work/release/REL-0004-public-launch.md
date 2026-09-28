@@ -1,19 +1,19 @@
 # REL-0004: codex-starter-kit初回公開
 
 - Classification: `RELEASE`
-- Status: `in_progress`
-- Candidate Version: `0.78.1-codex.2`
+- Status: `blocked`
+- Candidate Version: `0.78.1-codex.3`
 - Upstream Version: `0.78.1`
 - Upstream Commit: `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
 - Session Handoff: `internal/session-history/REL-0004/HANDOFF.md`
 
 ## Current status
 
-- Overall Status: `in_progress`
-- Current Gate: GitHub Release判断
-- Next Action: 利用者の明示承認後だけ、tag `v0.78.1-codex.2`からGitHub Releaseを作成する
-- Blocking Decision: GitHub Releaseは未承認
-- Last Updated: 2026-09-27
+- Overall Status: `blocked`
+- Current Gate: `0.78.1-codex.3` release owner受入と再公開判断
+- Next Action: 200-file candidateの最新文書差分をowner reviewし、承認後にprivate stagingへpromotionして再公開する
+- Blocking Decision: `.3` release owner受入・promotion・再公開は未承認
+- Last Updated: 2026-09-28
 
 ## Dependency status
 
@@ -105,8 +105,13 @@
 - [x] ruleset・security・community設定readback
 - [x] tag承認
 - [x] tag作成・target readback
-- [ ] GitHub Release承認
+- [x] GitHub Release承認
+- [x] GitHub Release作成・readback
 - [x] GOV-0004 accepted
+- [x] upstream全surfaceの意味的忠実度再監査
+- [x] 必要な再実装・再検証・実Codex確認
+- [ ] `0.78.1-codex.3` release owner受入
+- [ ] `.3` public promotion・再公開
 - [ ] REL-0004 session handoff closed
 
 ## Approval boundaries
@@ -158,6 +163,8 @@
 - Private vulnerability reporting、secret scanning、push protectionを有効化し、secret scanning alert 0件、CODEOWNERS error 0件を確認した。
 - 公開直後に `main`へdeletion・non-fast-forward禁止のactive rulesetを適用した。このreadback時点ではtagとGitHub Releaseは作成していなかった。
 - release metadataをpublic `78d8c71`へ反映し、3 OS CIとcommit後history scanに成功した。annotated tag `v0.78.1-codex.2`を作成し、targetが `78d8c71`、GitHub Release 0件であることをread backした。
+- tag `v0.78.1-codex.2`から正式GitHub Releaseを作成した。draft false、prerelease false、latest、tag target `78d8c71`、release notes本文一致、追加asset 0件をread backした。
+- 公開後、agents・Skillsがupstream原文の責務と手順を十分に保持していない疑いを利用者が発見した。repositoryを直ちに `PRIVATE`へ戻し、未認証HTTP 404を確認した。tagとGitHub Releaseは削除せず、非公開repository内に保持している。
 
 ## Rollback
 
@@ -167,4 +174,4 @@
 
 ## Result
 
-公開Governance、source remote、allowlist export、public verifier、community文書、GitHub template、codex-starter-kit-feedback、既存global AGENTSのPRESERVE経路をローカル実装・受入した。SYNC-0003、canary付きscanner audit、isolated macOS lifecycle、primary standard/ja install、feedback Skillとmaintenance Skillのnamespace migrationを完了した。実Codexでは三つのnamespaced Skill、planner custom agent、更新後safety-net trust状態を確認した。kit-provided global AGENTSは実確認せず既知の低risk未検証事項としてowner受入済みで、final candidate review、独立Git履歴、private staging、owner release acceptance、public化、security・community・ruleset設定readback、GOV-0004受入、tag作成・readbackまで完了した。GitHub Releaseは未実施。
+`0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3` candidateではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。owner受入と再公開判断までREL-0004をblockedとする。

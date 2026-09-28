@@ -23,6 +23,16 @@ test("safety-net matches only the intended destructive command families", () => 
   assert.equal(classifyCommand("git clean -fd").id, "git-clean-force");
   assert.equal(classifyCommand("git clean --force -d").id, "git-clean-force");
   assert.equal(classifyCommand("git push --force origin main").id, "git-push-force");
+  assert.equal(classifyCommand("git push --force-with-lease origin main"), null);
+  assert.equal(classifyCommand("git reset --merge ORIG_HEAD").id, "git-reset-merge");
+  assert.equal(classifyCommand("git checkout --force main").id, "git-checkout-destructive");
+  assert.equal(classifyCommand("git checkout -- src/app.ts").id, "git-checkout-destructive");
+  assert.equal(classifyCommand("git checkout -b feature/test"), null);
+  assert.equal(classifyCommand("git branch -D old-work").id, "git-branch-force-delete");
+  assert.equal(classifyCommand("git branch -d merged-work"), null);
+  assert.equal(classifyCommand("git stash drop stash@{0}").id, "git-stash-destructive");
+  assert.equal(classifyCommand("find . -type f -exec rm -rf {} +").id, "indirect-recursive-delete");
+  assert.equal(classifyCommand("printf '%s\\n' a | xargs rm -rf").id, "indirect-recursive-delete");
 });
 
 test("safety-net emits the current Codex PreToolUse deny shape", () => {
