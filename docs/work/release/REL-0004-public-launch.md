@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `blocked`
-- Current Gate: `0.78.1-codex.3`をPrivate repositoryでreleaseする
-- Next Action: release metadataを反映し、PrivateのままtagとGitHub Releaseを作成する
+- Current Gate: `0.78.1-codex.3`を手元環境で継続利用する観察期間
+- Next Action: 利用中の不具合・改善点を記録し、問題がないとownerが判断した後にrepository再公開を別Gateで検討する
 - Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
 - Last Updated: 2026-09-28
 
@@ -111,9 +111,9 @@
 - [x] upstream全surfaceの意味的忠実度再監査
 - [x] 必要な再実装・再検証・実Codex確認
 - [x] `0.78.1-codex.3` release owner受入
-- [ ] `.3` release metadataのpublic repository反映
-- [ ] `v0.78.1-codex.3` tag作成・target readback
-- [ ] `.3` GitHub Release作成・readback
+- [x] `.3` release metadataのpublic repository反映
+- [x] `v0.78.1-codex.3` tag作成・target readback
+- [x] `.3` GitHub Release作成・readback
 - [ ] `.3` repository再公開
 - [ ] REL-0004 session handoff closed
 
@@ -168,6 +168,9 @@
 - release metadataをpublic `78d8c71`へ反映し、3 OS CIとcommit後history scanに成功した。annotated tag `v0.78.1-codex.2`を作成し、targetが `78d8c71`、GitHub Release 0件であることをread backした。
 - tag `v0.78.1-codex.2`から正式GitHub Releaseを作成した。draft false、prerelease false、latest、tag target `78d8c71`、release notes本文一致、追加asset 0件をread backした。
 - 公開後、agents・Skillsがupstream原文の責務と手順を十分に保持していない疑いを利用者が発見した。repositoryを直ちに `PRIVATE`へ戻し、未認証HTTP 404を確認した。tagとGitHub Releaseは削除せず、非公開repository内に保持している。
+- 2026-09-28にownerが`.3`のPrivate releaseを受け入れた。release metadataをpublic `e5f39ad`へ反映し、3 OS CIとcommit後history scanに成功した。
+- annotated tag `v0.78.1-codex.3`を作成し、peeled targetが`e5f39ad`であることをread backした。GitHub Releaseはdraft false、prerelease false、latest、release notes本文一致、追加asset 0件で作成した。
+- `yamazaki/codex-starter-kit`のvisibilityは`PRIVATE`を維持した。public化は手元環境での継続利用後に別途判断する。
 
 ## Rollback
 
@@ -177,4 +180,4 @@
 
 ## Result
 
-`0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3`ではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。ownerは2026-09-28にPrivate repositoryでのreleaseを受け入れた。repositoryのpublic化は手元環境での継続利用後に別途判断するため、REL-0004はblockedを維持する。
+`0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3`ではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。ownerは2026-09-28にPrivate repositoryでのreleaseを受け入れ、tagとGitHub Releaseを作成した。repositoryのpublic化は手元環境での継続利用後に別途判断するため、REL-0004はblockedを維持する。
