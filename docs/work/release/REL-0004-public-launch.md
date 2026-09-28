@@ -10,9 +10,9 @@
 ## Current status
 
 - Overall Status: `blocked`
-- Current Gate: `0.78.1-codex.3` release owner受入と再公開判断
-- Next Action: 200-file candidateの最新文書差分をowner reviewし、承認後にprivate stagingへpromotionして再公開する
-- Blocking Decision: `.3` release owner受入・promotion・再公開は未承認
+- Current Gate: `0.78.1-codex.3`をPrivate repositoryでreleaseする
+- Next Action: release metadataを反映し、PrivateのままtagとGitHub Releaseを作成する
+- Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
 - Last Updated: 2026-09-28
 
 ## Dependency status
@@ -110,8 +110,11 @@
 - [x] GOV-0004 accepted
 - [x] upstream全surfaceの意味的忠実度再監査
 - [x] 必要な再実装・再検証・実Codex確認
-- [ ] `0.78.1-codex.3` release owner受入
-- [ ] `.3` public promotion・再公開
+- [x] `0.78.1-codex.3` release owner受入
+- [ ] `.3` release metadataのpublic repository反映
+- [ ] `v0.78.1-codex.3` tag作成・target readback
+- [ ] `.3` GitHub Release作成・readback
+- [ ] `.3` repository再公開
 - [ ] REL-0004 session handoff closed
 
 ## Approval boundaries
@@ -174,4 +177,4 @@
 
 ## Result
 
-`0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3` candidateではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。owner受入と再公開判断までREL-0004をblockedとする。
+`0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3`ではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。ownerは2026-09-28にPrivate repositoryでのreleaseを受け入れた。repositoryのpublic化は手元環境での継続利用後に別途判断するため、REL-0004はblockedを維持する。

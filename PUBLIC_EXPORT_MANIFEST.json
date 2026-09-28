@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "35a3c65aa7b8b4e58621eb67b27d59d3ab0422dd3d01321667f82d5bb6f9c2fb",
+      "sha256": "981f5ea90ca7a74c5ad73a1bb31139bbdb5105f4bd965f440bbc4febc039aae0",
       "mode": "0644"
     },
     {
@@ -578,7 +578,7 @@
     },
     {
       "path": "docs/releases/0.78.1-codex.3.md",
-      "sha256": "b2fbbb6fbdd5a5868f2f4fe0d7720d4675e5075ae7a84fdb5dd09cc14e68bdae",
+      "sha256": "6984f2c8c7fa5c5f0d344b062a2f078b1468ef8263de29a918b6241e1a1db4d0",
       "mode": "0644"
     },
     {
@@ -728,7 +728,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "a885150ee1ee99119873b189296b86fc9cdc5b28f1b63ef5166d5edeb0de75f8",
+      "sha256": "1b0de07377bda92f90262d232d8f00f7fe44160845aa598663db6be0447159a5",
       "mode": "0644"
     },
     {
@@ -818,7 +818,7 @@
     },
     {
       "path": "release/0.78.1-codex.3.json",
-      "sha256": "5d74bcb539bdd213c0093945a62b4d2389f7d24ee68c071e4e8f724e976b18a0",
+      "sha256": "c6b88d6ee6a91212582d58e8c05c84d4197c8b970b721b2d736b489a395d60b6",
       "mode": "0644"
     },
     {

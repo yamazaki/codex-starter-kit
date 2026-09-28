@@ -14,9 +14,9 @@
 
 ### Removed
 
-## [0.78.1-codex.3] - 2026-09-27
+## [0.78.1-codex.3] - 2026-09-28
 
-Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). This candidate corrects semantic fidelity defects in the Codex adaptation; it does not claim a newer upstream baseline.
+Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). This release corrects semantic fidelity defects in the Codex adaptation; it does not claim a newer upstream baseline.
 
 ### Added
 
