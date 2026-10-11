@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {adjudicate} from '../scripts/behavior-adjudicate.mjs';
+import {remediationState,validRemediation} from '../scripts/lib/behavior-remediation.mjs';
+
+test('native evidence corrects a collector-only grading error while original FAIL remains immutable',()=>{
+  const original={session:'test-session',variant:'normal',model:'fixture/medium',cliVersion:'fixture-cli',verdict:'FAIL',sourceReview:'CONFIRMED',reviewer:'old grader',sourceRequirements:['fixture'],evidence:['old grading'],criteria:['PASS','PASS','PASS','FAIL','PASS']};
+  const data={schemaVersion:1,baseline:{},records:[{id:'skill-prompt',status:'FAIL',checks:Array(5).fill('check'),attempts:[original]}]};
+  const run={caseId:'skill-prompt',variant:'normal',session:'test-session',mechanicalStatus:'PASS',runtimeMetadata:[{id:'test-session',finalResponse:true,cliVersion:'fixture-cli',model:'fixture',reasoning:'medium'}]};
+  const responses=[{type:'custom_tool_call',name:'exec',call_id:'test-call',input:'text(await tools.exec_command({cmd:"node --test fixture.mjs"}));'},{type:'custom_tool_call_output',call_id:'test-call',output:[{text:JSON.stringify({exit_code:1,output:'tests 3 pass 1 fail 2'})}]}];
+  const review={schemaVersion:1,kind:'COLLECTOR_OMISSION',caseId:'skill-prompt',session:'test-session',callId:'test-call',expectedCommand:'node --test fixture.mjs',expectedExitCode:1,expectedOutputMarkers:['tests 3','pass 1','fail 2'],sourceReview:'CONFIRMED',reviewer:'independent grader',reason:'synthetic missing native events',evidence:['synthetic native proof'],correctedCriteria:Array(5).fill('PASS')};
+  const updated=adjudicate(data,run,responses,review),r=updated.records[0];
+  assert.equal(r.attempts[0].verdict,'FAIL');assert.deepEqual(data.records[0].attempts,[original]);
+  assert.equal(remediationState(r,5).activeAttempts[0].verdict,'PASS');
+  assert.equal(remediationState(r,5).totalFailures,0);assert.equal(remediationState(r,5).corrected.size,1);
+  assert.throws(()=>adjudicate(updated,run,responses,review),/already preserved/);
+  assert.throws(()=>adjudicate(data,{...run,mechanicalStatus:'FAIL'},responses,review),/runtime/);
+  assert.throws(()=>adjudicate(data,run,responses.map(p=>({...p,call_id:'other'})),review),/matching native/);
+  assert.throws(()=>adjudicate(data,run,responses,{...review,expectedExitCode:0}),/measurement/);
+  assert.throws(()=>adjudicate(data,run,responses,{...review,expectedOutputMarkers:['pass 3']}),/measurement/);
+  const realFailure=structuredClone(data);realFailure.records[0].attempts[0].criteria[4]='FAIL';
+  assert.throws(()=>adjudicate(realFailure,run,responses,review),/capability/);
+  const overlap=structuredClone(r);overlap.attempts[0].subjectDigest='a'.repeat(64);
+  const retests=['normal','boundary'].flatMap(variant=>[1,2,3].map(n=>({...original,variant,session:`retest-${variant}-${n}`,verdict:'PASS',criteria:Array(5).fill('PASS'),subjectDigest:'b'.repeat(64),remediationOf:original.session})));
+  overlap.attempts.push(...retests);
+  const remedy={failedSession:original.session,reviewer:'fixture',sourceReview:'CONFIRMED',reason:'synthetic correction',changeEvidence:['synthetic changed input'],subjectDigest:'b'.repeat(64),retestSessions:retests.map(a=>a.session)};
+  const noGrading=structuredClone(overlap);delete noGrading.gradingCorrections;assert.equal(validRemediation(noGrading,remedy,5),true);
+  assert.equal(validRemediation(overlap,remedy,5),false);overlap.remediations=[remedy];
+  const state=remediationState(overlap,5);assert.equal(state.invalid,true);assert.equal(state.corrected.size,0);assert.ok(state.totalFailures-state.resolved.size>=0);
+});

@@ -1,12 +1,14 @@
 # Checkpoint Command
 
-Record cross-session git milestones. In-session rollback is handled by
-Codex's native checkpoint/rewind (Esc Esc / /rewind) — use this
-command only for multi-day milestones you want recorded in git.
+Record cross-session Git milestones. A saved conversation and a Git checkpoint
+serve different purposes: reopening a chat does not restore repository files.
+Do not assume Claude-specific rewind shortcuts or tool-specific restoration
+guarantees exist in Codex. Use the current client's documented controls only
+when available; Git state and explicit authorization remain authoritative.
 
-Native rewind only restores files changed through Codex's file editing tools
-(Edit, Write, NotebookEdit). Changes made with Bash (sed -i, heredocs, mv, cp)
-are not tracked; rely on git for those.
+A commit records only its staged content; a tag only names a commit. Neither
+automatically preserves untracked or unstaged user changes. Never reset, stash,
+or overwrite those changes merely to create or verify a checkpoint.
 
 ## Usage
 
@@ -15,7 +17,7 @@ Choose `create`, `verify`, or `list` and a checkpoint name.
 ## Create Checkpoint
 
 1. Run the verification workflow to ensure current state is understood
-2. Create a git commit or tag with the checkpoint name
+2. After explicit approval for the exact content and operation, create a git commit or tag with the checkpoint name. Review the staged diff before a commit; do not push implicitly
 3. Use the repository's existing work or handoff record for the checkpoint. If none exists, create `.codex/checkpoints.log` only with user approval:
 
 ```bash

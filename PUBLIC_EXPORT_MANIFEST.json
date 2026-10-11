@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "981f5ea90ca7a74c5ad73a1bb31139bbdb5105f4bd965f440bbc4febc039aae0",
+      "sha256": "2960bccbf86408330262dd1b0c22dc1b876f69f4eb0dfd57f1db90be57b20ad3",
       "mode": "0644"
     },
     {
@@ -123,7 +123,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "80087b7b520168dc461c13240f2f7a616524c9053c3f5b2ac882910dab5d9956",
+      "sha256": "532850acf588e0b8cafa0c4b7b5f25676cdfa329b6bb71a6b87d331dbefd54ac",
       "mode": "0644"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "path": "distribution/files/common/agents/security-reviewer.toml",
-      "sha256": "2562c6441af8731d108471a0a2b104409b39321b21f47ab4b801e7c5645b287b",
+      "sha256": "d6a855ee00f70e546b58a4768d826bfcc006305a151bea5a15152e921a03a71e",
       "mode": "0644"
     },
     {
@@ -253,7 +253,7 @@
     },
     {
       "path": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
-      "sha256": "3810b1b318d2045ad82717e505096aef5153147260290a2f993889a243afb04d",
+      "sha256": "78508f91ed670fbd8366e99dd7418346bfe7151e7fe6a4f03723536b9650d60b",
       "mode": "0644"
     },
     {
@@ -348,7 +348,7 @@
     },
     {
       "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/checkpoint.md",
-      "sha256": "03374d18c8f68028d3c69fc8e80735fbc07d6b8ba337fe2003c26d032608e18a",
+      "sha256": "651771698b7aff9f256bb3dc7fae4aeb8b7c05ba2d13ae22b92e7702c4f30d7d",
       "mode": "0644"
     },
     {
@@ -363,12 +363,12 @@
     },
     {
       "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/handover.md",
-      "sha256": "0f2671b1ce77437d3cad96f57aece1e50cc4ff6081723a2ae5d3910b4abf184e",
+      "sha256": "d343dd4eba4705c6e6b60771bee97c47e2cda136d516e8c6d8db16ac18afd939",
       "mode": "0644"
     },
     {
       "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/learn.md",
-      "sha256": "2f4d59aaf04a154d8e44c12ecb90829a993f237068b7e55d0126abfb25258bd7",
+      "sha256": "92ec420c77b260ecfbab6ed2fb2eaf0e5464feb24cc032ebc532d40bd0fb1bf1",
       "mode": "0644"
     },
     {
@@ -378,7 +378,7 @@
     },
     {
       "path": "distribution/files/common/skills/starter-kit-workflows/references/commands/oss-analyze.md",
-      "sha256": "fd9363c56bf8a51ff84f6ebec69f70599d7f38680805b7d59c5b07abe1d72734",
+      "sha256": "1c7d787c3481d6654752308779d7337f30c77e607e44ef77d27fa02e3bf11c6e",
       "mode": "0644"
     },
     {
@@ -458,12 +458,12 @@
     },
     {
       "path": "distribution/files/en/AGENTS.md",
-      "sha256": "15741babc49144b46f627c99548381356b773e1569d4996346bbc55978fe3079",
+      "sha256": "6bc5392d5e5113aa032478f86f51ebf3003e515ef7a44f744d63bbbd2b0164f1",
       "mode": "0644"
     },
     {
       "path": "distribution/files/ja/AGENTS.md",
-      "sha256": "63db5b49fac68c30f93f5d83033ca83e0e74a1b2e545ee7e0ee1cd39dfe4f199",
+      "sha256": "6f144323d23fdcefa0555487cd13b7bf71f6926bd45124c95bcebedfab7c7d01",
       "mode": "0644"
     },
     {
@@ -473,7 +473,7 @@
     },
     {
       "path": "docs/COMMAND_REFERENCE.md",
-      "sha256": "7cfd0cab7998562879b780c190c921a5031742b61980171c760e8797f82f7342",
+      "sha256": "5b46e5eca700fd15142d57d8d42a1e82dd8752fcbc2933383343914974f1da07",
       "mode": "0644"
     },
     {
@@ -503,7 +503,7 @@
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "285a5505df7bd8db20071732cdfd6e892e693990b3b6af67ed7cbfaaa1ca072d",
+      "sha256": "7fd9f001735c0d4fcf2e3187e505003fad342b6cc944e0cca162f0aa72bef59e",
       "mode": "0644"
     },
     {
@@ -518,7 +518,7 @@
     },
     {
       "path": "docs/PUBLICATION_AUDIT.md",
-      "sha256": "9b9a3775f0e81c602e594a7438b1351e9474e65c5ef64c788749e6f4c7a7dac9",
+      "sha256": "bf66a5c07b1faf09d0e9abdf22e29b91eb1026d4ba540967a324364d1893c295",
       "mode": "0644"
     },
     {
@@ -553,7 +553,7 @@
     },
     {
       "path": "docs/assessments/plain-codex-comparison.md",
-      "sha256": "0885fec37a713ca10d671f97062e378e21c2985fd004da5d63d94e36309df034",
+      "sha256": "17c1feff54c573b8ac65cb1fb4a4097b2a8623e80e92a68f93c4f9b5f3333803",
       "mode": "0644"
     },
     {
@@ -582,8 +582,58 @@
       "mode": "0644"
     },
     {
+      "path": "docs/releases/0.78.1-codex.4.md",
+      "sha256": "176a2bacabfe06a02176e32996807ea54baae547a58b408a74a11b836c6277cc",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/AUTOMATION.md",
+      "sha256": "75ac59561c0619f26d9452ba0ba2948e66e8a8d10a8743d0afb2017814bcb780",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/BEHAVIOR_VALIDATION.md",
+      "sha256": "4008ab09df3c4b20e52e86e31d722ce35f535e5781e5d32dac5c34663309096c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/CASE_CATALOG.md",
+      "sha256": "5fb7ea0b9b2e31b990fa3bedfd84136c5b451e84550817f4265a66e852b90e85",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/RELEASE_EVIDENCE.md",
+      "sha256": "94125fdeca503aa68972a0e8d80aadd07d898d5a9ac8ff78c4e23b69015b4d26",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/RESULTS_SUMMARY.md",
+      "sha256": "038a82c7a6be46313571e439db0a2e4b0d7563ab9783ec9bef6ec2499e4cdb2c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/automation-pilot.json",
+      "sha256": "95e69fefea26f34c1f3cd6224d6a03a9f13a10233268ddaf35aedb5bd33c2d8f",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/behavior-cases.json",
+      "sha256": "4cce6ae787f5bd802e217e656f29fded75bac3d107e69c986450b3bbddf650f7",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/behavior-result-notes.json",
+      "sha256": "beff2576a84736ecb9ff8eb6e97625b2b0e985f62cb4108ad3b27fe9f744de21",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/release-evidence-map.json",
+      "sha256": "4333c1e07767f0d187adb90a95981b0c3fca5c614f1279703bb2cae89d9b107b",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/INDEX.md",
-      "sha256": "d1acc32985b6c51b597c682f2ce07a6e5311e14c965984240bb9f9fd6aa872ea",
+      "sha256": "081d1cdc44114edec8b84e001096d0b3d11fca975f60dc2c572dda518e39b662",
       "mode": "0644"
     },
     {
@@ -654,6 +704,56 @@
     {
       "path": "docs/work/maintenance/MNT-0009-full-surface-fidelity-contract.md",
       "sha256": "3fba88733c44333231034dd5c31926df1cb1421ae1c9f328bfa7ed80d0ee2459",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0010-behavior-evaluation.md",
+      "sha256": "f8a336e6741db704a2e483a5f1d66cb6d4934a753edb5b0149021b483558567a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0011-behavior-automation.md",
+      "sha256": "efa4ff04b892a9c71e5420e549847e5359f7c80ef3e179dd1464c9439b96d6c8",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0012-workflow-reference-followups.md",
+      "sha256": "d20ca2d563c10adaec08cbfd550640ec83cf0cf6ca733a085059d4b53ba59609",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0013-test-selection-and-remediation.md",
+      "sha256": "63768a082721d4fb8817873300d29e7eae883763ac6721c003dad0aa82eff48a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0014-durable-behavior-evidence.md",
+      "sha256": "3f719342d295f3692b6152784553b0396ac5505d407595ca62344df2fe00e682",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0015-public-history-scope.md",
+      "sha256": "14b23a0e02dc7261bd5adb8f40fea50c044688e4614a6d18283993b4d2476c7d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0016-config-audit-fidelity.md",
+      "sha256": "93a87ca16255ed8a7ebcb63e842fa946b14a0a8cb9dcafb2c8c2f17964d3972c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0017-prompt-evidence-reporting.md",
+      "sha256": "1ef4ba7c5e056cebc24d063c6d23e451fd319d0186e1e6cfe97c23cdffd96000",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0018-security-proposal-fail-closed.md",
+      "sha256": "747b278dd78b0d0e0ce450ecbb4e72fe8af640650f102288e053b2787db0dd97",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0019-windows-update-proof.md",
+      "sha256": "62150c1935d2961d52aa43ad5cc4d5d4c80fb2e9c34a594394405daac00cf135",
       "mode": "0644"
     },
     {
@@ -728,7 +828,12 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "343e550494b1a76d4cbb7f159e5546745ea9076438a563d0db362e72476a36a2",
+      "sha256": "c4dd92b01e7ea94e6bdab8f189ff5b95c3f234852725c2eefa37341e91596715",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0005-next-codex-revision.md",
+      "sha256": "12a0c9b93b368c01ae5585c51b78386d967d8aab676527929636df414decb35f",
       "mode": "0644"
     },
     {
@@ -753,7 +858,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "aba2b0bbf556fa0603a7a00788b10280a734e89cfb5b11af0e5d7e5f53b52cfd",
+      "sha256": "2f0abdbeaeaf056c8735738fcfb2a2f16ff10ab43e9dc12dfbeea64310b7fa04",
       "mode": "0644"
     },
     {
@@ -763,7 +868,7 @@
     },
     {
       "path": "porting/command-map.json",
-      "sha256": "0b221dafcba1fe3c7cc787117df04ac626d6cf56ccb6246a247a0065edcfd3d0",
+      "sha256": "50b831099dc148fad96f99849688a1869b5bbc614bc0585ffff8126dfbc5f56e",
       "mode": "0644"
     },
     {
@@ -778,7 +883,7 @@
     },
     {
       "path": "porting/fidelity-contract.json",
-      "sha256": "9dff40be84d7dd3a37386b9bddd09c007f153e6bcc98b2b2fd329925a32fb34d",
+      "sha256": "1967b3aece3a0891cfd3ae3e7086d07e7ade9b6bc514357c8acdbe8e16eeb0ab",
       "mode": "0644"
     },
     {
@@ -788,7 +893,7 @@
     },
     {
       "path": "porting/rule-map.json",
-      "sha256": "b5e3e1e1f5e3867bbf449d3dc97b3e7f06adddf11cbd19a937dd07cba84d3aff",
+      "sha256": "9179c0ecc485b6946ff61dba658e0b28f4b2fe9b9b70ced1bd03a3a24a49125d",
       "mode": "0644"
     },
     {
@@ -822,6 +927,71 @@
       "mode": "0644"
     },
     {
+      "path": "release/0.78.1-codex.4.json",
+      "sha256": "7ac3a77835af265d35141f930e7d865c2bdfa15a9d2092b7ce09e190d90ba9ac",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-adjudicate.mjs",
+      "sha256": "1a2e08b2f538528ab4dd74c499433d8e92ccb74e9dec0145af668082c772365a",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-bind-subject.mjs",
+      "sha256": "bea2efa1d12be38946344f16198831c45d715a5be8d50c0695c22562bcb3cd96",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-eval.mjs",
+      "sha256": "f173bb3e1c3d99fbb62e33485fba52de3a0b482a870b6a6ab4aa6ae827866b8a",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-evidence.mjs",
+      "sha256": "f4f8b1110d4ab3f31f217fbcaa152686232f5ff9eba4d8a80a0e8db566dc123b",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-hook-prepare.mjs",
+      "sha256": "d815131d6a5a66ed08f26613fb2a6de4faa7c81e9c5579d16438666f91358eca",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-hook-run.mjs",
+      "sha256": "311aee851bf51026a39f8fd24317ef1adc61a6b6fa9051ffa2bfcbe78d4d7094",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-list.mjs",
+      "sha256": "658a809c4de980c08c77f0705b69afee7023c937452f30f908fdadff55dd2497",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-login.mjs",
+      "sha256": "ee9037ba1a80b28c86b59e5ac638a9ddcab899b2a3a8214f5281e92a1bca2a65",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-remediate.mjs",
+      "sha256": "50f7bf742764b1875427b7dd60c1493c708d937f0135a78d58aed8238c59037d",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-review.mjs",
+      "sha256": "6573c83051d4ca74d90a018cf2a066370325fc1f10d2b8a10770858cbd6500c9",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-runner.mjs",
+      "sha256": "551f1ab45208142db4279aba4ee8989b8137a41829599e3fbff0f651d869af61",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/behavior-system.mjs",
+      "sha256": "f41e10466bbfeffcdff60a99bf07086f259f03917bb71a014f7c469d74cdd8fa",
+      "mode": "0644"
+    },
+    {
       "path": "scripts/configure-upstream.mjs",
       "sha256": "59ed8e30d44e750f5cdab4dbaaf9451f417a5710c099951464563dcc04996e11",
       "mode": "0644"
@@ -849,6 +1019,56 @@
     {
       "path": "scripts/install.mjs",
       "sha256": "80845192c1045662235ef66592787cc7baba10e5810f11172e2c68fe1f1f22a6",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-child-finals.mjs",
+      "sha256": "e32448dda67525b14665e26b451386b27bf164bb4145bdd93dd9854a0a1e5f20",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-evidence-gate.mjs",
+      "sha256": "c37d3dfc9e0fcc7f4852e8a1e3ff7841dcaf9a3200ec9032ab435b56ce62eead",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-grading.mjs",
+      "sha256": "3337f538055d3881a616b96cde9e9c9ca202a38461139b774368ae70a963718f",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-hook-evidence.mjs",
+      "sha256": "32055c6a617ad02aedbc5d53ace81a24545970dedf5951098fd2a4c01e967684",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-hook-observer.mjs",
+      "sha256": "04da6a379a569c3cca1c265212439b9ec944bbad373862d030821b3cc3ed0b44",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-maintenance.mjs",
+      "sha256": "9dfccc66f45267ec9e133856ad76a518a7aa87d7d4867764e6f4e7c3572d58bc",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-remediation.mjs",
+      "sha256": "c200901f418016fd018b6de1b5f3a5635079be7e9e3529995dd88cfe337dc10e",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-update.mjs",
+      "sha256": "1430afa16b3d6cd3e0ab60f553ce325e9f7e7edc2baeb05c4c07c7496de0435d",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/behavior-version.mjs",
+      "sha256": "4324168f06497bb3cfb27c1c123218ad8e9441b6931c775aa461d3caaed0c55a",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/command-fidelity.mjs",
+      "sha256": "3b1070d39f1339e418e3cb951ea5c02a7a1b950381012bb1f74dc0760ed58608",
       "mode": "0644"
     },
     {
@@ -888,7 +1108,67 @@
     },
     {
       "path": "scripts/verify-repository.mjs",
-      "sha256": "0f47950a95b5ef72de37193832e38cbab48d7620152919135cf8c545d2e59ab3",
+      "sha256": "d69d5cc368aff6c23460e2751634ec5a1efe2eea6a87d7929b2abf5d4c845143",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-adjudicate.test.mjs",
+      "sha256": "d949001889824887ae8f80104cf1a4e54701269d92ef824d8cf6525150beda53",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-bind-subject.test.mjs",
+      "sha256": "4755f864513256e78b776af12a7b10e68e82504a1bddf26f670c16b275ee31e9",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-eval.test.mjs",
+      "sha256": "b0080a04a4537d3537c42f4ca118508233b96561521f0fd0ac1a7d1c3026053b",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-evidence.test.mjs",
+      "sha256": "75eb2056458fef7b110060f71da3d01ee19b86971f869dac0a342febea51d380",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-hook-runtime.test.mjs",
+      "sha256": "04dae71efebf4a2ebdc785646ccbcbfa2dfb7a972166f56dbf5373b5de9d2cb0",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-list.test.mjs",
+      "sha256": "3fce68ef2a01e9e4092247a6a18286c01db2abb2a590629aa003aa41498653d7",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-maintenance.test.mjs",
+      "sha256": "53708ccce018fd2980de3cf87150104122dd708f38f404b10b6ff40f4ebf8d11",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-review.test.mjs",
+      "sha256": "1198555ae6fa85c11a799757bb3da86e92f71820d5e84fa152fd2b864f97e9a6",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-runner.test.mjs",
+      "sha256": "ed1585b9692dfdef94c3ef1554627b3af03474abd65fea9751e7fb3c3e0b9a3f",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-system.test.mjs",
+      "sha256": "ea6e29e422e48e810301e4acc3b54aea4b3241684e70a555cc4d962197ba82bb",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-update.test.mjs",
+      "sha256": "d8d03ff77757e429b9c93135000650ac12b5adab0acdc02dba5799bbaefdcf28",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/behavior-version.test.mjs",
+      "sha256": "5aae845332b643e7ce194fdba522af11899de42acd8e97fdc665176922b280be",
       "mode": "0644"
     },
     {
@@ -908,7 +1188,102 @@
     },
     {
       "path": "tests/fidelity.test.mjs",
-      "sha256": "e6811cb5db737feab59ed550a5948ce889da5babf10067543f9f8d20ece02567",
+      "sha256": "5d7dfd2e686a4159f102d703a037ebaaf2e7b5ed104b0e9bcd78dcab8fc10210",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/README.md",
+      "sha256": "9acf601b3292f0004d1c06e735bdd7f7978c1d13d1d5f289357e4ad2a731ec71",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/brief.md",
+      "sha256": "2c5ab1624209d12a2b555c8e15906baca215e4618ecc7dd83837c156a8052ba7",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/invoice.mjs",
+      "sha256": "8e76f35b3c0b4c3a5d1edf502f2dafec0e3bf9e8d419ebca5c11a2aead45fce8",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/invoice.test.mjs",
+      "sha256": "bdb851b861a2e6b8dd7cc5ad8ef930e07f26a5763cec34ce8cf3aea2ca5255e0",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/journey.test.mjs",
+      "sha256": "ca45525b47ccf4edcb7a03ad2ee8d33a0046241ddf7dcf087c68a68f69511edb",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/package.json",
+      "sha256": "0c4dd83d1e078abded8fffb9807c637e64bb25f53eeac8bc0f4f3969de3bfefb",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-app/user-note.txt",
+      "sha256": "5005f39e9c35a7500ff99f02c9b57916cf17fe4f3d0371c2a0fa8236113354c7",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/backend.md",
+      "sha256": "e8ce28dabf64d2ce76f952ae28d33a451a19c4e745de56ee44fa01b3099b8b2d",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/coding.md",
+      "sha256": "39a84fbb3a6c359939b6cc92c33c4eb5a08420f57ec6c8fc4d7830cce499c6b1",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/events.md",
+      "sha256": "8708247e86416fba5c0e48ebc58f4e542a1ca72a7275fb6c1b68ebf158f39603",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/form.md",
+      "sha256": "66517812258d7ac4124c2dcfb9ca50c0fcea4099793dd2c76ec44e736f6f70a5",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/handoff.md",
+      "sha256": "fa1a7d0316397da800c26fc1137e16c63a89ef93e408a92fb91164ac29019797",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/learning.md",
+      "sha256": "58110a5bb08e7965f70239c0d4497ee5ad4bab037377226b4a7bf95d2617a7d3",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/performance.md",
+      "sha256": "69fc453c44b8c12336a64ce9d5fd91b94c34ef08b7300922fe3ce864ec8f8b8b",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-context/security-log.md",
+      "sha256": "aab33f2efc66de893ed3fad22b8d5aec5d3bdac97720de66ad1d410734688bd5",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/behavior-overrides/display-green/invoice.mjs",
+      "sha256": "d400935fb100a08213b0697863bce589230cc9b52f1311d7447c39b17de02de4",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/instruction-audit/RUNTIME_FACTS.md",
+      "sha256": "b9d526ecdd7178ad4421c2e9992a78fc8b47f88d0802b96c0cdad3721c8f900b",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/instruction-audit/global/AGENTS.md",
+      "sha256": "f16abc48784024ec8ddc028431b8aaa3a38065b1d29c6b1d3d0d4ae289b20eb5",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/fixtures/instruction-audit/project/AGENTS.md",
+      "sha256": "9d459ab04f6320e9ec9d78da4a00f631e1f98b01e5dfbe47686ca4426a276078",
       "mode": "0644"
     },
     {
@@ -934,6 +1309,11 @@
     {
       "path": "tests/safety-net.test.mjs",
       "sha256": "70f0842eae52760f8efd742a1ec00546487d36881961a80d80de2532e788d413",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/security-reviewer-contract.test.mjs",
+      "sha256": "56508d96d8c391bb807f5fc28725a61019395e760de223a6b5530da0f74c33fe",
       "mode": "0644"
     },
     {
@@ -983,7 +1363,7 @@
     },
     {
       "path": "upstream/assessments/0.78.1-porting-overview.md",
-      "sha256": "739715e191c0a564184cf3fba1e98e4c978ecc23de7e801e4b38c27a6be1b9b0",
+      "sha256": "b87bcd62d84eec486a8cbbbcfdd51887f7f3cbd3210fd7194549b1dd8efcfbc7",
       "mode": "0644"
     },
     {

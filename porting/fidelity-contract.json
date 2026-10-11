@@ -902,6 +902,7 @@
     {
       "source": "audit-config",
       "sourcePath": "commands/audit-config.md",
+      "verifyRequiredSections": true,
       "sourceSha256": "3bb55042c967f50ed59960cfe5327c8090abb6a494758a052d4d5334c29d06c4",
       "disposition": "ADAPT",
       "target": "skill:codex-starter-kit-maintenance",
@@ -926,6 +927,7 @@
     },
     {
       "source": "checkpoint",
+      "codexAdaptation": "MNT-0012: preserve Git create/verify/list and current tests; do not claim Claude rewind shortcuts or unstaged-file recovery in Codex",
       "sourcePath": "commands/checkpoint.md",
       "sourceSha256": "14a790bc9fbf5f6bb9c373774c61293afed1cf6dcc57f0fbad7bad6b16206b29",
       "disposition": "ADAPT",
@@ -969,6 +971,7 @@
     },
     {
       "source": "handover",
+      "codexAdaptation": "MNT-0012: use existing handoff destination and fresh Codex chat/CLI; preserve actual Git state, approvals, unrun checks and document-only recovery",
       "sourcePath": "commands/handover.md",
       "sourceSha256": "30c3377682dc714f4161880723f1c5b1cb66eef2983e327880c9fe04596c9b78",
       "disposition": "ADAPT",
@@ -989,6 +992,7 @@
     },
     {
       "source": "learn",
+      "codexAdaptation": "MNT-0012: preserve error/debug/workaround/project lessons and Problem/Solution/Example; select narrow durable destination, direct-child Skill and explicit save approval; optional memory is not automatic capture",
       "sourcePath": "commands/learn.md",
       "sourceSha256": "3582e4684dd474faeb5810167d0bc4de96dafb6046cded5531b9d14b9f53019b",
       "disposition": "ADAPT",
@@ -1025,6 +1029,7 @@
     },
     {
       "source": "oss-analyze",
+      "codexAdaptation": "MNT-0012: preserve pinned primary-source evaluation and output contract; replace non-bundled Defuddle dependency with available native retrieval, explicit URL/privacy validation and disclosed failure/fallback",
       "sourcePath": "commands/oss-analyze.md",
       "sourceSha256": "c0ff114766f91627d200765216b33f4f20f36d33bb850a35a60641364a7a447e",
       "disposition": "ADAPT",

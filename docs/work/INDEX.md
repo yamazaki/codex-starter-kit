@@ -5,11 +5,27 @@
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
 | REL-0004 | RELEASE | codex-starter-kit初回公開 | blocked |
+| REL-0005 | RELEASE | [動作検証後のCodex改訂版の準備](release/REL-0005-next-codex-revision.md) | in_progress |
+
+## 提案中
+
+| ID | 分類 | 件名 | status |
+| --- | --- | --- | --- |
 
 ## 完了
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
+| MNT-0019 | MAINTENANCE | [Windowsの更新復元証拠の権限判定](maintenance/MNT-0019-windows-update-proof.md) | complete |
+| MNT-0010 | MAINTENANCE | 移植機能の動作検証基盤 | complete |
+| MNT-0011 | MAINTENANCE | 動作検証の自動実行と証拠回収 | complete |
+| MNT-0012 | MAINTENANCE | [ワークフロー配布手順の残存表記・参照整合](maintenance/MNT-0012-workflow-reference-followups.md) | complete |
+| MNT-0013 | MAINTENANCE | [テスト対象選択の確認と不合格の再評価](maintenance/MNT-0013-test-selection-and-remediation.md) | complete |
+| MNT-0014 | MAINTENANCE | [試験証拠の永続保存と非モデル試験](maintenance/MNT-0014-durable-behavior-evidence.md) | complete |
+| MNT-0015 | MAINTENANCE | [private履歴とpublic候補の検査区分](maintenance/MNT-0015-public-history-scope.md) | complete |
+| MNT-0016 | MAINTENANCE | [設定監査の目的・出力契約の不足](maintenance/MNT-0016-config-audit-fidelity.md) | complete |
+| MNT-0017 | MAINTENANCE | [native tool証拠の収集漏れと採点訂正](maintenance/MNT-0017-prompt-evidence-reporting.md) | complete |
+| MNT-0018 | MAINTENANCE | [認可修正案の欠落主体の拒否](maintenance/MNT-0018-security-proposal-fail-closed.md) | complete |
 | GOV-0001 | GOVERNANCE | 専用Governance基盤の整備 | complete |
 | GOV-0002 | GOVERNANCE | Commit前自己レビューの必須化 | complete |
 | GOV-0003 | GOVERNANCE | 公開repository運用と貢献基盤 | complete |

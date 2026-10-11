@@ -1,0 +1,9 @@
+{
+  "name": "starter-kit-behavior-fixture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test invoice.test.mjs",
+    "test:journey": "node --test journey.test.mjs"
+  }
+}

@@ -29,6 +29,8 @@
 - URLを検証し、承認なしにprivate networkへアクセス、未信頼scriptを実行、global toolをinstallしない。
 - destructive change前にauthentication、file、command境界を確認し、least privilegeを優先する。
 - focused testから広い検証へ進み、skip・失敗した検証と残riskを報告する。
+- テスト対象を絞る場合は、実行手段が対応する引数の位置・指定方法を確認し、実際に選択された件数と対象を照合する。指定どおりに選べなかった実行はfocused testの成功と数えない。
+- Nodeの標準テストを絞る際は、Nodeのオプションをテストファイル名より前へ置く。npm scriptの末尾へ引数を渡すだけではこの順序を守れない場合があるため、展開後のコマンドを確認する。実行前の仕様確認は実行手段自体のhelpや公式資料を使い、npm script経由の`--help`がテストを起動しないとは仮定しない。
 <!-- END CODEX-STARTER-KIT-MANAGED -->
 
 # ユーザー設定

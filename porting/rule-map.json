@@ -74,6 +74,7 @@
     },
     {
       "sourcePath": "rules/testing.md",
+      "codexAdaptation": "MNT-0013: preserve smallest-first and honest reporting; confirm supported filtering and actual selection, including Node option ordering and wrapper help side effects",
       "sourceSha256": "a2a4a382c22f33699ca86b16bf0ac6d2cd271c0bbacc557c761d27836ffc530a",
       "disposition": "ADAPT",
       "targets": [

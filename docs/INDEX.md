@@ -22,6 +22,11 @@
 | `docs/PORTING_POLICY.md` | 移植分類と判定基準 |
 | `docs/VERSIONING.md` | upstream整合versionの契約 |
 | `docs/RELEASE_PROCESS.md` | release gateとrollback |
+| `docs/testing/BEHAVIOR_VALIDATION.md` | 移植機能の課題遂行・安全境界・実機連携の動作検証 |
+| `docs/testing/AUTOMATION.md` | CLIによる独立試験・証拠回収・試験専用認証の手順 |
+| `docs/testing/RELEASE_EVIDENCE.md` | 改訂版と旧版の原試験記録の対応、再ラベル禁止と新規試験の分離 |
+| `docs/testing/CASE_CATALOG.md` | 全55ケースの正常系・境界試験・合格条件一覧 |
+| `docs/testing/RESULTS_SUMMARY.md` | 全55ケースの結果・反復回数・未完了の一覧 |
 | `docs/DISTRIBUTION_ENGINE.md` | 配布root、plan、manifest、snapshot、rollback契約 |
 | `docs/assessments/plain-codex-comparison.md` | 素のCodexとの定性比較、追加価値、限界、将来の定量評価案 |
 | `docs/decisions/ADR-0001-governance-and-upstream-policy.md` | A/Bでownerが承認した方針と理由 |

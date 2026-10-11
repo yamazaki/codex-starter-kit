@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate",
+  "releaseVersion": "0.78.1-codex.4",
+  "releaseDate": "2026-10-11",
+  "acceptance": {"ownerAccepted": false},
+  "workAcceptance": {"ownerAccepted": true, "acceptedDate": "2026-10-11", "scope": "MNT-0010 through MNT-0018; local revision preparation only"},
+  "upstream": {"version": "0.78.1", "commit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4", "range": "no new upstream adoption; accepted fixed baseline", "preReleaseScanChanges": null},
+  "codexChanges": {"workflowReferenceCorrections": true, "focusedTestSelection": true, "instructionAuditPreservation": true, "failClosedSecurityProposals": true, "durableBehaviorEvidence": true, "historicalGradingCorrection": true},
+  "distribution": {"profiles": ["minimal", "standard", "full"], "languages": ["ja", "en"], "optionalComponents": ["safety-net"], "preserveExistingGlobalAgents": true},
+  "behaviorEvidence": {"sourceVersion": "0.78.1-codex.3", "representativeCasesPassed": 55, "newModelRunsOnReleaseVersion": 0, "reusedVia": "docs/testing/release-evidence-map.json", "limitations": "Fixed representative tasks, not exhaustive equivalence; original attempts retain actual versions"},
+  "verification": {"testsPassed": 93, "repositoryVerifier": true, "linkVerifier": true, "publicContentVerifier": true, "publicContentScope": "allowlisted candidate tree and synthetic local history; existing destination main checked separately; private history remains excluded", "privateHistoryPublicContentVerifier": false, "isolatedInstallLifecycle": true, "primaryApply": false, "threeOsCi": true, "secretScannerPreflight": true, "secretScannerScope": "local private HEAD/tree, allowlisted candidate tree/synthetic history, existing destination main history/tree; reviewed findings, no external credential verification; final documentation changes require frozen-candidate rescan", "ownerReview": false},
+  "ciAttempt": {"privateHead": "365aed959da073f443595fa9acdef5dcca252213", "runId": 38096849427, "linux": "success", "macos": "success", "windows": "failure", "followUp": "MNT-0019; local fix tested, actual Windows rerun pending"},
+  "ciVerification": {"privateHead": "1d87600b422d039336e6770f788e77f74f441740", "runId": 38099698241, "node": 22, "linux": "success", "macos": "success", "windows": "success", "scope": "accepted MNT-0019 code/test commit; later documentation checkpoint not yet pushed or run in CI"},
+  "destinationAudit": {"publicCommit": "7cb4e88925fbfa4f89cea075361a47472ac4e553", "mainCommits": 15, "releaseTags": ["v0.78.1-codex.2", "v0.78.1-codex.3"], "visibility": "PRIVATE", "metadataReviewed": true, "existingMainSecretScanReviewed": true, "licenseAndNoticeUnchanged": true, "futurePromotionCommitScanned": false},
+  "lifecycle": {"testedPlatform": "macOS", "sourceReleasePrivateCommit": "0b189d9", "fullJaSafetyNetUpdates": 7, "preserveGlobalAgentsUpdates": 6, "rerunAdditionalChanges": 0, "oldManifestAndFilesRestored": true}
+}

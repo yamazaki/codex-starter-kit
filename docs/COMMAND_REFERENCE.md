@@ -66,6 +66,14 @@ node scripts/verify-port-plan.mjs .upstream-sync/plans/<plan>.json
 
 `source` remoteはfetch-onlyで、push URLを `DISABLED`にする。scanはreview plan作成までで、配布物やaccepted stateへ変更を適用しない。具体的な手順は[Upstream Update Runbook](UPSTREAM_UPDATE_RUNBOOK.md)を参照する。
 
+## 利用者が書いた指示の監査
+
+`$codex-starter-kit-maintenance`へ「AGENTS.mdの指示内容を監査して」と依頼し、対象ファイルと範囲（`global` / `project` / `all`）を指定する。指定がなければglobalを基本とし、場所や所有範囲が不明なら先に確認する。
+
+古い補助指示・過度な手順指定・古い前提・実行環境との重複を評価し、保持・削除・書換え・統合の理由と代替全文を提案する。個人の希望と承認ルールは保持し、根拠のない重複や古さは断定しない。kit管理部分は対象外で、承認なしにファイルは変更しない。「導入状態の監査」は管理ファイルの変更・欠落を確認する別の操作である。
+
+この指示内容監査は2026-10-10のローカル修正候補に含まれる。既存Release・本番インストールへの反映は別工程。
+
 ## Public candidateとrelease確認
 
 ```bash

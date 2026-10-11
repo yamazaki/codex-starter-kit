@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
+import {missingCommandSections} from '../scripts/lib/command-fidelity.mjs';
 
 const root = path.resolve(import.meta.dirname, "..");
 const contract = JSON.parse(fs.readFileSync(path.join(root, "porting/fidelity-contract.json"), "utf8"));
@@ -12,6 +13,15 @@ const configMap = JSON.parse(fs.readFileSync(path.join(root, "porting/config-map
 const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
 const lineCount = (text) => text.split("\n").length - (text.endsWith("\n") ? 1 : 0);
 const sha256 = (text) => crypto.createHash("sha256").update(text).digest("hex");
+
+test('audit-config cannot substitute installation-state audit for the required instruction-audit contract',()=>{
+  const entry=contract.commands.find(c=>c.source==='audit-config');
+  assert.equal(entry.verifyRequiredSections,true);
+  assert.equal(entry.requiredSections.length,4);
+  assert.deepEqual(missingCommandSections(entry,read(entry.fidelityTarget)),[]);
+  assert.equal(missingCommandSections(entry,'## Audit installed files\nRead manifest and hashes only.\n').length,4);
+  assert.deepEqual(missingCommandSections(entry,read(entry.fidelityTarget).replace('## Audit Lenses\n','')),['Audit Lenses']);
+});
 
 test("fidelity contract covers every upstream Skill, agent, and feature", () => {
   assert.equal(contract.schemaVersion, 1);
@@ -35,6 +45,7 @@ test("commands, rules, permissions, config, and feature resources have complete 
       assert.equal(entry.disposition, "ADAPT");
       assert.ok(entry.fidelityTarget);
       assert.ok(fs.existsSync(path.join(root, entry.fidelityTarget)), `${entry.source}: missing fidelity target`);
+      if(entry.verifyRequiredSections)for(const section of entry.requiredSections)assert.ok(read(entry.fidelityTarget).includes(`## ${section}\n`),`${entry.source}: missing ${section}`);
     }
   }
   assert.equal(contract.rules.reduce((sum, entry) => sum + entry.sourceStatements, 0), 27);
@@ -101,4 +112,15 @@ test("feature ADAPT entries declare their equivalence boundary", () => {
     }
   }
   assert.deepEqual(counts, { ADAPT: 3, DROP: 15 });
+});
+
+test("workflow adaptation does not reintroduce unsupported runtime guarantees or required dropped dependencies", () => {
+  const get = name => read(contract.commands.find(c => c.source === name).fidelityTarget);
+  for (const name of ["handover", "checkpoint", "learn", "oss-analyze"]) {
+    assert.ok(contract.commands.find(c => c.source === name).codexAdaptation);
+  }
+  assert.doesNotMatch(get("handover"), /Start a fresh session: `claude`/u);
+  assert.doesNotMatch(get("checkpoint"), /Codex's native checkpoint\/rewind|Esc Esc|NotebookEdit/u);
+  assert.doesNotMatch(get("learn"), /~\/\.agents\/skills\/learned\/|captured automatically by auto-memory|when_to_use:/u);
+  assert.doesNotMatch(get("oss-analyze"), /web-content-extraction skill の URL 検証手順に従って/u);
 });

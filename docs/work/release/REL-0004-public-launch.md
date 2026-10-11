@@ -2,7 +2,7 @@
 
 - Classification: `RELEASE`
 - Status: `blocked`
-- Candidate Version: `0.78.1-codex.3`
+- Candidate Version: `0.78.1-codex.4`（ローカル準備、既存Releaseは.3）
 - Upstream Version: `0.78.1`
 - Upstream Commit: `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
 - Session Handoff: `internal/session-history/REL-0004/HANDOFF.md`
@@ -10,10 +10,10 @@
 ## Current status
 
 - Overall Status: `blocked`
-- Current Gate: `0.78.1-codex.3`を手元環境で継続利用する観察期間
-- Next Action: 利用中の不具合・改善点を記録し、問題がないとownerが判断した後にrepository再公開を別Gateで検討する
+- Current Gate: 手元での継続利用と、.4の候補確定・CI・公開先監査・release受入
+- Next Action: MNT-0019受入・3 OS CI成功、候補と既存公開先の秘密情報/履歴/metadata監査を実施。最終資料の候補再生成・再scanを保存しcandidate/release受入と公開用repositoryへの反映承認へ進む。本番・tag・Release・Public化は別承認
 - Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
-- Last Updated: 2026-09-28
+- Last Updated: 2026-10-11
 
 ## Dependency status
 
@@ -30,6 +30,17 @@
 | MNT-0006 | complete | full-name rename・実Codex discovery完了 | release収録 |
 | MNT-0007 | complete | Windows互換修正・Actions v7・3 OS CI成功 | release収録 |
 | GOV-0004 | complete | 公開後運用への切替を実装・検証し、利用者受入済み | なし |
+| MNT-0010 | complete | 55ケース・専用fixture・採点基盤を整備 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0011 | complete | 55代表ケースの正常・境界、実子最終回答とnative証拠の採点完了 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0012 | complete | 配布reference4件の整合修正と8回の再検証、引継ぎOPEN issue解消 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0013 | complete | 検証順序の具体化と正常/境界各3回、FAIL履歴3件を保全して解消対応付け | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0014 | complete | 全55の必要反復と原証拠を確認、過去raw喪失を保持し代替manifestを記録 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0015 | complete | private履歴と公開対象tree・候補・独立履歴を区分、検査を緩めず既知FAILを保全 | 区分受入済み。確定候補の最終監査は別gate |
+| MNT-0016 | complete | AGENTS指示監査の目的・出力・個人の希望と未確認前提の保持を補強、元FAILと6再試行を対応付け | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0017 | complete | native収集漏れの誤採点を原判定保全で訂正、能力FAILと区別 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| MNT-0018 | complete | 認可修正案を補強、6再試行と通常回帰2試行PASS。明示role連携1試験も補助証拠として確認 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
+| REL-0005 | in_progress | .4版整合・証拠対応・隔離検証・ローカル秘密情報検査成功。既存Releaseは未変更 | 候補再検査の保存、CI、公開先監査・candidate/release受入 |
+| MNT-0019 | complete | 本人受入・再push後、1d87600でWindows/macOS/LinuxすべてCI成功 | 新候補再生成・秘密情報再scanはREL-0005で実施 |
 
 ## GitHub destination
 
@@ -115,6 +126,7 @@
 - [x] `v0.78.1-codex.3` tag作成・target readback
 - [x] `.3` GitHub Release作成・readback
 - [ ] `.3` repository再公開
+- [ ] 採用機能の課題遂行・安全境界・自動選択・Hook実連携・新規セッション引継ぎを証拠付きで確認
 - [ ] REL-0004 session handoff closed
 
 ## Approval boundaries
@@ -122,6 +134,8 @@
 ローカル調査、設計、実装、fixture検証は承認済み。primary user rootへのdry-runはread-only plan生成として扱う。実user rootへのapply、rollback、uninstall、commit、GitHub repository作成、push、public化、tag、GitHub Releaseはそれぞれ実行直前に個別承認を得る。
 
 ## Verification
+
+構造検査、配布機構の実行確認、起動確認、課題遂行の動作確認を区別する。既存の成功記録は全スキル・agentの課題遂行を保証しない。動作検証は[移植機能の動作検証](../../testing/BEHAVIOR_VALIDATION.md)に従い、未実施と環境不足を成功に数えない。
 
 - `npm test`
 - `npm run verify`
@@ -180,4 +194,15 @@
 
 ## Result
 
+2026-10-10の継続検証: 試験rootで更新・復元と古い承認の拒否を各3回確認し、51/55ケース合格へ進んだ。本番更新ではなく、合成候補の中間状態を別rootで再現して照合した試験。残るruntime3・Hook実連携、過去rawのオーナー判断、利用者レビューがあるため公開停止を維持する。
+
+2026-10-10: MNT-0016で本家の設定監査をAGENTS向けに修正した。初回FAIL1件を保全した規則補強後の正常・境界各3回を確認し、原文目的の不足は解消。案件は利用者レビュー待ちで、全体50/55ケース合格。残る動作試験と過去rawのオーナー判断が必要なため公開停止を維持。本番インストール・Releaseへは未反映。
+
+2026-10-09の検証で49/55ケース合格。更新計画の正常・競合停止を各3回確認した一方、本家audit-configの利用者指示監査がCodex側では配布状態監査へ置き換わっている不足を検出した。MNT-0016 proposedの修正案とOPEN指摘を残し、当該監査の6試行は一部観察として扱う。残る試験・修正と再試験・過去rawのオーナー判断が必要なため再公開は停止したまま。本番適用・push・Release・Public化は行っていない。
+
 `0.78.1-codex.2`は公開後に意味的忠実度不足が判明したためrepositoryを非公開へ戻した。`0.78.1-codex.3`ではSkills、agents、commands、rules、permissions、config、plugins、features、distribution engineの全surfaceを再監査・再実装し、primary apply、実Codex、Hook trust、3 OS CI、secret scanまで完了した。ownerは2026-09-28にPrivate repositoryでのreleaseを受け入れ、tagとGitHub Releaseを作成した。repositoryのpublic化は手元環境での継続利用後に別途判断するため、REL-0004はblockedを維持する。
+2026-10-04の特殊workflow検証: 38テンプレートへ拡張し、7 workflowの正常系・境界を実証した。checkpointは同一CLI/modelで各3回、fixture内commit1件だけを確認。handoverは別セッションへ文書のみ渡して承認・未実施事項の復元を確認したが、配布referenceのClaude起動例が残るためMNT-0012へ指摘を記録し、完了扱いを拒否した。learn/orchestrate/OSS/Webは実行履歴と出力契約を照合して採点した。
+
+全体は37 PASS、2 IN_PROGRESS（引継ぎ指摘・desktop Hook一部確認）、16 NOT_RUN。正式CLI115起動のうち112評価済みPASS、3実行障害は原証拠を保全して独立再試験へ対応付け済み。desktop4試行は別条件で保持し、採点attempt合計116。引継ぎの追加セッション1件は反復へ二重計上しない。OSSのnative取得はCache missのまま、固定公開Gitオブジェクトの一次資料7件を明示した代替評価として確認した。全ソース・実行時安全性を確認済みとはしない。
+
+残る試験、MNT-0012の配布手順修正scopeの承認、利用者レビューがあるためreview/公開停止を維持する。現在の変更は未コミット・未push、本番kitとRelease/visibilityは不変。

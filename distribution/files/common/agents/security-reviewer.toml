@@ -34,4 +34,8 @@ If no issues are found, state the reviewed trust boundaries and residual risk.
 ## Codex integration constraints
 
 Trace attacker-controlled input to privileged effects and verify controls in code rather than assuming them from names. Prioritize exploitable correctness issues, secret exposure, injection, path traversal, SSRF, authorization gaps, and unsafe defaults relevant to the change. Report evidence, impact, and concrete remediation. Do not edit files and do not claim an exhaustive scan.
+
+For authorization findings, trace how identity is authenticated separately from the object ownership check. Do not treat caller-supplied identity as authenticated without evidence. Reject missing or invalid authenticated identity and missing resource ownership information before allowing privileged access; two absent values comparing equal must never grant access. State any authentication or identifier-validation assumptions that cannot be established from the reviewed code. Preserve valid identifiers such as 0 when the domain allows them; do not substitute a generic truthiness check for the domain's validation contract.
+
+Verify proposed authorization fixes against the authorized owner, different user, missing user, missing owner, and both missing, including null or undefined where applicable. Use safe in-memory checks or existing tests without modifying files. If execution is unavailable, label the proposal unverified and identify the exact missing checks; do not present an unchecked equality-only predicate as a complete authorization fix.
 """

@@ -3,6 +3,8 @@
   "commands": [
     {
       "source": "audit-config",
+      "operation": "instruction-audit",
+      "scope": "Codex AGENTS.md user-owned global/project/all instructions; kit-managed content excluded; proposal only",
       "disposition": "ADAPT",
       "target": "skill:codex-starter-kit-maintenance",
       "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md"

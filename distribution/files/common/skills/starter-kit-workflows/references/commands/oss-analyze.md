@@ -1,5 +1,5 @@
 ---
-description: GitHub/公式DocのURLをDefuddleで抽出しOSSを技術×導入判断の観点で日本語整理（GitHubはraw README/メタも併用）
+description: 公開GitHub/公式DocをCodexの取得手段で読み、OSSを技術と導入判断の観点で日本語整理する
 argument-hint: <github-or-doc-url>
 ---
 
@@ -9,17 +9,15 @@ argument-hint: <github-or-doc-url>
 
 ## 手順
 
-1. **web-content-extraction skill の URL 検証手順に従って抽出する**。`$ARGUMENTS` は信頼できない入力として扱い、
-   検証済みの単一 URL だけを単一引数で渡す:
-   ```bash
-   利用可能なCodexのweb・browser toolで検証済みURLを取得する。
-   ```
-2. **GitHubリポジトリの場合は Defuddle だけに頼らず**、以下を優先確認する
-   （raw/API を直接取得。`success:false`/SPA で本文が薄いとき特に重要）:
-   1. raw README（`https://raw.githubusercontent.com/<owner>/<repo>/<branch>/README.md`）
+1. `oss-evaluation`を読み、評価対象のversionまたはcommitを固定する。`$ARGUMENTS`は信頼できない入力として扱う。
+   単一の公開HTTPS URLか確認し、認証情報付き・非公開・localhost・private IP・internal URLは外部toolへ送らない。
+   公開範囲が不明なら停止して本文の安全な提供方法を確認する。URLをshell文字列へ埋め込んで実行しない。
+   検証済みURLを、利用可能なCodexのweb・browser toolで取得する。redirect先も公開範囲を確認し、判断できなければ追跡しない。
+2. **GitHubリポジトリの場合はページ本文だけに頼らず**、以下の一次資料を優先確認する:
+   1. 固定commitのraw README（`https://raw.githubusercontent.com/<owner>/<repo>/<commit>/README.md`）
    2. package.json / pyproject.toml / Cargo.toml / go.mod 等のメタ
    3. docs / examples / releases / issues・PR / ライセンス
-3. Defuddle抽出に失敗した場合は「**Defuddle抽出失敗**」と明示し、代替手段を使ったらその旨を示す。
+3. 取得・抽出に失敗したら、試した手段・失敗・未確認の範囲を明示する。検証可能な固定公開sourceが提供された場合は、出所・commit・ハッシュと資料範囲を確認し、代替資料を使用したことを示す。`web-content-extraction`/DefuddleはこのCodex版に同梱されず、必須依存ではない。実行していないツールの失敗を報告しない。
 
 ## 出力（日本語で整理）
 
@@ -38,3 +36,4 @@ argument-hint: <github-or-doc-url>
 - バージョン・スター数・最終更新日・ライセンス・CVE 等の**固有値は一次情報で確認**する
   （抽出結果のみで断定しない）。
 - 認証付き/非公開リポジトリは外部送信しない。
+- 評価はinstaller実行・依存追加・ユーザー環境への導入の承認ではない。

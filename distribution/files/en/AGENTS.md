@@ -29,6 +29,8 @@
 - Validate URLs and do not access private networks, execute untrusted scripts, or install global tools without authorization.
 - Check authentication, file, and command boundaries before destructive changes; prefer least privilege.
 - Add focused tests, run narrow checks before broad checks, and report skipped or failing checks with residual risk.
+- When filtering tests, check the runner's supported argument placement and syntax, then verify the actual selected cases and count. Do not count a run with an ineffective filter as a successful focused check.
+- For Node's built-in tests, put Node options before the test filename. Appending arguments to an npm script may not preserve that order; inspect the expanded command. Inspect the runner's own help or official documentation before execution, and do not assume `--help` through an npm script will avoid running tests.
 <!-- END CODEX-STARTER-KIT-MANAGED -->
 
 # User settings

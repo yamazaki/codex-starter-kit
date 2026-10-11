@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import {supportedBehaviorVersion} from './lib/behavior-version.mjs';
 import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {missingCommandSections} from './lib/command-fidelity.mjs';
 import {
   inspectUpstreamRemote,
   readJson,
@@ -98,6 +100,7 @@ if (!/^(?:0\.0\.0-dev|\d+\.\d+\.\d+-codex\.[1-9]\d*)$/u.test(version)) {
 }
 const packageJson = readJson(path.join(root, "package.json"));
 if (packageJson.version !== version) errors.push("VERSION and package.json version differ");
+if (version !== '0.0.0-dev' && !supportedBehaviorVersion(version)) errors.push('current version lacks a reviewed unchanged-artifact behavior evidence bridge');
 const source = readJson(path.join(root, "upstream", "source.json"));
 if (version !== "0.0.0-dev") {
   const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
@@ -412,6 +415,10 @@ if (fidelity.schemaVersion !== 1 || fidelity.upstreamCommit !== source.lastAccep
       errors.push(`fidelity command target is missing: ${entry.source}`);
     }
     if (entry.disposition === "DROP" && !entry.reason) errors.push(`fidelity dropped command has no reason: ${entry.source}`);
+    if(entry.disposition==='ADAPT'&&entry.verifyRequiredSections&&fs.existsSync(path.join(root,entry.fidelityTarget))){
+      const text=fs.readFileSync(path.join(root,entry.fidelityTarget),'utf8');
+      for(const section of missingCommandSections(entry,text))errors.push(`fidelity command section is missing: ${entry.source} -> ${section}`);
+    }
   }
   if ((fidelity.features ?? []).reduce((sum, entry) => sum + (entry.sourceFiles?.length ?? 0), 0) !== 48) {
     errors.push("fidelity feature source-file inventory is incomplete");

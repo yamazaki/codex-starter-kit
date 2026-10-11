@@ -14,6 +14,23 @@
 
 ### Removed
 
+## [0.78.1-codex.4] - 2026-10-11
+
+本家の基準は0.78.1（`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`）のまま。動作検証で確認したCodex固有の修正と検証基盤を収録する。現時点ではローカルcandidateであり、既存のGitHub Releaseや本番インストールを更新したものではない。
+
+### Fixed
+
+- 引継ぎ・checkpoint・学び・OSS調査の配布手順に残っていた表記と参照を整合。
+- 日英の共通指示へ、Node.jsの対象テスト指定と最小範囲から全体へ進める確認手順を具体化。
+- 保守スキルの設定監査をAGENTS.mdの指示内容の監査へ修正。個人の希望・承認境界・未確認の前提を維持する。
+- security-reviewerの修正提案で、利用者・所有者の欠落を拒否し、有効なIDを保持することを補強。認証とID仕様の前提、提案の実測と未検証範囲を明示する。
+
+### Added
+
+- 55代表ケースの動作検証一覧と結果、隔離CLI試験、実子の最終回答・操作・成果物の証拠回収を整備。
+- 過去の不合格・障害と、採点側の収集漏れによる訂正を区別して保全する仕組みを追加。
+- 配布物・導入機構・試験定義の内容が一致する場合だけ、旧版の原証拠を改訂版の参考にする対応表を追加。過去試行の版名を変更せず、新版での再実行とは区別する。
+
 ## [0.78.1-codex.3] - 2026-09-28
 
 Upstream coverage remains `claude-code-starter-kit` 0.78.1 (`f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`). This release corrects semantic fidelity defects in the Codex adaptation; it does not claim a newer upstream baseline.

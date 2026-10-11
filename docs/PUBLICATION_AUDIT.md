@@ -108,7 +108,7 @@ scannerが終了code 0とfinding 0を返しても、rule engineが壊れてい�
 - canaryを検出できないversionの0件結果は監査証拠に採用しない。別の公式releaseを選ぶ場合はversion、checksum、理由を記録する。
 - canary reportもmode `0600`とし、監査終了時にtool・report・canaryを同じ一時directoryごと削除する。
 
-Gitleaks 8.30.1にはdefault ruleが一致しない回帰報告があるため、version番号やlatest表示だけで採用しない。詳細は[upstream issue #2170](https://github.com/gitleaks/gitleaks/issues/2170)を参照し、実行時のcanary結果を優先する。
+[upstream issue #2170](https://github.com/gitleaks/gitleaks/issues/2170)は、当初Gitleaks 8.30.1の検出回帰として報告されたが、順番に並べた検査用文字列がstopwordの除外規則へ一致したことが原因として解決済み（2026-10-11確認）。回帰が確認されたという以前の記述は訂正する。検査用文字列は実credentialを使わず、既知のplaceholder/stopwordにも一致しない値を生成する。version番号やlatest表示だけで採用せず、実行時のcanary結果を優先する。
 
 ### Report handling
 
@@ -136,3 +136,21 @@ Gitleaks 8.30.1にはdefault ruleが一致しない回帰報告があるため�
 - scannerの新versionが旧versionより新しいことと、検出が正常であることを混同しない。実対象の0件結果を得る前にcanaryを必須とする。
 - entropy scannerはcommit SHA、repository fingerprint、manifest digestを大量に候補化する。値を表示せず、JSON field名と生成元から分類する。
 - 初回Git repositoryにはHEADがないため、history scan不能をtree scan失敗と混同しない。初期commit前はtree、commit後はtreeとhistoryを検査する。
+
+## Codex4 secret preflight
+
+2026-10-11、REL-0005のローカル候補をGitleaks 8.30.1、TruffleHog 3.99.2、detect-secrets 1.5.0で検査した。公式配布のchecksumを照合し、TruffleHogのchecksum署名はrelease workflowのidentityとOIDC issuerまで検証した。Pythonは専用の一時環境を使用し、依存版を記録した。
+
+スキャナーの通信と利用者の認証ディレクトリの読取りをOSで拒否し、外部への認証確認・自動更新を無効化した。架空の検査用文字列は3種類すべてが検出した。privateのHEAD履歴・現在のファイル、公開対象だけを抽出した候補・その合成初期履歴を別々に検査した。追加refs、実GitHub履歴、他の利用者ディレクトリは対象外である。
+
+初回の集計はGitleaksがprivate履歴/tree各6件、candidate履歴/tree各3件、TruffleHogが各1件。detect-secretsはprivate tree1437件、candidate tree515件だった。いずれも検証用digest・commit参照、明示的な安全でない記述例のplaceholder、予約済み`.invalid`ドメインの試験入力へ対応付けた。疑わしいdigestは現物のhashとも照合し、独立レビューを行った。検出数を0へ書き換えず、確認後に残る認証情報候補を0件とした。絶対的な不存在や有効性の保証ではない。
+
+資料の最終変更後は候補を再生成し、同じ通信禁止・canary付きの検査を繰り返す。確定したcommit・候補のファイル対応表・最終件数と生ログは、認証情報を保存するディレクトリとは別の非公開証拠保管先へ保存する。公開資料へ生ログや検出値を転記しない。private履歴の個人パスに対する既知の公開内容検査FAILは別判定として保持し、その履歴を公開候補へ引き継がない。
+
+### MNT-0019後の再監査
+
+3 OS CI成功後の候補も93 tests・構成・リンク・公開内容・合成履歴の検査に成功した。private、候補、既存の公開用repositoryを区分し、同じ固定版と通信拒否条件で再検査した。候補の検出は実ファイルdigest、CIの実commit参照、検査範囲の説明文、明示的な架空例と試験入力へ対応付け、未解決の認証情報候補は0件だった。初回件数を上書きせず、今回の件数は非公開の証拠保管先へ別に保存する。
+
+既存公開用main `7cb4e88` の15コミットはGitleaks・TruffleHogとも検出0。current treeのdetect-secrets358件はdigestと明示的な安全でないplaceholder2件だった。author/committerとannotated tagはGitHub noreply、Releaseタグ2件はmainの祖先に属する。commit本文と公開内容の検査に指摘なし。notes/replace/stash、submodule、LFS、候補のbinary/symlinkは対象内に存在せず、LICENSE/NOTICEは不変だった。
+
+公開用repositoryはPRIVATEのまま。candidate側の変更を既存公開用履歴へ反映する将来のcommitは未作成であり、そのcommitの検査とpush/read-backは別工程とする。追加refsや他のrepository・利用者環境まで監査済みとはしない。

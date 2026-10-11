@@ -1,7 +1,9 @@
 # 素のCodexとcodex-starter-kit適用時の比較評価
 
 - Assessed: 2026-09-21
-- Kit version: `0.78.1-codex.3`
+- Kit version: `0.78.1-codex.4`
+- 原評価の版: `0.78.1-codex.3`
+- 追記確認: 2026-10-11。今回の指示補強・検証基盤追加でもモデル自体を強化するものではない。新しい定量A/B評価を実施したという意味ではない。
 - Assessment type: 定性評価
 
 ## 結論
