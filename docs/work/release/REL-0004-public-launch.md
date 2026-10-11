@@ -11,7 +11,7 @@
 
 - Overall Status: `blocked`
 - Current Gate: 手元での継続利用と、.4の候補確定・CI・公開先監査・release受入
-- Next Action: MNT-0019受入・3 OS CI成功、候補と既存公開先の秘密情報/履歴/metadata監査を実施。最終資料の候補再生成・再scanを保存しcandidate/release受入と公開用repositoryへの反映承認へ進む。本番・tag・Release・Public化は別承認
+- Next Action: 本人受入済み候補を公開用main a13f996へ通常push、3 OS各93 testsとPRIVATE状態/実tree一致を確認。次は.4の正式release受入とtag/GitHub Releaseの個別承認。本番更新・Public化は別承認
 - Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
 - Last Updated: 2026-10-11
 

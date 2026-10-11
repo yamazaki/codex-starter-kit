@@ -3,7 +3,7 @@
 - Classification: RELEASE
 - Status: in_progress
 - Parent: REL-0004
-- Candidate Version: 0.78.1-codex.4（ローカルcandidate）
+- Release Version: 0.78.1-codex.4（正式受入済み、Private release実行中）
 - Upstream Version: 0.78.1
 - Upstream Commit: f8f8ef5964c83cec2a5aaf84847a85149c96f6d4
 
@@ -14,6 +14,8 @@
 収録案は、MNT-0012の配布手順・参照の整合、MNT-0013の最小テスト選択、MNT-0016のAGENTS指示監査、MNT-0018の安全な認可修正提案の補強。MNT-0010/0011/0014/0017の検証基盤・証拠保存・採点訂正、MNT-0015のprivate/public検査区分も保守用制御構造へ収録する。過去の不合格・障害は削除しない。
 
 ## 承認境界
+
+2026-10-11、本人が正式リリース用資料の確定・再検査・公開用への反映、v0.78.1-codex.4タグとGitHub Release作成を明示承認。Release manifestをaccepted/ownerAccepted trueへ確定し、配布物・導入処理・原モデル評価は変更しない。確定コミットの検査とCI成功後にタグ/Releaseを作り読み戻す。Public化・本番更新は承認外。REL-0004のblockedはPublic化の別Go待ちであり、本Private releaseの未受入gateではない。
 
 当初の継続依頼で追加回帰と改訂案を準備し、2026-10-11の本人の明示受入でMNT-0010〜0018をcompleteとした。release-codex-starter-kitの手順に従い、今後のrelease対象の未受入・未実施gateが残る間はreadyとしない。
 
@@ -29,6 +31,8 @@
 6. 本人の個別承認後に本番更新やPrivate repositoryへのpush/CI/tag/Releaseを実行し、対象SHA・版・結果・復元手順を読み戻す。Public化は別工程。
 
 ## 未完了と復元
+
+最新の反映結果: 本人が凍結候補の受入と、PRIVATEのまま公開用mainへのcommit/pushを承認。既存公開用7cb4e88の上にa13f996を作り、承認済み候補とGit tree完全一致を確認した。100ファイル（追加76・変更24・削除0）のみを反映し、private履歴/internalは持ち込まなかった。実HEAD履歴・treeの3-engine検査は分類後の未解決認証情報候補0、93ローカルtestsと構成/リンク/公開内容検査も成功。通常push後のmain/tree/PRIVATE状態を読み戻し、[公開用CI38115420812](https://github.com/yamazaki/codex-starter-kit/actions/runs/38115420812)も同じa13f996でWindows/Linux/macOS各93 tests・後続検査成功。snapshot反映は完了したが正式Releaseではない。次は.4の正式release受入・tag・GitHub Releaseの個別承認。本番更新/Public化はさらに別承認。今回の結果記録はprivate正本へ保存し、新たなpublic差分の反映は別工程とする。
 
 最新の候補再監査: MNT-0019受入後の候補276対象は93 tests・構成/リンク/公開内容/合成履歴検査に成功。private/candidateの全検出候補を分類し未解決の認証情報候補0件。公開先main7cb4e88の既存15コミット・2タグのmetadataと秘密情報検査も確認した。ライセンス/帰属は不変。公開先との差分は追加76・変更24・削除0（生成manifestを含む）、配布側は変更8・追加/削除0。8 source filesとfull/ja適用時の更新7件は言語別ファイルの違いであり、対象数を混同しない。監査結果の最終資料変更後に再生成・再scanしてSHA対応を外部証拠へ保存する。次の人の判断はcandidate/release受入と公開用repositoryへの反映の個別承認である。公開用repositoryはPRIVATE、将来promotion commitは未作成、tag/Release/Public化/本番更新も未実施。
 
