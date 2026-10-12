@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted",
+  "releaseVersion": "0.78.1-codex.5",
+  "acceptance": {"ownerAccepted": true, "acceptedDate": "2026-10-12", "scope": "owner approved reviewed delta and Private release after successful CI; primary install and Public visibility excluded"},
+  "upstream": {"version": "0.78.1", "commit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4", "range": "no new upstream adoption"},
+  "work": ["GOV-0005", "MNT-0020", "REL-0006"],
+  "behaviorEvidence": {"status": "confirmed", "plan": "docs/testing/update-release-evidence.json", "historicalSourceVersion": "0.78.1-codex.3", "historicalBridgeTarget": "0.78.1-codex.4", "newBehaviorSuiteModelRuns": 0, "startupHookTrials": {"sessions": 5, "modelTurnsCompleted": 4, "blockedBeforeModel": 1}, "limits": "75 unchanged historical artifacts retain original evidence; installer/runtime have separately reviewed hashes, regressions and latest startup proof; auxiliary trials are not new 55-case suite runs"},
+  "verification": {"ownerReview": true, "threeOsCi": true, "threeOsCiScope": "83bf4a0 / 38239615958: Node22 Linux/macOS/Windows each 126 passed, no failures or skips; accepted metadata and fixture normalization are checked again before tag", "primaryApply": false, "releasedUpdaterAcquisition": false, "updatedRuntimeStartup": true, "updatedRuntimeStartupScope": "latest runtime hashes: five fresh macOS CLI startup trials, standard/ja/safety-net/PRESERVE; Windows/Linux Codex and Desktop UI/session not tested"},
+  "latestStartupVerification": {"summary": "docs/testing/update-startup-proof.json", "sessions": 5, "modelTurnsCompleted": 4, "blockedBeforeModel": 1, "scope": "fresh trial, separate from previous startup trials and the 55-case suite"},
+  "acceptanceEvidence": "docs/testing/update-release-evidence.json",
+  "ciAttempt": {"commit": "27df1e71894dbb6044bb0e300b15bc5d80dcd8c4", "runId": 38187414221, "linux": "success", "macos": "success", "windows": "failure", "reason": "Windows fixture child ESM import used a drive path instead of a file URL; original failure retained"},
+  "ciVerification": {"commit": "25af69a2397487d6c8b8853e9260ab04049b3d25", "runId": 38187814800, "node": 22, "linux": {"passed": 118, "skipped": 0}, "macos": {"passed": 118, "skipped": 0}, "windows": {"passed": 115, "skipped": 3}, "scope": "candidate code/tests; Windows updater Hook registration and POSIX interruption fixtures are excluded, not counted as passing"},
+  "windowsSupportVerification": {"commit": "bbd16c07a84e83e594d0970572d4a735922006ca", "runId": 38223804952, "node": 22, "linux": {"passed": 121, "failed": 0, "skipped": 0}, "macos": {"passed": 121, "failed": 0, "skipped": 0}, "windows": {"passed": 121, "failed": 0, "skipped": 0}, "originalAttempt": {"commit": "ec9e7543b0efba9b24d7bd99a2b022ecec4688a2", "runId": 38223472649, "windowsPassed": 120, "windowsFailed": 1, "windowsSkipped": 0}, "scope": "native command, updater registration/self-update/rollback/interruption and guards; not actual Windows Codex UI trust or SessionStart"},
+  "publication": {"releaseCreated": false, "tagCreated": false, "publicVisibilityAuthorized": false}
+}

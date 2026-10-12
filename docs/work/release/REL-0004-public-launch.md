@@ -2,7 +2,7 @@
 
 - Classification: `RELEASE`
 - Status: `blocked`
-- Candidate Version: `0.78.1-codex.4`（ローカル準備、既存Releaseは.3）
+- Release Version: `0.78.1-codex.4`（Private正式Release済み）
 - Upstream Version: `0.78.1`
 - Upstream Commit: `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
 - Session Handoff: `internal/session-history/REL-0004/HANDOFF.md`
@@ -10,8 +10,8 @@
 ## Current status
 
 - Overall Status: `blocked`
-- Current Gate: 手元での継続利用と、.4の候補確定・CI・公開先監査・release受入
-- Next Action: 本人受入済み候補を公開用main a13f996へ通常push、3 OS各93 testsとPRIVATE状態/実tree一致を確認。次は.4の正式release受入とtag/GitHub Releaseの個別承認。本番更新・Public化は別承認
+- Current Gate: 手元環境での継続利用と、Public化の本人Go
+- Next Action: REL-0005のPrivate正式Release v0.78.1-codex.4を完了（105d8be、3 OS各93 tests、タグ/Release/PRIVATE読み戻し一致）。本番更新は個別承認、Public化は継続利用後の本人Goまで保留。公開直前はその時点のHEAD/設定・対象差分を再確認する
 - Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
 - Last Updated: 2026-10-11
 
@@ -39,7 +39,7 @@
 | MNT-0016 | complete | AGENTS指示監査の目的・出力・個人の希望と未確認前提の保持を補強、元FAILと6再試行を対応付け | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
 | MNT-0017 | complete | native収集漏れの誤採点を原判定保全で訂正、能力FAILと区別 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
 | MNT-0018 | complete | 認可修正案を補強、6再試行と通常回帰2試行PASS。明示role連携1試験も補助証拠として確認 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
-| REL-0005 | in_progress | .4版整合・証拠対応・隔離検証・ローカル秘密情報検査成功。既存Releaseは未変更 | 候補再検査の保存、CI、公開先監査・candidate/release受入 |
+| REL-0005 | complete | .4正式受入・最終監査・3 OS CI、105d8beへのタグ/GitHub Release作成とPRIVATE読み戻し完了 | 本番更新/Public化はREL-0004で別承認 |
 | MNT-0019 | complete | 本人受入・再push後、1d87600でWindows/macOS/LinuxすべてCI成功 | 新候補再生成・秘密情報再scanはREL-0005で実施 |
 
 ## GitHub destination

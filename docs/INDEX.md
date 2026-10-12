@@ -9,6 +9,7 @@
 | `docs/GLOSSARY.md` | upstream、source、origin、fork、downstreamの用語境界 |
 | `docs/FORKING_AND_CUSTOMIZATION.md` | 公式版をforkし、Codex版とClaude本家を別々に追跡する手順 |
 | `docs/GETTING_STARTED.md` | 利用者向けのdry-run、apply、update、uninstall、rollback手順 |
+| `docs/UPDATE_WORKFLOW.md` | 開発中の手動/自動更新入口、取得元の明示制御、停止条件と未検証gate |
 | `docs/COMMAND_REFERENCE.md` | 利用・検証・upstream同期・公開commandの索引 |
 | `docs/MAINTAINER_GUIDE.md` | upstream追随、triage、PORT、公開の保守方針 |
 | `docs/UPSTREAM_UPDATE_RUNBOOK.md` | Claude本家の更新を処理する具体的な手順と停止条件 |
@@ -24,6 +25,10 @@
 | `docs/RELEASE_PROCESS.md` | release gateとrollback |
 | `docs/testing/BEHAVIOR_VALIDATION.md` | 移植機能の課題遂行・安全境界・実機連携の動作検証 |
 | `docs/testing/AUTOMATION.md` | CLIによる独立試験・証拠回収・試験専用認証の手順 |
+| `docs/testing/UPDATE_RUNTIME_RESULTS.md` | 開発中の更新Hookの実起動試験、正式信頼、確認・適用・途中状態停止の結果 |
+| `docs/testing/UPDATE_CANDIDATE_EVIDENCE.md` | 次版への収録・installer接続に必要な検証範囲と、旧証拠を保持する境界 |
+| `docs/testing/UPDATE_CANDIDATE_RESULTS.md` | .5候補の新構成起動試験・3-engine scanの結果、OS別の未確認事項 |
+| `docs/testing/WINDOWS_UPDATE_VALIDATION.md` | Windows更新Hookの追加実装、skip撤去、native commandと実Codex検証の区別 |
 | `docs/testing/RELEASE_EVIDENCE.md` | 改訂版と旧版の原試験記録の対応、再ラベル禁止と新規試験の分離 |
 | `docs/testing/CASE_CATALOG.md` | 全55ケースの正常系・境界試験・合格条件一覧 |
 | `docs/testing/RESULTS_SUMMARY.md` | 全55ケースの結果・反復回数・未完了の一覧 |

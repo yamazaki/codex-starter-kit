@@ -12,7 +12,8 @@ const suite = JSON.parse(fs.readFileSync(path.join(root, "docs/testing/behavior-
 
 test("behavior suite covers all adopted units without treating DROP as equivalent", () => {
   assert.equal(minimumRuns('workflow-checkpoint'),3);
-  assert.equal(verifySuite().cases, suite.cases.length);
+  // Unit coverage of the historical suite is not current-version acceptance.
+  assert.equal(verifySuite({requireCurrentEvidence:false}).cases, suite.cases.length);
   assert.ok(inventory().some((u) => u.disposition === "DROP"));
 });
 

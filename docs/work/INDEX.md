@@ -5,7 +5,9 @@
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
 | REL-0004 | RELEASE | codex-starter-kit初回公開 | blocked |
-| REL-0005 | RELEASE | [動作検証後のCodex改訂版の準備](release/REL-0005-next-codex-revision.md) | in_progress |
+| GOV-0005 | GOVERNANCE | [一コマンド更新と自動更新の事前承認](governance/GOV-0005-update-authorization.md) | in_progress |
+| MNT-0020 | MAINTENANCE | [手動・セッション開始時更新の共通化](maintenance/MNT-0020-update-entrypoints.md) | in_progress |
+| REL-0006 | RELEASE | [更新機能を収録する改訂候補](release/REL-0006-updater-candidate.md) | in_progress |
 
 ## 提案中
 
@@ -16,6 +18,7 @@
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
+| REL-0005 | RELEASE | [動作検証後のCodex改訂版の準備](release/REL-0005-next-codex-revision.md) | complete |
 | MNT-0019 | MAINTENANCE | [Windowsの更新復元証拠の権限判定](maintenance/MNT-0019-windows-update-proof.md) | complete |
 | MNT-0010 | MAINTENANCE | 移植機能の動作検証基盤 | complete |
 | MNT-0011 | MAINTENANCE | 動作検証の自動実行と証拠回収 | complete |

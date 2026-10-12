@@ -9,6 +9,7 @@ import {
   rollbackDistribution,
 } from "./distribution-lib.mjs";
 import { resolveInstallRoots } from "./install-paths.mjs";
+import {assertInstallerUpdateOperation,withInstallerUpdateGuard} from './lib/installer-update-guard.mjs';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -138,6 +139,7 @@ try {
     home,
     codexHome: args.codexHome ?? process.env.CODEX_HOME ?? null,
   });
+  if(args.mode!=="--apply-plan")assertInstallerUpdateOperation(roots,{operation:args.mode,repositoryRoot});
   if (args.mode === "--dry-run" || args.mode === "--uninstall-dry-run") {
     const uninstall = args.mode === "--uninstall-dry-run";
     const catalogPath = path.join(
@@ -167,14 +169,14 @@ try {
   } else if (args.mode === "--apply-plan") {
     const plan = JSON.parse(fs.readFileSync(path.resolve(args.value), "utf8"));
     assertInstallerCatalog(plan);
-    const result = applyDistributionPlan(plan, roots);
+    const result = withInstallerUpdateGuard(roots,{operation:args.mode,plan,repositoryRoot},()=>applyDistributionPlan(plan,roots));
     console.log(`Applied ${plan.selection.profile}/${plan.selection.language}. Snapshot: ${result.snapshotId}`);
     if (plan.selection.components.includes("safety-net")) {
       console.log("Hook review required: open Desktop app Settings > Hooks; in Codex CLI use /hooks.");
       console.log("Review and trust safety-net before it can run; Codex skips it until trusted.");
     }
   } else {
-    rollbackDistribution(args.value, roots);
+    withInstallerUpdateGuard(roots,{operation:args.mode,repositoryRoot},()=>rollbackDistribution(args.value,roots));
     console.log(`Rolled back snapshot: ${args.value}`);
   }
 } catch (error) {

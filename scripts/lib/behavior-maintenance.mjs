@@ -29,7 +29,7 @@ export function prepareMaintenanceFixture(project, sourceRoot, caseId, variant) 
   for (const name of ['kit','install-home','install-codex','plans','TEST_CONTEXT.md']) if(fs.existsSync(path.join(project,name))) throw new Error('maintenance fixture target already exists');
   const kit=path.join(project,'kit');
   fs.mkdirSync(path.join(kit,'scripts'),{recursive:true});
-  for(const name of ['install.mjs','distribution-lib.mjs','install-paths.mjs']) fs.copyFileSync(path.join(sourceRoot,'scripts',name),path.join(kit,'scripts',name));
+  for(const name of ['install.mjs','distribution-lib.mjs','install-paths.mjs','lib/installer-update-guard.mjs','lib/update-runtime.mjs','lib/installation-lock.mjs']){const target=path.join(kit,'scripts',name);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(sourceRoot,'scripts',name),target);}
   fs.cpSync(path.join(sourceRoot,'distribution'),path.join(kit,'distribution'),{recursive:true});
   for(const name of ['VERSION','LICENSE','NOTICE.md']) fs.copyFileSync(path.join(sourceRoot,name),path.join(kit,name));
   const home=path.join(project,'install-home'),codex=path.join(project,'install-codex');

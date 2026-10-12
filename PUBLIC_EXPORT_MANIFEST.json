@@ -68,7 +68,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "f0a3db447b36c15dfb1443bfbdc270a59dcc8b75d06beb5018a0f1dd18fee567",
+      "sha256": "87d6718af25767416e0e7067ef2642ba67c9d0762efe29bcf4a2a3f9dfdda342",
       "mode": "0644"
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "b450d545e8b20979daf4b3feee2640c5c6fcc2c1b1d594e372740839e199a575",
+      "sha256": "6a8712d220d616f130e6d08d4d9147b84c7ac88af78cadd51729251a13e1046a",
       "mode": "0644"
     },
     {
@@ -123,7 +123,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "532850acf588e0b8cafa0c4b7b5f25676cdfa329b6bb71a6b87d331dbefd54ac",
+      "sha256": "b08dc4389eb9f215433dc86a5a0b06569fa8c6e52c0ae394749b981384f6ff60",
       "mode": "0644"
     },
     {
@@ -498,12 +498,12 @@
     },
     {
       "path": "docs/GOVERNANCE.md",
-      "sha256": "5c79f8c5f0451df2776ae4e972bac65ce28f7b8d20288fb7807395b5ac391d81",
+      "sha256": "0ac91c27096085ba1f9e6126f29de0cac2e7e2233bf785207b7dd3381efcdde8",
       "mode": "0644"
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "7fd9f001735c0d4fcf2e3187e505003fad342b6cc944e0cca162f0aa72bef59e",
+      "sha256": "e3e32b0ec142742da74a61fb31e852cd0a62decd29ec5da203229c7295cdfba1",
       "mode": "0644"
     },
     {
@@ -528,7 +528,12 @@
     },
     {
       "path": "docs/RELEASE_PROCESS.md",
-      "sha256": "6f64e890a79ea750e48f3a3ec965870fecd5b3f11d12cf44d718d4a3f6113ebd",
+      "sha256": "ef619ad37fccee2f12d132d23780b397cd84b79cc94418a56c491140a8f7c365",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/UPDATE_WORKFLOW.md",
+      "sha256": "f252066435d2b8facf77803e188e562f38e40fe1cba54e230c5c3aae69a97a6f",
       "mode": "0644"
     },
     {
@@ -543,7 +548,7 @@
     },
     {
       "path": "docs/VERSIONING.md",
-      "sha256": "8921a17a10857790d37fedc04ffe556c9ed879d4d682f024d6c472e0a847f027",
+      "sha256": "69397b1f970a95507c3588aac94a93611c86c178ad363977ff3f767dc1c611ce",
       "mode": "0644"
     },
     {
@@ -553,7 +558,7 @@
     },
     {
       "path": "docs/assessments/plain-codex-comparison.md",
-      "sha256": "17c1feff54c573b8ac65cb1fb4a4097b2a8623e80e92a68f93c4f9b5f3333803",
+      "sha256": "bcd3e14fa19cfa62220ab2e63d846a2356cd83b7944feefd6fa00a9e2e777346",
       "mode": "0644"
     },
     {
@@ -587,6 +592,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/releases/0.78.1-codex.5.md",
+      "sha256": "50d51b19860213468cb4ff228a7652b4bd11a170dfad73c914ad64567fc3d2e0",
+      "mode": "0644"
+    },
+    {
       "path": "docs/testing/AUTOMATION.md",
       "sha256": "75ac59561c0619f26d9452ba0ba2948e66e8a8d10a8743d0afb2017814bcb780",
       "mode": "0644"
@@ -612,6 +622,26 @@
       "mode": "0644"
     },
     {
+      "path": "docs/testing/UPDATE_CANDIDATE_EVIDENCE.md",
+      "sha256": "7badc098da6eed4b6ddbf8e247dc26b0b64322faca1b7c060413c5ae7b13d00d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/UPDATE_CANDIDATE_RESULTS.md",
+      "sha256": "377ba40d59ac920a017b249717dbd5f2979df6a180b444def6c0ea509cc81e9a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/UPDATE_RUNTIME_RESULTS.md",
+      "sha256": "d98b51a7a63b5d200095ea5744bd8b5b7aaee28feb9f76b6440730e573c6aacb",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/WINDOWS_UPDATE_VALIDATION.md",
+      "sha256": "db78594f6508460bfdb3ae4d361bb03d928326f9becdfbd4be9ec8c7cfec76aa",
+      "mode": "0644"
+    },
+    {
       "path": "docs/testing/automation-pilot.json",
       "sha256": "95e69fefea26f34c1f3cd6224d6a03a9f13a10233268ddaf35aedb5bd33c2d8f",
       "mode": "0644"
@@ -632,8 +662,23 @@
       "mode": "0644"
     },
     {
+      "path": "docs/testing/update-candidate-plan.json",
+      "sha256": "20c4532216f461c78c61d381f6859bf2f290712ae86c1404887bb735c0fcff4f",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/update-release-evidence.json",
+      "sha256": "1416009d8c33234ef0e9ac96b16de54ce0f98ee9884fda6d4e23f2ebaefc53b3",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/testing/update-startup-proof.json",
+      "sha256": "43d333564d2d2626eb3f26d03a6ba1de2ca62ceb2c4f756a666db4970d7d67d6",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/INDEX.md",
-      "sha256": "081d1cdc44114edec8b84e001096d0b3d11fca975f60dc2c572dda518e39b662",
+      "sha256": "b7f556873a7196d90d1f1c4128275c255d886677b83fb877163f977b78ed4158",
       "mode": "0644"
     },
     {
@@ -659,6 +704,11 @@
     {
       "path": "docs/work/governance/GOV-0004-post-publication-operations.md",
       "sha256": "133e1ee13043a09b99071e17cca8ccab7a2fa587629894db23afec8a423fc7b4",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/governance/GOV-0005-update-authorization.md",
+      "sha256": "c837f223fd2ff66074c2f843a29d6e388182cfcd1e560207903442580fa1b930",
       "mode": "0644"
     },
     {
@@ -757,6 +807,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/work/maintenance/MNT-0020-update-entrypoints.md",
+      "sha256": "38d2c729cdd0a979e87706f83ee203e657b02a15578ab9d2100cc56afd86ea56",
+      "mode": "0644"
+    },
+    {
       "path": "docs/work/port/PORT-0001-distribution-safety-foundation.md",
       "sha256": "00f9ec36db2b1f3b30683529adad005a6caf894bfd68cddbbe2d43876576f2aa",
       "mode": "0644"
@@ -828,12 +883,17 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "beecec0deec98565c2fa120da455b011414e6f1040ea1972614cf2f23f15d8fa",
+      "sha256": "946dd0a1870b74ac66a4baeb276d801e4e88f97243d243d0bec5b5f68fb297bc",
       "mode": "0644"
     },
     {
       "path": "docs/work/release/REL-0005-next-codex-revision.md",
-      "sha256": "972ff7a8cc01e1eed61e32b9568792031086989dc4531e138721331a91e982b1",
+      "sha256": "f6ead2b53caaf8807484c2d47ae87024db20a1bb443d64f6966e213f6499bceb",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/release/REL-0006-updater-candidate.md",
+      "sha256": "098bfdc5d00d9229c5bec893fed2b4d20112b2fff2f82f4c14480ba274d3993f",
       "mode": "0644"
     },
     {
@@ -858,7 +918,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "2f0abdbeaeaf056c8735738fcfb2a2f16ff10ab43e9dc12dfbeea64310b7fa04",
+      "sha256": "cee4113db655b571b96bdced62852e60d367a712c0a1a8616d7e0b20637380cc",
       "mode": "0644"
     },
     {
@@ -932,6 +992,16 @@
       "mode": "0644"
     },
     {
+      "path": "release/0.78.1-codex.5.json",
+      "sha256": "9665d23268400a5b2b9abb9fe96c1ba93b94d652ac08b66d51b1d2b43ba1c7d9",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/auto-update.mjs",
+      "sha256": "eb7b35aaab3173feed4a911dd9552e5804e867bf855382464133afba1d4a2b99",
+      "mode": "0644"
+    },
+    {
       "path": "scripts/behavior-adjudicate.mjs",
       "sha256": "1a2e08b2f538528ab4dd74c499433d8e92ccb74e9dec0145af668082c772365a",
       "mode": "0644"
@@ -943,7 +1013,7 @@
     },
     {
       "path": "scripts/behavior-eval.mjs",
-      "sha256": "f173bb3e1c3d99fbb62e33485fba52de3a0b482a870b6a6ab4aa6ae827866b8a",
+      "sha256": "d209c3c378782f6504a56a0b43badee54d7853501224830e0f964ef8677a35e5",
       "mode": "0644"
     },
     {
@@ -1018,7 +1088,7 @@
     },
     {
       "path": "scripts/install.mjs",
-      "sha256": "80845192c1045662235ef66592787cc7baba10e5810f11172e2c68fe1f1f22a6",
+      "sha256": "2e0eff5eca812439333d492a200e9962ccc924eac61439ddcb4e3914cc9e5451",
       "mode": "0644"
     },
     {
@@ -1048,7 +1118,7 @@
     },
     {
       "path": "scripts/lib/behavior-maintenance.mjs",
-      "sha256": "9dfccc66f45267ec9e133856ad76a518a7aa87d7d4867764e6f4e7c3572d58bc",
+      "sha256": "c3dd967e2489c0b607fb67d25bd354a26b5eb65ff688051318942dde679a0541",
       "mode": "0644"
     },
     {
@@ -1063,12 +1133,37 @@
     },
     {
       "path": "scripts/lib/behavior-version.mjs",
-      "sha256": "4324168f06497bb3cfb27c1c123218ad8e9441b6931c775aa461d3caaed0c55a",
+      "sha256": "45bc2bab7fb08e003c7d73d6141dc03ef1f72d1f83cf4ba8b8bb4f55db228f83",
       "mode": "0644"
     },
     {
       "path": "scripts/lib/command-fidelity.mjs",
       "sha256": "3b1070d39f1339e418e3cb951ea5c02a7a1b950381012bb1f74dc0760ed58608",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/installation-lock.mjs",
+      "sha256": "79de37ef433b9f62c631ab7d45944f8ac59e9fc5498e06b34fb76b3b6f87fb0c",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/installer-update-guard.mjs",
+      "sha256": "44600830f79738c1d7706fd53bae82c867711a33bb7d6ca48de967b2741d2033",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/kit-update.mjs",
+      "sha256": "a56af5781563b66d448958b1af1dd7590534e1645b6a2f8e14d3d35fd0d44a4a",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/update-candidate-evidence.mjs",
+      "sha256": "bcb47f78e5ba3e676b39bbf2560fcdc8cbc5aa0f6cc664086bcfa9b0cbde76db",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/lib/update-runtime.mjs",
+      "sha256": "b1f6cf8bade74ae0a7e6da674a997192050d020fac9476d717a3f2263fb49f0d",
       "mode": "0644"
     },
     {
@@ -1092,6 +1187,16 @@
       "mode": "0644"
     },
     {
+      "path": "scripts/update.mjs",
+      "sha256": "6ccfc64787d66646441d1bf6a2da3dac8d1f6044873c25751c0230862ac6e0a7",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/verify-ci-public-export.mjs",
+      "sha256": "abe61edfd4782f7ee445dae81f3bf2aebb188bad5e3634d3792ad3a01ccc6228",
+      "mode": "0644"
+    },
+    {
       "path": "scripts/verify-links.mjs",
       "sha256": "7c4b46ccd5ea1b7846a3e86606b6c1bcdb1371f50ac874d38cfbad6c22d08207",
       "mode": "0644"
@@ -1108,7 +1213,7 @@
     },
     {
       "path": "scripts/verify-repository.mjs",
-      "sha256": "d69d5cc368aff6c23460e2751634ec5a1efe2eea6a87d7929b2abf5d4c845143",
+      "sha256": "aa65f33483b90f75b05ee028e0d1ba6ce075569dda14925bbd556f4f04a12ddd",
       "mode": "0644"
     },
     {
@@ -1123,7 +1228,7 @@
     },
     {
       "path": "tests/behavior-eval.test.mjs",
-      "sha256": "b0080a04a4537d3537c42f4ca118508233b96561521f0fd0ac1a7d1c3026053b",
+      "sha256": "ef20657b244e6248298839f2dec0cd2a28e67e56587ff6d3ec5135c878ae246b",
       "mode": "0644"
     },
     {
@@ -1169,6 +1274,11 @@
     {
       "path": "tests/behavior-version.test.mjs",
       "sha256": "5aae845332b643e7ce194fdba522af11899de42acd8e97fdc665176922b280be",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/ci-public-export.test.mjs",
+      "sha256": "73a2ea3e6457b5b609d3d4e0b735960f3d2527bf3959bc17865356f32dd60882",
       "mode": "0644"
     },
     {
@@ -1292,8 +1402,18 @@
       "mode": "0644"
     },
     {
+      "path": "tests/installer-update-guard.test.mjs",
+      "sha256": "be0ad156c9862d7d2012556258169a631040e08538a2f1e840f2f8ff5327c35b",
+      "mode": "0644"
+    },
+    {
       "path": "tests/installer.test.mjs",
       "sha256": "b325bc82416285df6fdbe38b5f1191945bd4ff4bde1c0098101d3b760eb0dbf2",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/kit-update.test.mjs",
+      "sha256": "e525d73995587e03bc31a43df343793e2e9dafc3aaf361ca38f546ac626fd5a9",
       "mode": "0644"
     },
     {
@@ -1327,6 +1447,21 @@
       "mode": "0644"
     },
     {
+      "path": "tests/update-candidate-evidence.test.mjs",
+      "sha256": "4aedb0132df61372662c164b3dace4324bc72f91c3cac51f57265a68cc264abf",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/update-release-evidence.test.mjs",
+      "sha256": "5dec8440bc7edae8eca66f213759041ab1362750b11940a970d1e40f13cfcac8",
+      "mode": "0644"
+    },
+    {
+      "path": "tests/update-windows-command.test.mjs",
+      "sha256": "c4a28a32dfec6244947cfe89f15ab788ca3de9feb7a25dc4ad07330bbf47c790",
+      "mode": "0644"
+    },
+    {
       "path": "upstream/README.md",
       "sha256": "7c5c728ea097f9616cb9b68be2fcae371e3e507c33c9ec6dfcc722182fb64643",
       "mode": "0644"
@@ -1343,7 +1478,7 @@
     },
     {
       "path": "upstream/assessments/0.78.1-feature-mapping.md",
-      "sha256": "52e272dd7a009e9d8bbc02a2c2a2c935691d1b3c5093dff6c3e9d8528002629a",
+      "sha256": "9af519c1f42b036258251c8fe8db89fb64bc88ef2681543f7d89b05f146c4c3d",
       "mode": "0644"
     },
     {

@@ -31,7 +31,7 @@ export function inventory() {
   return units;
 }
 
-export function verifySuite() {
+export function verifySuite({requireCurrentEvidence=true}={}) {
   const ids = new Set();
   const units = inventory();
   const known = new Set([...units.map((u) => u.id), "runtime:hook", "runtime:routing", "runtime:handoff", "runtime:chain"]);
@@ -43,7 +43,7 @@ export function verifySuite() {
   }
   const covered = new Set(suite.cases.flatMap((c) => c.covers));
   for (const unit of units.filter((u) => u.disposition !== "DROP")) if (!covered.has(unit.id)) throw new Error(`uncovered unit: ${unit.id}`);
-  if (suite.upstreamCommit !== contract.upstreamCommit || !supportedBehaviorVersion(fs.readFileSync(path.join(root,"VERSION"),'utf8').trim())) throw new Error("suite baseline mismatch or unreviewed artifact bridge");
+  if (suite.upstreamCommit !== contract.upstreamCommit || (requireCurrentEvidence&&!supportedBehaviorVersion(fs.readFileSync(path.join(root,"VERSION"),'utf8').trim()))) throw new Error("suite baseline mismatch or unreviewed artifact bridge");
   return { cases: suite.cases.length, requiredUnits: units.filter((u) => u.disposition !== "DROP").length, excludedUnits: units.filter((u) => u.disposition === "DROP").length };
 }
 

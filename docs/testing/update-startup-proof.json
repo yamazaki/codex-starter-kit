@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-12",
+  "candidateVersion": "0.78.1-codex.5",
+  "runtimeFiles": 7,
+  "sourceHashes": {
+    "scripts/update.mjs": "6ccfc64787d66646441d1bf6a2da3dac8d1f6044873c25751c0230862ac6e0a7",
+    "scripts/auto-update.mjs": "eb7b35aaab3173feed4a911dd9552e5804e867bf855382464133afba1d4a2b99",
+    "scripts/install-paths.mjs": "fe66497a36e59afe6dfc9446e81c579fd7a8a16a847d0110ab9e5f9a0a04d242",
+    "scripts/distribution-lib.mjs": "91c2e25da4a18e5a99c99f5f077bb9c6115aea49becf5ae51ece4272f84d6114",
+    "scripts/lib/kit-update.mjs": "a56af5781563b66d448958b1af1dd7590534e1645b6a2f8e14d3d35fd0d44a4a",
+    "scripts/lib/update-runtime.mjs": "b1f6cf8bade74ae0a7e6da674a997192050d020fac9476d717a3f2263fb49f0d",
+    "scripts/lib/installation-lock.mjs": "79de37ef433b9f62c631ab7d45944f8ac59e9fc5498e06b34fb76b3b6f87fb0c"
+  },
+  "sourceHashesMatchPlan": true,
+  "selection": {
+    "profile": "standard",
+    "language": "ja",
+    "components": [
+      "safety-net"
+    ],
+    "preserveExistingGlobalAgents": true
+  },
+  "userAgentsPreserved": true,
+  "formalTrust": true,
+  "cliVersion": "0.162.0-alpha.2",
+  "model": "gpt-6.1-sol",
+  "fixtureOnlyResolver": true,
+  "results": {
+    "untrusted": "PASS",
+    "check": "PASS",
+    "apply": "PASS",
+    "incompleteStop": "PASS",
+    "subsequentStartup": "PASS"
+  },
+  "sessions": 5,
+  "modelTurnsCompleted": 4,
+  "blockedBeforeModel": 1,
+  "snapshot": "2026-10-12T10-21-15-407Z_2e0c2bc06ca4",
+  "primaryChanged": false,
+  "limitations": [
+    "macOS CLI only; not Desktop UI journey",
+    "Fixture-only release acquisition; no formal .5 package exists",
+    "No active-chat asset loading verification",
+    "Not the 55-case behavioral suite",
+    "Windows/Linux Codex sessions not executed"
+  ]
+}

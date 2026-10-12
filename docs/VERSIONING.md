@@ -16,6 +16,8 @@
 
 初期構築中の `0.0.0-dev` は正式releaseではない。
 
+正式形式の版番号を開発候補に割り当てる場合も、release manifestのstatusがcandidateであれば未リリース・未受入と明記する。VERSION更新だけで正式releaseや自動更新の取得対象にはならない。
+
 ## 「判断完了」の意味
 
 - 前回受入commitから対象commitまでの全変更をscan済み

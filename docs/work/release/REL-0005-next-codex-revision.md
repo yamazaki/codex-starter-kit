@@ -1,9 +1,9 @@
 # REL-0005: 動作検証後のCodex改訂版の準備
 
 - Classification: RELEASE
-- Status: in_progress
+- Status: complete
 - Parent: REL-0004
-- Release Version: 0.78.1-codex.4（正式受入済み、Private release実行中）
+- Release Version: 0.78.1-codex.4（正式受入済み、Private release完了）
 - Upstream Version: 0.78.1
 - Upstream Commit: f8f8ef5964c83cec2a5aaf84847a85149c96f6d4
 
@@ -31,6 +31,8 @@
 6. 本人の個別承認後に本番更新やPrivate repositoryへのpush/CI/tag/Releaseを実行し、対象SHA・版・結果・復元手順を読み戻す。Public化は別工程。
 
 ## 未完了と復元
+
+正式Release完了: 公開用main105d8beは受入メタデータ・最終資料だけの6ファイル更新（生成manifest含む）。93ローカルtests・構成/リンク/公開内容検査、実HEAD/treeとprivate HEAD/treeの3-engine検査が成功し、全検出を分類後の未解決認証情報候補0。[CI38116968618](https://github.com/yamazaki/codex-starter-kit/actions/runs/38116968618)は同じSHAでWindows/Linux/macOS各93 tests成功。注釈付きタグv0.78.1-codex.4を105d8beへ固定し、注釈とRelease本文の別scanも確認後にtagを通常pushし[GitHub Release](https://github.com/yamazaki/codex-starter-kit/releases/tag/v0.78.1-codex.4)を作成した。remote tag object71e56f4のcommit105d8be、Release名/本文・draft false/prerelease false、main/tree・PRIVATE状態を読み戻し一致。本工程のPrivate正式releaseは本人承認範囲で完了。既存タグ/Releaseは不変。本番更新とPublic化は未実施・別承認。今回の完了記録はprivate正本へ保存し、tagged snapshotやReleaseを動かさない。以下は経過記録として保持する。
 
 最新の反映結果: 本人が凍結候補の受入と、PRIVATEのまま公開用mainへのcommit/pushを承認。既存公開用7cb4e88の上にa13f996を作り、承認済み候補とGit tree完全一致を確認した。100ファイル（追加76・変更24・削除0）のみを反映し、private履歴/internalは持ち込まなかった。実HEAD履歴・treeの3-engine検査は分類後の未解決認証情報候補0、93ローカルtestsと構成/リンク/公開内容検査も成功。通常push後のmain/tree/PRIVATE状態を読み戻し、[公開用CI38115420812](https://github.com/yamazaki/codex-starter-kit/actions/runs/38115420812)も同じa13f996でWindows/Linux/macOS各93 tests・後続検査成功。snapshot反映は完了したが正式Releaseではない。次は.4の正式release受入・tag・GitHub Releaseの個別承認。本番更新/Public化はさらに別承認。今回の結果記録はprivate正本へ保存し、新たなpublic差分の反映は別工程とする。
 

@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import {supportedBehaviorVersion} from './lib/behavior-version.mjs';
+import {candidateEvidenceErrors} from './lib/update-candidate-evidence.mjs';
 import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -100,7 +101,6 @@ if (!/^(?:0\.0\.0-dev|\d+\.\d+\.\d+-codex\.[1-9]\d*)$/u.test(version)) {
 }
 const packageJson = readJson(path.join(root, "package.json"));
 if (packageJson.version !== version) errors.push("VERSION and package.json version differ");
-if (version !== '0.0.0-dev' && !supportedBehaviorVersion(version)) errors.push('current version lacks a reviewed unchanged-artifact behavior evidence bridge');
 const source = readJson(path.join(root, "upstream", "source.json"));
 if (version !== "0.0.0-dev") {
   const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
@@ -112,6 +112,8 @@ if (version !== "0.0.0-dev") {
     if (!fs.existsSync(path.join(root, relative))) errors.push(`missing required file: ${relative}`);
   }
   const releaseManifest = readJson(path.join(root, "release", `${version}.json`));
+  if(releaseManifest.status==='candidate')errors.push(...candidateEvidenceErrors(root,version,releaseManifest));
+  else if(!supportedBehaviorVersion(version))errors.push('accepted version lacks reviewed behavior evidence; pending candidate plan is not acceptance');
   if (releaseManifest.releaseVersion !== version) errors.push("release manifest version differs from VERSION");
   if (!["candidate", "accepted"].includes(releaseManifest.status)) {
     errors.push("release manifest status must be candidate or accepted");
@@ -513,3 +515,4 @@ if (errors.length > 0) {
 }
 
 console.log("Repository verification passed");
+if(version!=='0.0.0-dev'&&readJson(path.join(root,'release',version+'.json')).status==='candidate')console.log('Candidate structure only: behavioral acceptance and release gates remain pending.');
