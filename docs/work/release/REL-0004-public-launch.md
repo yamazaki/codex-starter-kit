@@ -1,19 +1,21 @@
 # REL-0004: codex-starter-kit初回公開
 
 - Classification: `RELEASE`
-- Status: `blocked`
-- Release Version: `0.78.1-codex.4`（Private正式Release済み）
+- Status: `in_progress`
+- Release Version: `0.78.1-codex.5`（Private正式Release済み）
 - Upstream Version: `0.78.1`
 - Upstream Commit: `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
 - Session Handoff: `internal/session-history/REL-0004/HANDOFF.md`
 
 ## Current status
 
-- Overall Status: `blocked`
-- Current Gate: 手元環境での継続利用と、Public化の本人Go
-- Next Action: REL-0005のPrivate正式Release v0.78.1-codex.4を完了（105d8be、3 OS各93 tests、タグ/Release/PRIVATE読み戻し一致）。本番更新は個別承認、Public化は継続利用後の本人Goまで保留。公開直前はその時点のHEAD/設定・対象差分を再確認する
-- Blocking Decision: repositoryのpublic化は手元環境での継続利用後に別途判断する
-- Last Updated: 2026-10-11
+- Overall Status: `in_progress`
+- Current Gate: `.5`と更新後確認の記録整合、最終候補・公開先実履歴・設定の再監査、Public化の本人Go
+- Next Action: 検証済み`.5`の配布コードと既存tagを変えず、文書の最終候補を生成・検査する。公開用mainへの反映、必要なCI、可視性変更は対象差分を提示して承認後に行う
+- Blocking Decision: 公開直前の検査と承認を残す。保守者本人も公開用正式Releaseを使用する方針でMNT-0021は取り下げた。本人環境の自動更新登録とHookの信頼確認は、Public化とは別の操作として扱う
+- Last Updated: 2026-10-17
+
+今回の確認: REL-0006で正式`.5`/4b94476のPrivate Releaseと実取得・更新・復元9項目を完了。正式版の3 OS CIは各126成功/失敗0/スキップ0。本人環境の手動更新と57ファイルの整合性・差分ゼロを確認し、新しいDesktopチャットの保守スキル/レビュー役2件も本人報告から確認した。[確認範囲](../../testing/OWNER_ACCEPTANCE.md)を参照する。全機能の新規再試験、修正提案の実行テスト、本人環境のHook再発火、Windows/Linux実Codexまで確認したとは扱わない。以下の旧版記録は当時の状態として保持する。
 
 ## Dependency status
 
@@ -41,6 +43,9 @@
 | MNT-0018 | complete | 認可修正案を補強、6再試行と通常回帰2試行PASS。明示role連携1試験も補助証拠として確認 | 受入済み。.4候補へ収録、外部反映・releaseは別gate |
 | REL-0005 | complete | .4正式受入・最終監査・3 OS CI、105d8beへのタグ/GitHub Release作成とPRIVATE読み戻し完了 | 本番更新/Public化はREL-0004で別承認 |
 | MNT-0019 | complete | 本人受入・再push後、1d87600でWindows/macOS/LinuxすべてCI成功 | 新候補再生成・秘密情報再scanはREL-0005で実施 |
+| REL-0006 | complete | `.5`正式Private Release、3 OS126件、実Release更新・復元9項目を完了 | 既存tagは移動せず再公開を別判断 |
+| MNT-0020 | in_progress | `.5`へ収録・本人手動更新・更新後2件を確認。自動適用設定と登録完了、64対象整合、Hook信頼済みの本人報告あり | 新規チャットでの実発火確認。公開の必須条件にしない |
+| MNT-0021 | cancelled | 保守者本人も公開用の正式Releaseを参照するため取り下げ | 実装・Private更新元への変更なし |
 
 ## GitHub destination
 
@@ -84,7 +89,19 @@
 - Claude本家との完全な機能同一の主張
 - 明示承認前のrepository作成、push、public化、tag、GitHub Release
 
-## Publication gates
+## .5再公開の今回のチェックリスト
+
+- [x] 正式`.5`の受入、固定tag/Releaseと3 OS CI
+- [x] 実Releaseの取得・隔離更新・構成保持・復元
+- [x] 本人承認による手動更新、57対象のhash/権限、AGENTS/Hooks保持、再計画の差分ゼロ
+- [x] Desktop新規チャットでの2件の本人報告を、実行テスト・未確認範囲と分けて記録
+- [x] 自動更新の公開/Private取得元を現行実装と照合し、Private自動追従は未対応として別提案化
+- [x] 文書整合後の候補・全テスト・機密検査・公開先実履歴/設定の確認（確定commit後にも再確認）
+- [ ] 最終差分のレビューと公開用mainへの反映承認、反映後の3 OS CI
+- [ ] 今回の再公開についての明示Go、Public化と未認証閲覧/設定の読み戻し
+- [ ] 公開後の最新handoffと記録の完了
+
+## Publication gates（初回公開・旧版準備時の履歴）
 
 - [x] GOV-0003 accepted
 - [x] MNT-0001 accepted
@@ -150,6 +167,10 @@
 - GitHub公開後の設定と内容のreadback
 
 ## Pre-public audit evidence
+
+2026-10-17の再公開前確認: 正式`.5`の配布コード・旧tagを変えず案内を整合した。公開先は4b94476/18commit/PRIVATE、Issues・Discussions有効・Wiki無効。rulesetはPrivateのプラン制約でHTTP403、非公開脆弱性報告の照会はHTTP404、security_and_analysisはnullで、設定成功とせずPublic後に再確認する。機械候補は306対象＋manifest、追加3/更新15/削除0、runtime/配布資産・LICENSE/NOTICE不変。sourceと候補は各126成功/失敗0/スキップ0、repository/link/public-content検査成功。以下の検出数は改変せず、秘密情報の不存在を絶対保証するものではない。
+
+固定版Gitleaks8.30.1/TruffleHog3.99.2/detect-secrets1.5.0を再取得・digest照合し、通信/本人の認証領域読取拒否とcanary成立を確認。private HEAD履歴/tree、機械候補tree/合成履歴、公開先実履歴/tree、Release説明を含むmetadataを区分scanした。Gitleaksはprivate各6/candidate各3/公開先各3/metadata0、TruffleHogは各履歴/tree1・metadata0、detectはprivate1484/candidate593/公開先587/metadata0。実test/reference/instructionのdigest、実在CI commit、明示的な説明例と予約済み`.invalid`の入力へ照合し、Gitleaks24件も各commit時点の実source hashで確認。未解決credential候補0。Git LFS専用command不在による初回metadata検査FAILは保存し、現tree/pointer/attributesとHEAD履歴の直接確認でLFS未使用を検証した。生ログと値はGitへ載せない。確定commit後のHEAD/tree/candidateも別証跡で再確認し、Private正本履歴は公開しない。
 
 - initial primary dry-runはstandard/jaで `ADD 22 / CONFLICT 1`。既存の管理外global AGENTSを検出し、applyせずMNT-0002へ分離した。
 - preliminary scanで使用したGitleaks 8.30.1はfinding 0だったが、default ruleが一致しないupstream regression報告とlocal canary不成立を確認したため、release証拠から除外した。

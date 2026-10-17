@@ -17,6 +17,10 @@ update.mjsを手動入口、auto-update.mjsをSessionStart入口、kit-update.mj
 
 ## 基盤実装のチェックポイント
 
+最新（2026-10-17）: 本人の明示承認で、公開用正式Releaseを参照する自動適用を設定し、正式`.5`から更新処理とSessionStart Hookを登録した。追加7/更新1/削除0/競合0、全64管理対象のhash・権限一致、再計画は差分ゼロ。構成・個人AGENTS・既存safety-net定義を保持した。その後、本人から更新Hookを信頼済みにしたとの報告を得た。新規チャットでの実発火は確認待ち。Private専用更新元のMNT-0021は取り下げた。配布コード・既存tag・Public可視性は変更していない。
+
+直前のcheckpoint: 正式`.5`/4b94476のPrivate Release、各OS126件、正式取得の更新/登録/復元9項目、本番手動更新6対象と57hash/権限・差分ゼロを確認済み。本人のDesktop新規チャットによる構成監査とsecurity_reviewerの報告も[別記録](../../testing/OWNER_ACCEPTANCE.md)へ整理した。後者の修正案は式の評価で、実行テストではない。当時の本人環境は自動更新off/更新Hook未登録だった。
+
 最新010: 最新7資産でstandard/ja/safety-net/PRESERVEの専用macOS CLI起動5項目成功、原記録28ファイルを専用非公開証跡へ保存。旧75対象同一性と変更installer/runtimeの別受入契約を追加し、owner未受入・hash逸脱・不完全証拠を拒否する5回帰を含む126ローカル試験成功。旧.4 map/元結果は不変。追加検証器の3 OS CI、本人受入、正式Privateリリース、正式取得、primary/Desktop、Publicは未実施。
 
 009追試確定（以下のcheckpointより優先）: 本人承認でWindows対応ec9e754をPrivate mainへ反映。原CI38223472649のWindows120成功/1失敗/スキップ0を保持し、試験用外側PowerShellのexit伝播だけを修正したbbd16c0/CI38223804952はNode22の3 OS各121成功/失敗0/スキップ0。元3skipと日本語/記号/JSON/exit/native更新/停止をWindowsでも確認した。配布runtime/hash/合格条件は不変。repository/link/public-exportと別scope3-engine scanも成功、未解決credential0。実WindowsCodexの正式信頼/SessionStart、候補受入/本番/Release/Publicは未実施。

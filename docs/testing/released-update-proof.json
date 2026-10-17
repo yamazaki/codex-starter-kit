@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-12",
+  "releaseVersion": "0.78.1-codex.5",
+  "releaseCommit": "4b94476e4268408f99c36cf381b98d51ac811765",
+  "baselineVersion": "0.78.1-codex.4",
+  "baselineCommit": "105d8bed0deecc6a55211c9fd1cba160707c8c9a",
+  "selection": {
+    "profile": "standard",
+    "language": "ja",
+    "components": [
+      "safety-net"
+    ],
+    "preserveExistingGlobalAgents": true
+  },
+  "results": {
+    "actualFormalReleaseAcquisition": "PASS",
+    "manualPreviewNoChange": "PASS",
+    "manualUpdateAndSnapshot": "PASS",
+    "selectionAndUserAgentsPreserved": "PASS",
+    "runtimeRegistrationFromFormalRelease": "PASS",
+    "runtimeHashReadBack": "PASS",
+    "rerunZeroDifference": "PASS",
+    "registrationRollback": "PASS",
+    "updateRollbackToFormal4": "PASS"
+  },
+  "updateSnapshot": "2026-10-12T11-11-46-934Z_3985bc34989f",
+  "registrationSnapshot": "2026-10-12T11-11-56-650Z_ad75c3a05bbf",
+  "primaryApplied": false,
+  "hookTrustChanged": false,
+  "limitations": [
+    "No Desktop UI or new Codex session in this acquisition trial",
+    "Hook definition generated but not trusted or executed here",
+    "Rollback does not revert explicit update policy configuration"
+  ]
+}

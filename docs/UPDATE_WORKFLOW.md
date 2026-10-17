@@ -11,6 +11,12 @@
 - `release`: `yamazaki/codex-starter-kit`の正式GitHub Releaseを選び、tagのcommitを固定して一時領域へ取得する。draft/prerelease、版と名前が不一致、未受入manifestを拒否する。取得したinstallerやGit checkout filterは実行しない。`gh`とGitの既存認証を利用し、起動時に対話ログインは開始しない。
 - `local`: 明示的な絶対pathの配布物を使用する。自動実行は許可しない。
 
+### 公開用とPrivate保守用の境界
+
+現行`.5`の正式Release取得先は `yamazaki/codex-starter-kit` に限定される。`codex-starter-kit-private`のフォルダで実行しても、そのPrivateリポジトリを自動取得する意味にはならない。Private保守treeは`--from-local`等で明示的に手動適用できるが、自動追従は未対応である。
+
+保守者本人も、日常利用環境では一般利用者と同じ正式Releaseを参照する。開発途中の変更は、Private側で検証し、正式Releaseへ反映するまでインストール環境には入らない。Private専用の自動更新経路を検討した[MNT-0021](work/maintenance/MNT-0021-private-update-source.md)は、この方針に合わせて取り下げた。自動更新の利用には、取得元とは別に明示的な有効化とHookの登録・信頼操作が必要である。
+
 初回設定（既存のkitインストールが必要）:
 
 ```bash
@@ -47,7 +53,7 @@ node scripts/update.mjs --register-auto
 
 `--register-auto`は明示設定がrelease/checkまたはrelease/applyのときだけ、更新runtimeを管理対象へ追加する。元catalogは書き換えず一時catalogを合成し、safety-netを保ったhooks.jsonとrunnerを同じsnapshot/manifestで適用する。SessionStartは`startup`だけに一致する。新しい定義はCodexの正式なUIで信頼する必要があり、自動の信頼変更やtrust bypassは使わない。[公式Hook仕様](https://developers.openai.com/ja-JP/docs/hooks)に従う。
 
-現段階の本番環境への登録はまだ行わない。正式.4 Releaseの実GitHub取得と、macOS専用fixtureでの正式信頼・実起動時の確認/適用/途中状態停止は確認済み。runner収録版からの取得・登録とWindowsの確認は残る。手作業でhooks.jsonへ追記せず、登録操作の変更計画を使う。`--hook-definition`は配置先を指す定義の表示だけで、登録や信頼は行わない。
+正式`.5`からの取得・更新処理の登録・復元は隔離環境で確認済み。Windowsのコマンド経路もCIで確認したが、Windows/Linux版Codexの実セッションは未確認である。本番環境への登録は別の承認操作とし、手作業でhooks.jsonへ追記せず登録操作の変更計画を使う。`--hook-definition`は定義の表示だけで、登録や信頼は行わない。
 
 開発中のpackageで隔離試験する場合に限り、`--register-auto --from-local`でそのrepoのrunnerを登録できる。登録後の通常更新は必ずupdate.mjsを使用し、registered updaterが残るよう一時catalogを再合成する。旧installerの通常更新計画はrunnerのREMOVEを提案し得るため、その計画を適用しない。アンインストール計画は既存manifest内のrunner/Hookを含む全管理対象を除去でき、snapshotからの復元も確認済み。利用者AGENTSは保持する。
 
@@ -63,7 +69,7 @@ Windows向けの登録拒否を撤去する実装を追加した。Windowsでは
 
 PowerShellはSystemRoot配下の絶対パスへ固定し、作業ディレクトリやPATHの同名プログラムを探さない。通常の `C:\Windows` 等を対象とし、SystemRoot自体に空白・シェル記号など安全確認対象外の文字がある場合は生成を拒否する。利用者のホームやkit配置先の空白・日本語・引用符は別の話で、文字列の引用で保持する。企業ポリシーでPowerShell実行が禁止されている場合も、その制限は回避しない。
 
-Windows・macOS・LinuxのNode22 CIは各121件成功、失敗0、スキップ0。Windowsの登録・自己更新・復元・強制終了後の停止とコマンド入出力も検証した。最新runtimeのmacOS専用Codex CLI起動5項目も成功している。ただし、Windows/Linux版Codexの実セッション、Desktop画面での導入経路、実行中チャットへの反映は未検証である。[Windows検証](testing/WINDOWS_UPDATE_VALIDATION.md)と[候補の追加結果](testing/UPDATE_CANDIDATE_RESULTS.md)へ条件を記録する。Node実行pathやCodex rootを移動した場合は再登録・レビューする。新しいセッションで動作を確認する。
+Windows・macOS・Linuxの正式版Node22 CIは各126件成功、失敗0、スキップ0。Windowsの登録・自己更新・復元・強制終了後の停止とコマンド入出力も検証した。最新runtimeのmacOS専用Codex CLI起動5項目も成功している。本番の手動更新後にはDesktopの新しいチャットで保守スキルとsecurity_reviewerの確認報告を得たが、全機能やHook発火の再検証ではない。Windows/Linux版Codexの実セッション、実行中チャットへの反映は未検証である。[Windows検証](testing/WINDOWS_UPDATE_VALIDATION.md)と[更新後の本人確認](testing/OWNER_ACCEPTANCE.md)へ条件を記録する。Node実行pathやCodex rootを移動した場合は再登録・レビューする。
 
 ## 保持・停止・復元
 
@@ -75,8 +81,8 @@ Windows・macOS・LinuxのNode22 CIは各121件成功、失敗0、スキップ0�
 
 同期apply Hookが途中状態を検出した場合はSessionStartのcontinue falseを返してセッションの続行を止める契約とする。非同期check Hookは続行を制御できないため警告だけを返す。子プロセスの出力契約と、macOSの実Codexでモデル処理を開始せず停止することを確認した。[実起動試験の条件と結果](testing/UPDATE_RUNTIME_RESULTS.md)を参照する。
 
-## 残る受入gate
+## 検証済みの範囲と残る制限
 
-隔離環境でsafety-netとの登録統合・runner自己更新・uninstall/rollback・強制終了後の停止、実GitHubの.4取得、macOS専用Codexでの未信頼/確認/適用/途中状態停止/再起動は確認した。runner収録版の実取得/登録・実Hook処理途中の強制終了・他active sessionとの干渉・Windows/Linux実起動・旧installerとの更新入口統一・次版の収録は残る。現段階で「利用者環境で完成した」とは扱わない。
+正式`.5`の受入、3 OSの回帰試験、実Releaseからの取得・登録・更新・復元、macOS専用Codexの起動5項目、本番環境の手動更新と更新後の本人確認は、それぞれ別の条件で確認した。詳細は[追加検証結果](testing/UPDATE_CANDIDATE_RESULTS.md)を参照する。実Hook処理途中の強制終了、他の実行中チャットとの干渉、Windows/Linux版Codexの実起動は未確認である。部分更新を無人で修復する機能は提供しない。
 
-`.5`では通常installerへの保護処理・共通排他を接続し、最新7資産の実SessionStart再試験と3 OS CIを確認した。[追加検証結果](testing/UPDATE_CANDIDATE_RESULTS.md)を参照する。旧checkpointの未接続状態と受入済みの版を区別する。正式版の取得試験はリリース後、Desktopでの利用確認は本人承認によるローカル導入後に行い、Public化は別判断とする。
+これらは全環境・全機能の完全な同等動作を保証するものではない。新たな本家version、Hookや更新機構の変更、Private追従機能の追加には別の検証・受入を必要とする。利用者環境の自動更新有効化と、GitHubリポジトリのPublic化も別判断とする。

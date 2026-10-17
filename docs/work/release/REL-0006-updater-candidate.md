@@ -1,11 +1,13 @@
 # REL-0006: 更新機能を収録する改訂候補
 
 - Classification: RELEASE
-- Status: in_progress
-- Version: 0.78.1-codex.5 candidate
+- Status: completed
+- Version: 0.78.1-codex.5
 - Dependencies: GOV-0005、MNT-0020
 
 ## 範囲と承認
+
+完了記録（2026-10-12、以下のcheckpointより優先）: 本人承認のPrivate正式Releaseをv0.78.1-codex.5/4b94476で作成し、Private状態・正式latest・タグの固定commitをread back。受入済みc3aaa73/CI38240351457とリリース先4b94476/CI38240611982は3 OS各126成功/失敗0/スキップ0。機械exportのみで公開予定repoへ47対象を反映し、履歴は独立を維持。別3-engine履歴/tree検査の未解決認証情報0。正式.4実導入の隔離rootから差し替えなしで.5を取得・更新・構成保持・runner登録・再実行差分ゼロ・二段階復元の9項目成功。[実取得の証拠](../../testing/released-update-proof.json)へ結果を記録した。RELの完了範囲はPrivate Releaseと実取得試験まで。本番ローカル更新・Desktop試用・Public化は含まず、別承認。
 
 最新承認（2026-10-12、以下の旧checkpointより優先）: 本人が差分の受入、Private正本へのpush/3 OS CI、成功後の `yamazaki/codex-starter-kit` Private正式 `.5` Release、正式取得の隔離更新試験を承認。83bf4a0/run38239615958のNode22/3 OS各126成功/失敗0/スキップ0を確認し、受入証拠とmanifestをacceptedへ切り替える。primary更新・Public化は未承認。この段階はRelease準備であり、tag/Release作成の実績は完了後に別記録する。
 

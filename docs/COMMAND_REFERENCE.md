@@ -41,6 +41,16 @@ node scripts/install.mjs --rollback <snapshot-id> --confirm-user-roots
 
 詳しい手順は[Getting Started](GETTING_STARTED.md)を参照する。
 
+## 導入済みキットの更新
+
+```bash
+node scripts/update.mjs --configure --source release --auto off
+node scripts/update.mjs --check
+node scripts/update.mjs
+```
+
+設定は初回だけでよい。正式Releaseを取得し、保存済みの導入構成を引き継ぐ。自動更新は無効のままで、最後のコマンドが適用承認となる。AIが実環境へ適用する場合は直前の本人承認を得る。起動時更新の選択とHookの登録・信頼は[更新手順](UPDATE_WORKFLOW.md)を参照する。Private保守用リポジトリへの自動追従は現行`.5`では未対応である。
+
 ## Repository検証
 
 ```bash
@@ -72,7 +82,7 @@ node scripts/verify-port-plan.mjs .upstream-sync/plans/<plan>.json
 
 古い補助指示・過度な手順指定・古い前提・実行環境との重複を評価し、保持・削除・書換え・統合の理由と代替全文を提案する。個人の希望と承認ルールは保持し、根拠のない重複や古さは断定しない。kit管理部分は対象外で、承認なしにファイルは変更しない。「導入状態の監査」は管理ファイルの変更・欠落を確認する別の操作である。
 
-この指示内容監査は2026-10-10のローカル修正候補に含まれる。既存Release・本番インストールへの反映は別工程。
+この指示内容監査は正式`.4`以降に収録済み。指示内容の監査と導入ファイルの整合性確認を混同しない。
 
 ## Public candidateとrelease確認
 

@@ -85,7 +85,21 @@ apply前にsourceまたはtargetが変化したstale planは拒否される。un
 
 ## 5. 更新・削除・rollback
 
-更新時も新しいdry-run planを作り、差分をレビューしてからapplyする。
+### 導入済みのキットを更新する
+
+`.5`以降のリポジトリから次を実行する。正式Releaseの取得にはGitHub CLI（`gh`）とGitの読み取りアクセスが必要で、Private期間は当該リポジトリへのアクセス権も必要となる。
+
+```bash
+node scripts/update.mjs --configure --source release --auto off
+node scripts/update.mjs --check
+node scripts/update.mjs
+```
+
+設定済みなら最初のコマンドは不要。`--check`で変更予定を確認し、問題がなければ最後のコマンドで適用する。現在のプロファイル・言語・任意機能・既存AGENTSの保持設定を引き継ぐ。競合や削除予定があれば停止する。更新先は `yamazaki/codex-starter-kit` の受入済み正式Releaseであり、作業フォルダ名やGit remoteから推測しない。
+
+自動更新は既定では無効。起動時の確認・通知または自動適用を使う場合は、[手動更新とセッション開始時更新](UPDATE_WORKFLOW.md)に従い、別途モードの選択、更新処理の登録、Hookのレビュー・信頼を行う。更新機能の登録後は旧installerの通常更新を使わず、`update.mjs`を使用する。初回導入や構成変更は引き続きinstallerの計画・承認手順を使う。
+
+### 削除と復元
 
 ```bash
 node scripts/install.mjs --uninstall-dry-run --plan-output /tmp/codex-starter-kit-uninstall.json

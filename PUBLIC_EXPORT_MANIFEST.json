@@ -108,7 +108,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "335f360690c320fd5e507d929da84cf100963ee0cc5c270c7d49f6b0bf81b8d6",
+      "sha256": "ba59018f9306d8ffa153ab92e0fe32b7e27f370022dcf201e79c64ab1d02be00",
       "mode": "0644"
     },
     {
@@ -473,7 +473,7 @@
     },
     {
       "path": "docs/COMMAND_REFERENCE.md",
-      "sha256": "5b46e5eca700fd15142d57d8d42a1e82dd8752fcbc2933383343914974f1da07",
+      "sha256": "f87aa789cd302890e67ec41f3bb06c02bc79c570d0f4208116cc8f32aa4d87e3",
       "mode": "0644"
     },
     {
@@ -488,7 +488,7 @@
     },
     {
       "path": "docs/GETTING_STARTED.md",
-      "sha256": "bc377c3f34fc04b1ab79fd97bb97e69181d8863f017c766c3dbf49c5aaf91226",
+      "sha256": "510c5bb06f60dae1ea39c94af6a65aa3c5f9c29d52389154c2cbd4b9ac6fabe9",
       "mode": "0644"
     },
     {
@@ -503,7 +503,7 @@
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "e3e32b0ec142742da74a61fb31e852cd0a62decd29ec5da203229c7295cdfba1",
+      "sha256": "feeca10c3499a068353b6f5cfb81a13a63e952290b1f0409dc2f1b1f1a19abb0",
       "mode": "0644"
     },
     {
@@ -533,7 +533,7 @@
     },
     {
       "path": "docs/UPDATE_WORKFLOW.md",
-      "sha256": "f252066435d2b8facf77803e188e562f38e40fe1cba54e230c5c3aae69a97a6f",
+      "sha256": "1a6da7ec46515de2234acc4e792e20d259611c81100b5c905cf11b2a1ba23824",
       "mode": "0644"
     },
     {
@@ -553,12 +553,12 @@
     },
     {
       "path": "docs/WORK_CLASSIFICATION.md",
-      "sha256": "0b1f54edb24eba5062ba7058b60bfe76cf82bb652635b19eba6a5f94675df623",
+      "sha256": "56338559839b1e141925a5a0bc3b8700130a6bc6faa61574621a30083f35086d",
       "mode": "0644"
     },
     {
       "path": "docs/assessments/plain-codex-comparison.md",
-      "sha256": "bcd3e14fa19cfa62220ab2e63d846a2356cd83b7944feefd6fa00a9e2e777346",
+      "sha256": "a764b0cc58b3011b5b31a3c24118ff2455e557fd45cc8d28bdb26068ecbc9ca7",
       "mode": "0644"
     },
     {
@@ -612,6 +612,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/testing/OWNER_ACCEPTANCE.md",
+      "sha256": "ced05cbfc62cef70e5eb161a070014f6c3aa44b9b24c2ffbabe266ae5bb9586d",
+      "mode": "0644"
+    },
+    {
       "path": "docs/testing/RELEASE_EVIDENCE.md",
       "sha256": "94125fdeca503aa68972a0e8d80aadd07d898d5a9ac8ff78c4e23b69015b4d26",
       "mode": "0644"
@@ -623,12 +628,12 @@
     },
     {
       "path": "docs/testing/UPDATE_CANDIDATE_EVIDENCE.md",
-      "sha256": "7badc098da6eed4b6ddbf8e247dc26b0b64322faca1b7c060413c5ae7b13d00d",
+      "sha256": "34fe9db6e03c64632d7ef831092a52ce587ad7f941a3192a322f32a6d1019632",
       "mode": "0644"
     },
     {
       "path": "docs/testing/UPDATE_CANDIDATE_RESULTS.md",
-      "sha256": "377ba40d59ac920a017b249717dbd5f2979df6a180b444def6c0ea509cc81e9a",
+      "sha256": "ded7dec8145a04b28fc38be611417cc7150cdf9b1a2e383a8df20f095cea894d",
       "mode": "0644"
     },
     {
@@ -638,7 +643,7 @@
     },
     {
       "path": "docs/testing/WINDOWS_UPDATE_VALIDATION.md",
-      "sha256": "db78594f6508460bfdb3ae4d361bb03d928326f9becdfbd4be9ec8c7cfec76aa",
+      "sha256": "c1445058b178862b618961970d9ff9ce2a51d255f7c2ab0e934f07bbbc66b4f7",
       "mode": "0644"
     },
     {
@@ -662,6 +667,11 @@
       "mode": "0644"
     },
     {
+      "path": "docs/testing/released-update-proof.json",
+      "sha256": "ea4dc09dd2c0863d2d4e06042dc6da4cdf0cd398053fee86c66d6c7838df7601",
+      "mode": "0644"
+    },
+    {
       "path": "docs/testing/update-candidate-plan.json",
       "sha256": "20c4532216f461c78c61d381f6859bf2f290712ae86c1404887bb735c0fcff4f",
       "mode": "0644"
@@ -678,7 +688,7 @@
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "b7f556873a7196d90d1f1c4128275c255d886677b83fb877163f977b78ed4158",
+      "sha256": "b8b847c321bf3bc9713604d193c260ed5937faf511caf29eef3641427de5ef7b",
       "mode": "0644"
     },
     {
@@ -808,7 +818,12 @@
     },
     {
       "path": "docs/work/maintenance/MNT-0020-update-entrypoints.md",
-      "sha256": "38d2c729cdd0a979e87706f83ee203e657b02a15578ab9d2100cc56afd86ea56",
+      "sha256": "48dbd785198a542d389017bb48f42025cdf998a5ee4a741b662bd4179f58cf9a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/work/maintenance/MNT-0021-private-update-source.md",
+      "sha256": "fc8ed3665eae7909971615625206f1bae7afddcaffb1d27921f56d6d08a7e061",
       "mode": "0644"
     },
     {
@@ -883,7 +898,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "946dd0a1870b74ac66a4baeb276d801e4e88f97243d243d0bec5b5f68fb297bc",
+      "sha256": "422d54d4f9081ab6fe49a0ca64657aba299a58731a5fe8e8e3c22d954c4b4402",
       "mode": "0644"
     },
     {
@@ -893,7 +908,7 @@
     },
     {
       "path": "docs/work/release/REL-0006-updater-candidate.md",
-      "sha256": "098bfdc5d00d9229c5bec893fed2b4d20112b2fff2f82f4c14480ba274d3993f",
+      "sha256": "18f376874a51883f18d1ec1440ed13ca9427b37e1881f0dceb46adf5b8f69d5b",
       "mode": "0644"
     },
     {
@@ -993,7 +1008,7 @@
     },
     {
       "path": "release/0.78.1-codex.5.json",
-      "sha256": "9665d23268400a5b2b9abb9fe96c1ba93b94d652ac08b66d51b1d2b43ba1c7d9",
+      "sha256": "eaa5bac44f2649eacee94b204396816752565e1dac7f02256ef5ba4f55f1c671",
       "mode": "0644"
     },
     {
