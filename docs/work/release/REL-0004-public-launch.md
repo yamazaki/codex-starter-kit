@@ -1,21 +1,25 @@
 # REL-0004: codex-starter-kit初回公開
 
 - Classification: `RELEASE`
-- Status: `in_progress`
-- Release Version: `0.78.1-codex.5`（Private正式Release済み）
+- Status: `complete`
+- Release Version: `0.78.1-codex.5`（既存の正式Releaseも公開済み）
 - Upstream Version: `0.78.1`
 - Upstream Commit: `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
 - Session Handoff: `internal/session-history/REL-0004/HANDOFF.md`
 
 ## Current status
 
-- Overall Status: `in_progress`
-- Current Gate: `.5`と更新後確認の記録整合、最終候補・公開先実履歴・設定の再監査、Public化の本人Go
-- Next Action: 検証済み`.5`の配布コードと既存tagを変えず、文書の最終候補を生成・検査する。公開用mainへの反映、必要なCI、可視性変更は対象差分を提示して承認後に行う
-- Blocking Decision: 公開直前の検査と承認を残す。保守者本人も公開用正式Releaseを使用する方針でMNT-0021は取り下げた。本人環境の自動更新登録とHookの信頼確認は、Public化とは別の操作として扱う
+- Overall Status: `complete`
+- Current Gate: 本人の最終GoによりPublic化し、公開内容・設定を読み戻し済み
+- Next Action: GOV-0004の恒常運用に従い、今後の本家更新・フィードバックを個別の案件で扱う。本人環境の更新Hook実発火確認はMNT-0020で別に追跡する
+- Blocking Decision: なし。Public化の承認は、新しいtag/Release、コード変更、本人環境への追加適用を許可するものではない
 - Last Updated: 2026-10-17
 
-今回の確認: REL-0006で正式`.5`/4b94476のPrivate Releaseと実取得・更新・復元9項目を完了。正式版の3 OS CIは各126成功/失敗0/スキップ0。本人環境の手動更新と57ファイルの整合性・差分ゼロを確認し、新しいDesktopチャットの保守スキル/レビュー役2件も本人報告から確認した。[確認範囲](../../testing/OWNER_ACCEPTANCE.md)を参照する。全機能の新規再試験、修正提案の実行テスト、本人環境のHook再発火、Windows/Linux実Codexまで確認したとは扱わない。以下の旧版記録は当時の状態として保持する。
+今回の確認: REL-0006で正式`.5`/4b94476のPrivate Releaseと実取得・更新・復元9項目を完了。正式版と公開main3cbbcf4の3 OS CIは各126成功/失敗0/スキップ0。本人の最終Go後、2026-10-17にmain3cbbcf4をPublic化した。未認証のリポジトリ・README・Release・manifest取得はHTTP 200、README/manifestのhashも監査候補と一致。Private正本はPRIVATE・未認証404を維持する。既存tag/Releaseは変更していない。
+
+秘密情報検査・push protection・脆弱性の非公開報告・mainの強制更新/削除防止・Issues/Discussionsを有効、Wikiを無効として読み戻した。Dependabot脆弱性アラートは無効だったため有効化した。修正PRの自動作成は無効のまま。秘密情報のopen alertは取得時点で0件であり、後続の非同期検査で変わり得る。コードスキャンの自動設定は未導入で、検査済みとは扱わない。
+
+本人環境は手動更新後に57対象、更新処理登録後に64対象の整合性と差分ゼロを確認。Hook信頼済みの本人報告あり。新Desktopチャット2件の[確認範囲](../../testing/OWNER_ACCEPTANCE.md)と、全機能の新規再試験・本人環境でのHook実発火・Windows/Linux実Codexの未確認範囲を区別する。以下の旧版記録は当時の状態として保持する。
 
 ## Dependency status
 
@@ -97,9 +101,9 @@
 - [x] Desktop新規チャットでの2件の本人報告を、実行テスト・未確認範囲と分けて記録
 - [x] 自動更新の公開/Private取得元を現行実装と照合し、Private自動追従は未対応として別提案化
 - [x] 文書整合後の候補・全テスト・機密検査・公開先実履歴/設定の確認（確定commit後にも再確認）
-- [ ] 最終差分のレビューと公開用mainへの反映承認、反映後の3 OS CI
-- [ ] 今回の再公開についての明示Go、Public化と未認証閲覧/設定の読み戻し
-- [ ] 公開後の最新handoffと記録の完了
+- [x] 最終差分のレビューと公開用mainへの反映承認、反映後の3 OS CI
+- [x] 今回の再公開についての明示Go、Public化と未認証閲覧/設定の読み戻し
+- [x] 公開後の最新handoffと記録の完了（本人の追加承認で文書のcommit/pushを実施。配布コード・既存tag/Releaseは不変）
 
 ## Publication gates（初回公開・旧版準備時の履歴）
 

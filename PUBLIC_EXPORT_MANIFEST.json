@@ -688,7 +688,7 @@
     },
     {
       "path": "docs/work/INDEX.md",
-      "sha256": "b8b847c321bf3bc9713604d193c260ed5937faf511caf29eef3641427de5ef7b",
+      "sha256": "3eff4c053884932e7e0c95e8e49c0d37e23295cb8e84c7556b41b34dd6c23f24",
       "mode": "0644"
     },
     {
@@ -898,7 +898,7 @@
     },
     {
       "path": "docs/work/release/REL-0004-public-launch.md",
-      "sha256": "422d54d4f9081ab6fe49a0ca64657aba299a58731a5fe8e8e3c22d954c4b4402",
+      "sha256": "91204fcf4155bcc36c482533ac08984ae92e3c2639568c81f82c021ebfc62997",
       "mode": "0644"
     },
     {
@@ -1008,7 +1008,7 @@
     },
     {
       "path": "release/0.78.1-codex.5.json",
-      "sha256": "eaa5bac44f2649eacee94b204396816752565e1dac7f02256ef5ba4f55f1c671",
+      "sha256": "0dc61bf05c0f6fa7ad08928305b337b6f275af1f4ac8bb6ce9e93c5fefaec02f",
       "mode": "0644"
     },
     {
