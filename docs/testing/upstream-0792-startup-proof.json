@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "scope": "macOS SessionStart lock warning and unfinished journal only",
+  "cliVersion": "0.163.0-alpha.10.2",
+  "model": "gpt-6.1-sol",
+  "candidateArtifacts": {
+    "porting/candidates/0.79.2/scripts/auto-update.mjs": "d4f78d848176af983c3b06fcd00bb6a3c771742327b168adf286c997fe31a7cd",
+    "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs": "8ceced3a0dee46101f5ab59e3fdba87172442fab92b282b40958e181e96c9897",
+    "porting/candidates/0.79.2/scripts/lib/kit-update.mjs": "af175d514ffe657e502dc36d05073e79d5f2e8145cacbec184835406c908177e"
+  },
+  "runtimeHashes": {
+    "scripts/update.mjs": "6ccfc64787d66646441d1bf6a2da3dac8d1f6044873c25751c0230862ac6e0a7",
+    "scripts/auto-update.mjs": "d4f78d848176af983c3b06fcd00bb6a3c771742327b168adf286c997fe31a7cd",
+    "scripts/install-paths.mjs": "fe66497a36e59afe6dfc9446e81c579fd7a8a16a847d0110ab9e5f9a0a04d242",
+    "scripts/distribution-lib.mjs": "91c2e25da4a18e5a99c99f5f077bb9c6115aea49becf5ae51ece4272f84d6114",
+    "scripts/lib/kit-update.mjs": "af175d514ffe657e502dc36d05073e79d5f2e8145cacbec184835406c908177e",
+    "scripts/lib/update-runtime.mjs": "b1f6cf8bade74ae0a7e6da674a997192050d020fac9476d717a3f2263fb49f0d",
+    "scripts/lib/installation-lock.mjs": "8ceced3a0dee46101f5ab59e3fdba87172442fab92b282b40958e181e96c9897"
+  },
+  "fixtureResolverStub": false,
+  "results": {
+    "lockWarningContinues": "PASS",
+    "journalStopsBeforeModel": "PASS",
+    "warningUiVisible": "PASS",
+    "managedTargetsUnchanged": "PASS"
+  },
+  "trialCounts": {
+    "exec": 2,
+    "uiPrompt": 1,
+    "modelResponses": 2,
+    "modelStoppedBeforeRequest": 1
+  },
+  "limits": [
+    "macOS only",
+    "no full Skill or agent suite rerun",
+    "no fresh trust/hash change regression",
+    "no real Release acquisition",
+    "no production install"
+  ],
+  "status": "limited-runtime-validation-passed",
+  "ownerAccepted": false
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "date": "2026-10-18",
+  "repository": "yamazaki/codex-starter-kit-private",
+  "commit": "c21bbb0c21348cca50437bb8328fc384d237a9c3",
+  "runId": 39113173294,
+  "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39113173294",
+  "node": 22,
+  "jobs": [
+    {
+      "name": "test (windows-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39113173294/job/117633419682",
+      "counts": {
+        "tests": 134,
+        "pass": 134,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    },
+    {
+      "name": "test (macos-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39113173294/job/117633419850",
+      "counts": {
+        "tests": 134,
+        "pass": 134,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    },
+    {
+      "name": "test (ubuntu-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39113173294/job/117633420036",
+      "counts": {
+        "tests": 134,
+        "pass": 134,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    }
+  ],
+  "candidateArtifacts": {
+    "porting/candidates/0.79.2/scripts/auto-update.mjs": "d4f78d848176af983c3b06fcd00bb6a3c771742327b168adf286c997fe31a7cd",
+    "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs": "8ceced3a0dee46101f5ab59e3fdba87172442fab92b282b40958e181e96c9897",
+    "porting/candidates/0.79.2/scripts/lib/kit-update.mjs": "af175d514ffe657e502dc36d05073e79d5f2e8145cacbec184835406c908177e"
+  },
+  "rawLogSha256": "040e34fcd9329b4d904f43dcf6715d15ca6b37494b4d9d62ec8bafd37df9721c",
+  "limits": [
+    "Candidate overlay regression; not promoted release acceptance",
+    "No Windows/Linux Codex UI or SessionStart validation",
+    "Symlink-specific test branch runs on macOS/Linux; other diagnostic cases execute on all three OS",
+    "No public history secret scan or final Release validation",
+    "No local kit update"
+  ]
+}

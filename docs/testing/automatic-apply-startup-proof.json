@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "status": "limited-runtime-validation-passed",
+  "ownerAccepted": false,
+  "scope": "corrected automatic policy: cross-core update, owned runner self-update, next fresh startup",
+  "cliVersion": "0.163.0-alpha.10.2",
+  "model": "gpt-6.1-sol",
+  "candidateArtifacts": {
+    "porting/candidates/0.79.2/scripts/auto-update.mjs": "0a4849aaa486a2ea649e15d8d652a65e620234f346814d776b7d6c4506e31c10",
+    "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs": "b792c63ac39eccd4cda8a13998c99031a01ec16baf757961f060c9d7b4fd613c",
+    "porting/candidates/0.79.2/scripts/lib/kit-update.mjs": "b602d4630bda09c4f4856c54f4cf1ad87856c5ed5fd45ac045255d46f92cad0c"
+  },
+  "runtimeHashes": {
+    "scripts/update.mjs": "6ccfc64787d66646441d1bf6a2da3dac8d1f6044873c25751c0230862ac6e0a7",
+    "scripts/auto-update.mjs": "0a4849aaa486a2ea649e15d8d652a65e620234f346814d776b7d6c4506e31c10",
+    "scripts/install-paths.mjs": "fe66497a36e59afe6dfc9446e81c579fd7a8a16a847d0110ab9e5f9a0a04d242",
+    "scripts/distribution-lib.mjs": "91c2e25da4a18e5a99c99f5f077bb9c6115aea49becf5ae51ece4272f84d6114",
+    "scripts/lib/kit-update.mjs": "b602d4630bda09c4f4856c54f4cf1ad87856c5ed5fd45ac045255d46f92cad0c",
+    "scripts/lib/update-runtime.mjs": "b1f6cf8bade74ae0a7e6da674a997192050d020fac9476d717a3f2263fb49f0d",
+    "scripts/lib/installation-lock.mjs": "b792c63ac39eccd4cda8a13998c99031a01ec16baf757961f060c9d7b4fd613c"
+  },
+  "results": {
+    "automaticVersionAndSelfUpdate": "PASS",
+    "subsequentStartupWithoutRetrust": "PASS",
+    "hookDefinitionUnchanged": "PASS",
+    "userConfigurationPreserved": "PASS"
+  },
+  "trialCounts": {
+    "sessions": 2,
+    "modelResponses": 2
+  },
+  "providerFixture": true,
+  "limits": [
+    "GitHub API and clone source redirected to isolated synthetic accepted-release fixture; real updater source code unchanged",
+    "Initial fixture updater already has the new policy; legacy production updater not migrated",
+    "No real public Release or primary update",
+    "macOS only"
+  ]
+}

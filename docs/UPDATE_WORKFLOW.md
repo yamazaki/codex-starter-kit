@@ -1,6 +1,6 @@
 # 手動更新とセッション開始時更新
 
-このページは `0.78.1-codex.5` で追加した更新入口を説明する。既存v0.78.1-codex.4には未収録。本人受入・Private正式リリースの対象であり、本番導入・Hookの信頼、DesktopやWindows/Linux版Codexでの実セッション確認、Public化とは区別する。
+このページは `.5` で追加し、`0.79.2-codex.1` で自動適用範囲とlock診断を修正した更新入口を説明する。受入と公開、本番導入・Hookの信頼、OS別の実セッション確認を区別する。現行の証拠と制限は[0.79.2受入範囲](testing/UPSTREAM_0792_ACCEPTANCE.md)を参照する。
 
 ## 入口と取得元
 
@@ -13,7 +13,7 @@
 
 ### 公開用とPrivate保守用の境界
 
-現行`.5`の正式Release取得先は `yamazaki/codex-starter-kit` に限定される。`codex-starter-kit-private`のフォルダで実行しても、そのPrivateリポジトリを自動取得する意味にはならない。Private保守treeは`--from-local`等で明示的に手動適用できるが、自動追従は未対応である。
+正式Release取得先は `yamazaki/codex-starter-kit` に限定される。`codex-starter-kit-private`のフォルダで実行しても、そのPrivateリポジトリを自動取得する意味にはならない。Private保守treeは`--from-local`等で明示的に手動適用できるが、自動追従は未対応である。
 
 保守者本人も、日常利用環境では一般利用者と同じ正式Releaseを参照する。開発途中の変更は、Private側で検証し、正式Releaseへ反映するまでインストール環境には入らない。Private専用の自動更新経路を検討した[MNT-0021](work/maintenance/MNT-0021-private-update-source.md)は、この方針に合わせて取り下げた。自動更新の利用には、取得元とは別に明示的な有効化とHookの登録・信頼操作が必要である。
 
@@ -75,7 +75,7 @@ Windows・macOS・Linuxの正式版Node22 CIは各126件成功、失敗0、ス�
 
 インストールmanifestのprofile/language/components/PRESERVEを引き継ぐ。管理外ファイルと利用者AGENTS、auth、会話は対象外。既存の変更計画エンジンで競合・stale・symlinkを拒否し、snapshot作成と更新後のhash/mode・差分ゼロを確認する。
 
-削除は手動・自動とも止め、別途レビューしたinstaller planを必要とする。自動では本家version coreの変更、Hook/runtime設定の変更も止める。手動で更新したHookは再信頼を必要とする場合がある。
+削除は手動・自動とも止め、別途レビューしたinstaller planを必要とする。0.79.2-codex.1以降の自動適用は互換性宣言を必須とし、版更新と既存manifest管理下のupdater資産のUPDATEを許可する。Hook定義・config変更、未知runtime、新ABIは停止する。手動で変更したHook定義は再信頼を必要とする場合がある。
 
 処理中journalとlockを保存し、異常終了の痕跡があれば再適用を止める。lockやjournalを自動削除して強行しない。snapshotと現在のmanifest/対象ファイルを確認してから復旧する。通常成功時のsnapshotは既存installerのrollback入口を使用できる。プロセス強制終了による部分更新の自動復旧は未実装であり、完了記録なしを成功として扱わない。
 
@@ -86,3 +86,19 @@ Windows・macOS・Linuxの正式版Node22 CIは各126件成功、失敗0、ス�
 正式`.5`の受入、3 OSの回帰試験、実Releaseからの取得・登録・更新・復元、macOS専用Codexの起動5項目、本番環境の手動更新と更新後の本人確認は、それぞれ別の条件で確認した。詳細は[追加検証結果](testing/UPDATE_CANDIDATE_RESULTS.md)を参照する。実Hook処理途中の強制終了、他の実行中チャットとの干渉、Windows/Linux版Codexの実起動は未確認である。部分更新を無人で修復する機能は提供しない。
 
 これらは全環境・全機能の完全な同等動作を保証するものではない。新たな本家version、Hookや更新機構の変更、Private追従機能の追加には別の検証・受入を必要とする。利用者環境の自動更新有効化と、GitHubリポジトリのPublic化も別判断とする。
+
+## 0.79.2の診断改善
+
+[PORT-0012](work/port/PORT-0012-update-lock-diagnostics.md)の変更を0.79.2-codex.1の受入済み正本へ収録した。公開・利用者環境への導入は別操作である。
+
+手動の`--check`でlockが見つかると`status: blocked`と診断を返す。変更件数は返さず、Release取得も行わない。lock・管理対象・バックアップを書き換えない。適用時のlock競合と自動更新の警告にも、lock path、検証できたowner PIDと開始時刻、PID存在状況を表示する。owner本文や不正な値は表示しない。
+
+PIDが存在しても、そのプロセスがlockを取得した更新処理とは限らない。PIDが存在しない・古い時刻という理由だけでlockを削除しない。稼働中のinstaller/updaterがないことを確認し、journal・manifest・snapshotと部分更新の有無をレビューして、承認後に復旧する。symlinkや不明なpathを通して削除しない。途中journalがあれば従来どおり停止する。復旧が確認できてから同じ更新入口を再実行する。
+
+Hook出力は既存の`systemMessage`を使用する。[公式Hook仕様](https://learn.chatgpt.com/docs/hooks)を確認し、同期applyの未完了journalに対する停止契約は維持している。今回の変更候補はmacOSの限定実セッションで、警告表示と続行、未完了journalによるモデル前停止を確認した。[結果](testing/UPSTREAM_0792_STARTUP_RESULTS.md)を新版候補のhashへ対応付けている。候補の3 OS回帰はc21bbb0のNode22 CIで各134件成功、失敗・skip0。[CI証拠](testing/upstream-0792-ci-proof.json)に実装候補と結果を固定している。ここまでの134件は実装初期の履歴である。受入済み構成の最終3 OS結果は[正式構成CI証拠](testing/upstream-0792-formal-ci-proof.json)へ別に固定する。過去の`.5`の成功を新版の証拠にしない。
+
+## 自動適用の実装修正（0.79.2-codex.1 / MNT-0022）
+
+正式.5は設定がapplyでも本家core版変更とhooks配下全体を一律拒否しており、通常の追随と自己更新に対応できていなかった。0.79.2-codex.1では、正式Releaseの互換性宣言（manifest schema/runtime ABIと必要7資産）が対応済みである場合、版番号だけでは拒否しない。既存manifestが管理する正確なID/root/targetのupdater資産UPDATEを許可し、Hook定義・configや他Hookの変更、新ABI、競合・削除・降版・未完了状態は止める。trustやユーザー設定を自動変更しない。
+
+修正済みランナーのmacOS隔離実セッションで、版をまたぐ更新と実行中ランナーの自己更新、次の新規セッションで再信頼なしの確認処理を観測した。取得先は合成Release fixtureで、実公開版の取得や本番導入の成功ではない。旧.5への初回移行は別途必要で、このsessionから本人のkitを更新していない。旧監査済みpacketはこの修正を含まないため、そのまま公開しない。

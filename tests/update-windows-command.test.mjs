@@ -1,3 +1,4 @@
+// ABI-1 automatic fixture; original sources remain pinned in baselines.
 import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import assert from 'node:assert/strict';import test from 'node:test';import {spawnSync} from 'node:child_process';
 import * as runtime from '../scripts/lib/update-runtime.mjs';
 import {createDistributionPlan,applyDistributionPlan} from '../scripts/distribution-lib.mjs';
@@ -30,7 +31,7 @@ test('native command preserves Unicode, metacharacters, stdin JSON and exit code
 });
 test('generated native startup command checks, applies and refuses incomplete state in isolated roots',t=>{
  const base=temporary(t),source=path.join(base,'kit'),roots={codexHome:path.join(base,"Kit O'Neil & $x %CSK% ! 日本語/codex"),agentsHome:path.join(base,"Kit O'Neil & $x %CSK% ! 日本語/home/.agents")};
- fs.mkdirSync(source);fs.cpSync(path.join(repo,'distribution'),path.join(source,'distribution'),{recursive:true});fs.writeFileSync(path.join(source,'VERSION'),'0.78.1-codex.4\n');
+ fs.mkdirSync(source);fs.mkdirSync(path.join(source,'release'));fs.copyFileSync(path.join(repo,'release/automatic-update-compatibility.json'),path.join(source,'release/automatic-update-compatibility.json'));fs.cpSync(path.join(repo,'distribution'),path.join(source,'distribution'),{recursive:true});fs.writeFileSync(path.join(source,'VERSION'),'0.78.1-codex.4\n');
  for(const file of runtime.RUNTIME_FILES){const dest=path.join(source,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(repo,file),dest);}
  const engine=path.join(source,'scripts/lib/kit-update.mjs'),text=fs.readFileSync(engine,'utf8');assert.ok(text.includes('acquire=acquireRelease'));fs.writeFileSync(engine,text.replace('acquire=acquireRelease','acquire=()=>({root:'+JSON.stringify(source)+'})'));
  fs.mkdirSync(roots.codexHome,{recursive:true});fs.writeFileSync(path.join(roots.codexHome,'AGENTS.md'),'User-owned; preserve.\n');const selection={profile:'standard',language:'ja',components:['safety-net'],preserveExistingGlobalAgents:true};

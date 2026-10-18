@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted",
+  "releaseVersion": "0.79.2-codex.1",
+  "acceptance": {
+    "ownerAccepted": true,
+    "acceptedDate": "2026-10-18",
+    "evidence": "docs/testing/UPSTREAM_0792_ACCEPTANCE.md"
+  },
+  "upstream": {
+    "version": "0.79.2",
+    "commit": "475212e627d490c57e593693c049a98cabe76b59",
+    "acceptedBaseCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+    "range": "0.78.2, 0.78.3, 0.78.4, 0.79.0, 0.79.1, 0.79.2"
+  },
+  "work": [
+    "SYNC-0005",
+    "PORT-0012",
+    "PORT-0013",
+    "REL-0007"
+  ],
+  "behaviorEvidence": {
+    "status": "confirmed",
+    "plan": "docs/testing/upstream-0792-release-evidence.json"
+  },
+  "publication": {
+    "tagCreated": false,
+    "releaseCreated": false
+  },
+  "verification": {
+    "localInstall": false,
+    "limitedStartup": "docs/testing/automatic-apply-startup-proof.json",
+    "runtimeCi": "docs/testing/automatic-apply-ci-proof.json",
+    "formalTreeCi": "docs/testing/upstream-0792-formal-ci-proof.json",
+    "finalAudit": {
+      "scope": "exact final public export and private history/tree",
+      "evidence": "separate immutable promotion review packet; not an in-tree self-attestation"
+    }
+  }
+}

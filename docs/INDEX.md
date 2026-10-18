@@ -25,6 +25,8 @@
 | `docs/RELEASE_PROCESS.md` | release gateとrollback |
 | `docs/testing/BEHAVIOR_VALIDATION.md` | 移植機能の課題遂行・安全境界・実機連携の動作検証 |
 | `docs/testing/AUTOMATION.md` | CLIによる独立試験・証拠回収・試験専用認証の手順 |
+| `docs/testing/upstream-0792-ci-proof.json` | 0.79.2候補の3 OS回帰結果と対象commit |
+| `docs/testing/UPSTREAM_0792_STARTUP_RESULTS.md` | 0.79.2候補の限定SessionStart実起動結果 |
 | `docs/testing/UPDATE_RUNTIME_RESULTS.md` | 開発中の更新Hookの実起動試験、正式信頼、確認・適用・途中状態停止の結果 |
 | `docs/testing/UPDATE_CANDIDATE_EVIDENCE.md` | 次版への収録・installer接続に必要な検証範囲と、旧証拠を保持する境界 |
 | `docs/testing/UPDATE_CANDIDATE_RESULTS.md` | .5候補の新構成起動試験・3-engine scanの結果、OS別の未確認事項 |

@@ -14,3 +14,5 @@ upstream releaseごとの最終判断を記録する。scan planは一時artifac
 ## Accepted baselines
 
 - [`0.78.1`](0.78.1.md): initial tree through `f8f8ef5964c83cec2a5aaf84847a85149c96f6d4`
+
+- [`0.79.2`](0.79.2.md): 0.78.2〜0.79.2の6 release、43pathの判断完了。

@@ -4,8 +4,8 @@ import os from 'node:os';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {createDistributionPlan,applyDistributionPlan,loadRuntimeManifest,normalizeRoots,normalizeSelection,sha256File,assertSafeRelativePath} from '../distribution-lib.mjs';
-import {prepareUpdateRuntime,validRegistration} from './update-runtime.mjs';
-import {acquireInstallationLock} from './installation-lock.mjs';
+import {prepareUpdateRuntime,validRegistration,RUNTIME_FILES,RUNTIME_PREFIX} from './update-runtime.mjs';
+import {acquireInstallationLock,inspectInstallationLock,installationLockMessage} from './installation-lock.mjs';
 
 export const RELEASE_REPOSITORY='yamazaki/codex-starter-kit';
 const meta=roots=>path.join(roots.codexHome,'.codex-starter-kit');
@@ -116,6 +116,10 @@ export function runKitUpdate(providedRoots,{check=false,automatic=false,localRoo
   }
   let config=localRoot?{schemaVersion:1,product:'codex-starter-kit',roots,source:{kind:'local',path:path.resolve(localRoot)},autoMode:'off'}:readUpdateConfig(roots);
   validateUpdateConfig(config,roots);
+  if(check&&!automatic){
+    const lock=inspectInstallationLock(roots);
+    if(lock.state!=='absent')return {status:'blocked',installationLock:lock,message:installationLockMessage(lock)};
+  }
   let registered=validRegistration(manifest.updateRuntime),registrationPolicy;
   if(registration){
     const policy=readUpdateConfig(roots);
@@ -139,14 +143,21 @@ export function runKitUpdate(providedRoots,{check=false,automatic=false,localRoo
     directory(source.root);regular(path.join(source.root,'VERSION'));regular(path.join(source.root,'distribution/catalog.json'));
     const version=fs.readFileSync(path.join(source.root,'VERSION'),'utf8').trim();releaseNumbers(version);
     if(newer(releaseNumbers(manifest.kitVersion),releaseNumbers(version)))throw Error('downgrade requires separately reviewed recovery');
+    if(automatic){
+      let compatibility;
+      try{compatibility=read(path.join(source.root,'release/automatic-update-compatibility.json'));}catch{}
+      if(compatibility?.schemaVersion!==1||compatibility.product!=='codex-starter-kit'||compatibility.installedManifestSchemaVersion!==manifest.schemaVersion||compatibility.updaterRuntimeAbi!==1||!Array.isArray(compatibility.runtimeFiles)||JSON.stringify([...compatibility.runtimeFiles].sort())!==JSON.stringify([...RUNTIME_FILES].sort())){
+        const error=Error('automatic update compatibility is missing or unsupported; manual review required');error.automaticPolicy=true;throw error;
+      }
+    }
     if(registered)overlay=prepareUpdateRuntime(source.root,roots,manifest.selection,registered);
     const plan=createDistributionPlan({catalogPath:overlay?.catalogPath??path.join(source.root,'distribution/catalog.json'),roots,selection:normalizeSelection(manifest.selection),kitVersion:version});
     if(plan.summary.CONFLICT)throw Error('conflicting or user-modified files; update stopped');
     if(plan.summary.REMOVE)throw Error('removal requires separately reviewed installer plan');
+    const ownedUpdaterUpdate=c=>Boolean(registered)&&c.action==='UPDATE'&&c.root==='codexHome'&&RUNTIME_FILES.some(file=>c.target===RUNTIME_PREFIX+'/'+file&&c.id==='update-runtime-'+file.replaceAll('/','-').replaceAll('.','-'))&&manifest.files.some(file=>file.id===c.id&&file.root===c.root&&file.target===c.target);
+    const needsHookReview=c=>['ADD','UPDATE'].includes(c.action)&&(c.target==='hooks.json'||c.target.startsWith('hooks/'))&&!ownedUpdaterUpdate(c);
     if(automatic){
-      const previous=releaseNumbers(manifest.kitVersion),next=releaseNumbers(version);
-      if(previous.slice(0,3).some((x,i)=>x!==next[i]))throw Error('upstream core change requires manual update');
-      if(plan.changes.some(c=>['ADD','UPDATE'].includes(c.action)&&(c.target==='config.toml'||c.target==='hooks.json'||c.target.startsWith('hooks/'))))throw Error('Hook or runtime configuration change requires manual update and trust review');
+      if(plan.changes.some(c=>['ADD','UPDATE'].includes(c.action)&&(c.target==='config.toml'||needsHookReview(c))))throw Error('Hook or runtime configuration change requires manual update and trust review');
     }
     const changed=plan.summary.ADD+plan.summary.UPDATE;
     const changes=plan.changes.filter(c=>!['SAME','PRESERVE'].includes(c.action)).map(({id,root,target,action})=>({id,root,target,action}));
@@ -162,7 +173,7 @@ export function runKitUpdate(providedRoots,{check=false,automatic=false,localRoo
     const rerun=createDistributionPlan({catalogPath:plan.source.catalogPath,roots,selection:manifest.selection,kitVersion:version});
     if(rerun.summary.ADD||rerun.summary.UPDATE||rerun.summary.REMOVE||rerun.summary.CONFLICT)throw Error('post-update plan did not converge');
     fs.unlinkSync(journal);
-    return {status:'updated',version,summary:plan.summary,changes,snapshotId:result.snapshotId,hookReview:plan.changes.some(c=>['ADD','UPDATE'].includes(c.action)&&(c.target==='hooks.json'||c.target.startsWith('hooks/')))};
+    return {status:'updated',version,summary:plan.summary,changes,snapshotId:result.snapshotId,hookReview:plan.changes.some(needsHookReview)};
   }catch(error){
     if(fs.existsSync(journal))error.updateIncomplete=true;
     throw error;

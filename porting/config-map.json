@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "upstreamCommit": "475212e627d490c57e593693c049a98cabe76b59",
   "files": [
     {
       "source": "config/permissions.json",
@@ -110,5 +110,8 @@
       "Claude plugin install/update lifecycle"
     ],
     "conclusion": "No distributed Skill, agent, rule, command workflow, or retained feature requires an Anthropic marketplace plugin at runtime."
-  }
+  },
+  "status": "accepted",
+  "deltaContract": "porting/upstream-0792-delta.json",
+  "acceptanceEvidence": "docs/testing/upstream-0792-release-evidence.json"
 }

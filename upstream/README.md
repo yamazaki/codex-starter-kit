@@ -20,7 +20,8 @@ codex-starter-kitはClaude本家の自動mirrorではない。本家の目的と
 ## 現在のaccepted baseline
 
 - [全機能のCodex移植概要](assessments/0.78.1-porting-overview.md)
-- [0.78.1 ledger](ledger/0.78.1.md)
+- [0.79.2 ledger](ledger/0.79.2.md)（現行）
+- [0.78.1 ledger](ledger/0.78.1.md)（履歴）
 - [初回baseline評価](assessments/0.78.1-initial-baseline.md)
 - [command対応](assessments/0.78.1-command-mapping.md)
 - [feature対応](assessments/0.78.1-feature-mapping.md)
@@ -35,7 +36,7 @@ codex-starter-kitはClaude本家の自動mirrorではない。本家の目的と
 - Git remote `source`からfetchしてread-only scanを行い、本家を直接merge、rebase、cherry-pickしない。
 - scan planをreviewし、移植対象として承認された変更だけをCodex向けに実装する。
 - Claude固有runtime、tool、Hook、configはCodexの仕組みで再評価し、対応しない場合は理由と再評価条件を残す。
-- 利用者環境を自動更新しない。取得済みのcodex-starter-kitからdry-run planを作り、review後に明示applyする。
-- repositoryの自動clone・pull・定期実行は提供しない。
+- Claude本家のscanは利用者環境へ直接適用しない。Codex正式版への移植・受入・公開を経て配布する。
+- 利用者kitの任意の自動更新は[更新workflow](../docs/UPDATE_WORKFLOW.md)に従う。事前設定された公式Release取得と互換範囲内の適用に限定する。
 
 具体的な保守方針は[Maintainer Guide](../docs/MAINTAINER_GUIDE.md)、手順と停止条件は[Upstream Update Runbook](../docs/UPSTREAM_UPDATE_RUNBOOK.md)、用語は[Glossary](../docs/GLOSSARY.md)を参照する。

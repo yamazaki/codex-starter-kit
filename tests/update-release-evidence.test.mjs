@@ -1,10 +1,11 @@
+import {historical05File} from './helpers/historical-05.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';import os from 'node:os';
 import {behaviorArtifactHashes,supportedBehaviorVersion,updateEvidenceReviewErrors} from '../scripts/lib/behavior-version.mjs';
 const repo=path.resolve(import.meta.dirname,'..'),version='0.78.1-codex.5';
 const read=(base,p)=>JSON.parse(fs.readFileSync(path.join(base,p)));const write=(base,p,v)=>fs.writeFileSync(path.join(base,p),JSON.stringify(v,null,2)+'\n');
 function fixture(t){const base=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'csk-update-evidence-')));t.after(()=>fs.rmSync(base,{recursive:true,force:true}));const map=read(repo,'docs/testing/update-release-evidence.json');
  const files=[...Object.keys(behaviorArtifactHashes()),...Object.keys(map.runtimeArtifacts),...Object.keys(map.testArtifacts),...map.reviewEvidence,'docs/testing/update-release-evidence.json','docs/testing/release-evidence-map.json','docs/testing/update-startup-proof.json','release/'+version+'.json','VERSION'];
- for(const p of new Set(files)){const dest=path.join(base,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(repo,p),dest);}
+ for(const p of new Set(files)){const dest=path.join(base,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(historical05File(repo,p),dest);}
  // Always start with a pending fixture, including when the source release is accepted.
  const pending={...map,status:'pending-owner-review',ownerAccepted:false};delete pending.acceptedDate;write(base,'docs/testing/update-release-evidence.json',pending);
  const manifest=read(base,'release/'+version+'.json');manifest.status='candidate';manifest.acceptance={ownerAccepted:false};manifest.behaviorEvidence={...manifest.behaviorEvidence,status:'pending',plan:'docs/testing/update-candidate-plan.json'};write(base,'release/'+version+'.json',manifest);return base;}

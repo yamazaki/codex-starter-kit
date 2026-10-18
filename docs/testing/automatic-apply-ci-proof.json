@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "status": "passed",
+  "commit": "f624186142eba1650d1af8455d2a0d14d227b002",
+  "runId": 39118219294,
+  "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39118219294",
+  "node": 22,
+  "jobs": [
+    {
+      "name": "test (ubuntu-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39118219294/job/117648262152",
+      "counts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "assembledCounts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-upstream-candidate.mjs": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    },
+    {
+      "name": "test (windows-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39118219294/job/117648262253",
+      "counts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "assembledCounts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-upstream-candidate.mjs": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    },
+    {
+      "name": "test (macos-latest, 22)",
+      "conclusion": "success",
+      "url": "https://github.com/yamazaki/codex-starter-kit-private/actions/runs/39118219294/job/117648262275",
+      "counts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "assembledCounts": {
+        "tests": 141,
+        "pass": 141,
+        "fail": 0,
+        "skipped": 0
+      },
+      "checks": {
+        "Run npm test": "success",
+        "Run npm run verify": "success",
+        "Run npm run verify:links": "success",
+        "Run node scripts/verify-upstream-candidate.mjs": "success",
+        "Run node scripts/verify-ci-public-export.mjs": "success"
+      }
+    }
+  ],
+  "candidateArtifacts": {
+    "porting/candidates/0.79.2/scripts/auto-update.mjs": "0a4849aaa486a2ea649e15d8d652a65e620234f346814d776b7d6c4506e31c10",
+    "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs": "b792c63ac39eccd4cda8a13998c99031a01ec16baf757961f060c9d7b4fd613c",
+    "porting/candidates/0.79.2/scripts/lib/kit-update.mjs": "b602d4630bda09c4f4856c54f4cf1ad87856c5ed5fd45ac045255d46f92cad0c"
+  },
+  "rawLogSha256": "2082e59f2306934cd1d4a47d8ee01c4b126805199f0ccb3d962952acf34535df",
+  "limits": [
+    "Source and assembled candidate tests; no Windows/Linux Codex session",
+    "Production legacy updater not migrated",
+    "No public Release or primary install"
+  ]
+}

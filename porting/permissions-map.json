@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "upstreamCommit": "475212e627d490c57e593693c049a98cabe76b59",
   "sourcePath": "config/permissions.json",
-  "sourceSha256": "e67c2677969acf3c582dfcd9d4eaf83d0fc65fc1ffd6b0407b374716ed5b834c",
+  "sourceSha256": "95d3edd9a690d0a46388f01515d45f49cbdda1ec9257e093eb22de6aa5756193",
   "disableBypassPermissionsMode": {
     "source": "disable",
     "target": "approval:no-bypass-without-explicit-user-authorization"
@@ -193,22 +193,6 @@
       "target": "agents:secret-and-private-path-boundary"
     },
     {
-      "source": "Write(./.env)",
-      "target": "agents:secret-and-private-path-boundary"
-    },
-    {
-      "source": "Write(./.env.*)",
-      "target": "agents:secret-and-private-path-boundary"
-    },
-    {
-      "source": "Write(./**/.env)",
-      "target": "agents:secret-and-private-path-boundary"
-    },
-    {
-      "source": "Write(./**/.env.*)",
-      "target": "agents:secret-and-private-path-boundary"
-    },
-    {
       "source": "Read(/secrets/**)",
       "target": "agents:secret-and-private-path-boundary"
     },
@@ -217,23 +201,11 @@
       "target": "agents:secret-and-private-path-boundary"
     },
     {
-      "source": "Write(/secrets/**)",
-      "target": "agents:secret-and-private-path-boundary"
-    },
-    {
       "source": "Edit(~/.zshrc)",
       "target": "approval:user-owned-shell-config"
     },
     {
-      "source": "Write(~/.zshrc)",
-      "target": "approval:user-owned-shell-config"
-    },
-    {
       "source": "Edit(~/.bashrc)",
-      "target": "approval:user-owned-shell-config"
-    },
-    {
-      "source": "Write(~/.bashrc)",
       "target": "approval:user-owned-shell-config"
     }
   ],
@@ -673,5 +645,8 @@
       "target": "sandbox:repository-scoped-tool+approval-on-escalation",
       "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
     }
-  ]
+  ],
+  "status": "accepted",
+  "deltaContract": "porting/upstream-0792-delta.json",
+  "acceptanceEvidence": "docs/testing/upstream-0792-release-evidence.json"
 }

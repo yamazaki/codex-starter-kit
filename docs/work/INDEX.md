@@ -4,6 +4,7 @@
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
+| REL-0007 | RELEASE | [upstream 0.79.2対応版の公開準備](release/REL-0007-upstream-0792.md) | review |
 | GOV-0005 | GOVERNANCE | [一コマンド更新と自動更新の事前承認](governance/GOV-0005-update-authorization.md) | in_progress |
 | MNT-0020 | MAINTENANCE | [手動・セッション開始時更新の共通化](maintenance/MNT-0020-update-entrypoints.md) | in_progress |
 
@@ -17,6 +18,10 @@
 
 | ID | 分類 | 件名 | status |
 | --- | --- | --- | --- |
+| MNT-0022 | MAINTENANCE | [自動適用の実装契約修正](maintenance/MNT-0022-auto-apply-contract.md) | complete |
+| PORT-0012 | PORT | [更新lockの診断と復旧案内](port/PORT-0012-update-lock-diagnostics.md) | complete |
+| PORT-0013 | PORT | [0.79.2差分の要件対応](port/PORT-0013-0792-traceability.md) | complete |
+| SYNC-0005 | SYNC | [upstream 0.79.2への追随計画](sync/SYNC-0005-upstream-0792.md) | complete |
 | REL-0004 | RELEASE | [codex-starter-kit再公開と公開後確認](release/REL-0004-public-launch.md) | complete |
 | REL-0006 | RELEASE | [更新機能を収録する改訂版](release/REL-0006-updater-candidate.md) | complete |
 | REL-0005 | RELEASE | [動作検証後のCodex改訂版の準備](release/REL-0005-next-codex-revision.md) | complete |

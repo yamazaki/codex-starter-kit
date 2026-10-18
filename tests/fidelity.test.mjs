@@ -50,14 +50,14 @@ test("commands, rules, permissions, config, and feature resources have complete 
   }
   assert.equal(contract.rules.reduce((sum, entry) => sum + entry.sourceStatements, 0), 27);
   for (const entry of contract.rules) for (const target of entry.targets) assert.ok(fs.existsSync(path.join(root, target)));
-  assert.equal(permissions.deny.length, 57);
+  assert.equal(permissions.deny.length, contract.upstreamCommit==='475212e627d490c57e593693c049a98cabe76b59'?50:57);
   assert.equal(permissions.allow.length, 87);
   assert.ok([...permissions.deny, ...permissions.allow].every((entry) => entry.target));
   assert.deepEqual(configMap.files.map((entry) => entry.source).sort(), contract.configFiles.map((entry) => entry.path).sort());
   assert.equal(Object.keys(configMap.pluginAlternatives).length, 15);
   assert.deepEqual(configMap.pluginDependencyAudit.hardDependencies, []);
   assert.ok(Object.values(configMap.pluginAlternatives).every((entry) => entry.requiredByCore === false && entry.target));
-  assert.equal(contract.features.reduce((sum, entry) => sum + entry.sourceFiles.length, 0), 48);
+  assert.equal(contract.features.reduce((sum, entry) => sum + entry.sourceFiles.length, 0), contract.upstreamCommit==='475212e627d490c57e593693c049a98cabe76b59'?46:48);
   assert.ok(contract.features.every((entry) => entry.sourceFiles.every((file) => /^[0-9a-f]{64}$/u.test(file.sha256))));
 });
 

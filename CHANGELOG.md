@@ -14,6 +14,12 @@
 
 ### Removed
 
+## [0.79.2-codex.1] - 2026-10-18
+
+### Changed
+- upstream 0.78.2〜0.79.2の6 releaseを評価し、更新lockの診断・previewと復旧案内を改善。新しいSkill/agentの追加なし。
+- Claude専用のCLI/旧Hook、非同梱WCE依存、MDMの修正は実行経路を追加せず除外。互換性宣言に基づき版更新と管理済みupdater自己更新を自動適用。Hook定義やconfig変更は停止。
+
 ## [0.78.1-codex.5] - 2026-10-12
 
 本人受入済み。Privateのまま正式リリースする版。本番インストールの更新とPublic化は含めない。

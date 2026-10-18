@@ -31,6 +31,7 @@ jobs:
       - run: npm test
       - run: npm run verify
       - run: npm run verify:links
+      - run: node scripts/verify-upstream-candidate.mjs
       - if: github.event.repository.private == false
         run: npm run verify:public
       - if: github.event.repository.private == true

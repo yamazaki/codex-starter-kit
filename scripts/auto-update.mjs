@@ -15,6 +15,7 @@ export function autoUpdateMain(args){
 if(process.argv[1]&&path.resolve(process.argv[1])===path.resolve(import.meta.filename)){
   try{const result=autoUpdateMain(process.argv.slice(2));if(!['disabled','current','throttled'].includes(result.status))console.log(JSON.stringify({systemMessage:'Codex Starter Kit: '+JSON.stringify(result)}));}catch(error){
     const message={systemMessage:'Codex Starter Kit automatic update stopped. Run update.mjs --check to inspect configuration, conflicts or recovery.'};
+    if(error.installationLock||error.automaticPolicy)message.systemMessage+=' '+error.message;
     // Background check hooks cannot block. A synchronous apply hook can stop
     // startup when an interrupted transaction cannot be declared consistent.
     let options={};try{options=parseUpdateArguments(process.argv.slice(2));}catch{}

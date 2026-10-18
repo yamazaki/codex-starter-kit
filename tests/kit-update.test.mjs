@@ -1,3 +1,4 @@
+// ABI-1 automatic fixture; original sources remain pinned in baselines.
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -11,7 +12,7 @@ import {autoHookDefinition,parseUpdateArguments} from '../scripts/update.mjs';
 const repo=path.resolve(import.meta.dirname,'..');
 function fixture(t,{preserve=false,profile='minimal',components=[]}={}){
  const temp=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'csk-updater-test-')));t.after(()=>fs.rmSync(temp,{recursive:true,force:true}));
- const source=path.join(temp,'kit');fs.mkdirSync(source);fs.cpSync(path.join(repo,'distribution'),path.join(source,'distribution'),{recursive:true});fs.writeFileSync(path.join(source,'VERSION'),'0.78.1-codex.3\n');
+ const source=path.join(temp,'kit');fs.mkdirSync(source);fs.mkdirSync(path.join(source,'release'));fs.copyFileSync(path.join(repo,'release/automatic-update-compatibility.json'),path.join(source,'release/automatic-update-compatibility.json'));fs.cpSync(path.join(repo,'distribution'),path.join(source,'distribution'),{recursive:true});fs.writeFileSync(path.join(source,'VERSION'),'0.78.1-codex.3\n');
  const roots={codexHome:path.join(temp,'codex'),agentsHome:path.join(temp,'home/.agents')};
  if(preserve){fs.mkdirSync(roots.codexHome);fs.writeFileSync(path.join(roots.codexHome,'AGENTS.md'),'# User-owned preferences\nDo not overwrite.\n');}
  const selection={profile,language:'ja',components,preserveExistingGlobalAgents:preserve};
@@ -94,12 +95,12 @@ test('conflicts, unfinished journal and locks fail closed without overwriting us
  const metadata=path.join(f.roots.codexHome,'.codex-starter-kit');fs.writeFileSync(path.join(metadata,'update-journal.json'),'{}');assert.throws(()=>runKitUpdate(f.roots,{localRoot:f.source}),/unfinished/);fs.unlinkSync(path.join(metadata,'update-journal.json'));
  fs.mkdirSync(path.join(metadata,'update.lock'));assert.throws(()=>runKitUpdate(f.roots,{localRoot:f.source}),/lock/);
 });
-test('automatic check and apply use release resolver, preserve roots, throttle and reject core changes',t=>{
+test('automatic check and apply use release resolver, preserve roots, throttle and apply compatible core changes',t=>{
  const f=fixture(t);f.change();saveUpdateConfig(f.roots,{source:{kind:'release',repository:RELEASE_REPOSITORY},autoMode:'check'});
  const acquire=()=>({root:f.source});assert.equal(runKitUpdate(f.roots,{automatic:true,acquire}).status,'preview');assert.equal(runKitUpdate(f.roots,{automatic:true,acquire}).status,'throttled');
  const stamp=path.join(f.roots.codexHome,'.codex-starter-kit/update-check.json');fs.unlinkSync(stamp);
  saveUpdateConfig(f.roots,{source:{kind:'release',repository:RELEASE_REPOSITORY},autoMode:'apply'});assert.equal(runKitUpdate(f.roots,{automatic:true,acquire}).status,'updated');
- fs.unlinkSync(stamp);fs.writeFileSync(path.join(f.source,'VERSION'),'0.79.0-codex.1');assert.throws(()=>runKitUpdate(f.roots,{automatic:true,acquire}),/core change/);
+ fs.unlinkSync(stamp);fs.writeFileSync(path.join(f.source,'VERSION'),'0.79.0-codex.1');assert.equal(runKitUpdate(f.roots,{automatic:true,acquire}).status,'updated');
 });
 test('release lookup rejects draft, wrong tag commit and unaccepted payload; no shell interpolation',()=>{
  const config={source:{repository:RELEASE_REPOSITORY}};

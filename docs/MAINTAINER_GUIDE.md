@@ -39,7 +39,7 @@ source fetch
 
 具体的なcommandと停止条件は[Upstream Update Runbook](UPSTREAM_UPDATE_RUNBOOK.md)、利用・検証・公開commandの索引は[Command Reference](COMMAND_REFERENCE.md)を参照する。
 
-現在のbaseline全体の変換先とDROP境界は[Upstream 0.78.1 Codex porting overview](../upstream/assessments/0.78.1-porting-overview.md)を入口に確認する。
+現行の差分判断は[0.79.2 ledger](../upstream/ledger/0.79.2.md)、初回baseline全体の変換先とDROP境界は[Upstream 0.78.1 Codex porting overview](../upstream/assessments/0.78.1-porting-overview.md)を入口に確認する。
 
 ## 優先順位
 

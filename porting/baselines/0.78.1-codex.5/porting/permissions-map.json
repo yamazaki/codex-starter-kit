@@ -1,0 +1,677 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "sourcePath": "config/permissions.json",
+  "sourceSha256": "e67c2677969acf3c582dfcd9d4eaf83d0fc65fc1ffd6b0407b374716ed5b834c",
+  "disableBypassPermissionsMode": {
+    "source": "disable",
+    "target": "approval:no-bypass-without-explicit-user-authorization"
+  },
+  "deny": [
+    {
+      "source": "Bash(rm -rf *)",
+      "target": "hook:safety-net+approval:destructive-command"
+    },
+    {
+      "source": "Bash(rm -fr *)",
+      "target": "approval:explicit-review"
+    },
+    {
+      "source": "Bash(sudo *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(su *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(curl *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(wget *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(nc *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(ncat *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(telnet *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(ssh *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(scp *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(osascript *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(security *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(pbcopy *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(pbpaste *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(open *)",
+      "target": "approval:external-or-privileged-command"
+    },
+    {
+      "source": "Bash(git push --force *)",
+      "target": "hook:safety-net+approval:destructive-command"
+    },
+    {
+      "source": "Bash(git push -f *)",
+      "target": "hook:safety-net+approval:destructive-command"
+    },
+    {
+      "source": "Bash(git reset --hard *)",
+      "target": "hook:safety-net+approval:destructive-command"
+    },
+    {
+      "source": "Bash(git clean -f*)",
+      "target": "hook:safety-net+approval:destructive-command"
+    },
+    {
+      "source": "Bash(* .env*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.ssh/*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.aws/*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.config/gh/*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.git-credentials)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.netrc)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Bash(* ~/.npmrc)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(./.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(./.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(./**/.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(./**/.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(**/.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(**/.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(**/secrets/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(**/*secret*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(**/*credential*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.netrc)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.npmrc)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.ssh/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.aws/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.git-credentials)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(~/.config/gh/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(./.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(./.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(./**/.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(./**/.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Write(./.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Write(./.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Write(./**/.env)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Write(./**/.env.*)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Read(/secrets/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(/secrets/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Write(/secrets/**)",
+      "target": "agents:secret-and-private-path-boundary"
+    },
+    {
+      "source": "Edit(~/.zshrc)",
+      "target": "approval:user-owned-shell-config"
+    },
+    {
+      "source": "Write(~/.zshrc)",
+      "target": "approval:user-owned-shell-config"
+    },
+    {
+      "source": "Edit(~/.bashrc)",
+      "target": "approval:user-owned-shell-config"
+    },
+    {
+      "source": "Write(~/.bashrc)",
+      "target": "approval:user-owned-shell-config"
+    }
+  ],
+  "allow": [
+    {
+      "source": "Read",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Write",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Edit",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Glob",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Grep",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "WebFetch",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "WebSearch",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "TodoWrite",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git status)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git status *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git diff *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git log *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git branch *)",
+      "target": "approval:external-or-privileged-command",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git switch *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git checkout *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git add *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git commit *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git stash *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git show *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git rev-parse *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git merge-base *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git fetch *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git pull *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git merge *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git rebase *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git cherry-pick *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git tag *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git remote *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git push)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git push *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(gh issue *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(gh pr *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(gh api *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(gh repo *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(npm:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pnpm:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(yarn:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(bun:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(npx:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pip:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pip3:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(echo *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(wc *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(which *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(type *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(ls *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(find *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(grep *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(sort *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(uniq *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(diff *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(mkdir *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(cp *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(mv *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(touch *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(chmod *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pwd)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(printf *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(jq *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(sed *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(awk *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(xargs *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(cut *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(tr *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(tee *)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(python3 --version)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(node --version)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(npm --version)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pnpm --version)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(git --version)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(make:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(tsc:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(eslint:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(prettier:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(biome:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(vitest:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(jest:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(pytest:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(playwright:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(cargo:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(rustc:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(docker:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(docker-compose:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(tmux:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(tar:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(unzip:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    },
+    {
+      "source": "Bash(zip:*)",
+      "target": "sandbox:repository-scoped-tool+approval-on-escalation",
+      "note": "Capability is not globally pre-approved; Codex sandbox and current approval policy remain authoritative."
+    }
+  ]
+}

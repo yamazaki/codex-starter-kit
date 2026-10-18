@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "upstreamCommit": "475212e627d490c57e593693c049a98cabe76b59",
   "skills": [
     {
       "source": "backend-patterns",
@@ -367,7 +367,7 @@
         },
         {
           "path": "skills/web-content-extraction/README.md",
-          "sha256": "ce869f69feab28799bf5dc514c17ae631f671be429acc8da80615acadfbc9fb8"
+          "sha256": "9c80f989f54339650cfbfeb1b601d6bc2e097d87fdace490207a6a4fc6920aa9"
         },
         {
           "path": "skills/web-content-extraction/SKILL.md",
@@ -375,7 +375,7 @@
         },
         {
           "path": "skills/web-content-extraction/package-lock.json",
-          "sha256": "ddace3fb92cc857f7fbcc73159fc68fb0438e1c03c1fe7dfcfd8ea654b994832"
+          "sha256": "09fe234e762293042638d58be874b74e794569db8d1d03e52239f36db07c31e7"
         },
         {
           "path": "skills/web-content-extraction/package.json",
@@ -407,7 +407,7 @@
         },
         {
           "path": "skills/web-content-extraction/scripts/update-deps.mjs",
-          "sha256": "8cec659063798b919521d6f9c94d4b518e71e678f2251b3a361b62449c0c2458"
+          "sha256": "a860e3877a17b1e9456cc1728aec0c3e93be3f0a66d17497b583fbdeeb2bcbce"
         },
         {
           "path": "skills/web-content-extraction/test/defuddle-core.test.mjs",
@@ -423,7 +423,7 @@
         },
         {
           "path": "skills/web-content-extraction/test/update-deps-lock.test.mjs",
-          "sha256": "4997c66ae2a75dae66fd27e9f10bcd19819cb2cab068f33f02f7435d5e5f4688"
+          "sha256": "0f21ecb5b049e0e0d256aa7947b8969c11803f9194837dc0a9ec1132b36d1b52"
         },
         {
           "path": "skills/web-content-extraction/test/url-guard.test.mjs",
@@ -576,12 +576,8 @@
           "sha256": "8840bbd588ef1e1d89770faa6880d83f7e0ac5f42327e50a4d9054aa3697eaf3"
         },
         {
-          "path": "features/auto-update/hooks.legacy.json",
-          "sha256": "6a7c8500f5251944bf6af3a982b00b6a24fe4e2f82434e7390d23dcfcd9b914a"
-        },
-        {
           "path": "features/auto-update/scripts/auto-update.sh",
-          "sha256": "1e4e064c19b1c2d3b2522d7d6e72eb72aa10fda03806ec0034eb9929a2e11658"
+          "sha256": "1822dbdb9686e8d4ecf5a1f666dd04d44a416ba9230203378605f3580f2c0f0d"
         }
       ]
     },
@@ -770,12 +766,8 @@
           "sha256": "5999c273147b728c04599f5c92465e0bc1f39f2a5d36361a7685299658b2fb72"
         },
         {
-          "path": "features/pr-creation-log/hooks.legacy.json",
-          "sha256": "cf818aedd2353aa44845be78397989ba761483b7f1812b8c05d12d976891d6af"
-        },
-        {
           "path": "features/pr-creation-log/scripts/log-pr.sh",
-          "sha256": "2fa1a2dacbed4d12176673537ec347819291d12867d6449cd1ed47ede3449df2"
+          "sha256": "5fc4501d1574661e47aa0cf0d7a2997bfaeab558e67922cf91dcf72698001ff3"
         }
       ]
     },
@@ -1135,7 +1127,7 @@
     {
       "source": "update-kit-dry-run",
       "sourcePath": "commands/update-kit-dry-run.md",
-      "sourceSha256": "5fcee89c4f67bc9661387cd9318bc58053318061383a4da8770e16232da07ff8",
+      "sourceSha256": "506e885d91044bb8213bf9c7750150505d8694a349ced21676520b04ba4f84d2",
       "disposition": "ADAPT",
       "target": "skill:codex-starter-kit-maintenance",
       "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
@@ -1147,7 +1139,7 @@
     {
       "source": "update-kit",
       "sourcePath": "commands/update-kit.md",
-      "sourceSha256": "60603a532cf708b525b9a458f3959efbdfde1f5bddd644df39baac64a50ac2bc",
+      "sourceSha256": "53533006d80e961d3c98b1e5e134819c511445d0ec2caf3a1126264377db3745",
       "disposition": "ADAPT",
       "target": "skill:codex-starter-kit-maintenance",
       "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
@@ -1284,7 +1276,7 @@
   "configFiles": [
     {
       "path": "config/permissions.json",
-      "sha256": "e67c2677969acf3c582dfcd9d4eaf83d0fc65fc1ffd6b0407b374716ed5b834c"
+      "sha256": "95d3edd9a690d0a46388f01515d45f49cbdda1ec9257e093eb22de6aa5756193"
     },
     {
       "path": "config/plugins.json",
@@ -1294,5 +1286,8 @@
       "path": "config/settings-base.json",
       "sha256": "8cbd673b1569f1f8ded739b636fd8703d82f8d6d83cfc4fbfc27d385b59c7bef"
     }
-  ]
+  ],
+  "status": "accepted",
+  "deltaContract": "porting/upstream-0792-delta.json",
+  "acceptanceEvidence": "docs/testing/upstream-0792-release-evidence.json"
 }

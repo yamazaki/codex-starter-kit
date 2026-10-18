@@ -1,3 +1,4 @@
+import {historical05File} from './helpers/historical-05.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -10,7 +11,7 @@ const repo=path.resolve(import.meta.dirname,'..'),version='0.78.1-codex.5';
 function fixture(t){
   const base=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'csk-candidate-evidence-')));t.after(()=>fs.rmSync(base,{recursive:true,force:true}));
   const files=[...Object.keys(behaviorArtifactHashes()),...candidateRuntimeArtifacts,'docs/testing/release-evidence-map.json','docs/testing/update-candidate-plan.json','VERSION'];
-  for(const relative of new Set(files)){const target=path.join(base,relative);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(repo,relative),target);}
+  for(const relative of new Set(files)){const target=path.join(base,relative);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(historical05File(repo,relative),target);}
   // This fixture always represents an unaccepted candidate, even after the source is released.
   const manifest=JSON.parse(fs.readFileSync(path.join(repo,'release',version+'.json')));
   manifest.status='candidate';manifest.acceptance={ownerAccepted:false};
@@ -20,7 +21,7 @@ function fixture(t){
 test('pending candidate structure passes without becoming accepted behavioral evidence',t=>{
   const f=fixture(t);assert.deepEqual(candidateEvidenceErrors(f.base,version,f.manifest),[]);
   assert.equal(supportedBehaviorVersion(version,f.base),false);assert.equal(supportedBehaviorVersion('0.78.1-codex.3',f.base),true);
-  if(supportedBehaviorVersion(version))assert.ok(verifySuite().cases>0); // Real owner-accepted source: verify, not skip.
+  if(supportedBehaviorVersion(fs.readFileSync(path.join(repo,'VERSION'),'utf8').trim()))assert.ok(verifySuite().cases>0); // Real owner-accepted source: verify, not skip.
   else assert.throws(()=>verifySuite(),/unreviewed artifact bridge/);
   for(const manifest of [{...f.manifest,status:'accepted'},{...f.manifest,acceptance:{ownerAccepted:true}},{...f.manifest,behaviorEvidence:{status:'confirmed'}}])assert.ok(candidateEvidenceErrors(f.base,version,manifest).length);
 });

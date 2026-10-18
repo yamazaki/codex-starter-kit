@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "status": "implementation-review",
+  "ownerAccepted": false,
+  "baseCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "targetCommit": "475212e627d490c57e593693c049a98cabe76b59",
+  "targetVersion": "0.79.2",
+  "requirements": [
+    {
+      "id": "cli-stdin",
+      "disposition": "DROP",
+      "sourceRequirement": "非対話Claude plugin/mcpのstdin分離",
+      "decision": "Claude CLI/pluginを実行しない。Codex release取得はspawnSyncのpipe入力と非対話envを使用。Bunのtty修正は対象外。",
+      "targets": [
+        "scripts/lib/kit-update.mjs"
+      ]
+    },
+    {
+      "id": "cli-uninstall",
+      "disposition": "DROP",
+      "sourceRequirement": "Claude本体削除の固定path・親symlink検査・失敗報告",
+      "decision": "CLI本体削除を提供しない。kit管理対象の削除はmanifest・root・snapshotで限定する。",
+      "targets": [
+        "scripts/distribution-lib.mjs",
+        "tests/installer-update-guard.test.mjs"
+      ]
+    },
+    {
+      "id": "dependency-security",
+      "disposition": "DROP",
+      "sourceRequirement": "undici/source-map-jsのlockfile修正版とMDM bundle pin",
+      "decision": "web-content-extraction runtimeは非同梱。修正対象の依存/実行経路なし。Skill追加はしない。",
+      "targets": [
+        "porting/skill-map.json",
+        "porting/feature-map.json",
+        "distribution/catalog.json"
+      ]
+    },
+    {
+      "id": "legacy-hooks",
+      "disposition": "DROP",
+      "sourceRequirement": "Claude <2.1.89 hook/cache/schema退役と既存設定の移行",
+      "decision": "Claude legacy Hookを配布しない。Codex native updaterを削除しない。旧source inventoryは履歴として保持し、削除fileをdeltaに明記。",
+      "targets": [
+        "porting/feature-map.json",
+        "porting/fidelity-contract.json"
+      ]
+    },
+    {
+      "id": "lock-preflight",
+      "disposition": "ADAPT",
+      "sourceRequirement": "バックアップ・管理対象書換え前の競合検知",
+      "decision": "既存共通lock取得を保持。read-only previewはlockを取得せず、停止要因があればblockedを返してsource取得も行わない。",
+      "targets": [
+        "porting/candidates/0.79.2/scripts/lib/kit-update.mjs",
+        "tests/upstream-0792.test.mjs"
+      ]
+    },
+    {
+      "id": "lock-diagnosis",
+      "disposition": "ADAPT",
+      "sourceRequirement": "lock path/owner/時刻/PID状態と停止理由を提示",
+      "decision": "bounded reimplementation。pid/startedAtだけを検証して提示。owner raw本文を出さず、不正・過大・symlinkは不明扱い。PID存在は所有権証明ではない。",
+      "targets": [
+        "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs",
+        "tests/upstream-0792.test.mjs"
+      ]
+    },
+    {
+      "id": "lock-recovery",
+      "disposition": "ADAPT",
+      "sourceRequirement": "途中状態・再実行・手動復旧の案内",
+      "decision": "safe operational alternative。稼働更新なしを確認しjournal/manifest/snapshotをレビュー、承認後に復旧し同じ入口を再実行。自動削除commandは案内しない。",
+      "targets": [
+        "docs/UPDATE_WORKFLOW.md",
+        "porting/candidates/0.79.2/scripts/auto-update.mjs",
+        "tests/upstream-0792.test.mjs"
+      ]
+    },
+    {
+      "id": "lock-auto-reclaim",
+      "disposition": "DROP",
+      "sourceRequirement": "aged dead ownerのmutex/隔離/再照合による自動回収と最大60秒待機",
+      "decision": "自動回収を導入しないためreclaim mutex・quarantine・PID/時刻からの削除判定を追加しない。残留lockは証拠として保持。競合時即時停止を維持。",
+      "targets": [
+        "scripts/lib/installation-lock.mjs",
+        "porting/candidates/0.79.2/README.md"
+      ]
+    },
+    {
+      "id": "wce-lock-scope",
+      "disposition": "DROP",
+      "sourceRequirement": "npm viewをlock外、適用直前の再確認、失敗timer再試行・signal解放・package pair整合",
+      "decision": "非同梱WCE依存updater用。Codexのrelease取得・自動checkは共通lock下を維持（check stampと登録runtimeの共有状態を含む）。別runtimeを同等実装と呼ばない。",
+      "targets": [
+        "scripts/lib/kit-update.mjs",
+        "porting/skill-map.json"
+      ]
+    },
+    {
+      "id": "baseline-refresh",
+      "disposition": "DROP",
+      "sourceRequirement": "CLAUDE.md本文が新規版と同一ならsnapshotのみ修復",
+      "decision": "marker/3-way merge専用。Codexではjournalが残れば停止し、manifest不一致はCONFLICT。本文一致を根拠に管理記録を黙って修復しない。",
+      "targets": [
+        "scripts/distribution-lib.mjs",
+        "scripts/lib/kit-update.mjs"
+      ]
+    },
+    {
+      "id": "permission-retirement",
+      "disposition": "ADAPT",
+      "sourceRequirement": "無効な7件のWrite(path) deny除去と利用者設定保持",
+      "decision": "source対応記録のみ。CodexにはClaude permission JSONを配置しない。7件の削除とEdit保護の残存を記録し、旧permissions-mapは受入baselineの履歴を保持。",
+      "targets": [
+        "porting/permissions-map.json",
+        "porting/upstream-0792-delta.json"
+      ]
+    },
+    {
+      "id": "mdm",
+      "disposition": "DROP",
+      "sourceRequirement": "MDM期待hash・async schema・renderer整合",
+      "decision": "MDMは今回も配布scope外。組織管理機能の採用時に再評価。",
+      "targets": [
+        "porting/catalog.json"
+      ]
+    },
+    {
+      "id": "supporting-resources",
+      "disposition": "ADAPT",
+      "sourceRequirement": "日本語/英語案内・commands・README・upstream境界試験",
+      "decision": "Codex用手順と追加試験へ再構成。Claude shell suiteの直接実行・Skillの新設なし。",
+      "targets": [
+        "docs/UPDATE_WORKFLOW.md",
+        "tests/upstream-0792.test.mjs"
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "path": "CHANGELOG.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "2e4c1b336a755e6a9087458efeb84d0915efaa8da60f2fe55617c97d4a8c9ab4",
+      "targetSha256": "fd963512fbea2ed657edef063f74a28d1974b1ff02a8c534013b604dd7bc725b"
+    },
+    {
+      "path": "CLAUDE.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "bb0301951fc14f183b697ebd4d92f914a2863760073ecf235df73a989c41832e",
+      "targetSha256": "1e13fc1e61ffd7c8cebe7073c6d6df5f0e03fde8a9e2cacc958580faea0ddf53"
+    },
+    {
+      "path": "commands/update-kit-dry-run.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "lock-preflight",
+        "lock-diagnosis",
+        "legacy-hooks"
+      ],
+      "baseSha256": "5fcee89c4f67bc9661387cd9318bc58053318061383a4da8770e16232da07ff8",
+      "targetSha256": "506e885d91044bb8213bf9c7750150505d8694a349ced21676520b04ba4f84d2"
+    },
+    {
+      "path": "commands/update-kit.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "60603a532cf708b525b9a458f3959efbdfde1f5bddd644df39baac64a50ac2bc",
+      "targetSha256": "53533006d80e961d3c98b1e5e134819c511445d0ec2caf3a1126264377db3745"
+    },
+    {
+      "path": "config/permissions.json",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "permission-retirement"
+      ],
+      "baseSha256": "e67c2677969acf3c582dfcd9d4eaf83d0fc65fc1ffd6b0407b374716ed5b834c",
+      "targetSha256": "95d3edd9a690d0a46388f01515d45f49cbdda1ec9257e093eb22de6aa5756193"
+    },
+    {
+      "path": "docs/mdm/README.md",
+      "status": "M",
+      "routing": "DROP",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "57bf08105e1a54ab79c3d9e185e179db9eb0b0b9e7cdc3fd544be89d68aeb15d",
+      "targetSha256": "893fdd8154cced5add041b2d59d69154a7c935394d381d435bf1f7992196b2c5"
+    },
+    {
+      "path": "features/auto-update/hooks.legacy.json",
+      "status": "D",
+      "routing": "ADAPT",
+      "requirements": [
+        "legacy-hooks"
+      ],
+      "baseSha256": "6a7c8500f5251944bf6af3a982b00b6a24fe4e2f82434e7390d23dcfcd9b914a",
+      "targetSha256": null
+    },
+    {
+      "path": "features/auto-update/scripts/auto-update.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "legacy-hooks"
+      ],
+      "baseSha256": "1e4e064c19b1c2d3b2522d7d6e72eb72aa10fda03806ec0034eb9929a2e11658",
+      "targetSha256": "1822dbdb9686e8d4ecf5a1f666dd04d44a416ba9230203378605f3580f2c0f0d"
+    },
+    {
+      "path": "features/pr-creation-log/hooks.legacy.json",
+      "status": "D",
+      "routing": "ADAPT",
+      "requirements": [
+        "legacy-hooks"
+      ],
+      "baseSha256": "cf818aedd2353aa44845be78397989ba761483b7f1812b8c05d12d976891d6af",
+      "targetSha256": null
+    },
+    {
+      "path": "features/pr-creation-log/scripts/log-pr.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "legacy-hooks"
+      ],
+      "baseSha256": "2fa1a2dacbed4d12176673537ec347819291d12867d6449cd1ed47ede3449df2",
+      "targetSha256": "5fc4501d1574661e47aa0cf0d7a2997bfaeab558e67922cf91dcf72698001ff3"
+    },
+    {
+      "path": "i18n/en/strings.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "3888aff1b89c41d0ab64567fb84e14595b0d51fa68feaf0fbdfc8360e312edd8",
+      "targetSha256": "2a3138df855a7f07c4493afd2af0ce8d68b9d549c599db61358abfde863e2c36"
+    },
+    {
+      "path": "i18n/ja/strings.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "1d8adc27656d770a365d12c48f5ec28dfd5b68e9ca9e3d5c002f1b6a0c2b3c8d",
+      "targetSha256": "761400718ab3f96152f8bb11d0776f34ce0a3f4113390a337623e973b557174f"
+    },
+    {
+      "path": "lib/codex-setup.sh",
+      "status": "M",
+      "routing": "DROP",
+      "requirements": [
+        "cli-stdin",
+        "cli-uninstall"
+      ],
+      "baseSha256": "f0fe6d60467fe4fe91000a8dcc509c34f3a0ca769096f46d274445b529c62241",
+      "targetSha256": "4a092ad23b05e98c7623d62fa1c0801a9c442ca3e8d9d8959242ddb737a0f28c"
+    },
+    {
+      "path": "lib/deploy.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "lock-preflight",
+        "lock-recovery",
+        "legacy-hooks",
+        "dependency-security",
+        "cli-stdin"
+      ],
+      "baseSha256": "12ba63d330a8d0c89b7e0d58c158a16d3eff797c4756b23226a6455f816411d3",
+      "targetSha256": "45a2677b85a261d40a1b3a3e962d9cd137136ed6f2798457e4a8d0b22edafdc7"
+    },
+    {
+      "path": "lib/dryrun.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "lock-preflight",
+        "lock-diagnosis",
+        "legacy-hooks"
+      ],
+      "baseSha256": "0a87c687b6a3055deb452d0d46863dee4ae875e57d38d21339fa1036853f0edb",
+      "targetSha256": "e67b726abe7e8127d6109f0ac135ce474f3fa140cac0434d43652255c547f240"
+    },
+    {
+      "path": "lib/update.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "lock-preflight",
+        "lock-diagnosis",
+        "lock-recovery",
+        "lock-auto-reclaim",
+        "wce-lock-scope",
+        "baseline-refresh",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "43469644910754a8a1ccc3455cea84b478fcf41610bb0af1547144f11ea2d0e8",
+      "targetSha256": "b4adac06c13b61e7c709ad5bd6907921a716a9b7ef1446e7947d4fca3e0a0c73"
+    },
+    {
+      "path": "mdm/detect-mdm.sh",
+      "status": "M",
+      "routing": "DROP",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "e5f4a3f5519cd012e5bb053e068947f4bafaaefb8ead06c747abe9d578576bbf",
+      "targetSha256": "7b96df92298ca35c9fe62f1bde9bea07ed9755e2b9a5d9843c052ccabe9f96eb"
+    },
+    {
+      "path": "mdm/install-mdm.sh",
+      "status": "M",
+      "routing": "DROP",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "4748c026e43dfdf8b39e9aefa764a7f41336d9e23016549ec36b5b387a8c3be6",
+      "targetSha256": "b6271c134ef5ead3494d885818a24c75573a23cf3b0c57cf57f31c859a9884c9"
+    },
+    {
+      "path": "mdm/render-expected.py",
+      "status": "M",
+      "routing": "DROP",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "d44d3a3aa55342de0247590c5b8a3998de69c8e6b3c268c8846a1d6d5d508cb5",
+      "targetSha256": "e4d69eaad72ab58112bd31b966dfe9bbc464998a5359d1431e81f80c0bee6b52"
+    },
+    {
+      "path": "README.en.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "9d07949c2d8e4776e0bb97ce399d3942aa87c6d270b80827f5d512cf0d07466c",
+      "targetSha256": "eba4525daa90d9dd47c057bc97f5beca9ff2f85f5d3f0316a180440e431bf9e3"
+    },
+    {
+      "path": "README.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-recovery",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "049b8ce36d9579b25dbe55b3f54d016127434a588614d64cf8343cdefef286b4",
+      "targetSha256": "461db800b08251c41ebdbe2b288d9a070cfe819e9be69a9d2a57b7f3aa7f9bf2"
+    },
+    {
+      "path": "setup.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "lock-preflight",
+        "lock-recovery",
+        "legacy-hooks",
+        "dependency-security",
+        "cli-stdin"
+      ],
+      "baseSha256": "f8aceba14ca54cadeb1b954b78800bbce25bfc4637d5da253d5e95f8ec7456e5",
+      "targetSha256": "eb39342c41490904826da0ee27c27a2372c1ed98d3e917eeb42a80946b1095c0"
+    },
+    {
+      "path": "skills/web-content-extraction/package-lock.json",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "dependency-security",
+        "wce-lock-scope",
+        "lock-auto-reclaim"
+      ],
+      "baseSha256": "ddace3fb92cc857f7fbcc73159fc68fb0438e1c03c1fe7dfcfd8ea654b994832",
+      "targetSha256": "09fe234e762293042638d58be874b74e794569db8d1d03e52239f36db07c31e7"
+    },
+    {
+      "path": "skills/web-content-extraction/README.md",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "dependency-security",
+        "wce-lock-scope",
+        "lock-auto-reclaim"
+      ],
+      "baseSha256": "ce869f69feab28799bf5dc514c17ae631f671be429acc8da80615acadfbc9fb8",
+      "targetSha256": "9c80f989f54339650cfbfeb1b601d6bc2e097d87fdace490207a6a4fc6920aa9"
+    },
+    {
+      "path": "skills/web-content-extraction/scripts/update-deps.mjs",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "dependency-security",
+        "wce-lock-scope",
+        "lock-auto-reclaim"
+      ],
+      "baseSha256": "8cec659063798b919521d6f9c94d4b518e71e678f2251b3a361b62449c0c2458",
+      "targetSha256": "a860e3877a17b1e9456cc1728aec0c3e93be3f0a66d17497b583fbdeeb2bcbce"
+    },
+    {
+      "path": "skills/web-content-extraction/test/update-deps-lock.test.mjs",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "dependency-security",
+        "wce-lock-scope",
+        "lock-auto-reclaim"
+      ],
+      "baseSha256": "4997c66ae2a75dae66fd27e9f10bcd19819cb2cab068f33f02f7435d5e5f4688",
+      "targetSha256": "0f21ecb5b049e0e0d256aa7947b8969c11803f9194837dc0a9ec1132b36d1b52"
+    },
+    {
+      "path": "skills/web-content-extraction/test/update-deps-run.test.mjs",
+      "status": "A",
+      "routing": "ADAPT",
+      "requirements": [
+        "dependency-security",
+        "wce-lock-scope",
+        "lock-auto-reclaim"
+      ],
+      "baseSha256": null,
+      "targetSha256": "2e3f0d8480301944efcea1ddee3dedb582ca9a0e71f37774e27f3037efc2a824"
+    },
+    {
+      "path": "tests/helpers.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources"
+      ],
+      "baseSha256": "691f4b915aad97ff1599602c4ebd690d27e894357e43f03669c74ba5692e53ae",
+      "targetSha256": "70e24554fc0af75fd91515cdd5e2f80d9cf0b7cef00e2e5b4bf56bb94e659a24"
+    },
+    {
+      "path": "tests/run-scenarios.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources"
+      ],
+      "baseSha256": "854f2596506d2d1b3d5fc2aa2d5f8498aee8a9226d34c0600066363edc7b9a7f",
+      "targetSha256": "7f9461e6e556eec579a9ea86551ce36cb89c9903f482d555ce4bb793788397b8"
+    },
+    {
+      "path": "tests/unit/test-auto-update.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "78de2a4ff1df47bf4d43b2166c1994a623d71ccdde567462d8566328306c245a",
+      "targetSha256": "8b81acf977ae5b42908e20e7f5d5dbf38dd4c34235c61686473e048c26031f17"
+    },
+    {
+      "path": "tests/unit/test-codex-setup.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "cli-stdin",
+        "cli-uninstall"
+      ],
+      "baseSha256": "6566bc2518d119ec62d4817c696b934fa49e347512ccfc41034dbccd8b66fec7",
+      "targetSha256": "89acdf9decc695bc4229a43b0779daeb8eea399b41f9db17b1dd257e0d9d995b"
+    },
+    {
+      "path": "tests/unit/test-deploy-refactor.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources"
+      ],
+      "baseSha256": "daace528abe6fa968d413e51ebd73f4f5077dee66b352a336ffa1ba2499360a8",
+      "targetSha256": "f4e247dc536e4466f618d2afe36d955ec896af25244a6415a7f6bd23d8710aac"
+    },
+    {
+      "path": "tests/unit/test-hook-fixtures.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "440d7c89f029cf0bf93f23f9e41f10407429106ee54e1a972d8ea5184c4820a3",
+      "targetSha256": "69158482a5e8d8607160bdec8ae5469158d034c18966b7e1b89803e75f42ec5d"
+    },
+    {
+      "path": "tests/unit/test-mdm-detect.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "84ae3657c3e0828969e79619497da759aef6926e27fdfad43622fa108ca6b3c5",
+      "targetSha256": "b7f2592938a287b8de166ccaae311dfe52f5b5bb583bf3ea5056d87cd1ad4ca7"
+    },
+    {
+      "path": "tests/unit/test-mdm-expected.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "mdm",
+        "dependency-security",
+        "legacy-hooks"
+      ],
+      "baseSha256": "e47ce0766bebab1d3efb055e6d526b3afef2054a20d788123b461c62989fd7a0",
+      "targetSha256": "48bc904c0ef4cdc3118c2e85e3a6c8cdd49110a3866840add1590cceba2dbdaa"
+    },
+    {
+      "path": "tests/unit/test-pr-creation-log.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "0329e6ea65ed6601cf79d200ed4afeb3caca00cfbe8d83956183445af0656f40",
+      "targetSha256": "36a7287acc6db5884f61c95f67f6a159acb14a1654f95e49d613ac358de2ce8f"
+    },
+    {
+      "path": "tests/unit/test-retired-hooks.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "d42c697be54bfea7883184e63944e226cdac03a87c43faf24910f9e9c348b3a8",
+      "targetSha256": "6aaed55e3fe59095dffa649f27378e4afc2dcd81d601d2f98fb847d0e0107ef2"
+    },
+    {
+      "path": "tests/unit/test-runtime-hooks.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "legacy-hooks",
+        "permission-retirement"
+      ],
+      "baseSha256": "75030afec558a296b44c8fc6c359e92695800435dcb7870accac99e239f5568b",
+      "targetSha256": "83224f58d4cbee41b435e6b90cb1c2818d9d1bd577fecd15ee10cfdd41d065d7"
+    },
+    {
+      "path": "tests/unit/test-uninstall.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "cli-uninstall",
+        "legacy-hooks",
+        "cli-stdin"
+      ],
+      "baseSha256": "8c9a1c245cd1258c83111ab1c22f96b8c8fd154aeb9ef9fb73f84adc11fdf780",
+      "targetSha256": "bf616cdbd74ab14c008a8770d26aa02194264f341851a0e9912aaf6127de4723"
+    },
+    {
+      "path": "tests/unit/test-update-refactor.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "baseline-refresh",
+        "lock-preflight",
+        "permission-retirement"
+      ],
+      "baseSha256": "8aad8c8f1ec7f383d6d8cbfb777e937078874404faddc1e87e0f36bddcb3acfd",
+      "targetSha256": "254dc1e5bf2e22dba6dbcbf8c5f7149a19ecf1b99d56d5c07786baadddf45d7b"
+    },
+    {
+      "path": "tests/unit/test-wce-update-lock.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources",
+        "lock-preflight",
+        "lock-diagnosis",
+        "lock-auto-reclaim",
+        "wce-lock-scope"
+      ],
+      "baseSha256": "171140cb67d3098d8befd16394dd52e81446944036de528318ca43a43f77717f",
+      "targetSha256": "2f047967b92eb384464ff9cdac7797f6c69837dd7c4582e7b9a7c83ea2d1b798"
+    },
+    {
+      "path": "tests/unit/test-web-content-extraction.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "supporting-resources"
+      ],
+      "baseSha256": "81f04d68294ed7496597f3b39c76cbcddeec8352faa0a081c6828da240aa37e6",
+      "targetSha256": "3f66cdb818d13b21e7d3a18fdbd29a1e7e6840016d04a8d650248cb52e8f2b5c"
+    },
+    {
+      "path": "uninstall.sh",
+      "status": "M",
+      "routing": "ADAPT",
+      "requirements": [
+        "cli-uninstall",
+        "legacy-hooks",
+        "cli-stdin"
+      ],
+      "baseSha256": "b6406764694fad82a40195ffea4639942a548de665c17e825928d2f24436d46a",
+      "targetSha256": "3951710cd0a85ed57b4f2210d59d7d8f8b2e5de34a4e62a1fdb13439a731ff92"
+    }
+  ],
+  "retiredPermissionRules": [
+    "Write(./.env)",
+    "Write(./.env.*)",
+    "Write(./**/.env)",
+    "Write(./**/.env.*)",
+    "Write(/secrets/**)",
+    "Write(~/.zshrc)",
+    "Write(~/.bashrc)"
+  ],
+  "removedSourceFiles": [
+    "features/auto-update/hooks.legacy.json",
+    "features/pr-creation-log/hooks.legacy.json"
+  ],
+  "candidateArtifacts": {
+    "porting/candidates/0.79.2/scripts/auto-update.mjs": "0a4849aaa486a2ea649e15d8d652a65e620234f346814d776b7d6c4506e31c10",
+    "porting/candidates/0.79.2/scripts/lib/installation-lock.mjs": "b792c63ac39eccd4cda8a13998c99031a01ec16baf757961f060c9d7b4fd613c",
+    "porting/candidates/0.79.2/scripts/lib/kit-update.mjs": "b602d4630bda09c4f4856c54f4cf1ad87856c5ed5fd45ac045255d46f92cad0c"
+  },
+  "verification": {
+    "localRegression": "tests/upstream-0792.test.mjs",
+    "threeOs": "PASS: c21bbb0 / CI 39113173294, Node22 Linux/macOS/Windows each 134 pass, fail/skip0; docs/testing/upstream-0792-ci-proof.json",
+    "codexStartup": "macOS limited SessionStart PASS; docs/testing/upstream-0792-startup-proof.json",
+    "baselinePromotion": "not performed",
+    "assembledAttempt": "CI39114994505 Windows: owner file-ID precision failure; original retained; candidate BigInt correction pending new evidence",
+    "automaticPolicy": "MNT-0022: version and owned runtime updates require ABI-1 compatibility; new runtime evidence pending"
+  }
+}

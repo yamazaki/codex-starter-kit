@@ -11,7 +11,10 @@ import {supportedBehaviorVersion} from './lib/behavior-version.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
 const suite = read("docs/testing/behavior-cases.json");
-const contract = read("porting/fidelity-contract.json");
+// This runner retains the original suite/source inventory; new upstream deltas
+// have their own exact-artifact evidence and are not relabelled suite runs.
+const historicalContract="porting/baselines/0.78.1-codex.5/porting/fidelity-contract.json";
+const contract = read(fs.existsSync(path.join(root,historicalContract))?historicalContract:"porting/fidelity-contract.json");
 const catalog = read("distribution/catalog.json");
 const hash = (p) => crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");
 

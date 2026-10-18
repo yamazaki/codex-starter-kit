@@ -1,0 +1,11 @@
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {pathToFileURL} from 'node:url';
+import {createDistributionPlan,applyDistributionPlan} from '../../scripts/distribution-lib.mjs';
+export async function automaticFixture(t){
+ const repo=path.resolve(import.meta.dirname,'../..'),base=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'csk-auto-apply-')));t.after(()=>fs.rmSync(base,{recursive:true,force:true}));
+ const source=path.join(base,'kit');fs.mkdirSync(source);fs.cpSync(path.join(repo,'scripts'),path.join(source,'scripts'),{recursive:true});fs.cpSync(path.join(repo,'porting/candidates/0.79.2/scripts'),path.join(source,'scripts'),{recursive:true});fs.cpSync(path.join(repo,'distribution'),path.join(source,'distribution'),{recursive:true});fs.mkdirSync(path.join(source,'release'));fs.copyFileSync(path.join(repo,'release/automatic-update-compatibility.json'),path.join(source,'release/automatic-update-compatibility.json'));fs.writeFileSync(path.join(source,'VERSION'),'0.78.1-codex.5\n');
+ const roots={codexHome:path.join(base,'codex'),agentsHome:path.join(base,'home/.agents')};fs.mkdirSync(roots.codexHome);fs.writeFileSync(path.join(roots.codexHome,'AGENTS.md'),'User-owned AGENTS.\n');
+ const selection={profile:'standard',language:'ja',components:['safety-net'],preserveExistingGlobalAgents:true};applyDistributionPlan(createDistributionPlan({catalogPath:path.join(source,'distribution/catalog.json'),roots,selection,kitVersion:'0.78.1-codex.5'}),roots);
+ const engine=await import(pathToFileURL(path.join(source,'scripts/lib/kit-update.mjs')).href);engine.saveUpdateConfig(roots,{source:{kind:'release',repository:engine.RELEASE_REPOSITORY},autoMode:'apply'});engine.runKitUpdate(roots,{localRoot:source,registration:'enable'});
+ const metadata=path.join(roots.codexHome,'.codex-starter-kit');const stamp=path.join(metadata,'update-check.json');
+ return {base,source,roots,metadata,selection,...engine,clearStamp:()=>{if(fs.existsSync(stamp))fs.unlinkSync(stamp);},next:()=>{fs.writeFileSync(path.join(source,'VERSION'),'0.79.2-codex.1\n');fs.appendFileSync(path.join(source,'scripts/update.mjs'),'\n// automatic self-update fixture\n');},acquire:()=>({root:source})};
+}

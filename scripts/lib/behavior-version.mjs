@@ -1,3 +1,4 @@
+import {upstreamAcceptedErrors,upstreamAcceptedPlan} from './upstream-release-candidate.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -78,6 +79,8 @@ export function supportedBehaviorVersion(version,base=root) {
     const file=path.join(base,'docs/testing/release-evidence-map.json');
     if(!fs.lstatSync(file).isFile()||fs.lstatSync(file).isSymbolicLink()||fs.realpathSync(file)!==file)return false;
     if(validBehaviorBridge(JSON.parse(fs.readFileSync(file)),{sourceVersion:suite.kitVersion,targetVersion:current,upstreamCommit:suite.upstreamCommit,hashes:behaviorArtifactHashes(base)}))return true;
+    const manifest=JSON.parse(fs.readFileSync(path.join(base,'release',version+'.json')));
+    if(manifest.behaviorEvidence?.plan===upstreamAcceptedPlan)return upstreamAcceptedErrors(base,version,manifest).length===0;
     return updateEvidenceReviewErrors(base,version).length===0;
   } catch {return false;}
 }

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "product": "codex-starter-kit",
+  "installedManifestSchemaVersion": 1,
+  "updaterRuntimeAbi": 1,
+  "runtimeFiles": [
+    "scripts/update.mjs",
+    "scripts/auto-update.mjs",
+    "scripts/install-paths.mjs",
+    "scripts/distribution-lib.mjs",
+    "scripts/lib/kit-update.mjs",
+    "scripts/lib/update-runtime.mjs",
+    "scripts/lib/installation-lock.mjs"
+  ]
+}

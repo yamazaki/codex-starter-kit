@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {upstreamCandidateErrors,upstreamCandidatePlan} from './lib/upstream-release-candidate.mjs';
 
 import fs from "node:fs";
 import {supportedBehaviorVersion} from './lib/behavior-version.mjs';
@@ -112,7 +113,7 @@ if (version !== "0.0.0-dev") {
     if (!fs.existsSync(path.join(root, relative))) errors.push(`missing required file: ${relative}`);
   }
   const releaseManifest = readJson(path.join(root, "release", `${version}.json`));
-  if(releaseManifest.status==='candidate')errors.push(...candidateEvidenceErrors(root,version,releaseManifest));
+  if(releaseManifest.status==='candidate')errors.push(...(releaseManifest.behaviorEvidence?.plan===upstreamCandidatePlan?upstreamCandidateErrors(root,version,releaseManifest):candidateEvidenceErrors(root,version,releaseManifest)));
   else if(!supportedBehaviorVersion(version))errors.push('accepted version lacks reviewed behavior evidence; pending candidate plan is not acceptance');
   if (releaseManifest.releaseVersion !== version) errors.push("release manifest version differs from VERSION");
   if (!["candidate", "accepted"].includes(releaseManifest.status)) {
@@ -126,7 +127,7 @@ if (version !== "0.0.0-dev") {
       errors.push("accepted release manifest must record an acceptance date");
     }
   }
-  if (releaseManifest.upstream?.commit !== source?.lastAcceptedCommit) {
+  if (releaseManifest.upstream?.commit !== source?.lastAcceptedCommit && !(releaseManifest.status==='candidate' && releaseManifest.behaviorEvidence?.plan===upstreamCandidatePlan && upstreamCandidateErrors(root,version,releaseManifest).length===0)) {
     errors.push("release manifest upstream commit differs from accepted baseline");
   }
 }
@@ -143,9 +144,10 @@ if (source.lastAcceptedCommit !== source.lastScannedCommit) {
   errors.push("accepted upstream baseline must also be the last scanned commit");
 }
 if (source.lastAcceptedCommit) {
-  const ledger = fs.readFileSync(path.join(root, "upstream", "ledger", "0.78.1.md"), "utf8");
+  const ledgerVersion=source.lastAcceptedCommit==='475212e627d490c57e593693c049a98cabe76b59'?'0.79.2':'0.78.1';
+  const ledger = fs.readFileSync(path.join(root, "upstream", "ledger", ledgerVersion+".md"), "utf8");
   if (!ledger.includes(source.lastAcceptedCommit)) {
-    errors.push("accepted upstream commit is missing from the 0.78.1 ledger");
+    errors.push("accepted upstream commit is missing from the current ledger");
   }
 }
 errors.push(...validateCatalog(readJson(path.join(root, "porting", "catalog.json"))));
@@ -422,7 +424,7 @@ if (fidelity.schemaVersion !== 1 || fidelity.upstreamCommit !== source.lastAccep
       for(const section of missingCommandSections(entry,text))errors.push(`fidelity command section is missing: ${entry.source} -> ${section}`);
     }
   }
-  if ((fidelity.features ?? []).reduce((sum, entry) => sum + (entry.sourceFiles?.length ?? 0), 0) !== 48) {
+  if ((fidelity.features ?? []).reduce((sum, entry) => sum + (entry.sourceFiles?.length ?? 0), 0) !== (source.lastAcceptedCommit==='475212e627d490c57e593693c049a98cabe76b59'?46:48)) {
     errors.push("fidelity feature source-file inventory is incomplete");
   }
 }

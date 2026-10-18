@@ -1,0 +1,24 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';
+import {automaticFixture} from './helpers/automatic-apply-fixture.mjs';import {rollbackDistribution} from '../scripts/distribution-lib.mjs';
+const read=p=>JSON.parse(fs.readFileSync(p));
+test('automatic application crosses core versions and updates only owned updater files without changing Hook definition',async t=>{
+ const f=await automaticFixture(t),hooks=fs.readFileSync(path.join(f.roots.codexHome,'hooks.json')),agents=fs.readFileSync(path.join(f.roots.codexHome,'AGENTS.md'));f.next();
+ const result=f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire});assert.equal(result.status,'updated');assert.equal(result.version,'0.79.2-codex.1');assert.equal(result.hookReview,false);assert.deepEqual(fs.readFileSync(path.join(f.roots.codexHome,'hooks.json')),hooks);assert.deepEqual(fs.readFileSync(path.join(f.roots.codexHome,'AGENTS.md')),agents);assert.deepEqual(read(path.join(f.metadata,'manifest.json')).selection,f.selection);
+ const installed=path.join(f.roots.codexHome,'hooks/codex-starter-kit/updater/scripts/update.mjs');assert.match(fs.readFileSync(installed,'utf8'),/automatic self-update fixture/);f.clearStamp();assert.equal(f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}).status,'current');rollbackDistribution(result.snapshotId,f.roots);assert.equal(read(path.join(f.metadata,'manifest.json')).kitVersion,'0.78.1-codex.5');assert.ok(!fs.readFileSync(installed,'utf8').includes('automatic self-update fixture'));
+});
+test('automatic application refuses absent or incompatible declarations before writing managed files',async t=>{
+ const f=await automaticFixture(t);f.next();const compat=path.join(f.source,'release/automatic-update-compatibility.json'),original=fs.readFileSync(compat),before=fs.readFileSync(path.join(f.metadata,'manifest.json'));
+ for(const change of [null,{...read(compat),updaterRuntimeAbi:2},{...read(compat),runtimeFiles:['scripts/update.mjs']},{...read(compat),installedManifestSchemaVersion:2}]){f.clearStamp();if(change===null)fs.unlinkSync(compat);else fs.writeFileSync(compat,JSON.stringify(change));assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/compatibility/);assert.deepEqual(fs.readFileSync(path.join(f.metadata,'manifest.json')),before);fs.writeFileSync(compat,original);}
+});
+test('automatic application still rejects actual Hook definition or config changes',async t=>{
+ const f=await automaticFixture(t);f.next();
+ // The fixture changes only the new source Hook representation; no trusted config is altered.
+ const catalog=read(path.join(f.source,'distribution/catalog.json'));const entry=catalog.files.find(e=>e.target==='hooks.json');assert.ok(entry);const source=path.join(f.source,'distribution',entry.sources.ja);const saved=fs.readFileSync(source);fs.writeFileSync(source,saved.toString().replace('"timeout": 5','"timeout": 6'));
+ assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/Hook or runtime configuration change/);fs.writeFileSync(source,saved);f.clearStamp();
+ catalog.files.push({id:'fixture-config',sources:{ja:'files/fixture-config.toml',en:'files/fixture-config.toml'},profiles:catalog.profiles,root:'codexHome',target:'config.toml',mode:'0644'});fs.writeFileSync(path.join(f.source,'distribution/files/fixture-config.toml'),'fixture=true\n');fs.writeFileSync(path.join(f.source,'distribution/catalog.json'),JSON.stringify(catalog));assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/Hook or runtime configuration change/);
+});
+test('automatic application keeps check/off, conflict, downgrade and unfinished-journal protections',async t=>{
+ const f=await automaticFixture(t);f.next();f.saveUpdateConfig(f.roots,{source:{kind:'release',repository:f.RELEASE_REPOSITORY},autoMode:'check'});assert.equal(f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}).status,'preview');assert.equal(read(path.join(f.metadata,'manifest.json')).kitVersion,'0.78.1-codex.5');f.clearStamp();
+ f.saveUpdateConfig(f.roots,{source:{kind:'release',repository:f.RELEASE_REPOSITORY},autoMode:'off'});assert.equal(f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}).status,'disabled');f.saveUpdateConfig(f.roots,{source:{kind:'release',repository:f.RELEASE_REPOSITORY},autoMode:'apply'});
+ fs.writeFileSync(path.join(f.source,'VERSION'),'0.78.1-codex.4\n');assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/downgrade/);f.clearStamp();f.next();const target=path.join(f.roots.codexHome,'hooks/codex-starter-kit/updater/scripts/update.mjs');fs.appendFileSync(target,'\nuser modification\n');assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/conflicting/);fs.writeFileSync(path.join(f.metadata,'update-journal.json'),'{}');assert.throws(()=>f.runKitUpdate(f.roots,{automatic:true,acquire:f.acquire}),/unfinished/);
+});

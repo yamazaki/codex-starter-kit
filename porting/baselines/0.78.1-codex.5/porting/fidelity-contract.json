@@ -1,0 +1,1298 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "skills": [
+    {
+      "source": "backend-patterns",
+      "disposition": "ADAPT",
+      "target": "backend-patterns",
+      "sourceMainLines": 39,
+      "sourceFiles": [
+        {
+          "path": "skills/backend-patterns/SKILL.md",
+          "sha256": "15612dbcc108be018d93a44997424270f215de501962cbe9c0db6271bb9bf42b"
+        },
+        {
+          "path": "skills/backend-patterns/references/api-patterns.md",
+          "sha256": "cae5bdbc68c1a5a698b2430b34f452254244cfbe9a219f162c410b0e63cd49d0"
+        },
+        {
+          "path": "skills/backend-patterns/references/database-caching.md",
+          "sha256": "c67de5e20d36b4e3cb65e65b4f23be47102188d7f4e7551d511c9b455fdd8868"
+        },
+        {
+          "path": "skills/backend-patterns/references/error-auth-infra.md",
+          "sha256": "774fe9a3ca8856a6da59e190fa5bb97b885180854b80bf793f5a38068c3c3f43"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/backend-patterns/SKILL.md",
+        "distribution/files/common/skills/backend-patterns/references/api-patterns.md",
+        "distribution/files/common/skills/backend-patterns/references/database-caching.md",
+        "distribution/files/common/skills/backend-patterns/references/error-auth-infra.md"
+      ],
+      "requiredSections": [
+        "Pattern Categories",
+        "Quick Decision Guide"
+      ]
+    },
+    {
+      "source": "clickhouse-io",
+      "disposition": "ADAPT",
+      "target": "clickhouse-io",
+      "sourceMainLines": 35,
+      "sourceFiles": [
+        {
+          "path": "skills/clickhouse-io/SKILL.md",
+          "sha256": "2191873ebf1a885ecb75872145d02b4f5545f563fda8f5d49971372190c1b8d8"
+        },
+        {
+          "path": "skills/clickhouse-io/references/data-pipeline.md",
+          "sha256": "073d73be59ba0df6e6f72bcf4c628e3217eba88d83217fce79884180e0f7c068"
+        },
+        {
+          "path": "skills/clickhouse-io/references/query-optimization.md",
+          "sha256": "b1f52b33fadb6eeec2531d4e7847da53d8a5e32efe8cd4b0c1beecc68eea64c0"
+        },
+        {
+          "path": "skills/clickhouse-io/references/table-design.md",
+          "sha256": "fc44d2200d61f88f29af0caf2d85666c9c00960d5c18f145acbd3350225af409"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/clickhouse-io/SKILL.md",
+        "distribution/files/common/skills/clickhouse-io/references/data-pipeline.md",
+        "distribution/files/common/skills/clickhouse-io/references/query-optimization.md",
+        "distribution/files/common/skills/clickhouse-io/references/table-design.md"
+      ],
+      "requiredSections": [
+        "Reference Files",
+        "Engine Selection Guide",
+        "Core Rules"
+      ]
+    },
+    {
+      "source": "cloudnative-writing-baseline",
+      "disposition": "ADAPT",
+      "target": "cloudnative-writing-baseline",
+      "sourceMainLines": 291,
+      "sourceFiles": [
+        {
+          "path": "skills/cloudnative-writing-baseline/SKILL.md",
+          "sha256": "bc4b97809ebfc79e6f9118c80e7e3bcb6339677008cf74730083a2c1e519df04"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/cloudnative-writing-baseline/SKILL.md"
+      ],
+      "requiredSections": [
+        "目的",
+        "優先順位",
+        "1. 事実と確度を守る",
+        "2. 読み手が必要な情報を先に置く",
+        "3. 論理を守る",
+        "4. 冗長さを減らす",
+        "5. 自然な日本語にする",
+        "6. 媒体と筆者の文体を尊重する",
+        "7. 外部情報を追加する場合",
+        "8. 既存文章を修正する場合",
+        "9. 過剰修正を避ける",
+        "10. 最終確認",
+        "適用しないケース"
+      ]
+    },
+    {
+      "source": "coding-standards",
+      "disposition": "ADAPT",
+      "target": "coding-standards",
+      "sourceMainLines": 42,
+      "sourceFiles": [
+        {
+          "path": "skills/coding-standards/SKILL.md",
+          "sha256": "0f8fedbea6b4c637d30b03780aa0910151bab4ca182595a87d41eaf6b6153640"
+        },
+        {
+          "path": "skills/coding-standards/references/api-testing-patterns.md",
+          "sha256": "4d3fd442c10382934ae64a6b552979bb6189fbb9480693a77773ac95f85325ed"
+        },
+        {
+          "path": "skills/coding-standards/references/react-patterns.md",
+          "sha256": "e9acb1ae8d56d0bbe41ae8f03f504f0ef0c235b59b203d37175c6c1ebca982cd"
+        },
+        {
+          "path": "skills/coding-standards/references/typescript-patterns.md",
+          "sha256": "39ff1e4708fc329036652fd4c27f6e5bb761cc6e7e732289527be7a4342e3e31"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/coding-standards/SKILL.md",
+        "distribution/files/common/skills/coding-standards/references/api-testing-patterns.md",
+        "distribution/files/common/skills/coding-standards/references/react-patterns.md",
+        "distribution/files/common/skills/coding-standards/references/typescript-patterns.md"
+      ],
+      "requiredSections": [
+        "Quick Decision Guide",
+        "Categories",
+        "Core Principles"
+      ]
+    },
+    {
+      "source": "eval-harness",
+      "disposition": "ADAPT",
+      "target": "eval-harness",
+      "sourceMainLines": 205,
+      "sourceFiles": [
+        {
+          "path": "skills/eval-harness/SKILL.md",
+          "sha256": "57a8491a73b23278f6d25c4d3adec6b5528f15eadb39df68fe7d87ac5e786a49"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/eval-harness/SKILL.md"
+      ],
+      "requiredSections": [
+        "Philosophy",
+        "Eval Types",
+        "Grader Types",
+        "Eval Workflow",
+        "EVAL DEFINITION: feature-xyz",
+        "Integration Patterns",
+        "Eval Storage",
+        "Best Practices",
+        "Example: Adding Authentication",
+        "EVAL: add-authentication"
+      ]
+    },
+    {
+      "source": "frontend-patterns",
+      "disposition": "ADAPT",
+      "target": "frontend-patterns",
+      "sourceMainLines": 45,
+      "sourceFiles": [
+        {
+          "path": "skills/frontend-patterns/SKILL.md",
+          "sha256": "00dad8ce6d9a2bc1a9eaffec3f4246bfbedf6da0ac2786604ad906705bee316e"
+        },
+        {
+          "path": "skills/frontend-patterns/references/component-patterns.md",
+          "sha256": "8d9ddcd241a7cfb5f3dd4610341c55bef330ef92a15d1f8b197bca7be4779992"
+        },
+        {
+          "path": "skills/frontend-patterns/references/forms-errors-a11y.md",
+          "sha256": "00b5ee4b6471e21825ca95c072606a6033c4501e315561256a24379ad6df9aef"
+        },
+        {
+          "path": "skills/frontend-patterns/references/hooks-patterns.md",
+          "sha256": "d5f20e507e65b3e8cc6effaaa0f8985256a9921a6ad86e3075f571b684f86003"
+        },
+        {
+          "path": "skills/frontend-patterns/references/state-performance.md",
+          "sha256": "5a11b5d72d0dde247913fda53144d64bd3b17f3c99d5d743b031a9131451abc7"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/frontend-patterns/SKILL.md",
+        "distribution/files/common/skills/frontend-patterns/references/component-patterns.md",
+        "distribution/files/common/skills/frontend-patterns/references/forms-errors-a11y.md",
+        "distribution/files/common/skills/frontend-patterns/references/hooks-patterns.md",
+        "distribution/files/common/skills/frontend-patterns/references/state-performance.md"
+      ],
+      "requiredSections": [
+        "Pattern Categories",
+        "Quick Decision Guide"
+      ]
+    },
+    {
+      "source": "project-guidelines-example",
+      "disposition": "DROP",
+      "reason": "配布時のruntime能力ではなくproject固有Skill作成用templateのため同梱しない",
+      "sourceFiles": [
+        {
+          "path": "skills/project-guidelines-example/SKILL.md",
+          "sha256": "e6b6e1c19360d8c0276fdaa77211b014fc6a7c201a3642476fce09508e88feaa"
+        },
+        {
+          "path": "skills/project-guidelines-example/references/architecture.md",
+          "sha256": "46fab94dc688241f84f1093f658539a4318ba08ec46617274a3c56cb019a2893"
+        },
+        {
+          "path": "skills/project-guidelines-example/references/code-patterns.md",
+          "sha256": "f94670c0b0f63e47cc4bf22a192e346233b9bc900dd15a2a3e0261587e72cb13"
+        },
+        {
+          "path": "skills/project-guidelines-example/references/testing-deployment.md",
+          "sha256": "e7f7cb0653671f147a2a7a88e26a0f801c0c1aeb044edb09e2b38d0a427a45f6"
+        }
+      ]
+    },
+    {
+      "source": "prompt-patterns",
+      "disposition": "ADAPT",
+      "target": "prompt-patterns",
+      "sourceMainLines": 118,
+      "sourceFiles": [
+        {
+          "path": "skills/prompt-patterns/SKILL.md",
+          "sha256": "a8cf0b80d7f2eabdf2526a46ef88ccb42440b654f6f70462016bfc305704ed8d"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/prompt-patterns/SKILL.md"
+      ],
+      "requiredSections": [
+        "Discovery Patterns",
+        "Quality Challenge Patterns",
+        "Efficiency Patterns",
+        "Debugging Patterns",
+        "Session Management Patterns"
+      ]
+    },
+    {
+      "source": "security-review",
+      "disposition": "ADAPT",
+      "target": "secure-change-review",
+      "sourceMainLines": 67,
+      "sourceFiles": [
+        {
+          "path": "skills/security-review/SKILL.md",
+          "sha256": "b2f6eb63e6702f614cfa37abce1a9a593af1883fa6318a703781c07f26538e56"
+        },
+        {
+          "path": "skills/security-review/assets/security-checklist.md",
+          "sha256": "4c5679a3af29540204f70f5e2c0f95efcecd84ed73f796eea23aca33adbf8f9f"
+        },
+        {
+          "path": "skills/security-review/references/vulnerability-patterns.md",
+          "sha256": "f8c3c5411f7555d8f1e6870aad5de43a31076da30a1d8051bdf43f105e83d555"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/secure-change-review/SKILL.md",
+        "distribution/files/common/skills/secure-change-review/assets/security-checklist.md",
+        "distribution/files/common/skills/secure-change-review/references/vulnerability-patterns.md"
+      ],
+      "requiredSections": [
+        "When to Activate",
+        "Security Checklist Categories",
+        "Pre-Deployment Checklist",
+        "References"
+      ]
+    },
+    {
+      "source": "strategic-compact",
+      "disposition": "ADAPT",
+      "target": "strategic-compact",
+      "sourceMainLines": 26,
+      "sourceFiles": [
+        {
+          "path": "skills/strategic-compact/SKILL.md",
+          "sha256": "8811d77c1390f727f9c8cb556bd44328530e15dd3a20cf627cb635809586856a"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/strategic-compact/SKILL.md"
+      ],
+      "requiredSections": [
+        "When Compacting Pays Off",
+        "Best Practices"
+      ]
+    },
+    {
+      "source": "tdd-workflow",
+      "disposition": "ADAPT",
+      "target": "tdd-workflow",
+      "sourceMainLines": 117,
+      "sourceFiles": [
+        {
+          "path": "skills/tdd-workflow/SKILL.md",
+          "sha256": "c9578121f8c0a9d8d9ada19c551bcf63317882ebeb8e52e5b251a0c5d08409f6"
+        },
+        {
+          "path": "skills/tdd-workflow/references/test-templates.md",
+          "sha256": "a5398e61797ac44e4f05756191169a5598b9babf20a93c024eac24b2e3d929af"
+        },
+        {
+          "path": "skills/tdd-workflow/references/testing-mistakes.md",
+          "sha256": "330c36a1ee1662ea78e9baa210dc825096e3fe5e79cbdc206a38cabca3b6f005"
+        },
+        {
+          "path": "skills/tdd-workflow/scripts/check-coverage.sh",
+          "sha256": "be073b5c7d15e7d405ccb493f1a17fc8fccb8bb316ab6e0b660d00e2cc5cc434"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/tdd-workflow/SKILL.md",
+        "distribution/files/common/skills/tdd-workflow/references/test-templates.md",
+        "distribution/files/common/skills/tdd-workflow/references/testing-mistakes.md",
+        "distribution/files/common/skills/tdd-workflow/scripts/check-coverage.sh"
+      ],
+      "requiredSections": [
+        "When to Activate",
+        "Core Principles",
+        "TDD Workflow Steps",
+        "Best Practices",
+        "Success Metrics",
+        "References"
+      ]
+    },
+    {
+      "source": "verification-loop",
+      "disposition": "ADAPT",
+      "target": "verification-loop",
+      "sourceMainLines": 91,
+      "sourceFiles": [
+        {
+          "path": "skills/verification-loop/SKILL.md",
+          "sha256": "18009036f966d90f603a1a92ae010c2a9a10e63eefaf83345166a60bbd80a661"
+        }
+      ],
+      "targetFiles": [
+        "distribution/files/common/skills/verification-loop/SKILL.md"
+      ],
+      "requiredSections": [
+        "When to Use",
+        "Verification Phases",
+        "Output Format",
+        "Integration with Hooks"
+      ]
+    },
+    {
+      "source": "web-content-extraction",
+      "disposition": "DROP",
+      "reason": "Node依存runtimeを同梱せずCodex native web searchへ委譲する",
+      "sourceFiles": [
+        {
+          "path": "skills/web-content-extraction/.gitignore",
+          "sha256": "1fd298a4bc096b2afd9a9f009da1fae6f6d359f7a42d04a204b63d8d4be71dcb"
+        },
+        {
+          "path": "skills/web-content-extraction/README.md",
+          "sha256": "ce869f69feab28799bf5dc514c17ae631f671be429acc8da80615acadfbc9fb8"
+        },
+        {
+          "path": "skills/web-content-extraction/SKILL.md",
+          "sha256": "7fe25cd5dad2bd00ac604aafa06ce875c810135bfda75839ff04bf17ff68e838"
+        },
+        {
+          "path": "skills/web-content-extraction/package-lock.json",
+          "sha256": "ddace3fb92cc857f7fbcc73159fc68fb0438e1c03c1fe7dfcfd8ea654b994832"
+        },
+        {
+          "path": "skills/web-content-extraction/package.json",
+          "sha256": "711c13b06916af27f643386615cae616114dc359b7c0463147b4fd607e2912c1"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/defuddle-file.mjs",
+          "sha256": "c3ce9e3456494e82955e5def84e0320e3f1e6a2aacf7405da0758372849f29c8"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/defuddle-url.mjs",
+          "sha256": "900a1866e9127c88877d47c6e7f0d08f063e8ab508d4c644cb37efc2aef28695"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/lib/defuddle-core.mjs",
+          "sha256": "5d2d5590c3d22c51c708a36d75d70cc9ab4f28ddd601d327eeca4dd7f082103b"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/lib/pdf-extract.mjs",
+          "sha256": "cab2894e260c0fc1d58ce4dfee0b3059be6e0322ebb9b856edbbae07f1ff4ce5"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/lib/url-guard.mjs",
+          "sha256": "4ab4e91d8cc43a2749efbdcf10a4ba25c52d21ac4f8bce5421075d3ff6c79b0b"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/run-node.sh",
+          "sha256": "d3d5994dd0b4ab08d00ad22d1a2c8c4249c41822a86dea551cfdcd9d6e5fe1b7"
+        },
+        {
+          "path": "skills/web-content-extraction/scripts/update-deps.mjs",
+          "sha256": "8cec659063798b919521d6f9c94d4b518e71e678f2251b3a361b62449c0c2458"
+        },
+        {
+          "path": "skills/web-content-extraction/test/defuddle-core.test.mjs",
+          "sha256": "42ac63a64a34533aab25090a9a53e7f3f771380c376a9602dc563a0e47a578ee"
+        },
+        {
+          "path": "skills/web-content-extraction/test/defuddle-url.test.mjs",
+          "sha256": "d24db5cbceb312108b6c01f8baec0e4d95b69ec1b690137d4ee93919ab170a87"
+        },
+        {
+          "path": "skills/web-content-extraction/test/extract-smoke.test.mjs",
+          "sha256": "8f5065d5c6c8127309ceffe9808a6c2da50e7cb62e71f33e203a856847d89a74"
+        },
+        {
+          "path": "skills/web-content-extraction/test/update-deps-lock.test.mjs",
+          "sha256": "4997c66ae2a75dae66fd27e9f10bcd19819cb2cab068f33f02f7435d5e5f4688"
+        },
+        {
+          "path": "skills/web-content-extraction/test/url-guard.test.mjs",
+          "sha256": "4d5485c14e447408052f4d97c7c27c1adfd072e47548fe38f583690907f5a032"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "source": "architect",
+      "sourcePath": "agents/architect.md",
+      "sourceSha256": "e2d78d3472eb97c23337fb5cff65c74db83e607e0d49aeeba298c76a5416860a",
+      "sourceLines": 38,
+      "targetPath": "distribution/files/common/agents/architect.toml",
+      "requiredSections": [
+        "Workflow",
+        "Review Focus",
+        "Output"
+      ]
+    },
+    {
+      "source": "build-error-resolver",
+      "sourcePath": "agents/build-error-resolver.md",
+      "sourceSha256": "1908017ff82907e84ee11059587d28983d219018144d2c878ecbff5e1afd51d4",
+      "sourceLines": 42,
+      "targetPath": "distribution/files/common/agents/build-error-resolver.toml",
+      "requiredSections": [
+        "Workflow",
+        "Common Checks",
+        "Guardrails",
+        "Output"
+      ]
+    },
+    {
+      "source": "code-reviewer",
+      "sourcePath": "agents/code-reviewer.md",
+      "sourceSha256": "265892c53e7a5024703200dd305284ea47dced042705ee68736e7dd6ff89f4dd",
+      "sourceLines": 31,
+      "targetPath": "distribution/files/common/agents/code-reviewer.toml",
+      "requiredSections": [
+        "Workflow",
+        "Output"
+      ]
+    },
+    {
+      "source": "doc-updater",
+      "sourcePath": "agents/doc-updater.md",
+      "sourceSha256": "0f8ad345a6ac8dd62edd9a54341dbbb35113e6741c2442f6febd18b6b975c937",
+      "sourceLines": 29,
+      "targetPath": "distribution/files/common/agents/docs-updater.toml",
+      "requiredSections": [
+        "Workflow",
+        "Guardrails",
+        "Output"
+      ]
+    },
+    {
+      "source": "e2e-runner",
+      "sourcePath": "agents/e2e-runner.md",
+      "sourceSha256": "663b5325c7e3939a77f13a843cb30cffc5cc8e91fb68a2a1391ea9f26f8b2b73",
+      "sourceLines": 29,
+      "targetPath": "distribution/files/common/agents/e2e-runner.toml",
+      "requiredSections": [
+        "Workflow",
+        "Playwright Guidance",
+        "Output"
+      ]
+    },
+    {
+      "source": "planner",
+      "sourcePath": "agents/planner.md",
+      "sourceSha256": "f9c284e29229544a28d6010c434b772973ce7f7dd6b959141af7849372e21f73",
+      "sourceLines": 31,
+      "targetPath": "distribution/files/common/agents/planner.toml",
+      "requiredSections": [
+        "Workflow",
+        "Output"
+      ]
+    },
+    {
+      "source": "refactor-cleaner",
+      "sourcePath": "agents/refactor-cleaner.md",
+      "sourceSha256": "dcdbc3cf7efb0bbe2d69eca29d39c996492f1617979f793a5996e6467ce685dc",
+      "sourceLines": 29,
+      "targetPath": "distribution/files/common/agents/refactor-cleaner.toml",
+      "requiredSections": [
+        "Workflow",
+        "Guardrails",
+        "Output"
+      ]
+    },
+    {
+      "source": "security-reviewer",
+      "sourcePath": "agents/security-reviewer.md",
+      "sourceSha256": "eb6ed8bdd98c32663dba852f988ec40828140b98ceffed4d81403b14123f491f",
+      "sourceLines": 36,
+      "targetPath": "distribution/files/common/agents/security-reviewer.toml",
+      "requiredSections": [
+        "Workflow",
+        "Baseline Checklist",
+        "Output"
+      ]
+    },
+    {
+      "source": "tdd-guide",
+      "sourcePath": "agents/tdd-guide.md",
+      "sourceSha256": "818c4e4883c95da7ca82b4bb62f54e3d90ae4eb8c0b13a9cacbd15da57d408d2",
+      "sourceLines": 36,
+      "targetPath": "distribution/files/common/agents/tdd-guide.toml",
+      "requiredSections": [
+        "Workflow",
+        "Test Selection",
+        "Guardrails",
+        "Output"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "source": "agent-teams",
+      "disposition": "ADAPT",
+      "adaptationKind": "platform-native-alternative",
+      "target": "native:subagents+custom-agents",
+      "reason": "Claude experimental flag自体は移植せず、Codex native subagentと意味保持済みcustom agentsでdelegation目的を実現する。Hookや環境flagの機能同等を主張しない",
+      "sourceFiles": [
+        {
+          "path": "features/agent-teams/feature.json",
+          "sha256": "f3841bfd2267991d8558f297357fcc61541f4c4c6dbc06160f421f90df55ccea"
+        },
+        {
+          "path": "features/agent-teams/hooks.json",
+          "sha256": "98787a7716ec5a6e6dc23ce19608b382bc205a5e29afe278f073fe9bbd4b39bf"
+        }
+      ]
+    },
+    {
+      "source": "auto-update",
+      "disposition": "ADAPT",
+      "adaptationKind": "safe-operational-alternative",
+      "target": "skill:codex-starter-kit-maintenance+workflow:upstream-sync",
+      "reason": "無人fetch・pull・applyは再現せず、保守者の本家scanと取得済みkitからのreview-first明示更新へ安全境界を変更する。自動更新との機能同等を主張しない",
+      "sourceFiles": [
+        {
+          "path": "features/auto-update/feature.json",
+          "sha256": "4d115ddec4a77446c9c33ebd05877e4c3ba328f6cabc8962581d66723827037e"
+        },
+        {
+          "path": "features/auto-update/hooks.json",
+          "sha256": "8840bbd588ef1e1d89770faa6880d83f7e0ac5f42327e50a4d9054aa3697eaf3"
+        },
+        {
+          "path": "features/auto-update/hooks.legacy.json",
+          "sha256": "6a7c8500f5251944bf6af3a982b00b6a24fe4e2f82434e7390d23dcfcd9b914a"
+        },
+        {
+          "path": "features/auto-update/scripts/auto-update.sh",
+          "sha256": "1e4e064c19b1c2d3b2522d7d6e72eb72aa10fda03806ec0034eb9929a2e11658"
+        }
+      ]
+    },
+    {
+      "source": "biome-hooks",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "全repositoryへの一律整形を避け、repository固有のtool・version・設定を優先する。repo-awareなoptional componentは将来再評価可能",
+      "sourceFiles": [
+        {
+          "path": "features/biome-hooks/feature.json",
+          "sha256": "f69a3708486848333a6987e2c74af40b39a3f7dc5ebd773ee08af61d0b236bf0"
+        },
+        {
+          "path": "features/biome-hooks/hooks.json",
+          "sha256": "81c839e1056cc44a3bbd93238fb3f2f0a751bc4ca7cd08d5b80dde37a5cd7838"
+        },
+        {
+          "path": "features/biome-hooks/scripts/format-file.sh",
+          "sha256": "5787c0dbbd033f62b0469cc4009787dabc1464e320398069b83b3075f06dabfb"
+        }
+      ]
+    },
+    {
+      "source": "codex-plugin",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "ClaudeからCodexを呼び出す連携は対象外",
+      "sourceFiles": [
+        {
+          "path": "features/codex-plugin/CLAUDE.md.partial.en",
+          "sha256": "7723200503c2bf30609b9f9b6562287f279bd15e622c06c8774f54637342fe4d"
+        },
+        {
+          "path": "features/codex-plugin/CLAUDE.md.partial.ja",
+          "sha256": "6e53e52dd8c96ee96039229285a7b8fe91fe04b6e890d85c3e9470d5c7042bc3"
+        },
+        {
+          "path": "features/codex-plugin/feature.json",
+          "sha256": "4492b9211977fca98eba27d794578f82891b4f9e232cd321378cf3397656b912"
+        }
+      ]
+    },
+    {
+      "source": "doc-blocker",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "filename基準のglobal確認はproject固有の正式文書も止めうる。代替Hookは同梱せず、必要なprojectで文書方針を定義する",
+      "sourceFiles": [
+        {
+          "path": "features/doc-blocker/feature.json",
+          "sha256": "239e4df829ca238678b27c9f3e654654da4a4c330343fc9d6ab6c49923d58396"
+        },
+        {
+          "path": "features/doc-blocker/hooks.json",
+          "sha256": "ac73273f1cadba10b0b1a47c3167bb21928f6c12c9b60e97776caed2132b7483"
+        },
+        {
+          "path": "features/doc-blocker/scripts/check-doc-write.sh",
+          "sha256": "7c82541e818b4069dc536d098ef663816db8246130da8ec05db70c5b0417f531"
+        }
+      ]
+    },
+    {
+      "source": "doc-size-guard",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "固定行数と限定的なWrite検知をglobal適用しない。現時点で代替検査はなく、設定可能なoptional component候補とする",
+      "sourceFiles": [
+        {
+          "path": "features/doc-size-guard/feature.json",
+          "sha256": "6090e9fe2b5959e428bfa6391ada8571bcecb1731098aa2355170be00b29cc71"
+        },
+        {
+          "path": "features/doc-size-guard/hooks.json",
+          "sha256": "3805b1882badf3292370233275372ac6a5186d8f3e10df9dfbad83827e19b44c"
+        },
+        {
+          "path": "features/doc-size-guard/scripts/check-doc-size.sh",
+          "sha256": "2f7fc51c5f48ad1b130495b4c412cd3626d25e9be6177ea34d68e9475533488a"
+        }
+      ]
+    },
+    {
+      "source": "feature-recommendation",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Codex版にはpending feature生成経路がなく、ledger・release notes・dry-run planを正本としてsession通知を追加しない",
+      "sourceFiles": [
+        {
+          "path": "features/feature-recommendation/feature.json",
+          "sha256": "7f8598c8ac02866eebb4d4ff3dc3d3c03e5239aee8263007b7f94cb6e55bebcc"
+        },
+        {
+          "path": "features/feature-recommendation/hooks.json",
+          "sha256": "da6cdd79829cd030bca24521650bcf636555f10e99696a968e01c1f130fbd048"
+        },
+        {
+          "path": "features/feature-recommendation/scripts/check-pending.sh",
+          "sha256": "9758f0015e958c262e18c47cf2eabd0e88f72ace7b3472b764336921b3316f09"
+        }
+      ]
+    },
+    {
+      "source": "fonts",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Codex設定ではないOS外観componentを初回release対象外とする",
+      "sourceFiles": [
+        {
+          "path": "features/fonts/feature.json",
+          "sha256": "cebb69ed931c4163727c23253c44f7b2a71cdd28df29521c8e29716e734c71f2"
+        }
+      ]
+    },
+    {
+      "source": "ghostty",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Codex設定ではないterminal導入を初回release対象外とする",
+      "sourceFiles": [
+        {
+          "path": "features/ghostty/config.template",
+          "sha256": "b1efcf90d86ad6291b9cd853b518349c31bb4f9f4e1439dc628a2c49ee8a3d7e"
+        },
+        {
+          "path": "features/ghostty/feature.json",
+          "sha256": "01817e8cf2fa32b640236426f09398eec3845ab1e69daeb34a3e6d1638824a96"
+        }
+      ]
+    },
+    {
+      "source": "native-file-tools",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Claude内部flag固有",
+      "sourceFiles": [
+        {
+          "path": "features/native-file-tools/feature.json",
+          "sha256": "a7f23f1496715eb1138bd4ca2f470d337696cefadd55139164862da49ac8d235"
+        },
+        {
+          "path": "features/native-file-tools/hooks.json",
+          "sha256": "64217279d80da20cb0184310e80bb82771b2b8b1acbd7bf55dda457e3070f626"
+        }
+      ]
+    },
+    {
+      "source": "no-flicker",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Claude TUI固有",
+      "sourceFiles": [
+        {
+          "path": "features/no-flicker/feature.json",
+          "sha256": "64176e21fbc46c4cf5e8704ba01e699449e8f2e22c8e1cfb2dcf202f5d4f54ba"
+        },
+        {
+          "path": "features/no-flicker/hooks.json",
+          "sha256": "940d8aec818decfbfb12b6a83b6db6a505f1098b7ab8008af15012f3cd01838d"
+        }
+      ]
+    },
+    {
+      "source": "pr-creation-log",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Codex通常workflowのPR artifact・reviewと実質重複するためglobal Bash監視を追加しない。任意terminalの捕捉とは完全同一ではない",
+      "sourceFiles": [
+        {
+          "path": "features/pr-creation-log/feature.json",
+          "sha256": "a7d3ec473826691290b199054ce99d4a56f19da3ce1b2022e6532d59fdc3e6a6"
+        },
+        {
+          "path": "features/pr-creation-log/hooks.json",
+          "sha256": "5999c273147b728c04599f5c92465e0bc1f39f2a5d36361a7685299658b2fb72"
+        },
+        {
+          "path": "features/pr-creation-log/hooks.legacy.json",
+          "sha256": "cf818aedd2353aa44845be78397989ba761483b7f1812b8c05d12d976891d6af"
+        },
+        {
+          "path": "features/pr-creation-log/scripts/log-pr.sh",
+          "sha256": "2fa1a2dacbed4d12176673537ec347819291d12867d6449cd1ed47ede3449df2"
+        }
+      ]
+    },
+    {
+      "source": "pre-compact-commit",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "upstreamのGit stash snapshot Hookは配布しない。Codex checkpoint・automatic compactionとstrategic-compact handoffは利用可能だが、data snapshotの機能同等なADAPTとは扱わない",
+      "sourceFiles": [
+        {
+          "path": "features/pre-compact-commit/feature.json",
+          "sha256": "c54fa29b6f699206aacfd32cf2d5fabe8bc2383bd94544513a47f3aba8863752"
+        },
+        {
+          "path": "features/pre-compact-commit/hooks.json",
+          "sha256": "cf8200a882d8b1f491e2c82ac3e65b7db065d7044ef60d2be01297e14cee0cbd"
+        }
+      ]
+    },
+    {
+      "source": "prettier-hooks",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "全repositoryへの一律整形を避け、repository固有のtool・version・設定を優先する。repo-awareなoptional componentは将来再評価可能",
+      "sourceFiles": [
+        {
+          "path": "features/prettier-hooks/feature.json",
+          "sha256": "7cd60e9e48b3e1d4858cc743ea2c9d28dc6e1f57c9b2b2aa720ef99a128d5dd9"
+        },
+        {
+          "path": "features/prettier-hooks/hooks.json",
+          "sha256": "24beffcd1ab73bfa60cf8c2f0ff74fce1afecc8fa31ba61b057ecc5a268fc0a6"
+        },
+        {
+          "path": "features/prettier-hooks/scripts/format-file.sh",
+          "sha256": "2d806fcddea3efe6c36f70bd38d17d86b61e8136f153a97d004228450582ed27"
+        }
+      ]
+    },
+    {
+      "source": "safety-net",
+      "disposition": "ADAPT",
+      "adaptationKind": "bounded-reimplementation",
+      "target": "component:safety-net",
+      "reason": "外部cc-safety-netの完全互換ではなく、明示opt-in、PreToolUse deny契約、trust review前提でfilesystem root削除、危険Git操作、indirect recursive deleteの9 familyに限定したCodex実装",
+      "sourceFiles": [
+        {
+          "path": "features/safety-net/feature.json",
+          "sha256": "f58cc91d38477663065a5fd33653c6d2b9ebd185f3c57f0d1320f5e8d7e9c995"
+        },
+        {
+          "path": "features/safety-net/hooks.json",
+          "sha256": "1715b60d140366dbd3785fac3708577b72f6a1e731e72a5ea2ec34d63078e030"
+        },
+        {
+          "path": "features/safety-net/scripts/run-cc-safety-net.sh",
+          "sha256": "05b3a91a6852af4853c8e3c21c5a7be3a8146395c184969b2312afc31165df70"
+        }
+      ]
+    },
+    {
+      "source": "statusline",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Claude statusLine payloadとrate-limit表示に固有",
+      "sourceFiles": [
+        {
+          "path": "features/statusline/feature.json",
+          "sha256": "225e9d72aa0e07010633a59cf8e87a05a650e4d621442eabb506e93b509c040c"
+        },
+        {
+          "path": "features/statusline/hooks.json",
+          "sha256": "4e4c2f6bb759f94cffd58b9aba6475c23866fd5815b36c79ca9bf010c886abf5"
+        },
+        {
+          "path": "features/statusline/scripts/statusline-command.py",
+          "sha256": "0b22ac08297a8a3a07a066ce391c50731df3873b515f9bfabadcd51da66f9930"
+        }
+      ]
+    },
+    {
+      "source": "tmux-hooks",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "Codexのbackground terminal UXと重複するreminderを追加しない",
+      "sourceFiles": [
+        {
+          "path": "features/tmux-hooks/feature.json",
+          "sha256": "5da470fc235fd2e8ffa5a405f2efdfcc934b90a6d66462db2568b44a41045d39"
+        },
+        {
+          "path": "features/tmux-hooks/hooks.json",
+          "sha256": "db45f243d003994b270fd7fadf01f3aa7905216930f85feb660f4b1a127308ce"
+        },
+        {
+          "path": "features/tmux-hooks/scripts/check-bash.sh",
+          "sha256": "3f1f4bb29f3f5ab1ec6841e8d47569163b7606319337f94ce2beda532894f7ad"
+        }
+      ]
+    },
+    {
+      "source": "web-content-update",
+      "disposition": "DROP",
+      "adaptationKind": null,
+      "target": null,
+      "reason": "非同梱のweb-content-extraction依存をsession startで可変更新せず、review-firstなversioned releaseを優先する",
+      "sourceFiles": [
+        {
+          "path": "features/web-content-update/feature.json",
+          "sha256": "f7f150780e57ea4fed2863273c724d3ef219d91cdb402674408ea68c25db69c0"
+        },
+        {
+          "path": "features/web-content-update/hooks.json",
+          "sha256": "2576af8bb5d37fd1e719f2dc075d37c84d9b867e6d0b4f0ac3d94156de6e23e7"
+        }
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "source": "audit-config",
+      "sourcePath": "commands/audit-config.md",
+      "verifyRequiredSections": true,
+      "sourceSha256": "3bb55042c967f50ed59960cfe5327c8090abb6a494758a052d4d5334c29d06c4",
+      "disposition": "ADAPT",
+      "target": "skill:codex-starter-kit-maintenance",
+      "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
+      "reason": null,
+      "requiredSections": [
+        "Scope",
+        "Audit Lenses",
+        "Preservation Rules (do not over-delete)",
+        "Output (proposal only — never edit without approval)"
+      ]
+    },
+    {
+      "source": "build-fix",
+      "sourcePath": "commands/build-fix.md",
+      "sourceSha256": "ae7bbc4f311e0303c134b1285f772669b818b4bf5817a0f7d2915e5aef56e209",
+      "disposition": "ADAPT",
+      "target": "agent:build_error_resolver",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/build-fix.md",
+      "reason": null,
+      "requiredSections": []
+    },
+    {
+      "source": "checkpoint",
+      "codexAdaptation": "MNT-0012: preserve Git create/verify/list and current tests; do not claim Claude rewind shortcuts or unstaged-file recovery in Codex",
+      "sourcePath": "commands/checkpoint.md",
+      "sourceSha256": "14a790bc9fbf5f6bb9c373774c61293afed1cf6dcc57f0fbad7bad6b16206b29",
+      "disposition": "ADAPT",
+      "target": "skill:strategic-compact",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/checkpoint.md",
+      "reason": null,
+      "requiredSections": [
+        "Usage",
+        "Create Checkpoint",
+        "Verify Checkpoint",
+        "List Checkpoints",
+        "Arguments"
+      ]
+    },
+    {
+      "source": "e2e",
+      "sourcePath": "commands/e2e.md",
+      "sourceSha256": "1ba49b63481b0057749d00582b699f453ebf0a951f347ba0ab1301b188bfb0c3",
+      "disposition": "ADAPT",
+      "target": "agent:e2e_runner",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/e2e.md",
+      "reason": null,
+      "requiredSections": [
+        "Steps",
+        "CI Baseline",
+        "Output"
+      ]
+    },
+    {
+      "source": "eval",
+      "sourcePath": "commands/eval.md",
+      "sourceSha256": "0e0fce603df6fd1ff1c8750fecdd88321ab0626d19f98d60f59558cc0b4c3155",
+      "disposition": "ADAPT",
+      "target": "skill:eval-harness",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/eval.md",
+      "reason": null,
+      "requiredSections": [
+        "Subcommands",
+        "Output"
+      ]
+    },
+    {
+      "source": "handover",
+      "codexAdaptation": "MNT-0012: use existing handoff destination and fresh Codex chat/CLI; preserve actual Git state, approvals, unrun checks and document-only recovery",
+      "sourcePath": "commands/handover.md",
+      "sourceSha256": "30c3377682dc714f4161880723f1c5b1cb66eef2983e327880c9fe04596c9b78",
+      "disposition": "ADAPT",
+      "target": "skill:session-handoff",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/handover.md",
+      "reason": null,
+      "requiredSections": [
+        "Instructions",
+        "Generated: [ISO 8601 timestamp]",
+        "Current State",
+        "What Was Done",
+        "What Remains",
+        "Key Decisions Made",
+        "Known Issues / Blockers",
+        "Context Files",
+        "Recommended Next Steps"
+      ]
+    },
+    {
+      "source": "learn",
+      "codexAdaptation": "MNT-0012: preserve error/debug/workaround/project lessons and Problem/Solution/Example; select narrow durable destination, direct-child Skill and explicit save approval; optional memory is not automatic capture",
+      "sourcePath": "commands/learn.md",
+      "sourceSha256": "3582e4684dd474faeb5810167d0bc4de96dafb6046cded5531b9d14b9f53019b",
+      "disposition": "ADAPT",
+      "target": "skill:capture-learning",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/learn.md",
+      "reason": null,
+      "requiredSections": [
+        "Trigger",
+        "What to Extract",
+        "Output Format",
+        "Problem",
+        "Solution",
+        "Example",
+        "Process",
+        "Notes"
+      ]
+    },
+    {
+      "source": "orchestrate",
+      "sourcePath": "commands/orchestrate.md",
+      "sourceSha256": "dda7abe0aa9fe18da1dbdc2fbc9c8993fdb9d7536acba72cf5d4f512281b4884",
+      "disposition": "ADAPT",
+      "target": "native:subagents+agent:planner",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/orchestrate.md",
+      "reason": null,
+      "requiredSections": [
+        "Usage",
+        "Default Execution Model",
+        "Review Focus by Task Type",
+        "Output Requirements",
+        "Custom Sequences",
+        "Tips"
+      ]
+    },
+    {
+      "source": "oss-analyze",
+      "codexAdaptation": "MNT-0012: preserve pinned primary-source evaluation and output contract; replace non-bundled Defuddle dependency with available native retrieval, explicit URL/privacy validation and disclosed failure/fallback",
+      "sourcePath": "commands/oss-analyze.md",
+      "sourceSha256": "c0ff114766f91627d200765216b33f4f20f36d33bb850a35a60641364a7a447e",
+      "disposition": "ADAPT",
+      "target": "skill:oss-evaluation",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/oss-analyze.md",
+      "reason": null,
+      "requiredSections": [
+        "手順",
+        "出力（日本語で整理）",
+        "注意"
+      ]
+    },
+    {
+      "source": "plan",
+      "sourcePath": "commands/plan.md",
+      "sourceSha256": "379ad07eb9d1f18c8d3fa18853c39345a9ad04ff69dd575c1c07327c65bf3b86",
+      "disposition": "ADAPT",
+      "target": "agent:planner",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/plan.md",
+      "reason": null,
+      "requiredSections": [
+        "Steps",
+        "Output"
+      ]
+    },
+    {
+      "source": "refactor-clean",
+      "sourcePath": "commands/refactor-clean.md",
+      "sourceSha256": "7dabebbd1b6ab30c200a5bf8730001d37fb3b68cd622babf185775ce0820be01",
+      "disposition": "ADAPT",
+      "target": "agent:refactor_cleaner",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/refactor-clean.md",
+      "reason": null,
+      "requiredSections": []
+    },
+    {
+      "source": "research",
+      "sourcePath": "commands/research.md",
+      "sourceSha256": "28f05c9b588ae5204e0f8917d8aa7ffcbb2a60ca3eb98311fa48f2e04ec793ef",
+      "disposition": "ADAPT",
+      "target": "native:web-search+skill:prompt-patterns",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/research.md",
+      "reason": null,
+      "requiredSections": [
+        "Instructions",
+        "Date: [YYYY-MM-DD]",
+        "Scope",
+        "Key Files",
+        "Architecture & Patterns",
+        "Dependencies & Data Flow",
+        "Constraints & Invariants",
+        "Risks & Considerations",
+        "Recommendations for Planning Phase"
+      ]
+    },
+    {
+      "source": "spec-kit-init",
+      "sourcePath": "commands/spec-kit-init.md",
+      "sourceSha256": "1308bcdb657f201bf8c22570504b6005b3fcfaaf230672086ab618ef7bc102da",
+      "disposition": "DROP",
+      "target": null,
+      "fidelityTarget": null,
+      "reason": "独立した外部CLI・SDD手法であり全利用者向けcoreへ統合しない。必要なprojectで直接導入し、Codex対応を確認したoptional Skillとして再評価可能",
+      "requiredSections": [
+        "Instructions",
+        "Notes & gotchas",
+        "When NOT to use this command"
+      ]
+    },
+    {
+      "source": "tdd",
+      "sourcePath": "commands/tdd.md",
+      "sourceSha256": "f497708d23404899e0987ed03442f6e1610ff2ed4e51b4c1465a549c65f38a94",
+      "disposition": "ADAPT",
+      "target": "skill:tdd-workflow",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/tdd.md",
+      "reason": null,
+      "requiredSections": [
+        "Steps",
+        "Output"
+      ]
+    },
+    {
+      "source": "test-coverage",
+      "sourcePath": "commands/test-coverage.md",
+      "sourceSha256": "6531b6af9476a0da940230083ca298254210b06aa5c8aa6a1ee93e83f8d456df",
+      "disposition": "ADAPT",
+      "target": "skill:verification-loop",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/test-coverage.md",
+      "reason": null,
+      "requiredSections": []
+    },
+    {
+      "source": "update-docs",
+      "sourcePath": "commands/update-docs.md",
+      "sourceSha256": "75497c83d250d560821878d1b4c381487132c6ca15feaa9364b454b1396609ba",
+      "disposition": "ADAPT",
+      "target": "agent:docs_updater",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/update-docs.md",
+      "reason": null,
+      "requiredSections": []
+    },
+    {
+      "source": "update-kit-dry-run",
+      "sourcePath": "commands/update-kit-dry-run.md",
+      "sourceSha256": "5fcee89c4f67bc9661387cd9318bc58053318061383a4da8770e16232da07ff8",
+      "disposition": "ADAPT",
+      "target": "skill:codex-starter-kit-maintenance",
+      "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
+      "reason": null,
+      "requiredSections": [
+        "Instructions"
+      ]
+    },
+    {
+      "source": "update-kit",
+      "sourcePath": "commands/update-kit.md",
+      "sourceSha256": "60603a532cf708b525b9a458f3959efbdfde1f5bddd644df39baac64a50ac2bc",
+      "disposition": "ADAPT",
+      "target": "skill:codex-starter-kit-maintenance",
+      "fidelityTarget": "distribution/files/common/skills/codex-starter-kit-maintenance/SKILL.md",
+      "reason": null,
+      "requiredSections": [
+        "Instructions"
+      ]
+    },
+    {
+      "source": "verify",
+      "sourcePath": "commands/verify.md",
+      "sourceSha256": "6b672dab35b2214ad2c34574b67ddb433b7e8ff11b886784e3ac724651a410e9",
+      "disposition": "ADAPT",
+      "target": "skill:verification-loop",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/verify.md",
+      "reason": null,
+      "requiredSections": [
+        "Behavior",
+        "Output"
+      ]
+    },
+    {
+      "source": "web-article",
+      "sourcePath": "commands/web-article.md",
+      "sourceSha256": "11354f7f4f7d0678e6c4f650688cdadc83dfa9a413822fc6e0f810666b13a835",
+      "disposition": "ADAPT",
+      "target": "native:web-search+skill:prompt-patterns",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/web-article.md",
+      "reason": null,
+      "requiredSections": [
+        "手順",
+        "出力フォーマット",
+        "注意"
+      ]
+    },
+    {
+      "source": "web-source-review",
+      "sourcePath": "commands/web-source-review.md",
+      "sourceSha256": "72bf2bc8b25bd12c43053744a1764acdab23ecee454f0b91c1b1af3f8bc2bd50",
+      "disposition": "ADAPT",
+      "target": "native:web-search+skill:prompt-patterns",
+      "fidelityTarget": "distribution/files/common/skills/starter-kit-workflows/references/commands/web-source-review.md",
+      "reason": null,
+      "requiredSections": [
+        "手順",
+        "出力（日本語で整理）",
+        "注意"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "sourcePath": "rules/agents.md",
+      "sourceSha256": "aca9931471518f2e3c8c913383cafe0c79a66a200761ba969e6202074db0d9be",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 2
+    },
+    {
+      "sourcePath": "rules/anti-patterns.md",
+      "sourceSha256": "83a39a064e39fa138f69b4bbe9643c50a07c501f7bb4bd5d2e69045c62be13c3",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/coding-style.md",
+      "sourceSha256": "5ab9682e3b2a73eaa44e0fd13994207a83bded49b017c3422e03e6b99bd91c3d",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 3
+    },
+    {
+      "sourcePath": "rules/git-workflow.md",
+      "sourceSha256": "e1e9908d2b5dea0fc722187c5186e08ce7d3746178425d407662538d999baa71",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/performance.md",
+      "sourceSha256": "f21bd2bead00a4f422d67c652fcdf6951c55be3b0e3a89a5e3d3f1449121e532",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 4
+    },
+    {
+      "sourcePath": "rules/permissions-guide.md",
+      "sourceSha256": "08bc0d7084b22a6b165470b90f0dd109ed9fba33a4d6c28ef7aa34af54a7da37",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 2
+    },
+    {
+      "sourcePath": "rules/security.md",
+      "sourceSha256": "d6877729f5d01b822b24f7963c04407883c3985b86327cfb4219b7f3aef8221b",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 5
+    },
+    {
+      "sourcePath": "rules/testing.md",
+      "sourceSha256": "a2a4a382c22f33699ca86b16bf0ac6d2cd271c0bbacc557c761d27836ffc530a",
+      "disposition": "ADAPT",
+      "targets": [
+        "distribution/files/en/AGENTS.md",
+        "distribution/files/ja/AGENTS.md"
+      ],
+      "sourceStatements": 3
+    }
+  ],
+  "permissionsMap": "porting/permissions-map.json",
+  "configFiles": [
+    {
+      "path": "config/permissions.json",
+      "sha256": "e67c2677969acf3c582dfcd9d4eaf83d0fc65fc1ffd6b0407b374716ed5b834c"
+    },
+    {
+      "path": "config/plugins.json",
+      "sha256": "bd3c95e14b1346621ea453b1c5255f592c48843b10ae829c612ce9f89ebe679f"
+    },
+    {
+      "path": "config/settings-base.json",
+      "sha256": "8cbd673b1569f1f8ded739b636fd8703d82f8d6d83cfc4fbfc27d385b59c7bef"
+    }
+  ]
+}

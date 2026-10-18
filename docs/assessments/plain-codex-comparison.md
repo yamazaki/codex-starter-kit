@@ -1,7 +1,7 @@
 # 素のCodexとcodex-starter-kit適用時の比較評価
 
 - Assessed: 2026-09-21
-- Kit version: `0.78.1-codex.4`
+- Kit version: `0.79.2-codex.1`
 - 更新機構を収録した改訂版: Kit version: `0.78.1-codex.5`。Private正式リリース済み。本評価を新版の新規動作試験や定量評価として読み替えず、追加機能の証拠は[検証条件と受入経過](../testing/UPDATE_CANDIDATE_EVIDENCE.md)で別に管理する。
 - 原評価の版: `0.78.1-codex.3`
 - 追記確認: 2026-10-11。今回の指示補強・検証基盤追加でもモデル自体を強化するものではない。新しい定量A/B評価を実施したという意味ではない。
@@ -268,3 +268,5 @@ codex-starter-kitには意味がある。ただし、その意味はmodelを強�
 - upstream変更の追跡と採否記録
 
 本キットは「Codexを必ず高品質・安全にする製品」ではない。「Codexが一貫した安全寄りの手順から外れにくくするための基盤」であり、project固有のengineering controlと組み合わせて使うときに最も価値がある。
+
+0.79.2では全Skillのモデル再評価を行わず、既存payloadの同一性を確認し、更新処理の差分を別途検証した。

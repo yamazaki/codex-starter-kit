@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "f8f8ef5964c83cec2a5aaf84847a85149c96f6d4",
+  "files": [
+    {
+      "source": "config/permissions.json",
+      "disposition": "ADAPT",
+      "target": "porting/permissions-map.json",
+      "reason": "Claude permission DSLをコピーせず、全deny・allow項目をCodex sandbox、approval、AGENTS、safety-netへ逐項対応する"
+    },
+    {
+      "source": "config/settings-base.json",
+      "disposition": "ADAPT",
+      "target": "distribution/catalog.json",
+      "reason": "Claude settings schemaを使わず、language、optional Hook、profileをreviewable installer planへ変換する"
+    },
+    {
+      "source": "config/plugins.json",
+      "disposition": "DROP",
+      "target": null,
+      "reason": "Anthropic marketplace pluginを自動導入しない。対応するCodex Skill・plugin・repository toolは利用者が個別に選択し、starter kit coreは外部marketplaceを所有しない"
+    }
+  ],
+  "pluginAlternatives": {
+    "security-guidance": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "skill:secure-change-review"
+    },
+    "commit-commands": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "skill:starter-kit-workflows"
+    },
+    "typescript-lsp": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "repository-native-language-server"
+    },
+    "pr-review-toolkit": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "agent:code_reviewer"
+    },
+    "feature-dev": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "agent:planner+agent:architect"
+    },
+    "code-review": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "agent:code_reviewer"
+    },
+    "claude-md-management": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "AGENTS.md+skill:codex-starter-kit-maintenance"
+    },
+    "gopls-lsp": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "repository-native-language-server"
+    },
+    "pyright-lsp": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "repository-native-language-server"
+    },
+    "rust-analyzer-lsp": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "repository-native-language-server"
+    },
+    "superpowers": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "skills:tdd-workflow+prompt-patterns+starter-kit-workflows"
+    },
+    "code-simplifier": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "agent:refactor_cleaner"
+    },
+    "document-skills": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "optional OpenAI document Skills; not bundled"
+    },
+    "example-skills": {
+      "requiredByCore": false,
+      "relationship": "none",
+      "target": "DROP: examples are not runtime requirements"
+    },
+    "claude-security": {
+      "requiredByCore": false,
+      "relationship": "optional-or-overlapping-alternative",
+      "target": "optional Codex Security plugin; not bundled"
+    }
+  },
+  "pluginDependencyAudit": {
+    "hardDependencies": [],
+    "upstreamConsumers": [
+      "setup/uninstall plugin lifecycle",
+      "feature-recommendation pending plugin notification",
+      "update-kit plugin adoption"
+    ],
+    "droppedConsumers": [
+      "feature-recommendation",
+      "Claude plugin install/update lifecycle"
+    ],
+    "conclusion": "No distributed Skill, agent, rule, command workflow, or retained feature requires an Anthropic marketplace plugin at runtime."
+  }
+}
